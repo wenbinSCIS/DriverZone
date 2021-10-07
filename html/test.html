@@ -9,17 +9,7 @@
 <body>
 
   <input type="text" id="name"/>
-  <input type="submit" onclick="InsertData()"/>
-
-
-
-
-
-
-
-
-
-
+  <input type="submit" id="submit"/>
 
   <script type="module">
     // Import the functions you need from the SDKs you need
@@ -46,13 +36,29 @@
     const db= getDatabase();
 
     var name= document.getElementById("name");
+    var submit=document.getElementById("submit");
 
-    function InsertData() {
-      set(ref(db,name.value)),{
-        name: name.value
-      }}
+    function a() {
+        
+        set(ref(db, name.value),{
+            Name: name.value
+        }      
+        
+        )
+        .then(()=>{
+            alert("data stored successfully");
+            
+        })
+        .catch((error)=>{
+            alert("data not stored successfully");
+            
+        })
 
 
+
+    }
+
+    submit.addEventListener("click",a)
 
   </script>
 </body>
