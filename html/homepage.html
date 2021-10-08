@@ -11,28 +11,70 @@
 
     <style>
 
-      img{
-          opacity:70%;
-      }
 
+
+
+/* 
+#002f4b,#dc4225 
+Convert HEX to RGBA - http://hex2rgba.devoth.com/
+*/  img{
+    width:100%;
+    height:700px;
+}
+    .img-gradient:after {
+    content:'';
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    display:inline-block;
+    background: -moz-linear-gradient(top, rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220, 66, 37, 0.5)), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    }
+    .img-gradient img{
+    display:block;
+    }
+      .carousel-caption{
+          top:20%;
+          
+      }
+      .innertxt{
+          
+      }
     </style>
 
 </head>
 
 <body>
     <div id="nav-placeholder"></div>
+   
 
-    <hr/>
+ 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            
+            <div class="img-gradient">
             <img class="d-block w-100" src="../images/carousel2.jpg" alt="First slide">
             
-        
-          </div>
+            <div class="carousel-caption d-none d-md-block">
+                <h1 class="innertxt">DriverZone</h5>
+                <p>...</p>
+              </div>
+            </div>
+        </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Second slide">
+            <div class="img-gradient">
+                <img class="d-block w-100" src="../images/carousel1.jpg" alt="First slide">
+                
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="innertxt">Test</h5>
+                    <p>...</p>
+                  </div>
+                </div>
           </div>
           <div class="carousel-item">
             <img class="d-block w-100" src="..." alt="Third slide">
@@ -41,7 +83,18 @@
       </div>
 
 
-
+      <div class="test">
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+        <h4>test</h4>
+      </div>
 
 
 
@@ -50,5 +103,9 @@
       {
           $("#nav-placeholder").load("navbar.html");
       });
+
+     $('.carousel').carousel({
+        interval: 5000
+        })
   </script>
   </body>
