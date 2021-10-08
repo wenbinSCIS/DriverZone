@@ -7,17 +7,16 @@
   
   <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
 
-      <link rel="stylesheet" href="../css/calendar.css">
-      <link href="../css/bootstrap.min.css" rel="stylesheet" >
+  <link rel="stylesheet" href="../css/calendar.css">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" >
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   
 </head>
 
 <body>
-  <head>
-  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-</head>
-<body>
+  <div id="nav-placeholder"></div>
   <div id="calendar">
     <div id="calendar_header"><i class="icon-chevron-left"></i>          <h1></h1><i class="icon-chevron-right"></i>         </div>
     <div id="calendar_weekdays"></div>
@@ -27,6 +26,15 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="../js/index.js"></script>
+    
+
+  <script>
+      $(function()
+      {
+          $("#nav-placeholder").load("navbar.html");
+      })
+  </script>;
+
 
 </body>
 </html>
