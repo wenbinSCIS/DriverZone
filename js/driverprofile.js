@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-
-  <input type="text" id="name"/>
-  <input type="submit" id="submit"/>
-
-  <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
     // TODO: Add SDKs for Firebase products that you want to use
@@ -35,10 +21,12 @@
 
     const db= getDatabase();
 
-    var name= document.getElementById("name");
-    var submit=document.getElementById("submit");
 
-    function a() {
+    function add() {
+
+      
+      var name= document.getElementById("name");
+      var submit=document.getElementById("submit");
         
         set(ref(db, name.value),{
             Name: name.value
@@ -53,15 +41,6 @@
             alert("data not stored successfully");
             
         })
-
-
-
     }
 
-    submit.addEventListener("click",a)
-
-  </script>
-</body>
-
-
-</html>
+    submit.addEventListener("click",add)
