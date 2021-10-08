@@ -33,6 +33,7 @@
             $("#nav-placeholder").load("navbar.html");
         });
     </script>
+    
 
     <div class="container">
         <div class="row justify-content-center">
@@ -48,34 +49,46 @@
 
         <div class="row justify-content-center top_margin_50px border border-secondary bg-light mx-0">
             <div class="col">
-                <H3>Theory Help</H3>
-                <p>A place for those with querries on BTT and FTT. Seek help here if you struggle to understand the theories about driving.</p>
+                <div class="my-5 mx-3">
+                    <H3>Theory Help</H3>
+                    <p>A place for those with querries on BTT and FTT. Seek help here if you struggle to understand the theories about driving.</p>
+                </div>
             </div>
-            <div class="col-1 px-0">
-                <button type="button" class="btn btn-primary text-right button_size_enter">Enter</button>
-            </div>
-        </div>
-
-        <div class="row justify-content-center top_margin_50px border border-secondary bg-light mx-0">
-            <div class="col">
-                <H3>Practical Driving</H3>
-                <p>A place for those having practical lessons. Engage in different discussion with various other learner drivers to get tips to improve your driving skills.</p>
-            </div>
-            <div class="col-1 px-0">
-                <button type="button" class="btn btn-primary text-right button_size_enter">Enter</button>
+            <div class="col-2 px-0">
+                <button type="button" onclick="to_theory()" class="btn btn-primary text-right button_size_enter fs-1 fw-bold">Enter</button>
             </div>
         </div>
 
         <div class="row justify-content-center top_margin_50px border border-secondary bg-light mx-0">
             <div class="col">
-                <H3>Lounge</H3>
-                <p>A place for everyone to hangout and relax. Discuss various topic or rant about your driving experience to relief your stress from driving.</p>
+                <div class="my-5 mx-3">
+                    <H3>Practical Driving</H3>
+                    <p>A place for those having practical lessons. Engage in different discussion with various other learner drivers to get tips to improve your driving skills.</p>
+                </div>
             </div>
-            <div class="col-1 px-0">
-                <button type="button" class="btn btn-primary text-center button_size_enter">Enter</button>
+            <div class="col-2 px-0">
+                <button type="button" class="btn btn-primary text-right button_size_enter fs-1 fw-bold">Enter</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center top_margin_50px border border-secondary bg-light mx-0" style="margin-bottom: 100px;">
+            <div class="col">
+                <div class="my-5 mx-3">
+                    <H3>Lounge</H3>
+                    <p>A place for everyone to hangout and relax. Discuss various topic or rant about your driving experience to relief your stress from driving.</p>
+                </div>
+            </div>
+            <div class="col-2 px-0">
+                <button type="button" class="btn btn-primary text-center button_size_enter fs-1 fw-bold">Enter</button>
             </div>
         </div>
     </div>
 
+    <script>
+        function to_theory()
+        {
+            location.href = "./forum/theory.html"
+        }
+    </script>
 </body>
 </html>
