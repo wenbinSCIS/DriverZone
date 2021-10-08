@@ -70,3 +70,22 @@ i[class^=icon-chevron]{
   width:15%;
   border-radius: 50%;
 }
+
+.jumbotron{
+  margin-top: 30px;;
+  border-radius: 30px !important;
+  height:300px;
+  background-image: url(../images/cool-background.png);
+}
+
+#instructor-img{
+  width:250px;
+  height:200px;
+}
+#instructor-name{
+  color:chartreuse;
+  text-align:center;
+}
+#left-stuff{
+  padding-left: 100px;
+}
