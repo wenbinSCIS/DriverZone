@@ -61,10 +61,6 @@
         //     alert("unsucessful"+error);
         // })
      
-    
-
-
-    
 
     
     function display(input) {
@@ -86,15 +82,6 @@
             arr.push(tr);
             console.log(tr)
             let a=appendBody(tr);
-            // body.appendChild(tr);
-
-            // tr.appendChild(td);
-            // body.appendChild(tr);
-            // console.log(body)
-
-
-            
-            
             ;
         }
     }
