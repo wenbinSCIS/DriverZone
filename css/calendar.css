@@ -53,13 +53,13 @@ body{
   height: 37px;
   text-align: center;
   background-color: #FF6860;
-  padding: 18px 0;
+  padding: 20px 0;
   -webkit-border-radius: 12px 12px 0px 0px;
   -moz-border-radius: 12px 12px 0px 0px; 
   border-radius: 12px 12px 0px 0px;
 }
 #calendar_header h1{
-  font-size: 1.5em;
+  font-size: 20px;
   color: #FFFFFF;
   float:left;
   width:70%;
@@ -72,10 +72,11 @@ i[class^=icon-chevron]{
 }
 
 .jumbotron{
-  margin-top: 30px;;
+  margin-top: 30px;
   border-radius: 30px !important;
   height:300px;
   background-image: url(../images/cool-background.png);
+  margin-bottom: 100px !important;
 }
 
 #instructor-img{
