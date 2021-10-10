@@ -7,7 +7,6 @@
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
     crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <style>
@@ -27,18 +26,11 @@
 
 <body>
     <div id="nav-placeholder"></div>
-    <script>
-        $(function()
-        {
-            $("#nav-placeholder").load("navbar.html");
-        });
-    </script>
-    
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
-                <div class="jumbotron bg-light border border-secondary">
+                <div class="jumbotron bg-light">
                     <div class="ps-4 pt-4 pb-5">
                         <h1 class="display-4">Welcome to the Discussion Forum</h1>
                         <p class="lead" >This is a place for everyone to exchange questions and ideas</p>
@@ -47,33 +39,33 @@
             </div>
         </div>
 
-        <div class="row justify-content-center top_margin_50px border border-secondary bg-light mx-0">
+        <div class="row justify-content-center top_margin_50px bg-light mx-0">
             <div class="col">
-                <div class="my-5 mx-3">
+                <div class="my-4 mx-3">
                     <H3>Theory Help</H3>
                     <p>A place for those with querries on BTT and FTT. Seek help here if you struggle to understand the theories about driving.</p>
                 </div>
             </div>
             <div class="col-2 px-0">
-                <button type="button" onclick="to_theory()" class="btn btn-primary text-right button_size_enter fs-1 fw-bold">Enter</button>
+                <button type="button" onclick="to_theory()" class="btn btn-primary text-center button_size_enter fs-1 fw-bold">Enter</button>
             </div>
         </div>
 
-        <div class="row justify-content-center top_margin_50px border border-secondary bg-light mx-0">
+        <div class="row justify-content-center top_margin_50px bg-light mx-0">
             <div class="col">
-                <div class="my-5 mx-3">
+                <div class="my-4 mx-3">
                     <H3>Practical Driving</H3>
                     <p>A place for those having practical lessons. Engage in different discussion with various other learner drivers to get tips to improve your driving skills.</p>
                 </div>
             </div>
             <div class="col-2 px-0">
-                <button type="button" class="btn btn-primary text-right button_size_enter fs-1 fw-bold">Enter</button>
+                <button type="button" class="btn btn-primary text-center button_size_enter fs-1 fw-bold">Enter</button>
             </div>
         </div>
 
-        <div class="row justify-content-center top_margin_50px border border-secondary bg-light mx-0" style="margin-bottom: 100px;">
+        <div class="row justify-content-center top_margin_50px bg-light mx-0" style="margin-bottom: 100px;">
             <div class="col">
-                <div class="my-5 mx-3">
+                <div class="my-4 mx-3">
                     <H3>Lounge</H3>
                     <p>A place for everyone to hangout and relax. Discuss various topic or rant about your driving experience to relief your stress from driving.</p>
                 </div>
@@ -89,6 +81,12 @@
         {
             location.href = "./forum/theory.html"
         }
+
+        $(function()
+        {
+            $("#nav-placeholder").load("navbar.html");
+        });
+
     </script>
 </body>
 </html>
