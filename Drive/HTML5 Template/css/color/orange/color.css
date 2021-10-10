@@ -1,0 +1,219 @@
+
+/*=============================== COLOR ORANGE ===============================*/
+
+/*//////////////////////////////////////////////////////////////////
+[ LOADDING ]*/
+
+.cp-skeleton {
+  border-top: solid 5px #ff5f3d;
+}
+
+.cp-skeleton:before {
+  border-left: solid 5px #ff5f3d;
+}
+
+.cp-skeleton:after {
+  border-right: solid 5px #ff5f3d;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Header ]*/
+
+/*---------------------------------------------*/
+.main-menu > li::before {
+  background-color: #ff5f3d;
+}
+
+.social a:hover {
+  color: #ff5f3d;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Footer ]*/
+
+.item-gallery-footer::after {
+  background-color: #ff5f3d;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RS sweet alert ]*/
+
+.swal-button {
+  background-color: #ff5f3d;
+  color: white;
+}
+
+.swal-button:hover {
+  background-color: #2e2e2e;
+}
+
+.swal-button:active {
+  background-color: #2e2e2e;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 1 ]*/
+.arrow-slide-slick-6:hover,
+.arrow-slide-slick-1:hover {
+  background-color: #ff5f3d;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 2 ]*/
+
+.arrow-slick-5:hover,
+.arrow-slick-4:hover,
+.arrow-slick-2:hover {
+  background-color: #ff5f3d;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 3 ]*/
+
+.arrow-slide-slick-3:hover {
+  background-color: #ff5f3d;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 6 ]*/
+
+.slick6-dots li:hover {
+  border-color: #ff5f3d;
+}
+
+.slick6-dots li.slick-active {
+  border-color: #ff5f3d;
+}
+
+
+
+/*==================================================================
+    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+==================================================================*/
+
+/*==================================================================
+[ Color ]*/
+.color-main {color: #ff5f3d;}
+
+
+.s-txt8 {
+  color: #ff5f3d;
+}
+
+.s-txt32 {
+  color: #ff5f3d;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ M-Text 16 - 30 ]*/
+.m-txt2 {
+  color: #ff5f3d;
+}
+
+.m-txt18 {
+  color: #ff5f3d;
+}
+
+.m-txt28 {
+  color: #ff5f3d;
+}
+
+
+
+/*==================================================================
+   SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
+==================================================================*/
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Background ]*/
+.bg-main {background-color: #ff5f3d;}
+.rs1-bg {background-color: #333333;}
+.bg6 {background-color: #2e2e2e;}
+
+
+
+/*==================================================================
+      EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT
+==================================================================*/
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Pseudo ]*/
+/*------------------------------------------------------------------
+[ Focus ]*/
+.input-focus-1:focus {
+  border-color: rgba(255, 95, 61, 0.5);
+  box-shadow: 0 0px 2px 0px #ff5f3d;
+  -moz-box-shadow: 0 0px 2px 0px #ff5f3d;
+  -webkit-box-shadow: 0 0px 2px 0px #ff5f3d;
+  -o-box-shadow: 0 0px 2px 0px #ff5f3d;
+  -ms-box-shadow: 0 0px 2px 0px #ff5f3d;
+}
+
+/*------------------------------------------------------------------
+[ Hover ]*/
+
+.hov-bg-main:hover {
+  background-color: #ff5f3d;
+}
+
+.hov-color-main:hover {
+  color: #ff5f3d;
+}
+
+/*---------------------------------------------*/
+.hov4:hover {
+  background-color: #ff5f3d;
+  color: #fff;
+}
+
+
+
+/*------------------------------------------------------------------
+[ Active ]*/
+.actived-2 {
+  color: #ff5f3d;
+}
+
+
+/*---------------------------------------------*/
+.btn-drive::before {
+  background-color: #2e2e2e;
+}
+
+.rs1-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+
+/*---------------------------------------------*/
+.list-01 li::before {
+  color: #ff5f3d;
+}
+
+/*---------------------------------------------*/
+.symbol-1::before {
+  background-color: #ff5f3d; 
+}
+
+/*---------------------------------------------*/
+
+.overlay1::after {
+  background-color: #ff5f3d;
+}
+
+
+
