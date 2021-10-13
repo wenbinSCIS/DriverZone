@@ -297,7 +297,7 @@ Input, textarea : 15px/1.7 'Roboto-Regular', Arial, sans-serif;
 [ Header Desktop ]*/
 
 .container-menu-desktop {
-  height: 146px;
+  height: 90px;
 
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
