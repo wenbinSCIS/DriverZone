@@ -29,10 +29,17 @@
 
     <!-- YOUR CUSTOM CSS -->
     <link href="../css/custom.css" rel="stylesheet">
+
+    <style>
+
+        #female{
+            margin-left:10%;
+        }
+    </style>
 </head>
 
 <body>
-	<div id="nav-placeholder"></div>
+
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div><!-- /Preload -->
@@ -66,6 +73,16 @@
 								<div class="form-group">
 	                                <label for="full_name">Full Name</label>
 	                                <input type="text" name="full_name" id="full_name" class="form-control" required>
+	                            </div>
+                                <div class="form-group">
+	                                <label for="nric">NRIC</label>
+	                                <input type="text" name="nric" id="nric" class="form-control" required>
+	                            </div>
+                                <div class="form-group">
+	                                <input type="radio" id="male" name="gender" value="male" required>
+                                    <label for="male">Male</label>
+                                    <input type="radio" id="female" name="gender" value="female" required>
+                                    <label for="female">Female</label>
 	                            </div>
 	                            <div class="form-group">
 	                                <label for="email_address">Email Address</label>
@@ -126,18 +143,9 @@
 	<script src="../js/common_func.js"></script>
 
 	<!-- SPECIFIC SCRIPTS -->
-	<script src="../js/pw_strenght.js"></script>
+	<script src="../js/pw_strength.js"></script>
 	<script src="../js/jquery.validate.js"></script>
 	<script src="../js/registration_func.js"></script>
-    <script>
-        $(function()
-        {
-            $("#nav-placeholder").load("navbar.html");
-        });
-  
-       $('.carousel slide').carousel({
-          interval: 9000
-          })
-    </script>
+ 
 </body>
 </html>

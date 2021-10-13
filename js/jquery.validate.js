@@ -1,11 +1,4 @@
-/*!
- * jQuery Validation Plugin v1.19.2
- *
- * https://jqueryvalidation.org/
- *
- * Copyright (c) 2020 Jörn Zaefferer
- * Released under the MIT license
- */
+
 (function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
 		define( ["jquery"], factory );
@@ -372,6 +365,8 @@ $.extend( $.validator, {
 		required: "Required",
 		remote: "Please fix this field",
 		email: "Please enter a valid email address",
+		nric : "Please enter a valid NRIC",
+		gender : "Please select a gender",
 		url: "Please enter a valid URL",
 		date: "Please enter a valid date",
 		dateISO: "Please enter a valid date (ISO)",

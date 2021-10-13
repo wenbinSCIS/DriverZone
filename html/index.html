@@ -44,7 +44,9 @@
 
 <body class="animsition restyle-index">
 	
-	
+	<div id="nav-placeholder">
+
+    </div>
 	<header>
 		<!-- Header desktop -->
 		
@@ -665,82 +667,10 @@
 		<div class="contact-map h-size1" id="google_map" data-map-x="40.648578" data-map-y="-73.962730" data-pin="../images/icons/favicon.png" data-scrollwhell="0" data-draggable="1"  data-zoom="15"></div>
 	</div>
 
-	<footer class="bg4 p-t-25" style="padding:0 !important">
-		<div class="container p-b-60">
-			<div class="row">
-				<div class=" col-sm-12 col-lg-3 p-t-30">
-					<div class="w-full wrap-pic-max-w">
-						<a href="index.html"><img src="../images/icons/logo-02.png" alt="LOGO"></a>
-					</div>
+	
+	<div id="footer">
 
-					<p class="s-txt9 p-t-30">
-						Lean To Drive is a clean PSD theme suitable for corporate. You can cus-tomize it very easy to fit your needs. Lorem ipsum dolor sit amet, consecte-tur adipiscing elit sollicitudin vel effici-tur eu, posuere sit amet erat.
-					</p>
-				</div>
-				
-				<div class=" col-sm-6 col-lg-3 p-t-30">
-					<h4 class="m-txt12 p-t-14">
-						Company
-					</h4>
-
-					<div class="wrap-link-footer p-t-28">
-						<ul class="col-left">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Courses</a></li>
-							<li><a href="#">Teachers</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-
-						<ul class="col-right">
-							<li><a href="#">Blogs</a></li>
-							<li><a href="#">404 page</a></li>
-							<li><a href="#">Shop</a></li>
-							<li><a href="#">Elements</a></li>
-							<li><a href="#">Typography</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class=" col-sm-6 col-lg-3 p-t-30">
-					<h4 class="m-txt12 p-t-14">
-						Contact us
-					</h4>
-
-					<ul class="contact-footer p-t-28">
-						<li>
-							<i class="fa fa-home" aria-hidden="true"></i>
-							379 5th Ave  New York, NYC 10018
-						</li>
-
-						<li>
-							<i class="fa fa-phone" aria-hidden="true"></i>
-							(+1) 96 716 6879
-						</li>
-
-						<li>
-							<i class="fa fa-fax" aria-hidden="true"></i>
-							(+1) 96 716 6879
-						</li>
-
-						<li>
-							<i class="fa fa-envelope-o" aria-hidden="true"></i>
-							contact@site.com
-						</li>
-
-						<li>
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							Mon-Fri 09:00 - 17:00
-						</li>
-					</ul>
-				</div>
-
-			
-		</div>
-
-
-	</footer>
-
+    </div>
 
 	<!-- Back to top -->
 	<!-- <div class="btn-back-to-top hov-bg-main" id="myBtn">
@@ -789,13 +719,14 @@
 	<script src="../js/map-custom.js"></script>
 <!--===============================================================================================-->
 	<script src="../js/main.js"></script>
-	<div id="nav-placeholder">
-
-    </div>
+	
     
     <script>
     $(function(){
       $("#nav-placeholder").load("navbar.html");
+    });
+	$(function(){
+      $("#footer").load("footer.html");
     });
     </script>
 
