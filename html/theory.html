@@ -15,35 +15,73 @@
         <div id="nav-placeholder"></div>
 
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="jumbotron bg-light border border-secondary">
-                    <div class="ps-4 pt-4 pb-4">
-                        <h1 class="display-4">Welcome to the Theory Discussion Forum</h1>
-                        <p class="lead" >This is a place for discussion of BTT and FTT</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="jumbotron bg-light border border-secondary">
+                        <div>
+                            <h1 class="display-4">Welcome to the Theory Discussion Forum</h1>
+                            <p class="lead" >This is a place for discussion of BTT and FTT</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center">
-            <div class="col-12 py-5">
-                <div class="border border-secondary">
-                    <h1>Search bar, Create New Post and Filter, make them sticky</h1>
-                </div>
-                <div class="border border-secondary">
-                    <h1>All post to go here, need to find out how to push and pull data of post to and from database</h1>
+        <div class="row justify-content-center pt-1">
+            <div class="col-12">
+                <div class="input-group">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-primary" id="search_button" onclick="search_for_post()">Search</button>
+                    <button type="button" class="btn btn-outline-primary" id="add_post" onclick="add_new_post()">Add New Post</button>
                 </div>
             </div>
 
-    </div>
+            <div class="col-12 pt-2">
+                <button type="button" class="btn btn-outline-primary" id="top_post" onclick="filter_top()">Top Post</button>
+                <button type="button" class="btn btn-outline-primary" id="newest_post" onclick="filter_newest()">Newest Post</button>
+                <button type="button" class="btn btn-outline-primary" id="trending_post" onclick="filter_trending()">Trending Post</button>
+            </div>
+        </div>
 
-    <script>
-        $(function()
-        {
-            $("#nav-placeholder").load("navbar.html");
-        });
-    </script>
-</body>
+        <div class="container mt-4">
+            <div class="row justify-content-center" id="post_row">
+                <div class="col-12 py-3 bg-secondary text-light"><p>Test</p></div>
+                <div class="col-12 py-3 bg-light"><p>Test</p></div>
+            </div>
+        </div>
+
+
+    
+        <script>
+            $(function()
+            {
+                $("#nav-placeholder").load("navbar.html");
+            });
+
+            function search_for_post()
+            {
+                
+            }
+
+            function add_new_post()
+            {
+                
+            }
+
+            function filter_top()
+            {
+                
+            }
+
+            function filter_newest()
+            {
+                
+            }
+
+            function filter_trending()
+            {
+                
+            }
+        </script>
+    </body>
 </html>
