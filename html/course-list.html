@@ -32,6 +32,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/color.css">
 <!--===============================================================================================-->
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <script type="module" src="../js/driverdetails.js"></script>
 
@@ -65,37 +67,6 @@
 							<li>
 								<a href="course-list.html">Instructors</a>
 						
-							</li>
-
-							<li>
-								<a href="about-team.html">Teachers</a>
-							</li>
-
-							<li>
-								<a href="#">Pages</a>
-								<ul class="sub-menu">
-									<li><a href="photo-gallery.html">Photo Gallery</a></li>
-								</ul>
-							</li>
-
-							<li>
-								<a href="blog.html">Blog</a>
-								<ul class="sub-menu">
-									<li><a href="blog.html">Blog</a></li>
-									<li><a href="blog-single.html">Blog Single</a></li>
-								</ul>
-							</li>
-
-							<li class="respon-sub-menu">
-								<a href="about.html">About</a>
-								<ul class="sub-menu">
-									<li><a href="about.html">About</a></li>
-									<li><a href="about-team.html">About Team Member</a></li>
-								</ul>
-							</li>
-
-							<li class="respon-sub-menu">
-								<a href="contact.html">Contact</a>
 							</li>
 						</ul>
 					</div>
@@ -495,6 +466,15 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="../js/main.js"></script>
+	<div id="nav-placeholder">
+
+    </div>
+    
+    <script>
+    $(function(){
+      $("#nav-placeholder").load("navbar.html");
+    });
+    </script>
 
 </body>
 </html>
