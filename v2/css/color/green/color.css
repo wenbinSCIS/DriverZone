@@ -1,0 +1,217 @@
+
+/*=============================== COLOR GREEN ===============================*/
+
+/*//////////////////////////////////////////////////////////////////
+[ LOADDING ]*/
+
+.cp-skeleton {
+  border-top: solid 5px #00b26f;
+}
+
+.cp-skeleton:before {
+  border-left: solid 5px #00b26f;
+}
+
+.cp-skeleton:after {
+  border-right: solid 5px #00b26f;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Header ]*/
+
+.left-top-bar a {
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+/*---------------------------------------------*/
+.main-menu > li::before {
+  background-color: #00b26f;
+}
+
+.social a:hover {
+  color: #00b26f;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Footer ]*/
+
+.item-gallery-footer::after {
+  background-color: #00b26f;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RS sweet alert ]*/
+
+.swal-button {
+  background-color: #00b26f;
+  color: white;
+}
+
+.swal-button:hover {
+  background-color: #00623d;
+}
+
+.swal-button:active {
+  background-color: #00623d;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 1 ]*/
+.arrow-slide-slick-6:hover,
+.arrow-slide-slick-1:hover {
+  background-color: #00b26f;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 2 ]*/
+
+.arrow-slick-5:hover,
+.arrow-slick-4:hover,
+.arrow-slick-2:hover {
+  background-color: #00b26f;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 3 ]*/
+
+.arrow-slide-slick-3:hover {
+  background-color: #00b26f;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 6 ]*/
+
+.slick6-dots li:hover {
+  border-color: #00b26f;
+}
+
+.slick6-dots li.slick-active {
+  border-color: #00b26f;
+}
+
+
+
+/*==================================================================
+    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+==================================================================*/
+
+/*==================================================================
+[ Color ]*/
+.color-main {color: #00b26f;}
+
+
+.s-txt8 {
+  color: #00b26f;
+}
+
+.s-txt32 {
+  color: #00b26f;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ M-Text 16 - 30 ]*/
+.m-txt2 {
+  color: #00b26f;
+}
+
+.m-txt18 {
+  color: #00b26f;
+}
+
+.m-txt28 {
+  color: #00b26f;
+}
+
+
+
+/*==================================================================
+   SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
+==================================================================*/
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Background ]*/
+.bg-main {background-color: #00b26f;}
+.bg6 {background-color: #008955;}
+
+
+
+/*==================================================================
+      EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT
+==================================================================*/
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Pseudo ]*/
+/*------------------------------------------------------------------
+[ Focus ]*/
+.input-focus-1:focus {
+  border-color: rgba(0, 178, 111, 0.5);
+  box-shadow: 0 0px 2px 0px #00b26f;
+  -moz-box-shadow: 0 0px 2px 0px #00b26f;
+  -webkit-box-shadow: 0 0px 2px 0px #00b26f;
+  -o-box-shadow: 0 0px 2px 0px #00b26f;
+  -ms-box-shadow: 0 0px 2px 0px #00b26f;
+}
+
+/*------------------------------------------------------------------
+[ Hover ]*/
+
+.hov-bg-main:hover {
+  background-color: #00b26f;
+}
+
+.hov-color-main:hover {
+  color: #00b26f;
+}
+
+/*---------------------------------------------*/
+.hov4:hover {
+  background-color: #00b26f;
+  color: #fff;
+}
+
+
+
+/*------------------------------------------------------------------
+[ Active ]*/
+.actived-2 {
+  color: #00b26f;
+}
+
+
+/*---------------------------------------------*/
+.btn-drive::before {
+  background-color: #00623d;
+}
+
+
+/*---------------------------------------------*/
+.list-01 li::before {
+  color: #00b26f;
+}
+
+/*---------------------------------------------*/
+.symbol-1::before {
+  background-color: #00b26f; 
+}
+
+/*---------------------------------------------*/
+
+.overlay1::after {
+  background-color: #00b26f;
+}
+
+
+
+
