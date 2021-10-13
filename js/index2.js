@@ -67,6 +67,7 @@
     function display(input) {
         var body=document.getElementById("body");
         var arr=[];
+        var count=0;
         for (let ele in input) {
             console.log(ele)
             var name=ele;
@@ -85,7 +86,11 @@
             // arr.push(tr);
    
             // let a=appendBody(tr);
+            count++;
+
+            console.log(count);
             
+            if (count<5) {
             document.getElementById("here").innerHTML+=`<div class="col-sm-6 col-lg-3 p-t-30">
             <!-- Block 3 -->
             <div class="block-3 bo2">
@@ -110,7 +115,7 @@
                     <a href="course-detail.html"><h4 class="m-txt8 hov-color-main trans-04 p-b-12">
                         ${location}
                     </h4></a>
-                    <span class="m-txt9">$100</span>
+                    <span class="m-txt9">$${price}/h</span>
                     
                     <div class="wrap-btn-b3 flex-w p-t-13">
                         <div class="m-r-8 p-t-8">
@@ -136,5 +141,6 @@
   
             `
         }
+    }
  
     }

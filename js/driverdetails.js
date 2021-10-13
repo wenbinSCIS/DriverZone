@@ -72,7 +72,7 @@
             var lang=input[ele].language
             var price=input[ele].price
             console.log(price)
-            var image="../images/"+name+".jpg";
+            var image="../images/"+name+".JPG";
             var description=input[ele].description;
             console.log(description);
             // var tr=document.createElement("tr");

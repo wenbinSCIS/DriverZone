@@ -1,0 +1,118 @@
+/*==========================================================================================
+								Theme Primary Colors										
+==========================================================================================*/
+/*=============================================
+			Theme Text Color
+=============================================*/
+a,
+p a,
+p a:hover,
+a:hover,
+a:focus,
+a:active,
+.tg-stars span:after,
+.tg-btn:hover,
+.tg-featuretitle h2 span,
+.tg-populartourtitle h3 a:hover,
+.tg-pricearea h4,
+.tg-destinations li a:hover h3,
+.tg-guidecontenthead h4:hover a,
+.tg-bgdark .tg-destinations li a em,
+.tg-panel h4:hover,
+.tg-panel h4.active,
+.tg-contactinfoicon,
+.tg-contactinfoicon i,
+.tg-dropdownusermenu li a:hover,
+.tg-newcontent .tg-pricearea h4,
+.tg-widget.tg-widgetcatagories ul li:hover a,
+.tg-widget.tg-widgetcatagories ul li:hover:before,
+.tg-formicon i,
+.tg-bookingtabs .tg-themetabnav li:hover a span,
+.tg-bookingtabs .tg-themetabnav li.active a span,
+.tg-liststyle li:before,
+.tg-btnedit,
+.tg-widgetpersonprice ul li .tg-totalpayment em,
+.tg-widgetdashboard ul li:hover a,
+.tg-widgetdashboard ul li:hover a i,
+.tg-widgetdashboard ul li.selected a,
+.tg-widgetdashboard ul li.selected i,
+.tg-subtotal span,
+.tg-reply:hover,
+.tg-prevpost a:hover h2,
+.tg-nextpost a:hover h2,
+.tg-socialicons li a:hover i,
+.location_indicator:before{ color: #ff7550; }
+/*=============================================
+			Theme Background Color
+=============================================*/
+.tg-btn,
+.tg-descount,
+.tg-formnewsletter button,
+.tg-locationname,
+.tg-btnplay,
+.tg-findtourvfour,
+.tg-btntoggleform,
+.tg-pagination ul li.tg-active a,
+.tg-pagination ul li a:hover,
+.tg-select .dropdown-menu>.active>a,
+.tg-select .dropdown-menu>.active>a:focus,
+.tg-select .dropdown-menu>.active>a:hover,
+.tg-select .dropdown-menu.inner li a:hover,
+.tg-bookingtabs .tg-themetabnav li:hover a:before,
+.tg-bookingtabs .tg-themetabnav li.active a:before,
+.tg-couponapply .form-group .tg-btn:hover,
+.tg-widgetpersonprice ul li .tg-btn,
+.tg-dashboardcontent table tr .tg-btnview:hover,
+.tg-fulltourdetail .tg-totalprice .tg-totalpayment,
+.tg-imgholder .tg-btn:hover,
+.tg-btnarea .tg-btn,
+.tg-pkgplanfoot .tg-btn:hover,
+.tg-btnaddtocart:hover,
+.tg-formleavecomment .tg-btn{ background:#ff7550; }
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background:#ff7550 !important;}
+/*=============================================
+			Theme Border Color
+=============================================*/
+input:focus,
+.select select:focus,
+.form-control:focus,
+.tg-reply:hover{ border-color: #ff7550; }
+/*==========================================================================================
+								Theme Secondary Colors										
+==========================================================================================*/
+/*=============================================
+			Theme Text Color
+=============================================*/
+.tg-infonav ul li span a,
+.tg-socialsignin .tg-btn:hover,
+.tg-widgettext .tg-widgetcontent > a,
+.tg-footercolumn .tg-widgetcontent ul li a:hover,
+.tg-footercolumn .tg-widgetcontent ul li a:hover:before,
+.tg-headervtwo .tg-navigation ul li a:hover,
+.tg-headervtwo .tg-navigation ul li.current-menu-item > a,
+.tg-trendingtrip figcaption .tg-pricearea h4,
+.tg-totaltours,
+.tg-btnviewall,
+.tg-search .tg-destinations li a em,
+.tg-addnav ul li:hover a,
+.tg-breadcrumb li:hover a{ color: #fee133; }
+/*=============================================
+			Theme Background Color
+=============================================*/
+.tg-socialsignin .tg-btn,
+.tg-navigation ul li a:before,
+.tg-btnvtwo:before,
+.tg-themetabsvtwo .tg-themetabnav li a:before,
+.tg-btnaddtocart,
+.tg-btndropdown,
+.tg-topdestination figure .tg-btnviewall:before,
+.tg-availhead,
+.navbar-header,
+.tg-btnroundprev:hover,
+.tg-btnroundnext:hover{ background:#fee133; }
+/*=============================================
+			Theme Border Color
+=============================================*/
+blockquote,
+.tg-btnroundprev:hover,
+.tg-btnroundnext:hover{ border-color: #fee133; }
