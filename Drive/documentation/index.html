@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<!--if IE 8html.no-js.lt-ie9(lang='en')
+-->
+<!-- [if gt IE 8] <!-->
+<html class="no-js" lang="en">
+<!-- <![endif]-->
+
+<head>
+    <!--
+    Basic Page Needs
+    ==================================================
+    -->
+    <meta charset="UTF-8">
+    <title>Drive Documentation</title>
+    <meta name="description" content="AuCreative theme tempalte">
+    <meta name="author" content="AuCreative">
+    <meta name="keywords" content="AuCreative theme template">
+    <!--
+    Mobile Specific Metas
+    ==================================================
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    CSS
+    ==================================================
+    -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,800,600,300" rel="stylesheet">
+    <link href="vendor/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <style type="text/css">
+        .product-name::after {
+            content: "Drive";
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="header-wrapper">
+            <div class="container text-center">
+                <a id="logo" href="#">
+                    <img rel="Highend" src="images/logo.png" alt="logo">
+                </a>
+                <strong>Version:</strong>
+                <span>1.0 |</span>
+                <strong>Last update:</strong>
+                <span>02 January 2018</span>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <ul class="docs-nav">
+            <li>
+                <strong>Introduction</strong>
+            </li>
+            <li>
+                <a class="cc-active active" href="#getting-started">Getting Started</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#html-structure">HTML Structure</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#logo-settings">Logo</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#chaning-color">Colors Setting</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#sliders">Sliders</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#php">Contact Form</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#grid">Grid</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#browser-support">Browser Support</a>
+            </li>
+            <li>
+                <a class="cc-active" href="#creadits">Source & Credits</a>
+            </li>
+        </ul>
+        <div class="docs-content">
+            <div class="docs-content-inner">
+                <section id="getting-started">
+                    <h1>Introduction</h1>
+                    <p>Thank you for purchasing <span class="product-name"></span> template!</p>
+                    <p>This documentation will give you an understanding of how <span class="product-name"></span> is structured and guide you in performing common functions. If you require further assistance not covered in this documentation
+                    </p>
+                    <p>If you need custom customization, please contact us from here:
+                        <a href="http://themeforest.net/user/authemes">http://themeforest.net/user/aucreative</a>
+                    </p>
+                    <p>Thank you so much!</p>
+                    <p>AU CREATIVE</p>
+                    <p> </p>
+                    <h1 id="Installation">Getting Started</h1>
+                    <h4>What's Included</h4>
+                    <p>Once you have download the package you will see the following folder structure in "
+                        <strong>template</strong>" Folder</p>
+                    <div id="default-tree">
+                        <ul>
+                            <li>
+                                <strong>css</strong>- Main Stylesheet Files</li>
+                            <li>
+                                <strong>fonts</strong>- Fonts file and css for fonts</li>
+                            <li>
+                                <strong>images</strong>- Images Files</li>
+                            <li>
+                                <strong>js</strong>- Javacripts Folder</li>
+                            <li>
+                                <strong>includes</strong>- PHP Files (contact form, ... etc)</li>
+                            <li>
+                                <strong>vendor</strong>- Vendor Files (jquery, bootstrap etc)</li>
+                        </ul>
+                    </div>
+                    <p>In order to use in your website, you need to upload template files (
+                        <strong>inside the folder www</strong>) to your web server with the help of one of the FTP-clients (for example, WinSCP or Total Commander etc).</p>
+                </section>
+                <section id="html-structure">
+                    <h1>HTML Structure</h1>
+                    <p><span class="product-name"></span> template is based on Bootstrap Framework (
+                        <a href="http://getbootstrap.com/">http://getbootstrap.com/</a>) Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
+                    <p>Below is a sample coding structure:</p>
+                    <pre class="brush: html;">&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en-US"&gt;
+
+&lt;head&gt;
+<!-- Page meta, page css, page js files, page title etc... -->
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    <!-- HEADER -->
+    <header>
+
+        ...
+
+    </header>
+    <!-- END: HEADER -->
+
+    <!-- SECTION -->
+    <section>
+            <div class="container">
+
+                ...
+
+            </div>
+    </section>
+    <!-- END: SECTION -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer">
+            <div class="container">
+
+                ...
+
+            </div>
+        </div>
+    </footer>
+    <!-- END: FOOTER -->
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</pre>
+                </section>
+                <section id="logo-settings">
+                    <h1>Logo Settings</h1>
+                    <p>Default site logo is placed inside<code>header</code> container.</p>
+                    <pre class="brush: html;">
+<header>
+        
+        <div class="container-menu-desktop">
+                      
+            <div class="wrap-menu-desktop">
+                
+                <div class="limiter-menu-desktop">
+
+                    <!-- Logo desktop -->       
+                    <a href="index.html" class="logo">
+
+                        <img src="images/icons/logo.png" alt="IMG-LOGO">
+
+                    </a>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+</header>        
+
+</pre>
+                </section>
+                <section id="chaning-color">
+                    <h1>Changing Color</h1>
+                    <p>
+                        <span class="product-name"></span> template allows you to change the theme color width 4 different colors.
+                    </p>
+                    <p>
+                        Each color stylesheet is in a folder in the <code>css/color/</code>
+                    </p>
+                    <p>
+                        To change the color you want. You just need to copy and replace file <code>color.css</code> from <code>css/color/color-name/</code> to <code>css/</code>
+                    </p>
+                    <p>
+                        Example: To change the color to green. You just need to copy and replace file <code>color.css</code> from <code>css/color/green/</code> to <code>css/</code>
+                    </p>
+                    <p>
+                        The main color of the theme is <code>blue</code>, in addition to the colors <code>green, yellow, orange</code>
+                    </p>
+                    
+                </section>
+                <section id="sliders">
+                    <h1>Sliders</h1>
+                    <p><span class="product-name"></span> includes 1 sliders that gives you all the options they need.</p>
+                    <ul>
+                        <li>
+                            <strong>Revolution Slider:</strong>
+                            <span>is an awesome animated slider that creates eye-catching sliders.</span>
+                        </li>
+                        
+                    </ul>
+                    <h4>Revolution Slider</h4>
+                    <p>Please find the full online documentation of Revolution Slider
+                        <a href="http://www.themepunch.com/revsliderjquery-doc/slider-revolution-jquery-5-x-documentation/" target="_blank">here</a>
+                        <br>
+                        <br>
+                    </p>
+                    
+                </section>
+                
+                <section id="php">
+                    <h1>Contact form</h1>
+                    <p>
+                        <span>You need to modify email address and email title on</span><code>includes/config.json</code>
+                        <span>in includes folder,</span><code>line 2</code>
+                        <span>and</span><code>line 3</code>
+                    </p>
+                    <pre class="brush: html;">"MAIL_HOST": "info@yourdomain.com"
+"MAIL_TITLE": "[ Name ] Contact Form Message"</pre>
+                    <p>with your or company contact email address and the title mail you want.</p>
+                    <p>
+                        <labe class="label label-danger">Note:</labe>
+                        <span></span>Your server must support php send<code>mail()</code>function to make contact form work properly
+                    </p>
+                </section>
+                <section id="grid">
+                    <h1>Grid</h1>
+                    <p>
+                        Bootstrap grid includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes predefined classes for easy layout options, as well as powerful mixins for generating
+                        more semantic layouts
+                    </p>
+                    <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Bootstrap grid system works:</p>
+                    <ul>
+                        <li>You must start with<code>row</code>
+                        </li>
+                        <li>There are pre-define classes of columns starting from 1 to 12, example<code>col-md-1</code> to<code>col-md-12</code>
+                        </li>
+                        <li>Each of these value represent a percentage of the screen, 1 being the smallest and 12 being 100%</li>
+                        <li>You can create different grid pattern that finally forms 12</li>
+                    </ul>
+                    <p>For more information about Bootstrap, visit:
+                        <a href="http://getbootstrap.com/">http://getbootstrap.com/</a>
+                    </p>
+                    <p>example :</p>
+                    <pre class="brush: html;"><div class="row">
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">.col-md-8</div>
+    <div class="col-md-4">.col-md-4</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4">.col-md-4</div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">.col-md-6</div>
+    <div class="col-md-6">.col-md-6</div>
+</div></pre>
+                    <br>
+                    <p>
+                        <span class="label label-danger">Note</span>Bootstrap includes different grids for different screen sizes, "col-md" md stands for medium screen, the following table explains:</p>
+                    <table class="table table-bordered table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Extra small devices
+                                    <small>Phones (
+                                        <768px)</small>
+                                </th>
+                                <th>Small devices
+                                    <small>Tablets (≥768px)</small>
+                                </th>
+                                <th>Medium devices
+                                    <small>Desktops (≥992px)</small>
+                                </th>
+                                <th>Large devices
+                                    <small>Desktops (≥1200px)</small>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-nowrap">Grid behavior
+                                    <td>Horizontal at all times</td>
+                                    <td colspan="3">Collapsed to start, horizontal above breakpoints</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap">Container width
+                                    <td>None (auto)</td>
+                                    <td>750px</td>
+                                    <td>970px</td>
+                                    <td>1170px</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap">Class prefix
+                                    <td><code>.col-xs-</code>
+                                    </td>
+                                    <td><code>.col-sm-</code>
+                                    </td>
+                                    <td><code>.col-md-</code>
+                                    </td>
+                                    <td><code>.col-lg-</code>
+                                    </td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap"># of columns
+                                    <td colspan="4">12</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap">Column width
+                                    <td class="text-muted">Auto</td>
+                                    <td>~62px</td>
+                                    <td>~81px</td>
+                                    <td>~97px</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap">Gutter width
+                                    <td colspan="4">30px (15px on each side of a column)</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap">Nestable
+                                    <td colspan="4">Yes</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap">Offsets
+                                    <td colspan="4">Yes</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap">Column ordering
+                                    <td colspan="4">Yes</td>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="browser-support">
+                    <h1>Browser Support</h1>
+                    <p><span class="product-name"></span> is built keeping mind to support a wide range of browsers and devices. We all major browers Google Chrome, Mozilla Firefox, Safari, Opera, Internet Explorer 9 and Above</p>
+                    <p></p>
+                    <br>
+                    <table class="table table-bordered table-striped table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <th>Chrome</th>
+                                <th>Firefox</th>
+                                <th>Internet Explorer</th>
+                                <th>Opera</th>
+                                <th>Safari</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Android
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-muted" rowspan="3" style="vertical-align: middle;">N/A</td>
+                                    <td class="text-danger">
+                                        <span class="glyphicon glyphicon-remove"></span>Not Supported</td>
+                                    <td class="text-muted">N/A</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>iOS
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-muted">N/A</td>
+                                    <td class="text-danger">
+                                        <span class="glyphicon glyphicon-remove"></span>Not Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Mac OS X
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Windows
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-success">
+                                        <span class="glyphicon glyphicon-ok"></span>Supported</td>
+                                    <td class="text-danger">
+                                        <span class="glyphicon glyphicon-remove"></span>Not Supported</td>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="creadits">
+                    <h1>Source & Credits</h1>
+                    <p>
+                        All images are only for demonstration purpose, however you can re-download them in sites below. Almost all (not including overclothing.com, Daniel Zenda, Freepik etc...) images are released free of copyrights under Creative Commons CC0.
+                    </p>
+                    <br>
+                    <br>
+                    <h4>Images & Mockups</h4>
+                    <ul>
+                        <li>All Free Stocks
+                            <a target="_blank" href="http://allthefreestock.com">http://allthefreestock.com</a>
+                        </li>
+                        <li>Pexels
+                            <a target="_blank" href="https://www.pexels.com/">https://www.pexels.com/</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <h4>Scripts</h4>
+                    <ul>
+                        <li>Animsition Loader
+                            <a target="_blank" href="http://git.blivesta.com/animsition/">http://git.blivesta.com/animsition/</a>
+                        </li>
+                        <li>Bootstrap Notify
+                            <a target="_blank" href="http://bootstrap-notify.remabledesigns.com/">http://bootstrap-notify.remabledesigns.com/</a>
+                        </li>
+                        <li>Revolution Slider
+                            <a target="_blank" href="http://codecanyon.net/item/slider-revolution-responsive-jquery-plugin/2580848">http://codecanyon.net/item/slider-revolution-responsive-jquery-plugin/2580848</a>- (Premium - Incuded with template, free license using inside <span class="product-name"></span> Template)</li>
+                        <li>jQuery
+                            <a target="_blank" href="http://www.jquery.com/">http://www.jquery.com/</a>
+                        </li>
+                        <li>Slick
+                            <a target="_blank" href="http://kenwheeler.github.io/slick/">http://kenwheeler.github.io/slick/</a>
+                        </li>
+                        <li>Lightbox2
+                            <a target="_blank" href="http://lokeshdhakar.com/projects/lightbox2/">http://lokeshdhakar.com/projects/lightbox2/</a>
+                        </li>
+                        <li>Isotope
+                            <a target="_blank" href="https://isotope.metafizzy.co/">https://isotope.metafizzy.co/</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <h4>CSS & Fonts</h4>
+                    <ul>
+                        <li>Bootstrap Framework
+                            <a target="_blank" href="http://getbootstrap.com/">http://getbootstrap.com/</a>
+                        </li>
+                        <li>Animate CSS
+                            <a target="_blank" href="http://daneden.github.io/animate.css/">http://daneden.github.io/animate.css/</a>
+                        </li>
+                        <li>Font Awesome
+                            <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a>
+                        </li>
+                        <li>Google Fonts
+                            <a target="_blank" href="https://www.google.com/fonts">https://www.google.com/fonts</a>
+                        </li>
+                        <li>css hamburgers
+                            <a target="_blank" href="https://jonsuh.com/hamburgers/">https://jonsuh.com/hamburgers/</a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--
+    Javascripts
+    ==================================================
+    -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="vendor/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="vendor/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="vendor/syntaxhighlighter/scripts/shBrushCss.js"></script>
+    <script src="vendor/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+    <script src="vendor/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <script>
+        SyntaxHighlighter.all();
+    </script>
+    <!--
+    End Document
+    ==================================================
+    -->
+</body>
+
+</html>

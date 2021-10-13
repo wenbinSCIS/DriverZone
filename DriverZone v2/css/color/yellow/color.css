@@ -1,0 +1,311 @@
+
+/*=============================== COLOR YELLOW ===============================*/
+
+
+/*//////////////////////////////////////////////////////////////////
+[ LOADDING ]*/
+
+.cp-skeleton {
+  border-top: solid 5px #ffe048;
+}
+
+.cp-skeleton:before {
+  border-left: solid 5px #ffe048;
+}
+
+.cp-skeleton:after {
+  border-right: solid 5px #ffe048;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Header ]*/
+.top-bar.bg-main {
+  background-color: #222222;
+}
+
+
+/*---------------------------------------------*/
+.main-menu > li::before {
+  background-color: #ffe048;
+}
+
+.social a:hover {
+  color: #ffe048;
+}
+
+/*---------------------------------------------*/
+.main-menu-m a {
+  color: #222222 !important;
+}
+
+.arrow-main-menu-m {
+  color: #222222;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Footer ]*/
+
+.item-gallery-footer::after {
+  background-color: #ffe048;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RS sweet alert ]*/
+
+.swal-button {
+  background-color: #ffe048;
+  color: #333333;
+}
+
+.swal-button:hover {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+.swal-button:active {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Btn Revo ]*/
+.rev_slider_wrapper .btn-drive.bg-main {
+  color: #fff;
+  border: 2px solid #fff !important;
+  background-color: transparent;
+}
+
+.rev_slider_wrapper .btn-drive.bgwhite {
+  color: #222222;
+  background-color: #ffe048;
+}
+
+.rev_slider_wrapper .btn-drive.bgwhite:hover {
+  color: #fff;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 1 ]*/
+.arrow-slide-slick-6:hover,
+.arrow-slide-slick-1:hover {
+  background-color: #ffe048;
+  color: #222222;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 2 ]*/
+
+.arrow-slick-5:hover,
+.arrow-slick-4:hover,
+.arrow-slick-2:hover {
+  background-color: #ffe048;
+  color: #222222;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 3 ]*/
+
+.arrow-slide-slick-3:hover {
+  background-color: #ffe048;
+  color: #222222;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Slick 6 ]*/
+
+.slick6-dots li:hover {
+  border-color: #ffe048;
+  color: #222222;
+}
+
+.slick6-dots li.slick-active {
+  border-color: #ffe048;
+  color: #222222;
+}
+
+
+
+/*==================================================================
+    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+==================================================================*/
+
+/*==================================================================
+[ Color ]*/
+.color-main {color: #ffe048;}
+
+.rs1-color {color: #222222;}
+
+.s-txt8 {
+  color: #ffe048;
+}
+
+.s-txt32 {
+  color: #ffe048;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ M-Text 16 - 30 ]*/
+.m-txt2 {
+  color: #ffe048;
+}
+
+.m-txt18 {
+  color: #ffe048;
+}
+
+.m-txt28 {
+  color: #ffe048;
+}
+
+/*---------------------------------------------*/
+.rs1-color {color: #333333;}
+.rs2-color {color: #555555;}
+
+/*==================================================================
+   SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
+==================================================================*/
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Background ]*/
+.bg-main {background-color: #ffe048;}
+.rs1-bg {background-color: #333333;}
+.bg6 {background-color: #2e2e2e;}
+
+
+
+/*==================================================================
+      EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT EFFECT
+==================================================================*/
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Pseudo ]*/
+/*------------------------------------------------------------------
+[ Focus ]*/
+.input-focus-1:focus {
+  border-color: rgba(255, 224, 72, 0.5);
+  box-shadow: 0 0px 2px 0px #ffe048;
+  -moz-box-shadow: 0 0px 2px 0px #ffe048;
+  -webkit-box-shadow: 0 0px 2px 0px #ffe048;
+  -o-box-shadow: 0 0px 2px 0px #ffe048;
+  -ms-box-shadow: 0 0px 2px 0px #ffe048;
+}
+
+/*------------------------------------------------------------------
+[ Hover ]*/
+
+.hov-bg-main:hover {
+  background-color: #ffe048;
+}
+
+.hov-color-main:hover {
+  color: #ffe048;
+}
+
+/*---------------------------------------------*/
+.hov4:hover {
+  background-color: #ffe048;
+  color: #fff;
+}
+
+
+
+/*------------------------------------------------------------------
+[ Active ]*/
+.actived-2 {
+  color: #ffe048;
+}
+
+
+/*---------------------------------------------*/
+.btn-drive::before {
+  background-color: #2e2e2e;
+}
+
+.btn-drive.bg-main {
+  color: #222222;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-drive.bg-main:hover {
+  color: #fff;
+}
+
+.rs1-btn {
+  background-color: transparent;
+  color: #222222;
+  border: 2px solid #222222;
+}
+
+.rs2-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+/*---------------------------------------------*/
+.list-01 li::before {
+  color: #ffe048;
+}
+
+/*---------------------------------------------*/
+.symbol-1 {
+  color: #222222;
+}
+.symbol-1::before {
+  background-color: #ffe048; 
+}
+
+/*---------------------------------------------*/
+
+.overlay1::after {
+  background-color: #ffe048;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Block1 ]*/
+
+.block-1 .wrap-text-b1 a,
+.block-1 .wrap-text-b1 i,
+.block-1 .wrap-text-b1 h4,
+.block-1 .wrap-text-b1 p {
+  color: #222222;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Block4 ]*/
+.wrap-text-b4 a.s-txt8 {
+  color: #999999;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Block5 ]*/
+.block-5 span.color-main {
+  color: #999999;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ CTA ]*/
+.content-cta-1 > span {
+  color: #222222;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ rs share item ]*/
+.rs1-share-item a.hov-color-white:hover {
+  color: #222222;
+}
