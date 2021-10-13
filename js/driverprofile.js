@@ -49,7 +49,7 @@
             var price=input[ele].price
             var location=input[ele].location
             console.log(price)
-            var image="./images/"+name+".jpg";
+            var image="../images/"+name+".jpg";
             var description=input[ele].description;
             console.log(description);
             var tr=document.createElement("tr");
