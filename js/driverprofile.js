@@ -64,10 +64,10 @@
             document.getElementById("body").innerHTML=`<div class="container">
 			<div class="row">
 				<div class="col-sm-10 col-md-8 col-lg-9 m-lr-auto p-b-50">
-					<div class="p-r-20 p-r-0-md">
+					<div class="p-r-20 p-r-0-md height:200px">
 						<div class="bo2">
 							<div class="wrap-pic-w bo2-b">
-								<img src="${image}" alt="IMG-COURSE">
+								<img src="${image}" alt="IMG-COURSE width:300px">
 							</div>
 
 							<div class="p-l-38 p-r-38 p-t-30 p-b-18 p-lr-15-sm">
