@@ -71,6 +71,7 @@
             console.log(ele)
             var name=ele;
             var lang=input[ele].language
+            var location=input[ele].location
             var price=input[ele].price
             console.log(price)
             var image="../images/"+name+".jpg";
@@ -94,8 +95,8 @@
 
                 <div class="wrap-text-b3 p-l-20 p-r-20 p-t-16 p-b-26">
                     <div class="flex-sb-m p-b-12">
-                        <span class="s-txt5">
-                            Driving, Road Signs
+                        <span class="s-txt5" style=text-transform:capitalize;font-size:20px>
+                            ${name}
                         </span>
                         <span class="color1 fs-12">
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -107,7 +108,7 @@
                     </div>
 
                     <a href="course-detail.html"><h4 class="m-txt8 hov-color-main trans-04 p-b-12">
-                        Rules and requirements
+                        ${location}
                     </h4></a>
                     <span class="m-txt9">$100</span>
                     
