@@ -116,7 +116,7 @@
                 <div class="wrap-btn-b3 flex-w p-t-13">
                     <div class="m-r-8 p-t-8">
                         <!-- Button -->
-                        <a href="#" class="btn-drive m-txt1 size3 bg-main hov-color-white bo-rad-4">
+                        <a href="booking.html?id=${name}" class="btn-drive m-txt1 size3 bg-main hov-color-white bo-rad-4">
                             Book now
                         </a>
                     </div>
