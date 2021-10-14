@@ -1,9 +1,11 @@
 jQuery(function($) {
     "use strict";
-  
+    alert("here1");
     $('form').attr('action', 'login.html');
     // Validate
+    alert("here2");
     $('form').validate({
+     
         ignore: [],
         rules: {
             website: {
@@ -20,11 +22,11 @@ jQuery(function($) {
             }
         }
     });
-    $('form').on('submit', function() {
-       
+    $('form').on('submit', function(event) {
+        
         form.validate();
         if (form.valid()) {
-            alert("hi");
+            alert("here");
             $("#loader_form").fadeIn();
         }
       
