@@ -15,13 +15,13 @@
     };
   
     // Initialize Firebase
+	
     const app = initializeApp(firebaseConfig);
 
     import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
 
+
     const db= getDatabase();
-
-
         const dbref= ref(db);
 
         get(child(dbref,"instructor")).then((snapshot)=>{

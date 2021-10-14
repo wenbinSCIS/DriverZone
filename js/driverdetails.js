@@ -17,28 +17,28 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
-    import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
+    import {getDatabase, ref, set, child, get,update, remove,query} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
 
-    const db= getDatabase();
-    
+    // const db= getDatabase();
+    // const dbref= ref(db);   
+
+    //testing
+    const db = getDatabase(app)
+    console.log(db);
+    const dbRef = ref(db)
+    console.log(dbRef);
+    const usersSnapshot = await get(query(dbRef))
+    var instructor_obj=usersSnapshot.val().instructor;
+    var input=display(instructor_obj);
 
 
-    const dbref= ref(db);
-    console.log(1);
-    console.log(2);
-
-
-    var a;
-    get(child(dbref,"instructor")).then((snapshot)=>{
-        if (snapshot.exists()) {
-            a= display(snapshot.val());
-            console.log(a);
-            test(a);     
-        } 
-    });
-
-    console.log(39);
-    console.log(a);
+    // var a;
+    // get(child(dbref,"instructor")).then((snapshot)=>{
+    //     if (snapshot.exists()) {
+    //         a= display(snapshot.val());
+    //         test(a);     
+    //     } 
+    // });
 
     function resourceTemplate(resource) {
         return `
@@ -95,7 +95,6 @@
     var arr;
     function display(input) {
         arr=[];
-        var body=document.getElementById("body");
         for (let ele in input) {
             arr.push(input[ele]);
         }
@@ -121,17 +120,37 @@
         
     }
 
-    var next=document.getElementById("next");
-    var b;
 
-    function test(input) {
-        b=input
-        console.log(b);
-        $('hello').observe('click', function () {
-            alert('Hi');
-          });
+    function tried(a) {
+        console.log(23808);
+        // display(a);
+    }
+
+    //buttons
+
+    length=Math.ceil((Object.keys(instructor_obj).length)/3);
+    console.log(length)
+
+    for (let index = 0; index<length; index++) {
+        document.getElementById("buttons").innerHTML+=`
+        <a href="#1" class="flex-c-m s-txt24 size14 bgwhite bo6 bo-rad-3 hov3 trans-03 m-r-12 m-t-5 m-b-5 act-pagi" id="1">
+        ${index+1}
+        </a>
+        `;
         
-    };
+    }
+    document.getElementById("buttons").innerHTML+=`	<button type="button" class="btn btn-light" id="hello">Next</button> `
+    
+
+    document.getElementById("hello").addEventListener("click", ()=>display(input));
+
+
+
+
+
+
+
+    
 
     
 
