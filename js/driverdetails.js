@@ -20,18 +20,25 @@
     import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
 
     const db= getDatabase();
+    
 
 
     const dbref= ref(db);
+    console.log(1);
+    console.log(2);
 
+
+    var a;
     get(child(dbref,"instructor")).then((snapshot)=>{
         if (snapshot.exists()) {
-            return display(snapshot.val());
-        }
-        else {
-            alert("No data found")
-        }
-    })
+            a= display(snapshot.val());
+            console.log(a);
+            test(a);     
+        } 
+    });
+
+    console.log(39);
+    console.log(a);
 
     function resourceTemplate(resource) {
         return `
@@ -85,32 +92,98 @@
     </div>
         `;
       }
+    var arr;
     function display(input) {
+        arr=[];
         var body=document.getElementById("body");
-        var arr=[];
-        console.log(input);
         for (let ele in input) {
-            console.log(input[ele])
             arr.push(input[ele]);
         }
-        project(arr);
+        
+        return project(arr)
 
     }
-    var arr;
 
-    function project(arr) {
-        document.getElementById("here").innerHTML=arr
-        .splice(0, 2) 
+
+    function project(input) {
+        console.log(input)
+        document.getElementById("here").innerHTML=input
+        .splice(0, 3) 
         .map(resourceTemplate)
         .join('');
 
-        for (let i = 0; i <arr.length; i += 2) {
-            arr = arr.slice(i, i + 2);
-            console.log(arr);
-            } 
+        for (let i = 0; i <input.length; i += 2) {
+            input = input.slice(i, i + 2);
+  
+            }
+
+        return input;
         
     }
-    console.log(arr)
+
+    var next=document.getElementById("next");
+    var b;
+
+    function test(input) {
+        b=input
+        console.log(b);
+        $('hello').observe('click', function () {
+            alert('Hi');
+          });
+        
+    };
+
+    
+
+   
+
+
+
+   
+  
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // document.getElementById("next").addEventListener("click",project);
 
