@@ -86,7 +86,7 @@
             
             document.getElementById("here").innerHTML+=`<div class="block-3 bo2 flex-w">
             <div class="wrap-pic-b3 wrap-pic-w hov5 bo2-r w-size6 respon2">
-                <a href="course-detail.html"><img src="${image}" alt="IMG-COURSE" height:50px></a>
+                <a href="course-detail.html?id=${name}"><img src="${image}" alt="IMG-COURSE" height:50px></a>
             </div>
     
             <div class="wrap-text-b3 w-size7 p-l-35 p-r-27 p-t-26 p-b-25 w-full-md">
