@@ -90,3 +90,16 @@ i[class^=icon-chevron]{
 #left-stuff{
   padding-left: 100px;
 }
+
+@media screen and (max-width: 650px) {
+  body {
+    height: auto;
+    padding: 20px 10px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    gap: 40px;
+  }
+}
