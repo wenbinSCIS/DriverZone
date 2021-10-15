@@ -41,8 +41,8 @@ const db= getDatabase();
 function display(input){
     for(let ele in input){
         if(ele == id){
-            var avail_dates = ele.Dates
-            console.log(avail_dates)
+            console.log(input)
+            var avail_dates = ele.date
         }
     }
 }
