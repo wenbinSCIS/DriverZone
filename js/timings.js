@@ -14,28 +14,36 @@ const firebaseConfig = {
     appId: "1:905590919273:web:5d6c7e3da73fbdb9cdd2f8"
 };
 
+var confirm=false;
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
 
-import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
+    import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
 
-const db= getDatabase();
+    const db= getDatabase();
 
 
-    const dbref= ref(db);
+        const dbref= ref(db);
 
-    get(child(dbref,"instructor")).then((snapshot)=>{
-        if (snapshot.exists()) {
-            return display(snapshot.val());
-        }
-        else {
-            alert("No data found")
-        }
-    })
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id')
-    // Id is ali
+        get(child(dbref,"instructor")).then((snapshot)=>{
+            if (snapshot.exists() && confirm==true) {
+                return display(snapshot.val());
+            }
+            else {
+                alert("No data found")
+            }
+        })
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id')
+        // Id is ali
+        
+var instr_img = document.getElementById("instructor-img");
+var instr_name = document.getElementById("instructor-name");
+
+instr_name.innerText = id;
+instr_img.src = `../images/${id}.JPG`;
 
 
 function display(input){
@@ -45,4 +53,7 @@ function display(input){
             console.log(avail_dates);
         }
     }
+    console.log(string)
+    var to_update = document.getElementById("times");
+    to_update.innerHTML = string;
 }
