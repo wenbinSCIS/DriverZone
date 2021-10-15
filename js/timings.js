@@ -42,7 +42,7 @@ function display(input){
     for(let ele in input){
         if(ele == id){
             var avail_dates = ele.Dates
-            console.log(dates)
+            console.log(avail_dates)
         }
     }
 }
