@@ -37,7 +37,7 @@
                     <tr>
                         <td colspan="2">
                             <h5>Description</h5>
-                            <textarea class="mt-3 border" rows="10" cols="155" placeholder="Type your description here" id="post_description"></textarea>
+                            <textarea class="mt-3 border form-control"  placeholder="Type your description here" id="post_description"></textarea>
                     </tr>
 
                     <tr>
@@ -89,6 +89,22 @@
             {
                 location.href = "forum.html";
             }
+
+        var today = new Date();
+        cur_min=today.getMinutes().toString()
+
+        if (cur_min.length<2)
+        {
+            cur_min="0"+cur_min
+        }
+
+        var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+        var time = today.getHours() + ":" + cur_min;
+        cur_time = date + ", " + time
+        
+
+
+
         </script>
     </body>
 </html>
