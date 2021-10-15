@@ -48,16 +48,37 @@ instr_img.src = `../images/${id}.JPG`;
 
 
 function display(input){
-    for(let ele in input){
-        if(ele == id){
-            var dates = input[ele].date
-            
+    var date_select = document.getElementById("selected_date").innerText;
+    var date_split = date_select.split(" ").join('')
+    var date_format_needed = date_split.split('/').join('-');
+    console.log(date_format_needed);
+    var count=0;
+    var string =""
+    if(confirm==true){
+        for(let ele in input){
+            if(ele == id){
+                console.log(input)
+                var avail_dates = input[ele].date
+                // assume can get date
+                console.log(avail_dates)
+                for(let a_date in avail_dates){
+                    if (a_date == date_format_needed){
+                        var time = avail_dates[a_date]
+                    }
+                }
+            }
         }
     }
-}   
 
 
-console.log(dates)
-
-
+    if(time.length>0){
+        for(let timings of time){
+            console.log(timings)
+            string+= `<button class="button-18" role="button"> ${timings}</button> `;
+        }
+    }
+} 
+    console.log(string)
+    var to_update = document.getElementById("times");
+    to_update.innerHTML = string;
 
