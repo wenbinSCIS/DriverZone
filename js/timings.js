@@ -27,7 +27,7 @@ var confirm=false;
         const dbref= ref(db);
 
         get(child(dbref,"instructor")).then((snapshot)=>{
-            if (snapshot.exists() && confirm==true) {
+            if (snapshot.exists()) {
                 return display(snapshot.val());
             }
             else {
@@ -46,6 +46,7 @@ instr_name.innerText = id;
 instr_img.src = `../images/${id}.JPG`;
 
 
+
 function display(input){
     for(let ele in input){
         if(ele == id){
@@ -53,7 +54,13 @@ function display(input){
             console.log(avail_dates);
         }
     }
-    console.log(string)
-    var to_update = document.getElementById("times");
-    to_update.innerHTML = string;
+}
+
+
+var date_wanted = document.getElementById("selected_date");
+date_wanted.addEventListener("click",showTimings);
+
+function showTimings(){
+    var date = date_wanted.innerText;
+    console.log(date_wanted);
 }
