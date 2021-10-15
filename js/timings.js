@@ -50,17 +50,14 @@ instr_img.src = `../images/${id}.JPG`;
 function display(input){
     for(let ele in input){
         if(ele == id){
-            var avail_dates = input[ele].date
-            console.log(avail_dates);
+            var dates = input[ele].date
+            
         }
     }
-}
+}   
 
 
-var date_wanted = document.getElementById("selected_date");
-date_wanted.addEventListener("click",showTimings);
+console.log(dates)
 
-function showTimings(){
-    var date = date_wanted.innerText;
-    console.log(date_wanted);
-}
+
+
