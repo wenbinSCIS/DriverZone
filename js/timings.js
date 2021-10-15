@@ -53,7 +53,6 @@ function display(input){
     console.log(date_format_needed);
     var count=0;
     var string =""
-    if(confirm==true){
         for(let ele in input){
             if(ele == id){
                 console.log(input)
@@ -67,9 +66,6 @@ function display(input){
                 }
             }
         }
-    }
-    
-
     if(time.length>0){
         for(let timings of time){
             console.log(timings)
