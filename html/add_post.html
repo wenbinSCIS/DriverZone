@@ -37,13 +37,13 @@
                     <tr>
                         <td colspan="2">
                             <h5>Description</h5>
-                            <textarea class="mt-3 border" rows="10" cols="155" placeholder="Type your description here"></textarea>
+                            <textarea class="mt-3 border" rows="10" cols="155" placeholder="Type your description here" id="post_description"></textarea>
                     </tr>
 
                     <tr>
                         <td colspan="2" class="text-right">
-                            <button class="btn btn-outline-danger">Cancel</button>
-                            <button class="btn btn-outline-primary">Create Post</button>
+                            <button class="btn btn-outline-danger" id="cancel_button" onclick="return_to_forum()">Cancel</button>
+                            <button class="btn btn-outline-primary" onclick="create_post()">Create Post</button>
                         </td>
                     </tr>
                 </table>
@@ -83,6 +83,11 @@
                 theory_button.setAttribute("class","btn btn-outline-info")
                 practical_button.setAttribute("class","btn btn-outline-secondary")
                 other_button.setAttribute("class","btn btn-warning")
+            }
+
+            function return_to_forum()
+            {
+                location.href = "forum.html";
             }
         </script>
     </body>
