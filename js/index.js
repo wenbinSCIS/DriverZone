@@ -18,6 +18,8 @@ let selectedDay = day;
 let selectedMonth = month;
 let selectedYear = year;
 
+
+
 mth_element.textContent = months[month] + ' ' + year;
 
 selected_date_element.textContent = formatDate(date);
@@ -115,3 +117,6 @@ function formatDate (d) {
 
 	return day + ' / ' + month + ' / ' + year;
 }
+
+
+
