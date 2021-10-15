@@ -26,16 +26,16 @@ selected_date_element.dataset.value = selectedDate;
 populateDates();
 
 // EVENT LISTENERS
-date_picker_element.addEventListener('click', toggleDatePicker);
+
 next_mth_element.addEventListener('click', goToNextMonth);
 prev_mth_element.addEventListener('click', goToPrevMonth);
 
 // FUNCTIONS
-function toggleDatePicker (e) {
-	if (!checkEventPathForClass(e.path, 'dates')) {
-		dates_element.classList.toggle('active');
-	}
-}
+
+  
+
+dates_element.classList.toggle('active');
+
 
 function goToNextMonth (e) {
 	month++;
