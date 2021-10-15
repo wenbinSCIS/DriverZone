@@ -1,87 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Discussion Forum</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
-    crossorigin="anonymous">
+    <head>
+        <title>Discussion Forum</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
+        crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    </head>
+    
+    <body>
+        <div id="nav-placeholder"></div>
 
-    <style>
-        .button_size_enter
-        {
-            width:100%;
-            height:100%
-        }
-    </style>
-
-</head>
-
-<body>
-    <div id="nav-placeholder"></div>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="jumbotron bg-light">
-                    <div class="ps-4 pt-1 pb-1">
-                        <h1 class="display-4">Welcome to the Discussion Forum</h1>
-                        <p class="lead" >This is a place for everyone to exchange questions and ideas</p>
+        <div class="container">
+            <div class="row justify-content-center pt-1">
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button type="button" class="btn btn-outline-primary" id="search_button" onclick="search_for_post()">Search</button>
+                        <button type="button" class="btn btn-outline-primary" id="add_post" onclick="add_new_post()">Add New Post</button>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center my-3 bg-light mx-0">
-            <div class="col bg-info">
-                <div class="my-4 mx-3">
-                    <H3>Theory Help</H3>
-                    <p>A place for those with querries on BTT and FTT. Seek help here if you struggle to understand the theories about driving.</p>
+            <div class="row justify-content-center pt-3">
+                <div class="col-1">
+                    <h6>Sort by:</h6>
+                </div>
+                <div class="col-11"></div>
+
+                <div class="col-12 pt-2">
+                    <button type="button" class="btn btn-outline-success" id="newest_post" onclick="filter_newest()">Newest Post</button>
+                    <button type="button" class="btn btn-outline-warning" id="top_post" onclick="filter_top()">Top Post</button>
+                    <button type="button" class="btn btn-outline-danger" id="trending_post" onclick="filter_trending()">Trending Post</button>
                 </div>
             </div>
-            <div class="col-2 px-0">
-                <button type="button" onclick="to_theory()" class="btn btn-primary text-center button_size_enter fs-1 fw-bold">Enter</button>
-            </div>
-        </div>
 
-        <div class="row justify-content-center my-3 bg-light mx-0">
-            <div class="col bg-success">
-                <div class="my-4 mx-3">
-                    <H3>Practical Driving</H3>
-                    <p>A place for those having practical lessons. Engage in different discussion with various other learner drivers to get tips to improve your driving skills.</p>
+            <div class="row justify-content-center pt-3">
+                <div class="col-1">
+                    <h6>Tag:</h6>
+                </div>
+                <div class="col-11"></div>
+
+                <div class="col-12 pt-2">
+                    <button type="button" class="btn btn-outline-info" id="theory_tag" onclick="select_theory()">Theory</button>
+                    <button type="button" class="btn btn-outline-secondary" id="practical_tag" onclick="select_practical()">Practical</button>
+                    <button type="button" class="btn btn-outline-warning" id="other_tag" onclick="select_other()">Other</button>
+                </div>
+
+                <div class="col-12 mt-2 pt-1">
+                    <button type="button" class="btn btn-info" id="apply_sort" onclick="apply_sort()">Apply Tags and Sort the Post</button>
                 </div>
             </div>
-            <div class="col-2 px-0">
-                <button type="button" class="btn btn-primary text-center button_size_enter fs-1 fw-bold">Enter</button>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center pt-2">
+                <table class="table">
+                    <tr>
+                        <th style="width: 700px;">Topic</th>
+                        <th style="width: 150px;">Tag</th>
+                        <th style="width: 150px;">Time</th>
+                        <th>No. of Comments</th>
+                    </tr>
+                </table>
             </div>
         </div>
 
-        <div class="row justify-content-center my-3 bg-light mx-0" style="margin-bottom: 100px;">
-            <div class="col bg-warning">
-                <div class="my-4 mx-3">
-                    <H3>Lounge</H3>
-                    <p>A place for everyone to hangout and relax. Discuss various topic or rant about your driving experience to relief your stress from driving.</p>
-                </div>
-            </div>
-            <div class="col-2 px-0">
-                <button type="button" class="btn btn-primary text-center button_size_enter fs-1 fw-bold">Enter</button>
-            </div>
-        </div>
-    </div>
+        
 
-    <script>
-        function to_theory()
-        {
-            location.href = "./forum/theory.html"
-        }
+    
+        <script>
+            $(function()
+            {
+                $("#nav-placeholder").load("navbar.html");
+            });
 
-        $(function()
-        {
-            $("#nav-placeholder").load("navbar.html");
-        });
+            var cur_filter=null
+            var cur_tag=null
 
-    </script>
-</body>
+            newest_button = document.getElementById("newest_post")
+            top_button = document.getElementById("top_post")
+            trending_button = document.getElementById("trending_post")
+            theory_button = document.getElementById("theory_tag")
+            practical_button = document.getElementById("practical_tag")
+            other_button = document.getElementById("other_tag")
+
+            function search_for_post()
+            {
+                
+            }
+
+            function add_new_post()
+            {
+                
+            }
+
+            function filter_newest()
+            {
+                cur_filter="newest"
+                newest_button.setAttribute("class","btn btn-success")
+                top_button.setAttribute("class","btn btn-outline-warning")
+                trending_button.setAttribute("class","btn btn-outline-danger")
+            }
+
+            function filter_top()
+            {
+                cur_filter="top"
+                newest_button.setAttribute("class","btn btn-outline-success")
+                top_button.setAttribute("class","btn btn-warning")
+                trending_button.setAttribute("class","btn btn-outline-danger")
+            }
+
+            function filter_trending()
+            {
+                cur_filter="trending"
+                newest_button.setAttribute("class","btn btn-outline-success")
+                top_button.setAttribute("class","btn btn-outline-warning")
+                trending_button.setAttribute("class","btn btn-danger")
+            }
+
+            function select_theory()
+            {
+                cur_tag="theory"
+                theory_button.setAttribute("class","btn btn-info")
+                practical_button.setAttribute("class","btn btn-outline-secondary")
+                other_button.setAttribute("class","btn btn-outline-warning")
+            }
+
+            function select_practical()
+            {
+                cur_tag="practical"
+                theory_button.setAttribute("class","btn btn-outline-info")
+                practical_button.setAttribute("class","btn btn-secondary")
+                other_button.setAttribute("class","btn btn-outline-warning")
+            }
+
+            function select_other()
+            {
+                cur_tag="other"
+                theory_button.setAttribute("class","btn btn-outline-info")
+                practical_button.setAttribute("class","btn btn-outline-secondary")
+                other_button.setAttribute("class","btn btn-warning")
+            }
+
+            function apply_sort()
+            {
+                console.log(cur_filter)
+                console.log(cur_tag)
+            }
+        </script>
+    </body>
 </html>
