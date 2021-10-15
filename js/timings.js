@@ -39,10 +39,13 @@ const db= getDatabase();
 
 
 function display(input){
+    var date_select = document.getElementById("selected_date")
+    console.log(date_select)
     for(let ele in input){
         if(ele == id){
             console.log(input)
-            var avail_dates = ele.date
+            var avail_dates = ele.dates
+            // assume can get date
         }
     }
 }
