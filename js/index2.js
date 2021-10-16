@@ -95,7 +95,7 @@
             <!-- Block 3 -->
             <div class="block-3 bo2">
                 <div class="wrap-pic-b3 wrap-pic-w hov5 bo2-b">
-                    <a href="course-detail.html"><img src="${image}" width="240px" height="276px" alt="IMG-COURSE"></a>
+                    <a href="course-detail.html?id=${name}"><img src="${image}" width="240px" height="276px" alt="IMG-COURSE"></a>
                 </div>
 
                 <div class="wrap-text-b3 p-l-20 p-r-20 p-t-16 p-b-26">
