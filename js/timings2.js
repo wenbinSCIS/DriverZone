@@ -18,50 +18,47 @@ var select = document.getElementById("confirm")
 select.addEventListener("click", displayTimings);
 
 
-
-
-
-
-
 function getDatabase(){
     var ref = firebase.database().ref('instructor');
-    console.log(ref)
     ref.once("value")
         .then(function(snapshot){
             var instr_db = snapshot.val()
-            
+            return instr_db;
         })
 }
-getDatabase();
-console.log(instr_db)
 
 
-function displayTimings(database){
+function displayTimings(){
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
     console.log(date_format_needed);
-
-    for(let ele in database){
-        if(ele == id){
-            console.log(input)
-            var avail_dates = input[ele].date
-            // assume can get date      
-            console.log(avail_dates)
-            for(let a_date in avail_dates){
-                if (a_date == date_format_needed){
-                    var time = avail_dates[a_date]
-                    console.log(time)
+    var string=""
+    var ref = firebase.database().ref('instructor');
+    ref.once("value")
+        .then(function(snapshot){
+            var instr_db = snapshot.val()
+            for(let ele in instr_db){
+                if(ele == id){
+                    var avail_dates = instr_db[ele].date 
+                    console.log(avail_dates)
+                    for(let a_date in avail_dates){
+                        if (a_date == date_format_needed){
+                            var time = avail_dates[a_date]
+                            console.log(time)
+                        }
+                    }
                 }
             }
-        }
-    }
-    if(time.length>0){
-    for(let timings of time){
-        console.log(timings)
-        string+= `<button class="button-18" role="button"> ${timings}</button> `;
-    }
-    }
-    var to_update = document.getElementById("times");
-    to_update.innerHTML = string;
+            if(time.length>0){
+            for(let timings of time){
+                console.log(timings)
+                string+= `<button class="button-18" role="button"> ${timings}</button> `;
+            }
+            }
+            var to_update = document.getElementById("times");
+            to_update.innerHTML = string;
+        })
+
+   
     }  
