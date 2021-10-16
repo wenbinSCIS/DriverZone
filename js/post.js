@@ -8,7 +8,7 @@ var config =
 
 firebase.initializeApp(config);
 
-function create_new_post(title,content,creator,tag,time)
+function create_new_post(title,content,creator,tag,time, no_of_vote)
 {
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('post');
@@ -19,6 +19,7 @@ function create_new_post(title,content,creator,tag,time)
         "creator": creator,
         "tag": tag,
         "time": time,
+        "no_of_vote": no_of_vote
     }
 
    , (error) => {
