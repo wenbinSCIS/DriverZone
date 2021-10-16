@@ -45,7 +45,7 @@ var instr_name = document.getElementById("instructor-name");
 instr_name.innerText = id;
 instr_img.src = `../images/${id}.JPG`;
 
-
+var time= []
 
 function display(input){
     var date_select = document.getElementById("selected_date").innerText;
@@ -62,7 +62,7 @@ function display(input){
                 console.log(avail_dates)
                 for(let a_date in avail_dates){
                     if (a_date == date_format_needed){
-                        var time = avail_dates[a_date]
+                        time = avail_dates[a_date]
                     }
                 }
             }
@@ -77,3 +77,5 @@ function display(input){
     var to_update = document.getElementById("times");
     to_update.innerHTML = string;
 }
+
+console.log(time)
