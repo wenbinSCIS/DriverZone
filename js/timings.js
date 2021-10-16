@@ -67,15 +67,5 @@ function display(input){
                 }
             }
         }
-    if(time.length>0){
-        for(let timings of time){
-            console.log(timings)
-            string+= `<button class="button-18" role="button"> ${timings}</button> `;
-        }
-    }
-
-    var to_update = document.getElementById("times");
-    to_update.innerHTML = string;
 }
 
-console.log(time)
