@@ -37,7 +37,7 @@
         return `
         <div class="block-3 bo2 flex-w">
         <div class="wrap-pic-b3 wrap-pic-w hov5 bo2-r w-size6 respon2">
-            <a href="course-detail.html?id=${resource.name}"><img src="../images/${resource.name}.JPG" alt="IMG-COURSE" height:50px></a>
+            <a href="course-detail.html?id=${resource.name}"><img src="../images/${resource.name}.JPG" alt="IMG-COURSE"></a>
         </div>
 
         <div class="wrap-text-b3 w-size7 p-l-35 p-r-27 p-t-26 p-b-25 w-full-md">
@@ -62,7 +62,7 @@
                 ${resource.description}
             </p>
 
-            <span class="m-txt9">$${resource.price}</span>
+            <span class="m-txt9">$${resource.price}/h</span>
             
             <div class="wrap-btn-b3 flex-w p-t-13">
                 <div class="m-r-8 p-t-8">
