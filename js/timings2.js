@@ -22,9 +22,9 @@ function displayTimings(){
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
-    console.log(date_format_needed);
     var string=""
     var ref = firebase.database().ref('instructor');
+    var time=[]
     ref.once("value")
         .then(function(snapshot){
             var instr_db = snapshot.val()
@@ -40,6 +40,7 @@ function displayTimings(){
                     }
                 }
             }
+            //time is whether there are dates inside, if no dates, time.length is 0
             if(time.length>0){
             for(let timings of time){
                 console.log(timings)
