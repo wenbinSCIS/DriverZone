@@ -41,7 +41,7 @@
   function getUser(emailstr,password){
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('users');
-   
+    var count = 0;
     storesRef.on("value", function(snapshot) {
       console.log(snapshot.val());
       for( var item in snapshot.val()){
@@ -49,26 +49,31 @@
 
         var dbemail = snapshot.val()[item].email
         var dbpassword = snapshot.val()[item].password
-
+        var username = snapshot.val()[item].name
         if(emailstr===dbemail){
           if (dbpassword === password){
             alert("Log in successful!")
             sessionStorage.setItem("userid",item)
+            sessionStorage.setItem("username",username)
             window.location.href = "index.html";
             break
           }
           else{
-            alert("Incorrect login details!")
-            break
+            count +=1;
           }
         }
         else{
-          alert("Incorrect login details!")
-          break
+          count +=1;
         }
       }
+
+      
       
    });
+   const mode = sessionStorage.getItem('userid');
+   if(mode === null){
+     alert("Incorrect login details!")
+   }
   }
 
 

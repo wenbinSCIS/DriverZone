@@ -11,7 +11,7 @@
 		
         
         <!-- title of site -->
-        <title>Directory Landing Page</title>
+        <title>Navigation</title>
 
       	
 <!--===============================================================================================-->
@@ -78,7 +78,7 @@
               <a href="forum.html">Forum</a>
             </li>
             <li class="respon-sub-menu">
-              <a href="login.html">Login</a>
+              <a id="change" href="login.html">Login</a>
             </li>
           </ul>
         </div>
@@ -89,7 +89,28 @@
    <hr>
 
 
+<script>
+  	const mode = sessionStorage.getItem('userid');
+	  console.log(mode);
+    if(mode===null){
+      var path = window.location.pathname;
+      var page = path.split("/").pop();
+      if(page=="index.html"){
+        
+       
+      }
+      else{
+        alert("Please log in first!");
+        window.location.href = "login.html";
+      }
+    }
+    else{
+      const name = sessionStorage.getItem('username');
+      var loginned = document.getElementById("change");
+        loginned.innerText = "Welcome, " + name;
 
+    }
+</script>
 
 
 
