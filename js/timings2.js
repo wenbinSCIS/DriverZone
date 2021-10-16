@@ -13,6 +13,30 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 // Id is ali
 
+var instr_img = document.getElementById("instructor-img");
+var instr_name = document.getElementById("instructor-name");
+var instr_title = document.getElementById("instr_title");
+var instr_quote = document.getElementById("instr_quote");
+
+instr_name.innerText = id;
+instr_img.src = `../images/${id}.JPG`;
+
+displayQuoteAndTitle()
+
+function displayQuoteAndTitle(){
+    var ref = firebase.database().ref('instructor');
+    ref.once("value")
+        .then(function(snapshot){
+            var instr_db = snapshot.val()
+            for(let ele in instr_db){
+                if(ele == id){
+                    instr_title.innerText= instr_db[ele].title;
+                    instr_quote.innerText = instr_db[ele].quote;
+                }
+            }
+        })
+}
+
 //button stuff and initialize databse
 var select = document.getElementById("confirm")
 select.addEventListener("click", displayTimings);

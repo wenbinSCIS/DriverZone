@@ -14,13 +14,12 @@
 
 <body >
   <div id="nav-placeholder"></div>
-  <div class="jumbotron jumbotron-fluid ">
+  <div class="jumbotron jumbotron-fluid " style="background-color:rgb(155, 181, 238);">
     <div class="container">
       <div class="row">
         <div class="col-6" id="left-stuff">
-          <h1 class="display-4 " style="font-weight:bold;font-size:30px;">We focus on your Story</h1>
-          <p class="lead pt-4" style="font-size: 15px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio reprehenderit earum sed porro nesciunt vitae voluptas sit ullam, quibusdam repellendus iusto commodi quo dolor vero possimus nemo cupiditate unde. Eaque!</p>
-          
+          <h1 class="display-4 " style="font-weight:bold;font-size:30px;" id="instr_title">We focus on your Story</h1>
+          <p class="lead pt-4" style="font-size: 15px;" id="instr_quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio reprehenderit earum sed porro nesciunt vitae voluptas sit ullam, quibusdam repellendus iusto commodi quo dolor vero possimus nemo cupiditate unde. Eaque!</p>
         </div>
         <div class="col-6">
           <img src="../images/random person.jpg" id="instructor-img" class='mx-auto d-block'>
@@ -32,7 +31,7 @@
   <div class="container">
     <div class="row" > 
       <div class="col-6" >
-        <h3>Select Date </h3>
+        <h3 style="">Select Date </h3>
         <div class="container">
           <div class="date-picker">
           <div class="selected-date" id="selected_date"> 30 /07/ 2019</div>
@@ -51,14 +50,19 @@
         
         
       </div>
-      
-      <div class="col" id="times">
-
+      <div class="col" style="background-color:oldlace; border-radius: 30px " >
+        <h3>Select Time</h3>
+        <div id="times">
+          <div class="text-danger">
+            Please select a date first
+          </div>
+        </div>
       </div>
+      
     </div>
   </div>
   
-  <span type="hidden" id="transfer"></span>
+  
       
   
 
