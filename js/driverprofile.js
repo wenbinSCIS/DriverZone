@@ -49,6 +49,9 @@
               var lang=input[ele].language
               var price=input[ele].price
               var location=input[ele].location
+              var rating=input[ele].rating
+              rating=rating.toFixed(1);
+              console.log(rating);
          
               var image="../images/"+name+".jpg";
               var description=input[ele].description;
@@ -83,10 +86,6 @@
                                   <small>(145)</small>
                                   <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
                               </span>
-                              <ul class="statistic">
-                                  <li>854 Views</li>
-                                  <li>124 Patients</li>
-                              </ul>
                               <ul class="contacts">
                                   <li>
                                       <h6>Address</h6>
@@ -136,15 +135,15 @@
                           <tbody>
                               <tr>
                                   <td>Weekday (Peak)</td>
-                                  <td>$34</td>
+                                  <td>$${price}/h</td>
                               </tr>
                               <tr>
                                   <td>Weekday (Non-peak)</td>
-                                  <td>$60</td>
+                                  <td>$${price+10}/h</td>
                               </tr>
                               <tr>
                                   <td>Weekend/Public Holiday</td>
-                                  <td>$40</td>
+                                  <td>$${price+20}/h</td>
                               </tr>
                           </tbody>
                       </table>
@@ -162,7 +161,7 @@
                       <div class="row">
                           <div class="col-lg-3">
                               <div id="review_summary">
-                                  <strong>4.7</strong>
+                                  <strong>${rating}</strong>
                                   <div class="rating">
                                       <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
                                   </div>
@@ -280,7 +279,7 @@
                   </div>
                   <!-- End review-container -->
                   <hr>
-                <div class="text-end"><a href="submit-review.html" class="btn_1">Submit review</a></div>
+                <div class="text-end"><a href="submit-review.html?id=${name}" class="btn_1" >Submit review</a></div>
               </div>
           </div>
 
