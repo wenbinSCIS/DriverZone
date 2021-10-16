@@ -24,15 +24,16 @@ select.addEventListener("click", displayTimings);
 
 
 function getDatabase(){
-    var ref = await firebase.database().ref('instructor');
+    var ref = firebase.database().ref('instructor');
     console.log(ref)
     ref.once("value")
         .then(function(snapshot){
             var instr_db = snapshot.val()
-            return instr_db
+            
         })
 }
-console.log(getDatabase())
+getDatabase();
+console.log(instr_db)
 
 
 function displayTimings(database){
