@@ -18,16 +18,6 @@ var select = document.getElementById("confirm")
 select.addEventListener("click", displayTimings);
 
 
-function getDatabase(){
-    var ref = firebase.database().ref('instructor');
-    ref.once("value")
-        .then(function(snapshot){
-            var instr_db = snapshot.val()
-            return instr_db;
-        })
-}
-
-
 function displayTimings(){
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
