@@ -103,8 +103,9 @@ h3{
 	color: #313131;
 }
 .date-picker .dates .days .day.selected {
-	background-color: blue;
+	background-color: #0A66C2;
   color:white;
+  border-radius:50px;
 }
 
 #left{
