@@ -51,7 +51,7 @@
 
         get(child(dbref,"instructor")).then((snapshot)=>{
             if (snapshot.exists()) {
-                console.log(snapshot)
+               
                 return display(snapshot.val());
             }
             else {
@@ -69,15 +69,15 @@
         var arr=[];
         var count=0;
         for (let ele in input) {
-            console.log(ele)
+        
             var name=ele;
             var lang=input[ele].language
             var location=input[ele].location
             var price=input[ele].price
-            console.log(price)
+       
             var image="../images/"+name+".jpg";
             var description=input[ele].description;
-            console.log(description);
+           
             // var tr=document.createElement("tr");
             // tr.appendChild(createNode(name));
             // tr.appendChild(createNode(lang));
@@ -88,7 +88,7 @@
             // let a=appendBody(tr);
             count++;
 
-            console.log(count);
+          
             
             if (count<5) {
             document.getElementById("here").innerHTML+=`<div class="col-sm-6 col-lg-3 p-t-30">

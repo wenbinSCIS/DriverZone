@@ -24,21 +24,17 @@
 
 
     const dbref= ref(db);
-    console.log(1);
-    console.log(2);
 
 
     var a;
     get(child(dbref,"instructor")).then((snapshot)=>{
         if (snapshot.exists()) {
             a= display(snapshot.val());
-            console.log(a);
+         
             test(a);     
         } 
     });
 
-    console.log(39);
-    console.log(a);
 
     function resourceTemplate(resource) {
         return `
@@ -106,7 +102,7 @@
 
 
     function project(input) {
-        console.log(input)
+    
         document.getElementById("here").innerHTML=input
         .splice(0, 3) 
         .map(resourceTemplate)

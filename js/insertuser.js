@@ -1,88 +1,78 @@
 
-// var config = {
-//     apiKey: "AIzaSyDruPuuruiIkp6rGikLAUixFbT5-RFRm0s",
-//     authDomain: "wad2-e8948.firebaseapp.com",
-//     databaseURL: "https://wad2-e8948-default-rtdb.asia-southeast1.firebasedatabase.app",
-//     storageBucket: "wad2-e8948.appspot.com",
-//   };
-
-// firebase.initializeApp(config);
-
-// function writeUserData(){
-
-	
-		
-
-// 		const dbRef = firebase.database().ref();
-// 		const usersRef = dbRef.child('users');
-
-		
-//  		userRefs.child('mike').set({'firstName': "test", 'lastName': "test", 'gender': "test",})
 
 
-// }
-    console.log(999);
+ var config = {
+     apiKey: "AIzaSyDruPuuruiIkp6rGikLAUixFbT5-RFRm0s",
+     authDomain: "wad2-e8948.firebaseapp.com",
+     databaseURL: "https://wad2-e8948-default-rtdb.asia-southeast1.firebasedatabase.app",
+     storageBucket: "wad2-e8948.appspot.com",
+   };
 
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDruPuuruiIkp6rGikLAUixFbT5-RFRm0s",
-      authDomain: "wad2-e8948.firebaseapp.com",
-      databaseURL: "https://wad2-e8948-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "wad2-e8948",
-      storageBucket: "wad2-e8948.appspot.com",
-      messagingSenderId: "905590919273",
-      appId: "1:905590919273:web:5d6c7e3da73fbdb9cdd2f8"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+ firebase.initializeApp(config);
 
-    import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
-
-    const db= getDatabase();
-
-
-
-        const dbref= ref(db);
-
-        get(child(dbref,"user")).then((snapshot)=>{
-            if (snapshot.exists()) {
-                console.log(snapshot.val())
-                add();
-            }
-            else {
-                alert("No data found")
-            }
-        })
-
-        function add() {
+ function writeUserData(full_name,pnum,email,password,gender,dob){
+    var rootRef = firebase.database().ref();
+    var storesRef = rootRef.child('users');
+    var newStoreRef = storesRef.push();
+    newStoreRef.set({
+      "name": full_name,
+      "pnum": pnum,
+      "email": email,
+      "password": password,
+      "gender": gender,
+      "dateofbirth": dob
 
       
-          var name= document.getElementById("full_name");
-            
-            set(ref(db, name.value),{
-                Name: name.value
-            }      
-            
-            )
-            .then(()=>{
-                alert("data stored successfully");
-                
-            })
-            .catch((error)=>{
-                alert("data not stored successfully");
-                
-            })
     }
+    , (error) => {
+        if (error) {
+          // The write failed...
+          alert("There was a problem with registering")
+        } else {
+          // Data saved successfully!
+          alert("Registration successful")
+          window.location.href = "login.html";
+
+        }
+    });
+  }
+
+
+  function getUser(emailstr,password){
+    var rootRef = firebase.database().ref();
+    var storesRef = rootRef.child('users');
+   
+    storesRef.on("value", function(snapshot) {
+      console.log(snapshot.val());
+      for( var item in snapshot.val()){
+       
+
+        var dbemail = snapshot.val()[item].email
+        var dbpassword = snapshot.val()[item].password
+
+        if(emailstr===dbemail){
+          if (dbpassword === password){
+            alert("Log in successful!")
+            sessionStorage.setItem("userid",item)
+            window.location.href = "index.html";
+            break
+          }
+          else{
+            alert("Incorrect login details!")
+            break
+          }
+        }
+        else{
+          alert("Incorrect login details!")
+          break
+        }
+      }
+      
+   });
+  }
 
 
 
 
 
-
-            
+ 

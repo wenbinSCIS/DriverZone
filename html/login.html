@@ -23,7 +23,12 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/vendors.css" rel="stylesheet">
         <link href="../css/loginstyle.css" rel="stylesheet">
-  
+		
+
+		<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+		<script src="../js/insertuser.js"></script>
     </head>
 
 
@@ -60,7 +65,7 @@
 	                <div class="row">
 	                    <div class="col-lg-9 col-xl-7 mx-auto">
 	                        <h4 class="mb-3">Login</h4>
-	                        <form class="input_style_1" method="post">
+	                        <div class="input_style_1">
 	                            <div class="form-group">
 	                                <label for="email_address">Email Address</label>
 	                                <input type="email" name="email_address" id="email_address" class="form-control">
@@ -80,7 +85,7 @@
 	                                    <a id="forgot" href="javascript:void(0);">Forgot Password?</a>
 	                                </div>
 	                            </div>
-	                            <button type="submit" class="btn_1 full-width">Login</button>
+	                            <button type="submit" onclick="validatelogin()" class="btn_1 full-width">Login</button>
 	                        </form>
 	                        <p class="text-center mt-3 mb-0">Don't have an account? <a href="signup.html">Sign Up</a></p>
 	                        <form class="input_style_1" method="post">
@@ -108,6 +113,12 @@
     <script src="../js/common_scripts.js"></script>
 	<script src="../js/common_func.js"></script>
   
-    
+    <script>
+		function validatelogin(){
+
+			var email = document.getElementById("email_address").value;
+			var password = document.getElementById("password").value;
+			var result = getUser(email,password);
+		}
     </script>
   </body>

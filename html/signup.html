@@ -9,25 +9,23 @@
     <meta name="author" content="Ansonika">
     <title>Signup</title>
 
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="../image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="../image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="../image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="../image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- BASE CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/loginvendors.css" rel="stylesheet">
+    <link href="../css/loginvendor.css" rel="stylesheet">
     <link href="../css/loginstyle.css" rel="stylesheet">
-	<link href="../css/insertuser.css" rel="stylesheet">
+	
 
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="../css/custom.css" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+	<script src="../js/insertuser.js"></script>
 
     <style>
 
@@ -36,7 +34,7 @@
         }
     </style>
 
-	<script type="module" src="../js/insertuser.js"></script>	
+	
 </head>
 
 <body>
@@ -68,26 +66,27 @@
 	                <div class="row">
 	                    <div class="col-lg-9 col-xl-7 mx-auto">
 	                        <h4 class="mb-3">Sign Up</h4>
-	                        <div class="form">
-	                        	<input id="website" name="website" type="text" value="">
+	                        <div class="input_style_1">
+	                        	
 								<!-- Leave for security protection, read docs for details -->
 								<div class="form-group">
 	                                <label for="full_name">Full Name</label>
 	                                <input type="text" name="full_name" id="full_name" class="form-control" required>
 	                            </div>
-                                <div class="form-group">
-	                                <label for="nric">NRIC</label>
-	                                <input type="text" name="nric" id="nric" class="form-control" required>
-	                            </div>
+                             
                                 <div class="form-group">
 	                                <input type="radio" id="male" name="gender" value="male" required>
                                     <label for="male">Male</label>
                                     <input type="radio" id="female" name="gender" value="female" required>
                                     <label for="female">Female</label>
 	                            </div>
-	                            <div class="form-group">
-	                                <label for="email_address">Email Address</label>
+								<div class="form-group">
+	                                <label for="email_address">Email</label>
 	                                <input type="email" name="email_address" id="email_address" class="form-control" required>
+	                            </div>
+								<div class="form-group">
+	                                <label for="dob">Date of Birth (DD/MM/YY)</label>
+	                                <input type="text" name="dob" id="dob" class="form-control" required>
 	                            </div>
 								<div class="form-group">
 	                                <label for="phone_num">Phone Number</label>
@@ -150,37 +149,40 @@
 	<!-- SPECIFIC SCRIPTS -->
 	<script src="../js/pw_strength.js"></script>
 	<script src="../js/jquery.validate.js"></script>
-	
-	<script src="../js/insertuser.js"></script>
+
 	
 	<script>
 	function subz(){
 		var result = 0;
 		var count = 0;
 		var msg = "";
-		var nric = document.getElementById("nric").value;
+
 		var pnum = document.getElementById("phone_num").value;
 		var email = document.getElementById("email_address").value;
-
+		var dob = document.getElementById("dob").value;
 		var password1 = document.getElementById("password1").value;
 		var password2 = document.getElementById("password2").value;
+	
+		var full_name = document.getElementById("full_name").value;
 
-
-		result = validateNRIC(nric);
-		if(result===false){
-			msg += "Please enter a valid NRIC\n";
-			count +=1;
-		}
+		var gender;
+		var ele = document.getElementsByName('gender');
+              
+            for(i = 0; i < ele.length; i++) {
+                if(ele[i].checked){
+					gender = ele[i].value;
+				}
+			}
 
 		result = checkPhoneNum(pnum);
 		if(result===false){
 			msg += "Please enter a valid Phone Number\n";
 			count +=1;
 		}
-
 		result = ValidateEmail(email);
+	
 		if(result===false){
-			msg += "Please enter a valid Email address\n";
+			msg += "Please enter a valid Email Address\n";
 			count +=1;
 		}
 
@@ -203,8 +205,12 @@
 			alert(msg)
 		}
 		else{
-			alert("here")
-			var success = writeUserData()
+			
+			var success = writeUserData(full_name,pnum,email,password1,gender,dob)
+
+			
+			
+
 		}
 		
 	}
@@ -249,43 +255,6 @@ function checkPhoneNum(str){
 	return true;
 }
 
-function validateNRIC(str) {
-    if (str.length != 9) 
-        return false;
-
-    str = str.toUpperCase();
-
-    var i, 
-        icArray = [];
-    for(i = 0; i < 9; i++) {
-        icArray[i] = str.charAt(i);
-    }
-
-    icArray[1] = parseInt(icArray[1], 10) * 2;
-    icArray[2] = parseInt(icArray[2], 10) * 7;
-    icArray[3] = parseInt(icArray[3], 10) * 6;
-    icArray[4] = parseInt(icArray[4], 10) * 5;
-    icArray[5] = parseInt(icArray[5], 10) * 4;
-    icArray[6] = parseInt(icArray[6], 10) * 3;
-    icArray[7] = parseInt(icArray[7], 10) * 2;
-
-    var weight = 0;
-    for(i = 1; i < 8; i++) {
-        weight += icArray[i];
-    }
-
-    var offset = (icArray[0] == "T" || icArray[0] == "G") ? 4:0;
-    var temp = (offset + weight) % 11;
-
-    var st = ["J","Z","I","H","G","F","E","D","C","B","A"];
-    var fg = ["X","W","U","T","R","Q","P","N","M","L","K"];
-
-    var theAlpha;
-    if (icArray[0] == "S" || icArray[0] == "T") { theAlpha = st[temp]; }
-    else if (icArray[0] == "F" || icArray[0] == "G") { theAlpha = fg[temp]; }
-
-    return (icArray[8] === theAlpha);
-}
 
 
 
