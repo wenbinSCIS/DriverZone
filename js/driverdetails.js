@@ -84,7 +84,11 @@
         
     </div>
         `;
+
       }
+    
+    
+      console.log(document.getElementById("reference"))
 
 
     var arr;
@@ -98,9 +102,6 @@
         return project(arr,0)
 
     }
-    console.log(copy);
-
-
     function project(holder,num) {
         console.log(num);
         if (num>0) {
@@ -111,18 +112,10 @@
         console.log(copy);
         document.getElementById("here").innerHTML=copy
         .map(resourceTemplate)
-        .join('');
-        console.log(copy);
-        console.log(holder)
-
-        // for (let i = 0; i <input.length; i += 2) {
-        //     input = input.slice(i, i + 2);
-  
-        //     }
-
-        // return input;
-        
+        .join('');   
     }
+
+
     //buttons
 
     length=Math.ceil((Object.keys(instructor_obj).length)/3);
@@ -132,15 +125,27 @@
         document.getElementById("buttons").innerHTML+=`
         <button type="button" class="btn btn-dark" id=${index} >${index+1}</button>
         `;
+        // document.getElementById(str).addEventListener("click", ()=>project(holder,index));
         
     }
-    document.getElementById("buttons").innerHTML+=`	<button type="button" class="btn btn-light" id="hello">Next</button> `
-    
+    // document.getElementById("buttons").innerHTML+=`	<button type="button" class="btn btn-light" id="hello">Next</button> `
 
-    // document.getElementById("hello").addEventListener("click", ()=>display(input));
-    document.getElementById("0").addEventListener("click", ()=>project(holder,0));
-    document.getElementById("1").addEventListener("click", ()=>project(holder,1));
+    var wrapper= document.getElementById("buttons").innerHTML;
 
+    // wrapper.forEach(element => {
+    //     console.log(88);
+        
+    // });
+    for (let index = 0; index<length; index++) {
+        document.getElementById(index.toString()).addEventListener("click", ()=>project(holder,index)); 
+        $('#'+index).click(function (e) { //#A_ID is an example. Use the id of your Anchor
+            $('html, body').animate({
+                scrollTop: $('#top').offset().top - 10 //#DIV_ID is an example. Use the id of your destination on the page
+            }, 'slow');
+        });
+        
+        
+    }
 
 
 

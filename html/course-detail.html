@@ -32,76 +32,68 @@
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/color.css">
 <!--===============================================================================================-->
+<link href="../course_detail/css/bootstrap.min.css" rel="stylesheet">
+<link href="../course_detail/css/style.css" rel="stylesheet">
+<link href="../course_detail/css/menu.css" rel="stylesheet">
+<link href="../course_detail/css/vendors.css" rel="stylesheet">
+<link href="../course_detail/css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
+<link href="../course_detail/css/custom.css" rel="stylesheet">
+<!--===============================================================================================-->
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <script type="module" src="../js/driverprofile.js"></script>
 
 <body class="animsition restyle-index">
-
+    
 	<div id="nav-placeholder">
 
 	</div>
+
+    <div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+
 	
-
-
-	<!-- Title page -->
-	<section class="bg-img-1 bg-overlay-3 p-t-93 p-b-95" style="background-image: url('../images/carousel1.jpg');">
-		<div class="container">
-			<div class="flex-w flex-sb-m">
-				<div class="p-t-10 p-b-10 p-r-30">
-					<div class="flex-w p-b-9">
-						<span>
-							<a href="index.html" class="s-txt19 hov-color-main trans-02">
-								<i class="fa fa-home"></i>
-								Home
-							</a>
-							<span class="s-txt19 p-l-6 p-r-9">/</span>
-						</span>
-
-						<span>
-							<a href="course-grid.html" class="s-txt19 hov-color-main trans-02">
-								Our Courses
-							</a>
-						</span>	
+	<main>
+		<div class="container" style="margin: auto !important">
+			<div class="row">
+				<div class="col-xl-10 col-lg-10" id="body">
+				
+					<!-- /section_2 -->
+				</div>
+				<!-- /col -->
+				<aside class="col-xl-2 col-lg-2" id="sidebar">
+					<div class="box_general_3 booking" id="sidebar_form">
+						<form>
+							<div class="title">
+							<h3>Book a Lesson</h3>
+							</div>
+							<a href="booking.html" class="btn_1" id="reference">Book Now</a>
+						</form>
 					</div>
-
-					<h2 class="m-txt6 respon1">
-						Instrutor Details
-					</h2>
-				</div>
-
-				<div class="p-t-10 p-b-10">
-					<!-- Button -->
-					<a href="#" class="btn-drive size1 m-txt1 bg-main bo-rad-4 trans-03">
-						Book Lesson
-						<i class="fa fa-chevron-right m-l-9 fs-14" aria-hidden="true"></i>
-					</a>
-				</div>
+					<!-- /box_general -->
+				</aside>
+				<!-- /asdide -->
 			</div>
+			<!-- /row -->
 		</div>
-	</section>
-
-	<!-- Content -->
-	<section class="bgwhite p-t-80 p-b-75" id="body">
-
-	</section>
-
-	
-	
-	<div id="footer">
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+    <div id="footer">
 
 	</div>
 
 
-
-
-	<!-- Back to top -->
-	<div class="btn-back-to-top hov-bg-main" id="myBtn">
-		<span class="symbol-btn-back-to-top">
-			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
-		</span>
-	</div>
-
+	<!-- COMMON SCRIPTS -->
+	<script src="../course_detail/js/jquery-3.6.0.min.js"></script>
+	<script src="../course_detail/js/common_scripts.min.js"></script>
+	<script src="../course_detail/js/functions.js"></script>
 	
 <!--===============================================================================================-->	
 	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -132,10 +124,7 @@
 <!--===============================================================================================-->
 	<script src="../js/main.js"></script>
 	<script src="../js/main.js"></script>
-	<div id="nav-placeholder">
 
-    </div>
-    
 	<script>
 		$(function(){
 		  $("#nav-placeholder").load("navbar.html");
@@ -144,6 +133,7 @@
 		  $("#footer").load("footer.html");
 		});
 	</script>
+    </div>
 
 </body>
 </html>
