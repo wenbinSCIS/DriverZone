@@ -30,7 +30,7 @@ function create_new_post(title,content,creator,tag,time)
         else {
          // Data saved successfully!
             alert("Post creation is successful")
-            window.location.href = "add_post.html";
+            window.location.href = "forum.html";
         }
     });
     }
