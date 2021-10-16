@@ -102,7 +102,7 @@
 
             cur_content=document.getElementById("post_description").value
 
-            cur_username = sessionStorage.getItem('username')
+            cur_userid = sessionStorage.getItem('userid')
 
             var today = new Date();
 
@@ -117,7 +117,7 @@
             var time = today.getHours() + ":" + cur_min;
             cur_time = date + ", " + time
 
-            create_new_post(cur_title,cur_content,cur_username,cur_tag,cur_time)
+            create_new_post(cur_title,cur_content,cur_userid,cur_tag,cur_time,0)
 
         }
         </script>
