@@ -48,9 +48,10 @@ function displayTimings(){
     var date_format_needed = date_split.split('/').join('-');
     var string=""
     var ref = firebase.database().ref('instructor');
-    var time=[]
+    
     ref.once("value")
         .then(function(snapshot){
+            var time=""
             var instr_db = snapshot.val()
             for(let ele in instr_db){
                 if(ele == id){
@@ -62,17 +63,27 @@ function displayTimings(){
                             console.log(time)
                         }
                     }
+                    
                 }
             }
+            var to_update = document.getElementById("times");
+            var to_appear = document.getElementById("timeconfirm");
             //time is whether there are dates inside, if no dates, time.length is 0
             if(time.length>0){
-            for(let timings of time){
-                console.log(timings)
-                string+= `<button class="button-18" role="button"> ${timings}</button> `;
+                for(let timings of time){
+                    console.log(timings)
+                    string+= `<button class="button-18" role="button"> ${timings}</button> `;
+                }
+                to_update.innerHTML = string;
+                var to_appear = document.getElementById("timeconfirm");
+                to_appear.style.display = "inline";
             }
-            }
-            var to_update = document.getElementById("times");
-            to_update.innerHTML = string;
+            else{
+                //no date in system
+                to_update.innerText = "No dates available for this day"
+                to_appear.style.display = "none";
+                }
+            
         })
 
    
