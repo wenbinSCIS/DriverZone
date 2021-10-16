@@ -17,26 +17,22 @@ const id = urlParams.get('id')
 var select = document.getElementById("confirm")
 select.addEventListener("click", displayTimings);
 
-var currentSnapshot;
-
-function getDB(){
-    var ref = firebase.database().ref('instructor');
-    return ref.once("value");
-}
-function loadDB(){
-    getDB().then(setDB,showError);
-}
-function setDB(snapshot){
-    currentSnapshot = snapshot.val()
-}
-function showError(e){
-    console.log(e);
-}
-function init(){
-    loadDB();
-}
 
 
+
+
+
+
+function getDatabase(){
+    var ref = await firebase.database().ref('instructor');
+    console.log(ref)
+    ref.once("value")
+        .then(function(snapshot){
+            var instr_db = snapshot.val()
+            return instr_db
+        })
+}
+console.log(getDatabase())
 
 
 function displayTimings(database){
@@ -67,4 +63,4 @@ function displayTimings(database){
     }
     var to_update = document.getElementById("times");
     to_update.innerHTML = string;
-    } 
+    }  
