@@ -17,23 +17,20 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
-    import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
+    import {getDatabase, ref, set, child, get,update, remove,query} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
 
-    const db= getDatabase();
-    
+    const db = getDatabase(app)
+    const dbRef = ref(db)
+    const usersSnapshot = await get(query(dbRef))
+    var instructor_obj=usersSnapshot.val().instructor;
+    var input=display(instructor_obj);
+    var holder=[];
+    for (let x in instructor_obj) {
+        holder.push(instructor_obj[x]);
 
+    }
+    console.log(holder)
 
-    const dbref= ref(db);
-
-
-    var a;
-    get(child(dbref,"instructor")).then((snapshot)=>{
-        if (snapshot.exists()) {
-            a= display(snapshot.val());
-         
-            test(a);     
-        } 
-    });
 
 
     function resourceTemplate(resource) {
@@ -88,46 +85,70 @@
     </div>
         `;
       }
+
+
     var arr;
+    var copy;
     function display(input) {
         arr=[];
-        var body=document.getElementById("body");
         for (let ele in input) {
             arr.push(input[ele]);
         }
-        
-        return project(arr)
+        console.log(arr)
+        return project(arr,0)
 
     }
+    console.log(copy);
 
 
-    function project(input) {
-    
-        document.getElementById("here").innerHTML=input
-        .splice(0, 3) 
+    function project(holder,num) {
+        console.log(num);
+        if (num>0) {
+            num=num+(num)*3-1
+            console.log(num);
+        }
+        let copy=holder.slice(num,num+3);
+        console.log(copy);
+        document.getElementById("here").innerHTML=copy
         .map(resourceTemplate)
         .join('');
+        console.log(copy);
+        console.log(holder)
 
-        for (let i = 0; i <input.length; i += 2) {
-            input = input.slice(i, i + 2);
+        // for (let i = 0; i <input.length; i += 2) {
+        //     input = input.slice(i, i + 2);
   
-            }
+        //     }
 
-        return input;
+        // return input;
         
     }
+    //buttons
 
-    var next=document.getElementById("next");
-    var b;
+    length=Math.ceil((Object.keys(instructor_obj).length)/3);
+    console.log(length)
 
-    function test(input) {
-        b=input
-        console.log(b);
-        $('hello').observe('click', function () {
-            alert('Hi');
-          });
+    for (let index = 0; index<length; index++) {
+        document.getElementById("buttons").innerHTML+=`
+        <button type="button" class="btn btn-dark" id=${index} >${index+1}</button>
+        `;
         
-    };
+    }
+    document.getElementById("buttons").innerHTML+=`	<button type="button" class="btn btn-light" id="hello">Next</button> `
+    
+
+    // document.getElementById("hello").addEventListener("click", ()=>display(input));
+    document.getElementById("0").addEventListener("click", ()=>project(holder,0));
+    document.getElementById("1").addEventListener("click", ()=>project(holder,1));
+
+
+
+
+
+
+
+
+    
 
     
 
