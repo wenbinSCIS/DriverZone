@@ -102,6 +102,8 @@
 
             cur_content=document.getElementById("post_description").value
 
+            cur_username = sessionStorage.getItem('username')
+
             var today = new Date();
 
             cur_min=today.getMinutes().toString()
@@ -115,9 +117,8 @@
             var time = today.getHours() + ":" + cur_min;
             cur_time = date + ", " + time
 
-            create_new_post(cur_title,cur_content,"System",cur_tag,cur_time)
+            create_new_post(cur_title,cur_content,cur_username,cur_tag,cur_time)
 
-            location.href="add_post.html"
         }
         </script>
     </body>
