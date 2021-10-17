@@ -41,7 +41,7 @@ const id = urlParams.get('id')
 var instr_img = document.getElementById("instructor-img");
 var instr_name = document.getElementById("instructor-name");
 
-instr_name.innerText = `Instructor ${id}`;
+
 instr_img.src = `.. / images / $ { id }.JPG `;
 
 var time = []

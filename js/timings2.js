@@ -18,7 +18,7 @@ var instr_name = document.getElementById("instructor-name");
 var instr_title = document.getElementById("instr_title");
 var instr_quote = document.getElementById("instr_quote");
 
-instr_name.innerText = id;
+instr_name.innerText = `Instructor ${id}`;
 instr_img.src = `../images/${id}.JPG`;
 
 displayQuoteAndTitle()
@@ -86,3 +86,19 @@ function displayTimings(){
             
         })
     }  
+
+//User clicks on "select this timeslot" which is after pressing both date and time
+
+
+to_appear.addEventListener("click", bookingDetails);
+console.log(to_appear);
+function bookingDetails(){
+    console.log("here")
+    var buttons = document.getElementsByClassName("button-18");
+    var checked = "";
+    for(let button of buttons){
+        if(button.clicked){
+            console.log(button)
+        }
+    }
+}

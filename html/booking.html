@@ -15,7 +15,7 @@
 
 <body>
     <div id="nav-placeholder"></div>
-    <section class="bg-img-1 bg-overlay-3 p-t-0 p-b-50" style="background-image: url('../images/carousel2.jpg');">
+    <section class="bg-img-1 bg-overlay-3 p-t-0 p-b-50" style="background-image: url('../images/carousel2');">
         <div class="container">
             <div class="flex-w flex-sb-m">
                 <div class="p-t-10 p-b-10 p-r-30">
@@ -44,9 +44,7 @@
             </div>
     </section>
 
-
-
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <div class="col-6">
                 <h3 style="color:black;font-size:30px;font-weight:bold;margin-top:15px;">Select Date </h3>
@@ -57,7 +55,7 @@
 
         </div>
         <div class="row">
-            <div class="col" style="background-color:oldlace; border-radius: 30px; margin-right:90px;padding:50px">
+            <div class="col-md" style="background-color:lightblue; border-radius: 30px; margin-right:90px;padding:50px;margin-top:15px;">
                 <div class="container">
                     <div class="date-picker">
                         <div class="selected-date" id="selected_date"> 30 /07/ 2019</div>
@@ -76,7 +74,7 @@
 
 
             </div>
-            <div class="col" style="background-color:oldlace; border-radius:30px; padding:40px;">
+            <div class="col-md" style="background-color:lightblue; border-radius:30px;padding:40px;margin-top:15px;">
                 <div id="times">
                     <div class="text-danger" style="text-align:center;font-size:30px" id="warn">
                         Please select a date first
@@ -84,30 +82,46 @@
                 </div>
                 <button type="button" class="btn btn-dark" style="margin-left:10px;margin-top:10px;display:none;" id="timeconfirm">Select this timeslot?</button>
             </div>
-
         </div>
-    </div>
+        <div class="row" style="background-image: url('../images/newdrivingbg.jpg');; border-radius:30px;padding:40px;margin-top:15px;display:none">
+            <div class="col-md" id="booking_details" >
+                <h3 style="font-weight:bold;color:rgb(252, 247, 247)">Your Booking Details:</h3>
+                <span style="text-align:center; color:white">
+                    <h2 id="book_date">Booked Date Here</h2>
+                    <h5 id="book_time">Booked Time here</h5>
+                    <h5 id="book_instr">Instructor here</h5>
+                </span>
+                <button type="button" class="btn btn-dark my-auto" id="add_to_database">Confirm</button>
+                
+            </div>
+        </div>
+        </div>
+
+
+    
 
 
 
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../js/timings2.js">
-    </script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="../js/timings2.js">
+        </script>
 
-    <script src="../js/index.js"></script>
+        <script src="../js/index.js"></script>
 
-    <script>
-        $(function() {
-            $("#nav-placeholder").load("navbar.html");
-        })
-    </script>;
+        <script>
+            $(function() {
+                $("#nav-placeholder").load("navbar.html");
+            })
+        </script>;
 
 
 </body>
+
+</html>
 
 </html>
