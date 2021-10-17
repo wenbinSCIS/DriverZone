@@ -9,41 +9,65 @@ var config = {
   firebase.initializeApp(config);
 
 function test(){
-    console.log(999);
-    var rootRef = firebase.database().ref();
-    var storesRef = rootRef.child('instructor');
-    var count = 0;
-    storesRef.on("value", function(snapshot) {
-      console.log(snapshot.val());
-      for(var item in snapshot.val()) {
-          if (item==id) {
-          for (var instructor in snapshot.val()[item]) {
-              if (instructor=="rating") {
-                  console.log(instructor);
-                  var review=snapshot.val()[item].review;
-                  var length=Object.keys(review).length;
-                  var storesRef = rootRef.child('instructor').child(id).child("review");
-                  console.log(storesRef);
-                  var newStoreRef = storesRef.push();
-              }
+    console.log(99);
+    var rootRef = firebase.database().ref("instructor/"+id+"/review");
+    var rootRef = rootRef.push();
+    rootRef.set({
+        "name": "Tom",
+  
+        
+      }
+      , (error) => {
+          if (error) {
+            // The write failed...
+            alert("There was a problem with registering")
+          } else {
+            // Data saved successfully!
+            alert("Registration successful")
+            window.location.href = "course-detail.html?id="+id;
+  
           }
-        }
+      });
     }
-}
-    )
-}
-
-
- const queryString = window.location.search;
+const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
-console.log(id);
+
+
+
 
 function submit() {
     var a=checkRating()
     console.log(a);
     console.log(checkDescription())
+    console.log(checkRating());
+    console.log(checkDescription());
+    if (checkRating() && checkDescription()) {
+        var description=checkDescription();
+        var rating= checkRating();
+        var rootRef = firebase.database().ref("instructor/"+id+"/review");
+        var rootRef = rootRef.push();
+        rootRef.set({
+            "description": description,
+            "rating": rating,
+          }
+          , (error) => {
+              if (error) {
+                // The write failed...
+                alert("There was a problem with registering")
+              } else {
+                // Data saved successfully!
+                window.location.href = "course-detail.html?id="+id;
+      
+              }
+          });
+
+    }
+    else {
+        console.log("elee");
+    }
+
 }
 
 
@@ -51,7 +75,7 @@ function checkRating() {
     var rating=document.querySelectorAll('input[type="radio"]');
     for (const rb of rating) {
        if (rb.checked) {
-           return rb.value;
+           return Number(rb.value);
        }
     }
     return false;
