@@ -73,12 +73,11 @@ function get_username(cur_user_id)
         {
             console.log("no such user")
         }
-        console.log(cur_name)
-        console.log("____")
+    
         return cur_name
     })
 }
-
+var all_post_list = []
 function get_all_post()
 {
     var rootRef = firebase.database().ref();
@@ -86,7 +85,7 @@ function get_all_post()
 
     storesRef.on("value", function(snapshot)
     {
-        var all_post_list = []
+       
         for( var item in snapshot.val())
         {
             var cur_title = snapshot.val()[item].title
@@ -101,7 +100,7 @@ function get_all_post()
             all_post_list.push([cur_title,cur_content,cur_creator_id,cur_name,cur_tag,cur_time,cur_upvote,cur_comment])
         }
 
-        console.log(all_post_list)
+     
 
         return all_post_list
     })
