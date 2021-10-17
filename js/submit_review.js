@@ -8,34 +8,9 @@ var config = {
 
   firebase.initializeApp(config);
 
-function test(){
-    console.log(99);
-    var rootRef = firebase.database().ref("instructor/"+id+"/review");
-    var rootRef = rootRef.push();
-    rootRef.set({
-        "name": "Tom",
-  
-        
-      }
-      , (error) => {
-          if (error) {
-            // The write failed...
-            alert("There was a problem with registering")
-          } else {
-            // Data saved successfully!
-            alert("Registration successful")
-            window.location.href = "course-detail.html?id="+id;
-  
-          }
-      });
-    }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
-
-
-
-
 
 function submit() {
     var a=checkRating()
@@ -63,7 +38,8 @@ function submit() {
                     // The write failed...
                     alert("There was a problem with registering")
                   } else {
-                    // Data saved successfully!
+                    // Data saved successfully
+                   
                     window.location.href = "course-detail.html?id="+id;
           
                   }
@@ -71,13 +47,12 @@ function submit() {
     
         }
         else {
-            console.log("elee");
+          //error if user does not fill up the form or key in the rating score
         }
 
       }, (errorObject) => {
         console.log('The read failed: ' + errorObject.name);
       }); 
-      console.log(name1)
   
 }
 
@@ -98,6 +73,11 @@ function checkDescription() {
     }
     return document.getElementById("review").value;
 }
+
+
+
+
+
 
 
 

@@ -49,8 +49,20 @@
               var lang=input[ele].language
               var price=input[ele].price
               var location=input[ele].location
-              var rating=input[ele].rating
+              var oneStar=input[ele].rating[1]
+              var twoStar=input[ele].rating[2]
+              var threeStar=input[ele].rating[3]
+              var fourStar=input[ele].rating[4]
+              var fiveStar=input[ele].rating[5];
+              var TotalRating=oneStar+twoStar+threeStar+fourStar+fiveStar;
+              var oneStar=oneStar/TotalRating*100;
+              var twoStar=twoStar/TotalRating*100
+              var threeStar=threeStar/TotalRating*100
+              var fourStar=fourStar/TotalRating*100
+              var fiveStar=fiveStar/TotalRating*100
+              var rating=input[ele].rating.total
               rating=rating.toFixed(1);
+              var totalNumOfRating=Object.keys(input[ele].review).length;
               
          
               var image="../images/"+name+".jpg";
@@ -69,13 +81,11 @@
                           <div class="col-lg-7 col-md-8">
                               <h1>${name_capitalize}</h1>
                               <span class="rating">
-                                  <i class="icon_star voted"></i>
-                                  <i class="icon_star voted"></i>
-                                  <i class="icon_star voted"></i>
-                                  <i class="icon_star voted"></i>
-                                  <i class="icon_star"></i>
-                                  <small>(145)</small>
-                                  <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+                                
+                                
+                                  ${star_display(rating)}
+                                  <small>(${totalNumOfRating})</small>
+                                
                               </span>
                               <ul class="contacts">
                                   <li>
@@ -154,16 +164,16 @@
                               <div id="review_summary">
                                   <strong>${rating}</strong>
                                   <div class="rating">
-                                      <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                                  ${star_display(rating)}
                                   </div>
-                                  <small>Based on 4 reviews</small>
+                                  <small>Based on ${totalNumOfRating} reviews</small>
                               </div>
                           </div>
                           <div class="col-lg-9">
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${fiveStar}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><small><strong>5 stars</strong></small></div>
@@ -172,7 +182,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${fourStar}%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><small><strong>4 stars</strong></small></div>
@@ -181,7 +191,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${threeStar}%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><small><strong>3 stars</strong></small></div>
@@ -190,7 +200,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${twoStar}%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><small><strong>2 stars</strong></small></div>
@@ -199,7 +209,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${oneStar}%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><small><strong>1 stars</strong></small></div>
@@ -235,24 +245,40 @@
               console.log(input[eachReview]);
               document.getElementById("review-box").innerHTML+=`
               <div class="review-box clearfix">
-              <figure class="rev-thumb"><img src="http://via.placeholder.com/150x150.jpg" alt="">
+              <figure class="rev-thumb"><img src="../images/noProfile.jpg" >
               </figure>
               <div class="rev-content">
-                  <div class="rating">
-                      <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                  <div class="rating" id="rating-display">
+                    ${star_display(input[eachReview].rating)}                
                   </div>
                   <div class="rev-info">
                       ${input[eachReview].name}
                   </div>
                   <div class="rev-text">
                       <p>
-                          ${input[eachReview].description};
+                          ${input[eachReview].description}
                       </p>
                   </div>
               </div>
           </div>
           `
           }
+      }
+
+      function star_display(input) {
+          var new1="";
+          for (let index = 0; index < input; index++) {
+            new1+="<i class='icon_star voted'></i>"
+              
+          };
+          let remaining=5-input;
+          for (let index = 0; index < remaining; index++) {
+            new1+="<i class='icon_star'></i>"
+  
+            
+          }
+          return new1
+      
       }
 	
 

@@ -44,11 +44,9 @@
             <div class="flex-sb-m p-b-12">
                 
                 <span class="color1 fs-12">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class='icon_star-empty'></i>
+                    ${star_display(resource.rating.total)}
+                
                 </span>
             </div>
 
@@ -112,7 +110,8 @@
         console.log(copy);
         document.getElementById("here").innerHTML=copy
         .map(resourceTemplate)
-        .join('');   
+        .join('');  
+         
     }
 
 
@@ -142,6 +141,24 @@
         
         
     }
+
+
+    function star_display(input) {
+        var new1="";
+        for (let index = 0; index < input; index++) {
+          new1+="<i class='icon_star voted'></i>"
+            
+        };
+        let remaining=5-input;
+        for (let index = 0; index < remaining; index++) {
+          new1+="<i class='icon_star' style='color:#DCDCDC'></i>"
+
+          
+        }
+        return new1
+    
+    }
+  
 
 
 

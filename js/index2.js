@@ -74,6 +74,7 @@
             var lang=input[ele].language
             var location=input[ele].location
             var price=input[ele].price
+            var rating=input[ele].rating.total;
        
             var image="../images/"+name+".jpg";
             var description=input[ele].description;
@@ -104,11 +105,7 @@
                             ${name}
                         </span>
                         <span class="color1 fs-12">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
+                            ${star_display(rating)}
                         </span>
                     </div>
 
@@ -142,5 +139,21 @@
             `
         }
     }
+    function star_display(input) {
+        var new1="";
+        for (let index = 0; index < input; index++) {
+          new1+="<i class='icon_star voted'></i>"
+            
+        };
+        let remaining=5-input;
+        for (let index = 0; index < remaining; index++) {
+          new1+="<i class='icon_star' style='color:#DCDCDC'></i>"
+
+          
+        }
+        return new1
+    
+    }
+  
  
     }
