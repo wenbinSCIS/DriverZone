@@ -43,31 +43,42 @@ function submit() {
     console.log(checkDescription())
     console.log(checkRating());
     console.log(checkDescription());
-    if (checkRating() && checkDescription()) {
-        var description=checkDescription();
-        var rating= checkRating();
-        var rootRef = firebase.database().ref("instructor/"+id+"/review");
-        var rootRef = rootRef.push();
-        rootRef.set({
-            "description": description,
-            "rating": rating,
-          }
-          , (error) => {
-              if (error) {
-                // The write failed...
-                alert("There was a problem with registering")
-              } else {
-                // Data saved successfully!
-                window.location.href = "course-detail.html?id="+id;
-      
+    cur_userid = sessionStorage.getItem('userid')
+    var ref = firebase.database().ref("users/"+cur_userid+"/name");
+    console.log(ref);
+    ref.on('value', (snapshot) => {
+        var name1 =snapshot.val();
+        if (checkRating() && checkDescription()) {
+            var description=checkDescription();
+            var rating= checkRating();
+            var rootRef = firebase.database().ref("instructor/"+id+"/review");
+            var rootRef = rootRef.push();
+            rootRef.set({
+                "description": description,
+                "rating": rating,
+                "name": name1,
               }
-          });
+              , (error) => {
+                  if (error) {
+                    // The write failed...
+                    alert("There was a problem with registering")
+                  } else {
+                    // Data saved successfully!
+                    window.location.href = "course-detail.html?id="+id;
+          
+                  }
+              });
+    
+        }
+        else {
+            console.log("elee");
+        }
 
-    }
-    else {
-        console.log("elee");
-    }
-
+      }, (errorObject) => {
+        console.log('The read failed: ' + errorObject.name);
+      }); 
+      console.log(name1)
+  
 }
 
 
