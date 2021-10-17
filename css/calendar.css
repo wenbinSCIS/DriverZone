@@ -1,173 +1,169 @@
-
-
-body{
-  background-color: #F5F1E9;
-  color:rgb(6, 6, 88)
-}
-.jumbotron{
-  
-  margin-bottom: 100px !important;
-  
+body {
+    background-color: #F5F1E9;
 }
 
-#instructor-img{
-  width:300px;
-  height:300px;
+#instructor-img {
+    width: 300px;
+    height: 300px;
 }
-#instructor-name{
-  color:black;
-  text-align:center;
-  padding: 10px;
-  font-size:35px;
+
+#instructor-name {
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 35px;
 }
-#left-stuff{
-  padding-left: 100px;
+
+#left-stuff {
+    padding-left: 100px;
 }
-h3{
-  padding-bottom:30px;
+
+h3 {
+    padding-bottom: 30px;
 }
+
 .date-picker {
-	position: relative;
-	width: 100%;
-	height: 60px;
-	background-color: #FFF;
-	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-	cursor: pointer;
-	user-select: none;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #FFF;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    user-select: none;
 }
 
 .date-picker:hover {
-	background-color: #F3F3F3;
+    background-color: #F3F3F3;
 }
 
 .date-picker .selected-date {
-	width: 100%;
-	height: 100%;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	color: #313131;
-	font-size: 28px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #313131;
+    font-size: 28px;
 }
 
 .date-picker .dates {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	right: 0;
-
-	background-color: #FFF;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #FFF;
 }
 
 .date-picker .dates.active {
-	display: block;
+    display: block;
 }
 
 .date-picker .dates .month {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 2px solid #EEE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #EEE;
 }
 
 .date-picker .dates .month .arrows {
-	width: 35px;
-	height: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #313131;
-	font-size: 20px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #313131;
+    font-size: 20px;
 }
 
 .date-picker .dates .month .arrows:hover {
-	background-color: #F3F3F3;
+    background-color: #F3F3F3;
 }
 
 .date-picker .dates .month .arrows:active {
-	background-color: #00CA85;
+    background-color: #00CA85;
 }
 
 .date-picker .dates .days {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	height: 200px;
-}
-.date-picker .dates .days .day { 
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #313131;
-}
-.date-picker .dates .days .day.selected {
-	background-color: #0A66C2;
-  color:white;
-  border-radius:50px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 200px;
 }
 
-#left{
-  background-image: url(../images/gradient-dynamic-blue-lines-background_23-2148995756.jpg);
+.date-picker .dates .days .day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #313131;
+}
+
+.date-picker .dates .days .day.selected {
+    background-color: #0A66C2;
+    color: white;
+    border-radius: 50px;
+}
+
+#left {
+    background-image: url(../images/gradient-dynamic-blue-lines-background_23-2148995756.jpg);
 }
 
 
 /* CSS */
+
 .button-18 {
-  align-items: center;
-  background-color: #0A66C2;
-  border: 0;
-  border-radius: 80px;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 20px;
-  max-width: 480px;
-  min-height: 40px;
-  min-width: 0px;
-  overflow: hidden;
-  padding: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-align: center;
-  touch-action: manipulation;
-  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  margin:10px;
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 80px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    margin: 10px;
 }
 
 .button-18:hover,
-.button-18:focus { 
-  background-color: #58c70e;
-  color: #ffffff;
+.button-18:focus {
+    background-color: #58c70e;
+    color: #ffffff;
 }
 
 .button-18:active {
-  background: #09223b;
-  color: rgb(255, 255, 255, .7);
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
 }
 
-.button-18:disabled { 
-  cursor: not-allowed;
-  background: rgba(0, 0, 0, .08);
-  color: rgba(0, 0, 0, .3);
+.button-18:disabled {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
 }
 
-.confirm{
-  margin-top:200px;
+.confirm {
+    margin-top: 200px;
 }
 
-#instr_title{
-  font-weight:bold;
-  font-size:60px;
-  color:rgb(0, 0, 0) !important;
-  padding:5px;
+#instr_title {
+    font-weight: bold;
+    font-size: 60px;
+    color: rgb(250, 241, 241) !important;
+    padding: 5px;
 }

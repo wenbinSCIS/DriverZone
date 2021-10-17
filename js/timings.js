@@ -14,58 +14,56 @@ const firebaseConfig = {
     appId: "1:905590919273:web:5d6c7e3da73fbdb9cdd2f8"
 };
 
-var confirm=false;
+var confirm = false;
 
 // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-    import {getDatabase, ref, set, child, get,update, remove} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js" 
+import { getDatabase, ref, set, child, get, update, remove } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"
 
-    const db= getDatabase();
+const db = getDatabase();
 
 
-        const dbref= ref(db);
+const dbref = ref(db);
 
-        get(child(dbref,"instructor")).then((snapshot)=>{
-            if (snapshot.exists()) {
-                return display(snapshot.val());
-            }
-            else {
-                alert("No data found")
-            }
-        })
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id')
-        // Id is ali
-        
+get(child(dbref, "instructor")).then((snapshot) => {
+    if (snapshot.exists()) {
+        return display(snapshot.val());
+    } else {
+        alert("No data found")
+    }
+})
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id')
+    // Id is ali
+
 var instr_img = document.getElementById("instructor-img");
 var instr_name = document.getElementById("instructor-name");
 
-instr_name.innerText = id;
-instr_img.src = `../images/${id}.JPG`;
+instr_name.innerText = `Instructor ${id}`;
+instr_img.src = `.. / images / $ { id }.JPG `;
 
-var time= []
+var time = []
 
-function display(input){
+function display(input) {
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
     console.log(date_format_needed);
-    var count=0;
-    var string =""
-        for(let ele in input){
-            if(ele == id){
-                console.log(input)
-                var avail_dates = input[ele].date
+    var count = 0;
+    var string = ""
+    for (let ele in input) {
+        if (ele == id) {
+            console.log(input)
+            var avail_dates = input[ele].date
                 // assume can get date
-                console.log(avail_dates)
-                for(let a_date in avail_dates){
-                    if (a_date == date_format_needed){
-                        time = avail_dates[a_date]
-                    }
+            console.log(avail_dates)
+            for (let a_date in avail_dates) {
+                if (a_date == date_format_needed) {
+                    time = avail_dates[a_date]
                 }
             }
         }
+    }
 }
-
