@@ -42,12 +42,14 @@ var select = document.getElementById("confirm")
 select.addEventListener("click", displayTimings);
 
 
+
+
 function displayTimings(){
+    var string=""
+    var ref = firebase.database().ref('instructor');
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
-    var string=""
-    var ref = firebase.database().ref('instructor');
     
     ref.once("value")
         .then(function(snapshot){
@@ -67,21 +69,16 @@ function displayTimings(){
                 }
             }
             var to_update = document.getElementById("times");
-            var to_appear = document.getElementById("timeconfirm");
             //time is whether there are dates inside, if no dates, time.length is 0
             if(time.length>0){
                 for(let timings of time){
-                    console.log(timings)
-                    string+= `<button class="button-18" role="button"> ${timings}</button> `;
+                    string+= `<button class="button-18" role="button" onclick="bookingDetails(this)"> ${timings}</button> `;
                 }
                 to_update.innerHTML = string;
-                var to_appear = document.getElementById("timeconfirm");
-                to_appear.style.display = "inline";
             }
             else{
                 //no date in system
                 to_update.innerText = "No dates available for this day"
-                to_appear.style.display = "none";
                 }
             
         })
@@ -89,16 +86,24 @@ function displayTimings(){
 
 //User clicks on "select this timeslot" which is after pressing both date and time
 
-
+/* var to_appear = document.getElementById("timeconfirm");
 to_appear.addEventListener("click", bookingDetails);
-console.log(to_appear);
-function bookingDetails(){
-    console.log("here")
-    var buttons = document.getElementsByClassName("button-18");
-    var checked = "";
-    for(let button of buttons){
-        if(button.clicked){
-            console.log(button)
-        }
-    }
+console.log(to_appear); */
+
+function bookingDetails(button){
+    var timing = button.innerText;
+    var date_select = document.getElementById("selected_date").innerText;
+    var date_split = date_select.split(" ").join('')
+    var date_format_needed = date_split.split('/').join('-');
+    console.log(timing)
+
+    var display_date = document.getElementById("book_date");
+    var display_time = document.getElementById("book_time");
+    var display_instr= document.getElementById("book_instr");
+    var to_display = document.getElementById("to_display");
+
+    display_date.innerText = date_format_needed;
+    display_time.innerText = timing;
+    display_instr.innerText = `Instructor ${id}`;
+    to_display.style.display = "block";
 }
