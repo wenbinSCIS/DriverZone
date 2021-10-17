@@ -77,7 +77,7 @@
             <li class="respon-sub-menu">
               <a href="forum.html">Forum</a>
             </li>
-            <li class="respon-sub-menu">
+            <li id="drop" class="respon-sub-menu">
               <a id="change" href="login.html">Login</a>
             </li>
           </ul>
@@ -107,9 +107,30 @@
     else{
       const name = sessionStorage.getItem('username');
       var loginned = document.getElementById("change");
+      var drop = document.getElementById("drop");
+
+      drop.innerHTML = `
+          <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Welcome,
+        ` +name + `
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">My Profile</a>
+        <a class="dropdown-item" href="#" onclick=logout()>Log Out</a>
+      
+      </div>
+    </div>
+      `
         loginned.innerText = "Welcome, " + name;
 
     }
+
+    function logout(){
+      sessionStorage.clear()
+      window.location.href = "index.html";
+    }
+    
 </script>
 
 

@@ -67,13 +67,13 @@
         }
       }
 
-      
+      const mode = sessionStorage.getItem('userid');
+      if(mode === null){
+        alert("Incorrect login details!")
+      }
       
    });
-   const mode = sessionStorage.getItem('userid');
-   if(mode === null){
-     alert("Incorrect login details!")
-   }
+
   }
 
 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Find easily a doctor and book online an appointment">
+	<meta name="author" content="Ansonika">
+	<title>Review</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+	<!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- BASE CSS -->
+	<link href="../course_detail/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../course_detail/css/style.css" rel="stylesheet">
+	<link href="../course_detail/css/menu.css" rel="stylesheet">
+	<link href="../course_detail/css/vendors.css" rel="stylesheet">
+	<link href="../course_detail/css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
+    
+	<!-- YOUR CUSTOM CSS -->
+	<link href="../course_detail/css/custom.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div id="nav-placeholder">
+
+	</div>
+
+
+	<div id="preloader" class="Fixed">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- /Preload-->
+	
+
+	
+	<main>
+		<!-- /breadcrumb -->
+
+		<div class="container margin_60_35">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="box_general_3 write_review">
+						<h1>Write a review for <span id="name"></span> </h1>
+						<div class="rating_submit">
+							<div class="form-group">
+							<label class="d-block">Overall rating</label>
+							<span class="rating">
+								<input type="radio" class="rating-input" id="5_star" name="rating-input" value="5"><label for="5_star" class="rating-star"></label>
+								<input type="radio" class="rating-input" id="4_star" name="rating-input" value="4"><label for="4_star" class="rating-star"></label>
+								<input type="radio" class="rating-input" id="3_star" name="rating-input" value="3"><label for="3_star" class="rating-star"></label>
+								<input type="radio" class="rating-input" id="2_star" name="rating-input" value="2"><label for="2_star" class="rating-star"></label>
+								<input type="radio" class="rating-input" id="1_star" name="rating-input" value="1"><label for="1_star" class="rating-star"></label>
+							</span>
+							</div>
+						</div>
+						<!-- /rating_submit -->
+						<!-- <div class="form-group">
+							<label>Title of your review</label>
+							<input class="form-control" type="text" placeholder="If you could say it in one sentence, what would you say?">
+						</div> -->
+						<div class="form-group">
+							<label>Your review</label>
+							<textarea class="form-control" style="height: 350px;" placeholder="Write your review here ..." id="review"></textarea>
+						</div>
+						<button type="button" class="btn btn-primary" onclick="submit()">Submit review</button>
+						<!-- <a href="#0" class="btn_1">Submit review</a> -->
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+	
+	
+	<!-- page -->
+
+	<div id="footer">
+
+	</div>
+
+
+     
+</body>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+	<!-- COMMON SCRIPTS -->
+	<script src="../course_detail/js/jquery-3.6.0.min.js"></script>
+	<script src="../course_detail/js/common_scripts.min.js"></script>
+	<script src="../course_detail/js/functions.js"></script>
+
+	<script>
+		$(function(){
+		  $("#nav-placeholder").load("navbar.html");
+		});
+	  $(function(){
+		  $("#footer").load("footer.html");
+		});
+	</script>
+	<script src="../js/submit_review.js"></script>
+	<script>
+		function capitalizeFirstLetter(string) {
+			return string.charAt(0).toUpperCase() + string.slice(1);
+		  }
+		document.getElementById("name").innerHTML=capitalizeFirstLetter(id);
+	</script>
+</html>

@@ -128,14 +128,10 @@
         // document.getElementById(str).addEventListener("click", ()=>project(holder,index));
         
     }
-    // document.getElementById("buttons").innerHTML+=`	<button type="button" class="btn btn-light" id="hello">Next</button> `
+    
+
 
     var wrapper= document.getElementById("buttons").innerHTML;
-
-    // wrapper.forEach(element => {
-    //     console.log(88);
-        
-    // });
     for (let index = 0; index<length; index++) {
         document.getElementById(index.toString()).addEventListener("click", ()=>project(holder,index)); 
         $('#'+index).click(function (e) { //#A_ID is an example. Use the id of your Anchor
