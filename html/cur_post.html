@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome to the Discussion Forum</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
+        crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+        <script src="../js/cur_post.js"></script>
+
+    
+    </head>
+    
+    <body>
+        <div id="nav-placeholder"></div>
+
+        <div class="container">
+            <div class="row justify-content-center pt-2" id="title_here">
+                <table class="table">
+                    <tr>
+                        <th id="post_creator" style="width: 50%"></th>
+                        <th id="post_time" style="width: 50%"></th>
+                    </tr>
+
+                    <tr>
+                        <th id="post_title" colspan="2"></th>
+                    </tr>
+                    
+
+                    <tr>
+                        <td id="post_content" colspan="2" class="pb-5"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="container pb-5">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <button type="button" class="btn btn-info" id="add_comment" onclick="add_comment()">Comment</button>
+                    <button type="button" class="btn btn-danger" id="return_to_forum" onclick="return_to_forum()">Return</button>
+                </div>
+        
+                <div class="col-6">
+                    <button type="button" class="btn btn-success" id="give_upvote" onclick="give_upvote()">Upvote</button>
+                    <button type="button" class="btn btn-warning" id="give_downvote" onclick="give_downvote()">Downvote</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row justify-content-center pt-2" id="content_here">
+                
+            </div>
+        </div>
+
+    <script>
+        $(function()
+            {
+                $("#nav-placeholder").load("navbar.html");
+            });
+
+        function add_comment()
+        {
+            window.location.href="add_comment.html"
+        }
+
+        function return_to_forum()
+        {
+            sessionStorage.setItem("post_count_id","")
+            window.location.href="forum.html"
+        }
+
+        var today = new Date();
+
+            cur_min=today.getMinutes().toString()
+
+            if (cur_min.length<2)
+            {
+                cur_min="0"+cur_min
+            }
+
+            var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+            var time = today.getHours() + ":" + cur_min; + ":" + today.getSeconds();
+
+        get_comment()
+    </script>
+    </body>
