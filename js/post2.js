@@ -37,14 +37,15 @@ function create_new_post(title,content,creator,tag,time, no_of_vote)
     });
 }
 
-var cur_name
+var cur_name_list=[null]
 function get_username(cur_user_id)
 {
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('users');
     var count = 0;
     var total_count = 0;
-
+    
+    
 
     storesRef.on("value", function(snapshot) 
     {
@@ -55,8 +56,9 @@ function get_username(cur_user_id)
             if (cur_user_id == child.key)
             {
                 cur_name=child.val().name;
+                cur_name_list[0]=cur_name
             }
-            
+
             else
             {
                 count++
@@ -67,16 +69,19 @@ function get_username(cur_user_id)
         {
             console.log("no such user")
         }
-        return cur_name
+
+        return cur_name_list
     })
-    return cur_name
+
+    
+    return cur_name_list
 }
 
 var all_post_list = {}
 function get_all_post(){
     var ref = firebase.database().ref('post');
     var count=0
-    var string ="<table class='table'><tr><th style='width: 600px;'>Topic</th><th>Creator</th><th style='width: 150px;'>Tag</th><th style='width: 150px;'>Time</th><th>No. of Comments</th><th>Upvotes</th></tr>"
+    var string ="<table class='table'><tr><th style='width: 700px;'>Topic</th><th style='width: 150px;'>Tag</th><th style='width: 150px;'>Time</th><th>No. of Comments</th></tr>"
 
     ref.once("value")
         .then(function(snapshot){
@@ -93,28 +98,9 @@ function get_all_post(){
                 var cur_comment = post_db[ele].comment;
                 var to_populate = document.getElementById("info_here");
 
-                if (cur_tag=="theory")
-                {
-                    title_class="text-info"
-                    tag_class="bg-info text-light text-center"
-                }
-
-                if (cur_tag=="practical")
-                {
-                    title_class="btn text-secondary"
-                    tag_class="bg-secondary text-light text-center"
-                }
-
-                if (cur_tag=="other")
-                {
-                    title_class="text--warning"
-                    tag_class="bg-warning text-light text-center"
-                }
-
                 string += `<tr>
-                            <td><a class="${title_class}" href="#">${cur_title}</a></td>
-                            <td>${cur_username}</td>
-                            <td class='${tag_class}'>${cur_tag}</td>
+                            <td>${cur_title}</td>
+                            <td>${cur_tag}</td>
                             <td>${cur_time}</td>
                             <td>${cur_comment.length}
                             </tr>`
