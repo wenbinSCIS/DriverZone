@@ -108,3 +108,35 @@ function bookingDetails(button){
     display_instr.innerText = `Instructor ${id}`;
     
 }
+
+var book_slot = document.getElementById("confirmation");
+book_slot.addEventListener("click",AddtimingtoDB);
+
+const user_id = sessionStorage.getItem("userid");
+console.log(user_id);
+
+function AddtimingtoDB(){
+    var rootRef = firebase.database().ref();
+    var storesRef = rootRef.child('users').child(user_id).child("datebooked");
+    var newStoreRef = storesRef.push();
+
+    var display_date = document.getElementById("book_date");
+    var display_time = document.getElementById("book_time");
+    var display_instr= document.getElementById("book_instr");
+
+    newStoreRef.set({
+        display_date :{ 
+            "time":display_time,
+            "instructor": display_instr
+        }      
+    }
+    , (error) => {
+        if (error) {
+          // The write failed...
+        alert("There was a problem with booking")
+        } else {
+          // Data saved successfully!
+        alert("Registration successful")
+        }
+    });
+}
