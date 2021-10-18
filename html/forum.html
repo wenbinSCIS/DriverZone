@@ -56,8 +56,7 @@
                 </div>
 
                 <div class="col-12 mt-2 pt-1">
-                    <button type="button" class="btn btn-info" id="apply_sort" onclick="apply_sort()">Apply Tags and Sort the Post</button>
-                    <button type="button" class="btn btn-danger" id="clear_sort" onclick="clear_sort()">Clear all</button>
+                    <button type="button" class="btn btn-danger" id="clear_sort" onclick="clear_sort()">Restore All Post</button>
                 </div>
             </div>
         </div>
@@ -103,6 +102,44 @@
                 newest_button.setAttribute("class","btn btn-success")
                 top_button.setAttribute("class","btn btn-outline-warning")
                 trending_button.setAttribute("class","btn btn-outline-danger")
+
+                var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i < (rows.length); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[3].innerHTML;
+                            y = rows[i + 1].getElementsByTagName("td")[3].innerHTML;
+
+                // Check if the two rows should switch place:
+                            var x_time=x.split(", ")
+                            x_date=x_time[0].split("-")
+                            new_x_date = x_date[1]+"-"+x_date[0]+"-"+x_date[2]+" "+x_time[1]
+                            var y_time=y.split(", ")
+                            y_date=y_time[0].split("-")
+                            new_y_date = y_date[1]+"-"+y_date[0]+"-"+y_date[2]+" "+y_time[1]
+
+                            if (new Date(new_x_date) < new Date(new_y_date))
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
             }
 
             function filter_top()
@@ -111,6 +148,37 @@
                 newest_button.setAttribute("class","btn btn-outline-success")
                 top_button.setAttribute("class","btn btn-warning")
                 trending_button.setAttribute("class","btn btn-outline-danger")
+
+                var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i < (rows.length); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[5];
+                            y = rows[i + 1].getElementsByTagName("td")[5];
+
+                // Check if the two rows should switch place:
+                            if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) 
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
             }
 
             function filter_trending()
@@ -119,6 +187,37 @@
                 newest_button.setAttribute("class","btn btn-outline-success")
                 top_button.setAttribute("class","btn btn-outline-warning")
                 trending_button.setAttribute("class","btn btn-danger")
+
+                var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i < (rows.length); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[4];
+                            y = rows[i + 1].getElementsByTagName("td")[4];
+
+                // Check if the two rows should switch place:
+                            if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) 
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
             }
 
             function select_theory()
@@ -127,6 +226,27 @@
                 theory_button.setAttribute("class","btn btn-info")
                 practical_button.setAttribute("class","btn btn-outline-secondary")
                 other_button.setAttribute("class","btn btn-outline-warning")
+
+                var row_to_remove=[]
+                var table = document.getElementById("post_table");
+                var rows = table.rows
+
+                    for (i = 1; i < (rows.length - 1); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")[2].innerHTML
+                        if (row_tag != "Theory")
+                        {
+                            row_to_remove.push(cur_row_id)
+                        }
+                    }
+
+                    for (const [key, value] of Object.entries(row_to_remove))
+                {
+                    document.getElementById(value).remove()
+                }
+
+                console.log(removed_row)
             }
 
             function select_practical()
@@ -135,6 +255,25 @@
                 theory_button.setAttribute("class","btn btn-outline-info")
                 practical_button.setAttribute("class","btn btn-secondary")
                 other_button.setAttribute("class","btn btn-outline-warning")
+
+                var row_to_remove=[]
+                var table = document.getElementById("post_table");
+                var rows = table.rows
+
+                    for (i = 1; i < (rows.length); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")[2].innerHTML
+                        if (row_tag != "Practical")
+                        {
+                            row_to_remove.push(cur_row_id)
+                        }
+                    }
+
+                    for (const [key, value] of Object.entries(row_to_remove))
+                {
+                    document.getElementById(value).remove()
+                }
             }
 
             function select_other()
@@ -143,14 +282,27 @@
                 theory_button.setAttribute("class","btn btn-outline-info")
                 practical_button.setAttribute("class","btn btn-outline-secondary")
                 other_button.setAttribute("class","btn btn-warning")
+
+                var row_to_remove=[]
+                var table = document.getElementById("post_table");
+                var rows = table.rows
+
+                    for (i = 1; i < (rows.length); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")[2].innerHTML
+                        if (row_tag != "Other")
+                        {
+                            row_to_remove.push(cur_row_id)
+                        }
+                    }
+
+                    for (const [key, value] of Object.entries(row_to_remove))
+                {
+                    document.getElementById(value).remove()
+                }
             }
 
-            function apply_sort()
-            {
-                sessionStorage.setItem("cur_tag",cur_tag)
-                sessionStorage.setItem("cur_filter",cur_filter)
-                filter_and_sort()
-            }
             function clear_sort()
             {
                 sessionStorage.setItem("cur_tag","")
@@ -164,15 +316,9 @@
                 practical_button.setAttribute("class","btn btn-outline-secondary")
                 other_button.setAttribute("class","btn btn-outline-warning")
 
-                filter_and_sort()
-            }
-
-            function filter_and_sort()
-            {
-                var cur_tag=sessionStorage.getItem("cur_tag")
-                var cur_filter=sessionStorage.getItem("cur_filter")
                 get_all_post()
             }
+
         </script>
     </body>
 </html>
