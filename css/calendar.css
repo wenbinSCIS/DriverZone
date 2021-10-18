@@ -167,3 +167,36 @@ h3 {
     color: rgb(250, 241, 241) !important;
     padding: 5px;
 }
+#sidebar{
+    margin:30px;
+    background-color: #fff;
+    border: 5px solid #fff;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+#title{
+    background-color:rgb(11, 11, 61);
+    margin:auto;
+    padding:15px;
+}
+.button5{
+    display: inline-block;
+    padding:0.46em 1.6em;
+    border:0.1em solid #000000;
+    margin:0 0.2em 0.2em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#faf4f4;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    background-color:#0f0b0b;
+    text-align:center;
+    transition: all 0.15s;
+}
+.button5:hover{
+    text-shadow: 0 0 2em rgba(255,255,255,1);
+    color:#159c5d;
+    border-color:#FFFFFF;
+}

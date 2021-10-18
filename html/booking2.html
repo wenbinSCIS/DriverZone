@@ -46,56 +46,72 @@
 
     <div class="container" >
         <div class="row">
-            <div class="col-6">
-                <h3 style="color:black;font-weight:500;margin-top:15px;font-family: Poppins, Helvetica, sans-serif;"><span style="color:white;background-color:rgb(10, 10, 10);border-radius:50%;padding:7px 10px 7px 10px;">1</span> Select Date </h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6" style="margin-right:90px;padding:50px;margin-top:15px;">
-                <div class="container">
-                    <div class="date-picker">
-                        <div class="selected-date" id="selected_date"> 30 /07/ 2019</div>
-                        <div class="dates">
-                            <div class="month">
-                                <div class="arrows prev-mth">&lt;</div>
-                                <div class="mth"></div>
-                                <div class="arrows next-mth">&gt;</div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 style="color:black;font-weight:500;margin-top:15px;font-family: Poppins, Helvetica, sans-serif;"><span style="color:white;background-color:rgb(10, 10, 10);border-radius:50%;padding:7px 10px 7px 10px;">1</span> Select Date </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="margin-right:90px;padding:50px;margin-top:15px;">
+                        <div class="container">
+                            <div class="date-picker">
+                                <div class="selected-date" id="selected_date"> 30 /07/ 2019</div>
+                                <div class="dates">
+                                    <div class="month">
+                                        <div class="arrows prev-mth">&lt;</div>
+                                        <div class="mth"></div>
+                                        <div class="arrows next-mth">&gt;</div>
+                                    </div>
+                                    <div class="days"></div>
+                                </div>
                             </div>
-                            <div class="days"></div>
+                        </div>
+                        <button type="button" class="btn btn-dark" style="margin-top:260px;margin-left:20px" id="confirm">Select this date?</button>
+                    </div>
+                    
+                </div>
+                
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <h3 style="color:black;font-weight:500;margin-top:15px;font-family: Poppins, Helvetica, sans-serif;"><span style="color:white;background-color:rgb(0, 0, 0);border-radius:50%;padding:7px 10px 7px 10px;">2</span> Select Time </h3>
+                    </div>
+                </div>
+                    <div class="col-md" style="background-color:rgb(187, 194, 194); border-radius:30px;padding:40px;margin-top:15px;">
+                        <div id="times">
+                            <div class="text-danger" style="text-align:center;font-size:30px" id="warn">
+                                Please select a date first
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-dark" style="margin-top:260px;margin-left:20px" id="confirm">Select this date?</button>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-6">
-                <h3 style="color:black;font-weight:500;margin-top:15px;font-family: Poppins, Helvetica, sans-serif;"><span style="color:white;background-color:rgb(0, 0, 0);border-radius:50%;padding:7px 10px 7px 10px;">2</span> Select Time </h3>
-            </div>
-        </div>
-            <div class="col-md" style="background-color:rgb(187, 194, 194); border-radius:30px;padding:40px;margin-top:15px;">
-                <div id="times">
-                    <div class="text-danger" style="text-align:center;font-size:30px" id="warn">
-                        Please select a date first
+                <div class="col-lg-4 col-sm-12 m-t-50">
+                    <div class="title text-white">
+                        <h3 id="title">Your booking</h3>
                     </div>
-                </div>
+                    <div class="summary m-t-30">
+                        <ul>
+                            <li>Date: <strong id="book_date">11/12/2017</strong></li>
+                            <li>Time: <strong id="book_time">10.30 am</strong></li>
+                            <li>Instructor: <strong id="book_instr">Dr. julia Jhones</strong></li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <a class="text-danger">You will need to pay the instructor at the start of the lesson</a>
+                    <hr>
+                    
+                    <a href="something" class="button5" style="background-color:rgb(11, 11, 61);">Confirm and Book Slot</a>
             </div>
         </div>
-        <div class="row" style="background-image: url('../images/newdrivingbg.jpg');; border-radius:30px;padding:40px;margin-top:15px;display:none" id="to_display">
-            <div class="col-md" id="booking_details" >
-                <h3 style="font-weight:bold;color:rgb(252, 247, 247)">Your Booking Details:</h3>
-                <span style="text-align:center; color:white">
-                    <h2 id="book_date">Booked Date Here</h2>
-                    <h5 id="book_time">Booked Time here</h5>
-                    <h5 id="book_instr">Instructor here</h5>
-                </span>
-                <button type="button" class="btn btn-dark my-auto" id="add_to_database">Confirm</button>
-                
             </div>
         </div>
-        </div>
-
+            
+        
+    
+        
+    
+        
 
     
 
