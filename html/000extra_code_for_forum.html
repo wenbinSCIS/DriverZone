@@ -1,0 +1,172 @@
+<script>
+    function filter_and_sort()
+            {
+                var cur_tag=sessionStorage.getItem("cur_tag")
+                var cur_filter=sessionStorage.getItem("cur_filter")
+                get_all_post()
+
+                if (cur_filter==null)
+                {
+                    
+                }
+                
+                else if (cur_filter=="trending")
+                {
+                    var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i < (rows.length - 1); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[4];
+                            y = rows[i + 1].getElementsByTagName("td")[4];
+
+                // Check if the two rows should switch place:
+                            if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) 
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
+                }
+
+                else if (cur_filter=="top")
+                {
+                    var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i < (rows.length - 1); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[5];
+                            y = rows[i + 1].getElementsByTagName("td")[5];
+
+                // Check if the two rows should switch place:
+                            if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) 
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
+                }
+
+                else if (cur_filter=="newest")
+                {
+                    var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i < (rows.length - 1); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[4].innerHTML;
+                            y = rows[i + 1].getElementsByTagName("td")[4].innerHTML;
+
+                // Check if the two rows should switch place:
+                            x_time=x.split(", ").join(" ")
+                            y_time=y.split(", ").join(" ")
+                            if (new Date(x) < new Date(y))
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
+                }
+/*-----------------------------------------------Remove tag not chosen-------------------------------------------*/
+                var row_to_remove=[]
+                if (cur_tag==null)
+                {
+
+                }
+                else if (cur_tag=="theory")
+                {
+                    table = document.getElementById("post_table");
+                    rows = table.rows
+
+                    for (i = 1; i < (rows.length - 1); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")[2]
+                        if (row_tag != "Theory")
+                        {
+                            row_to_remove.push(cur_row_id)
+                        }
+                    }
+
+                }
+                else if (cur_tag=="practical")
+                {
+                    table = document.getElementById("post_table");
+                    rows = table.rows
+                    for (i = 1; i < (rows.length - 1); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")[2]
+                        if (row_tag != "Practical")
+                        {
+                            row_to_remove.push(cur_row_id)
+                        }
+                    }
+                }
+                else if (cur_tag=="other")
+                {
+                    table = document.getElementById("post_table");
+                    rows = table.rows
+                    for (i = 1; i < (rows.length - 1); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")[2]
+                        if (row_tag != "Other")
+                        {
+                            row_to_remove.push(cur_row_id)
+                        }
+                    }
+                }
+
+                for (var to_delete in row_to_remove)
+                {
+                    console.log(to_delete)
+                }
+            }
+</script>
