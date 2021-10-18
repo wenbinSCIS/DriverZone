@@ -142,7 +142,6 @@
         
     }
 
-
     function star_display(input) {
         var new1="";
         for (let index = 0; index < input; index++) {

@@ -55,7 +55,7 @@
            
             sessionStorage.setItem("userid",item)
             sessionStorage.setItem("username",username)
-            //smsAPI()
+            
             window.location.href = "index.html";
             break
           }

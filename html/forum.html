@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Discussion Forum</title>
+        <title>Welcome to the Discussion Forum</title>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
@@ -12,9 +12,8 @@
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
-
-        <script src="../js/post2.js"></script>
     
+        <script src="../js/post2.js"></script>
     </head>
     
     <body>
@@ -58,6 +57,7 @@
 
                 <div class="col-12 mt-2 pt-1">
                     <button type="button" class="btn btn-info" id="apply_sort" onclick="apply_sort()">Apply Tags and Sort the Post</button>
+                    <button type="button" class="btn btn-danger" id="clear_sort" onclick="clear_sort()">Clear all</button>
                 </div>
             </div>
         </div>
@@ -147,13 +147,32 @@
 
             function apply_sort()
             {
-                console.log(cur_filter)
-                console.log(cur_tag)
+                sessionStorage.setItem("cur_tag",cur_tag)
+                sessionStorage.setItem("cur_filter",cur_filter)
+                filter_and_sort()
+            }
+            function clear_sort()
+            {
+                sessionStorage.setItem("cur_tag","")
+                sessionStorage.setItem("cur_filter","")
+
+                newest_button.setAttribute("class","btn btn-outline-success")
+                top_button.setAttribute("class","btn btn-outline-warning")
+                trending_button.setAttribute("class","btn btn-outline-danger")
+
+                theory_button.setAttribute("class","btn btn-outline-info")
+                practical_button.setAttribute("class","btn btn-outline-secondary")
+                other_button.setAttribute("class","btn btn-outline-warning")
+
+                filter_and_sort()
             }
 
-
-            
-
+            function filter_and_sort()
+            {
+                var cur_tag=sessionStorage.getItem("cur_tag")
+                var cur_filter=sessionStorage.getItem("cur_filter")
+                get_all_post()
+            }
         </script>
     </body>
 </html>
