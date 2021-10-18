@@ -34,12 +34,6 @@ function create_new_post(title,content,creator,tag,time, no_of_vote)
          // The write failed...
             alert("There was a problem with post creating")
         } 
-
-        else {
-         // Data saved successfully!
-            alert("Post creation is successful")
-            window.location.href = "forum.html";
-        }
     });
 }
 
@@ -101,21 +95,24 @@ function get_all_post(){
 
                 if (cur_tag=="theory")
                 {
+                    title_class="text-info"
                     tag_class="bg-info text-light text-center"
                 }
 
                 if (cur_tag=="practical")
                 {
+                    title_class="btn text-secondary"
                     tag_class="bg-secondary text-light text-center"
                 }
 
                 if (cur_tag=="other")
                 {
+                    title_class="text--warning"
                     tag_class="bg-warning text-light text-center"
                 }
 
                 string += `<tr>
-                            <td>${cur_title}</td>
+                            <td><a class="${title_class}" href="#">${cur_title}</a></td>
                             <td>${cur_username}</td>
                             <td class='${tag_class}'>${cur_tag}</td>
                             <td>${cur_time}</td>
