@@ -227,26 +227,33 @@
                 practical_button.setAttribute("class","btn btn-outline-secondary")
                 other_button.setAttribute("class","btn btn-outline-warning")
 
-                var row_to_remove=[]
                 var table = document.getElementById("post_table");
                 var rows = table.rows
 
                     for (i = 1; i < (rows.length - 1); i++) 
                     {
                         var cur_row_id = rows[i].id
-                        var row_tag = rows[i].getElementsByTagName("td")[2].innerHTML
-                        if (row_tag != "Theory")
+                        var row_tag = rows[i].getElementsByTagName("td")
+                        if (row_tag[2].innerHTML != "Theory")
                         {
-                            row_to_remove.push(cur_row_id)
+                            row_tag[0].setAttribute("style","display:none")
+                            row_tag[1].setAttribute("style","display:none")
+                            row_tag[2].setAttribute("style","display:none")
+                            row_tag[3].setAttribute("style","display:none")
+                            row_tag[4].setAttribute("style","display:none")
+                            row_tag[5].setAttribute("style","display:none")
+                        }
+
+                        else
+                        {
+                            row_tag[0].setAttribute("style","")
+                            row_tag[1].setAttribute("style","")
+                            row_tag[2].setAttribute("style","")
+                            row_tag[3].setAttribute("style","")
+                            row_tag[4].setAttribute("style","")
+                            row_tag[5].setAttribute("style","")
                         }
                     }
-
-                    for (const [key, value] of Object.entries(row_to_remove))
-                {
-                    document.getElementById(value).remove()
-                }
-
-                console.log(removed_row)
             }
 
             function select_practical()
@@ -263,18 +270,28 @@
                     for (i = 1; i < (rows.length); i++) 
                     {
                         var cur_row_id = rows[i].id
-                        var row_tag = rows[i].getElementsByTagName("td")[2].innerHTML
-                        if (row_tag != "Practical")
+                        var row_tag = rows[i].getElementsByTagName("td")
+                        if (row_tag[2].innerHTML != "Practical")
                         {
-                            row_to_remove.push(cur_row_id)
+                            row_tag[0].setAttribute("style","display:none")
+                            row_tag[1].setAttribute("style","display:none")
+                            row_tag[2].setAttribute("style","display:none")
+                            row_tag[3].setAttribute("style","display:none")
+                            row_tag[4].setAttribute("style","display:none")
+                            row_tag[5].setAttribute("style","display:none")
                         }
-                    }
 
-                    for (const [key, value] of Object.entries(row_to_remove))
-                {
-                    document.getElementById(value).remove()
-                }
+                        else
+                        {
+                            row_tag[0].setAttribute("style","")
+                            row_tag[1].setAttribute("style","")
+                            row_tag[2].setAttribute("style","")
+                            row_tag[3].setAttribute("style","")
+                            row_tag[4].setAttribute("style","")
+                            row_tag[5].setAttribute("style","")
+                        }
             }
+        }
 
             function select_other()
             {
@@ -290,17 +307,27 @@
                     for (i = 1; i < (rows.length); i++) 
                     {
                         var cur_row_id = rows[i].id
-                        var row_tag = rows[i].getElementsByTagName("td")[2].innerHTML
-                        if (row_tag != "Other")
+                        var row_tag = rows[i].getElementsByTagName("td")
+                        if (row_tag[2].innerHTML != "Other")
                         {
-                            row_to_remove.push(cur_row_id)
+                            row_tag[0].setAttribute("style","display:none")
+                            row_tag[1].setAttribute("style","display:none")
+                            row_tag[2].setAttribute("style","display:none")
+                            row_tag[3].setAttribute("style","display:none")
+                            row_tag[4].setAttribute("style","display:none")
+                            row_tag[5].setAttribute("style","display:none")
+                        }
+
+                        else
+                        {
+                            row_tag[0].setAttribute("style","")
+                            row_tag[1].setAttribute("style","")
+                            row_tag[2].setAttribute("style","")
+                            row_tag[3].setAttribute("style","")
+                            row_tag[4].setAttribute("style","")
+                            row_tag[5].setAttribute("style","")
                         }
                     }
-
-                    for (const [key, value] of Object.entries(row_to_remove))
-                {
-                    document.getElementById(value).remove()
-                }
             }
 
             function clear_sort()
