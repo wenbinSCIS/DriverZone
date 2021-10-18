@@ -200,3 +200,9 @@ h3 {
     color:#159c5d;
     border-color:#FFFFFF;
 }
+
+
+#to_fill{
+    background-color:white;
+    border-color: 1px solid black;
+}

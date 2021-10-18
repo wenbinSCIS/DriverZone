@@ -13,7 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
 </head>
 
-<body>
+<body style="background-color:#f5f8fa">
     <div id="nav-placeholder"></div>
     <section class="bg-img-1 bg-overlay-3 p-t-0 p-b-50" style="background-image: url('../images/carousel1');">
         <div class="container">
@@ -22,38 +22,38 @@
                     <div class="flex-w p-b-9">
                         <span>
             <a href="index.html" class="s-txt19 hov-color-main trans-02">
-              <i class="fa fa-home"></i>
-              Home / 
+            <i class="fa fa-home"></i>
+            Home / 
             </a>
             <a href="course-.html" class="s-txt19 hov-color-main trans-02">
-              <i class="fa fa-users"></i>
+            <i class="fa fa-users"></i>
                 Instructors /
             </a>
             <a class="s-txt19 hov-color-main trans-02 text-white" >Booking</a>
             <div class="container p-t-50 p-b-10">
-              <div class="row">
-                  <div class="col-md" id="left-stuff">
-                      <h1 id="instr_title">We focus on your Story</h1>
-                      <p class="lead pt-4 text-white" style="font-size: 15px;" id="instr_quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio reprehenderit earum sed porro nesciunt vitae voluptas sit ullam, quibusdam repellendus iusto commodi quo dolor vero possimus nemo cupiditate unde. Eaque!</p>
-                  </div>
-                  <div class="col-md">
-                      <img src="../images/random person.jpg" id="instructor-img" class='mx-auto d-block '>
-                      <span id='instructor-name' class='mx-auto d-block text-white'>Instructor name</span>
+            <div class="row">
+                <div class="col-md" id="left-stuff">
+                    <h1 id="instr_title">We focus on your Story</h1>
+                    <p class="lead pt-4 text-white" style="font-size: 15px;" id="instr_quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio reprehenderit earum sed porro nesciunt vitae voluptas sit ullam, quibusdam repellendus iusto commodi quo dolor vero possimus nemo cupiditate unde. Eaque!</p>
+                </div>
+                <div class="col-md">
+                    <img src="../images/random person.jpg" id="instructor-img" class='mx-auto d-block '>
+                    <span id='instructor-name' class='mx-auto d-block text-white'>Instructor name</span>
                     </div>
                 </div>
             </div>
     </section>
 
-    <div class="container" >
-        <div class="row">
-            <div class="col-8">
+    <div class="container m-t-50"  >
+        <div class="row" >
+            <div class="col-8" id="to_fill">
                 <div class="row">
                     <div class="col-6">
                         <h3 style="color:black;font-weight:500;margin-top:15px;font-family: Poppins, Helvetica, sans-serif;"><span style="color:white;background-color:rgb(10, 10, 10);border-radius:50%;padding:7px 10px 7px 10px;">1</span> Select Date </h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" style="margin-right:90px;padding:50px;margin-top:15px;">
+                    <div class="col" style="padding:50px;margin-top:15px;">
                         <div class="container">
                             <div class="date-picker">
                                 <div class="selected-date" id="selected_date"> 30 /07/ 2019</div>
@@ -71,14 +71,13 @@
                     </div>
                     
                 </div>
-                
                 <hr>
                 <div class="row">
                     <div class="col-6">
                         <h3 style="color:black;font-weight:500;margin-top:15px;font-family: Poppins, Helvetica, sans-serif;"><span style="color:white;background-color:rgb(0, 0, 0);border-radius:50%;padding:7px 10px 7px 10px;">2</span> Select Time </h3>
                     </div>
                 </div>
-                    <div class="col-md" style="background-color:rgb(187, 194, 194); border-radius:30px;padding:40px;margin-top:15px;">
+                    <div class="col-md" style="background-color:rgb(187, 194, 194); border-radius:30px;padding:40px;margin:15px;">
                         <div id="times">
                             <div class="text-danger" style="text-align:center;font-size:30px" id="warn">
                                 Please select a date first
@@ -86,22 +85,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-12 m-t-50">
-                    <div class="title text-white">
-                        <h3 id="title">Your booking</h3>
+                <div class="col-lg-4 col-sm-12 " id="to_display" style="display: none" >
+                    <div style="background-color:white">
+                        <div class="title text-white">
+                            <h3 id="title">Your booking</h3>
+                        </div>
+                        <div class="summary m-t-30">
+                            <ul>
+                                <li>Date: <strong id="book_date">Select a Date</strong></li>
+                                <li>Time: <strong id="book_time">Select A Time</strong></li>
+                                <li>Instructor: <strong id="book_instr">Dr. julia Jhones</strong></li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <a class="text-danger">You will need to pay the instructor at the start of the lesson</a>
+                        <hr>
+                        
+                        <a href="something" class="button5" style="background-color:rgb(11, 11, 61);">Confirm and Book Slot</a>
                     </div>
-                    <div class="summary m-t-30">
-                        <ul>
-                            <li>Date: <strong id="book_date">11/12/2017</strong></li>
-                            <li>Time: <strong id="book_time">10.30 am</strong></li>
-                            <li>Instructor: <strong id="book_instr">Dr. julia Jhones</strong></li>
-                        </ul>
-                    </div>
-                    <hr>
-                    <a class="text-danger">You will need to pay the instructor at the start of the lesson</a>
-                    <hr>
                     
-                    <a href="something" class="button5" style="background-color:rgb(11, 11, 61);">Confirm and Book Slot</a>
             </div>
         </div>
             </div>
@@ -114,7 +116,9 @@
         
 
     
+        <div id="footer">
 
+        </div>
 
 
 
@@ -132,6 +136,9 @@
             $(function() {
                 $("#nav-placeholder").load("navbar.html");
             })
+            $(function(){
+                $("#footer").load("footer.html");
+            });
         </script>;
 
 

@@ -158,15 +158,25 @@
                 console.log(cur_tag)
             }
 
-            var all_post_list = get_all_post()
-            console.log("test")
-            console.log(get_all_post())
-            console.log(all_post_list)
-
-            for (item in all_post_list)
+            function create_key(num_1)
             {
-                console.log(item)
+                result_key="key"+num_1.toString();
+                return result_key;
             }
+
+            all_post_obj = get_all_post()
+            console.log(all_post_obj)
+            console.log(typeof all_post_obj)
+            console.log(all_post_obj["total_length"])
+
+            var no_of_post=all_post_obj.total_length;
+
+            for(var i=0;i<no_of_post;i++)
+            {
+                console.log(create_key(i))
+            }
+
+
         </script>
     </body>
 </html>
