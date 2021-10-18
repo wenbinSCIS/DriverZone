@@ -7,11 +7,13 @@ var config = {
   };
 
   firebase.initializeApp(config);
+ 
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
-
+var rating;
+console.log(id);
 function submit() {
     var a=checkRating()
     console.log(a);
@@ -24,6 +26,8 @@ function submit() {
     ref.on('value', (snapshot) => {
         var name1 =snapshot.val();
         if (checkRating() && checkDescription()) {
+            updateReview(ref);
+            updateTotalScoreRating()
             var description=checkDescription();
             var rating= checkRating();
             var rootRef = firebase.database().ref("instructor/"+id+"/review");
@@ -73,6 +77,34 @@ function checkDescription() {
     }
     return document.getElementById("review").value;
 }
+
+
+
+function updateReview(input) {
+  var rootRef = firebase.database().ref("instructor/"+id+"/rating/"+checkRating())
+  console.log(rootRef);
+  rootRef.set(firebase.database.ServerValue.increment(1));
+};
+
+function updateTotalScoreRating() {
+  var ref = firebase.database().ref("instructor/"+id+"/rating");
+  ref.on('value', (snapshot) => {
+  var one=snapshot.val()[1];
+  var two=snapshot.val()[2];
+  var three=snapshot.val()[3];
+  var four=snapshot.val()[4];
+  var five=snapshot.val()[5];
+  var total=one+two+three+four+five
+  var avg=((one*1)+(two*2)+(three*3)+(four*4)+(five*5))/total;
+  avg=avg.toFixed(1);
+  ref.update({total:avg});
+})
+
+
+
+}
+
+
 
 
 
