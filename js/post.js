@@ -83,7 +83,8 @@ function get_username(cur_user_id)
     return cur_name_list
 }
 
-var all_post_list = {}
+let all_post_list = {}
+
 function get_all_post()
 {
     var rootRef = firebase.database().ref();
@@ -92,7 +93,7 @@ function get_all_post()
 
     storesRef.on("value", function(snapshot)
     {
-    
+
         for( var item in snapshot.val())
         {
             var cur_title = snapshot.val()[item].title;
@@ -111,9 +112,9 @@ function get_all_post()
             all_post_list.total_length=count;
         }
         console.log(all_post_list)
-        return all_post_list;
+
     })
-    console.log(all_post_list)
-    return all_post_list;
+
+
 }
 
