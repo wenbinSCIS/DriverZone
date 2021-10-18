@@ -97,10 +97,11 @@ function get_all_post(){
     ref.once("value")
         .then(function(snapshot){
             var post_db = snapshot.val()
-            console.log(post_db)
+
             var list_of_post=[]
 
             var row_id_count=0
+
 
             for(let ele in post_db){
                 var cur_title = post_db[ele].title;
