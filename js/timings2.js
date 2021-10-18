@@ -50,7 +50,8 @@ function displayTimings(){
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
-    
+    var to_display = document.getElementById("to_display");
+    to_display.style.display = "block";
     ref.once("value")
         .then(function(snapshot){
             var time=""
@@ -82,6 +83,7 @@ function displayTimings(){
                 }
             
         })
+        
     }  
 
 //User clicks on "select this timeslot" which is after pressing both date and time
@@ -95,15 +97,46 @@ function bookingDetails(button){
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
-    console.log(timing)
 
     var display_date = document.getElementById("book_date");
     var display_time = document.getElementById("book_time");
     var display_instr= document.getElementById("book_instr");
-    var to_display = document.getElementById("to_display");
+    
 
     display_date.innerText = date_format_needed;
     display_time.innerText = timing;
     display_instr.innerText = `Instructor ${id}`;
-    to_display.style.display = "block";
+    
+}
+
+var book_slot = document.getElementById("confirmation");
+book_slot.addEventListener("click",AddtimingtoDB);
+
+const user_id = sessionStorage.getItem("userid");
+console.log(user_id);
+
+function AddtimingtoDB(){
+    var rootRef = firebase.database().ref();
+    var storesRef = rootRef.child('users').child(user_id).child("datebooked");
+    var newStoreRef = storesRef.push();
+
+    var display_date = document.getElementById("book_date");
+    var display_time = document.getElementById("book_time");
+    var display_instr= document.getElementById("book_instr");
+
+    newStoreRef.set({
+        display_date :{ 
+            "time":display_time,
+            "instructor": display_instr
+        }      
+    }
+    , (error) => {
+        if (error) {
+          // The write failed...
+        alert("There was a problem with booking")
+        } else {
+          // Data saved successfully!
+        alert("Registration successful")
+        }
+    });
 }
