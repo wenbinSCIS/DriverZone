@@ -49,18 +49,19 @@
               var lang=input[ele].language
               var price=input[ele].price
               var location=input[ele].location
-              var oneStar=input[ele].rating[1]
-              var twoStar=input[ele].rating[2]
-              var threeStar=input[ele].rating[3]
-              var fourStar=input[ele].rating[4]
-              var fiveStar=input[ele].rating[5];
+              var oneStar=Number(input[ele].rating[1])
+              var twoStar=Number(input[ele].rating[2])
+              var threeStar=Number(input[ele].rating[3])
+              var fourStar=Number(input[ele].rating[4])
+              var fiveStar=Number(input[ele].rating[5]);
               var TotalRating=oneStar+twoStar+threeStar+fourStar+fiveStar;
               var oneStar=oneStar/TotalRating*100;
               var twoStar=twoStar/TotalRating*100
               var threeStar=threeStar/TotalRating*100
               var fourStar=fourStar/TotalRating*100
               var fiveStar=fiveStar/TotalRating*100
-              var rating=input[ele].rating.total
+              var rating=Number(input[ele].rating.total)
+              console.log(rating);
               rating=rating.toFixed(1);
               var totalNumOfRating=Object.keys(input[ele].review).length;
               
@@ -88,11 +89,7 @@
                                 
                               </span>
                               <ul class="contacts">
-                                  <li>
-                                      <h6>Address</h6>
-                                      2726 Shinn Street, New York -
-                                      <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank"> <strong>View on map</strong></a>
-                                  </li>
+                                
                                   <li>
                                       <h6>Phone</h6> <a href="tel://000434323342">+00043 4323342</a></li>
                                   <li>

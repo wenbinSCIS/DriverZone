@@ -44,7 +44,7 @@ function submit() {
                   } else {
                     // Data saved successfully
                    
-                    // window.location.href = "course-detail.html?id="+id;
+                    window.location.href = "course-detail.html?id="+id;
           
                   }
               });
@@ -88,31 +88,22 @@ function updateReview(input) {
 
 function updateTotalScoreRating() {
   var ref = firebase.database().ref("instructor/"+id+"/rating");
-  // console.log(ref.update({total:average()}));
-
-
-}
-
-function average() {
-
-  var ref = firebase.database().ref("instructor/"+id+"/rating");
-    ref.on('value', (snapshot) => {
-    var one=snapshot.val()[1];
-    var two=snapshot.val()[2];
-    var three=snapshot.val()[3];
-    var four=snapshot.val()[4];
-    var five=snapshot.val()[5];
-    var total=one+two+three+four+five
-    var avg=((one*1)+(two*2)+(three*3)+(four*4)+(five*5))/total;
-    avg=avg.toFixed(1);
-    return avg
-
-  })
-
+  ref.on('value', (snapshot) => {
+  var one=snapshot.val()[1];
+  var two=snapshot.val()[2];
+  var three=snapshot.val()[3];
+  var four=snapshot.val()[4];
+  var five=snapshot.val()[5];
+  var total=one+two+three+four+five
+  var avg=((one*1)+(two*2)+(three*3)+(four*4)+(five*5))/total;
+  avg=avg.toFixed(1);
+  ref.update({total:avg});
+})
 
 
 
 }
+
 
 
 
