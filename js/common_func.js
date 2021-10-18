@@ -47,9 +47,9 @@
 	});
 
 	// Forgot Password
-	$("#forgot").on('click', function () {
-		$("#forgot_pw").fadeToggle("fast");
-	});
+	//$("#forgot").on('click', function () {
+	//	$("#forgot_pw").fadeToggle("fast");
+//	});
 
 	// Float labels
 	var floatlabels = new FloatLabels( 'form.input_style_1', {
