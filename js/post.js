@@ -95,22 +95,24 @@ function get_all_post()
     
         for( var item in snapshot.val())
         {
-            var cur_title = snapshot.val()[item].title
-            var cur_content = snapshot.val()[item].content
-            var cur_creator_id = snapshot.val()[item].creator
-            var cur_username = get_username(cur_creator_id)
-            var cur_tag = snapshot.val()[item].tag
-            var cur_time = snapshot.val()[item].time
-            var cur_upvote = snapshot.val()[item].no_of_vote
-            var cur_comment = snapshot.val()[item].comment
+            var cur_title = snapshot.val()[item].title;
+            var cur_content = snapshot.val()[item].content;
+            var cur_creator_id = snapshot.val()[item].creator;
+            var cur_username = get_username(cur_creator_id);
+            var cur_tag = snapshot.val()[item].tag;
+            var cur_time = snapshot.val()[item].time;
+            var cur_upvote = snapshot.val()[item].no_of_vote;
+            var cur_comment = snapshot.val()[item].comment;
 
-            var cur_key="key"+count.toString()
+            var cur_key="key"+count.toString();
 
-            all_post_list[cur_key]=[cur_title,cur_content,cur_creator_id,cur_username,cur_tag,cur_time,cur_upvote,cur_comment]
-            count+=1
-            all_post_list.total_length=count
+            all_post_list[cur_key]=[cur_title,cur_content,cur_creator_id,cur_username,cur_tag,cur_time,cur_upvote,cur_comment];
+            count+=1;
+            all_post_list.total_length=count;
         }
+        return all_post_list;
     })
+
     return all_post_list;
 }
 
