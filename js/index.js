@@ -74,6 +74,7 @@ function populateDates (e) {
 
 		if (selectedDay == (i + 1) && selectedYear == year && selectedMonth == month) {
 			day_element.classList.add('selected');
+			
 		}
 
 		day_element.addEventListener('click', function () {
@@ -84,6 +85,7 @@ function populateDates (e) {
 
 			selected_date_element.textContent = formatDate(selectedDate);
 			selected_date_element.dataset.value = selectedDate;
+			day_element.onclick = displayTimings();
 
 			populateDates();
 		});

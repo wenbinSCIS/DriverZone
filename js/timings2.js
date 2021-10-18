@@ -17,9 +17,11 @@ var instr_img = document.getElementById("instructor-img");
 var instr_name = document.getElementById("instructor-name");
 var instr_title = document.getElementById("instr_title");
 var instr_quote = document.getElementById("instr_quote");
+var display_instr= document.getElementById("book_instr");
 
 instr_name.innerText = `Instructor ${id}`;
 instr_img.src = `../images/${id}.JPG`;
+display_instr.innerText = `Instructor ${id}`;
 
 displayQuoteAndTitle()
 
@@ -38,11 +40,6 @@ function displayQuoteAndTitle(){
 }
 
 //button stuff and initialize databse
-var select = document.getElementById("confirm")
-select.addEventListener("click", displayTimings);
-
-
-
 
 function displayTimings(){
     var string=""
@@ -138,8 +135,22 @@ function AddtimingtoDB(){
         alert("There was a problem with booking, please try again!")
         } else {
           // Data saved successfully!
+        /* var rootRef = firebase.database().ref(`instructor/${id}/date/${date_format_needed}`);
+        rootRef.once("value")
+        .then(function(snapshot){
+            var times = snapshot.val()
+            for(let ele in times){
+                if(ele == display_time){
+                    rootRef[times][ele].removeValue();
+                }
+        } */
         window.location.href = "confirmation.html";
-        }
-    });
+        
+    }})
+
+
+
+    //remove timing from DB
+    
 }
 
