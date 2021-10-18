@@ -82,11 +82,8 @@
                           <div class="col-lg-7 col-md-8">
                               <h1>${name_capitalize}</h1>
                               <span class="rating">
-                                
-                                
                                   ${star_display(rating)}
-                                  <small>(${totalNumOfRating})</small>
-                                
+                                  <small>(${totalNumOfRating})</small>                
                               </span>
                               <ul class="contacts">
                                 
@@ -277,6 +274,9 @@
           return new1
       
       }
+
+    
+
 	
 
   
