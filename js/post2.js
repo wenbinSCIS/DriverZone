@@ -83,43 +83,36 @@ function get_username(cur_user_id)
     return cur_name_list
 }
 
-let all_post_list = {}
-
-function get_all_post()
-{
-    var rootRef = firebase.database().ref();
-    var storesRef = rootRef.child('post');
+var all_post_list = {}
+function get_all_post(){
+    var ref = firebase.database().ref('post');
     var count=0
+    var string ="<table class='table'><tr><th style='width: 700px;'>Topic</th><th style='width: 150px;'>Tag</th><th style='width: 150px;'>Time</th><th>No. of Comments</th></tr>"
 
-    storesRef.on("value", function(snapshot)
-    {
+    ref.once("value")
+        .then(function(snapshot){
+            var post_db = snapshot.val()
+            console.log(post_db)
+            for(let ele in post_db){
+                var cur_title = post_db[ele].title;
+                var cur_content = post_db[ele].content;
+                var cur_creator_id = post_db[ele].creator;
+                var cur_username = get_username(cur_creator_id);
+                var cur_tag = post_db[ele].tag;
+                var cur_time = post_db[ele].time;
+                var cur_upvote = post_db[ele].no_of_vote;
+                var cur_comment = post_db[ele].comment;
+                var to_populate = document.getElementById("info_here");
 
-        for( var item in snapshot.val())
-        {
-            var cur_title = snapshot.val()[item].title;
-            var cur_content = snapshot.val()[item].content;
-            var cur_creator_id = snapshot.val()[item].creator;
-            var cur_username = get_username(cur_creator_id); 
-            var cur_tag = snapshot.val()[item].tag;
-            var cur_time = snapshot.val()[item].time;
-            var cur_upvote = snapshot.val()[item].no_of_vote;
-            var cur_comment = snapshot.val()[item].comment;
-
-            var cur_key="key"+count.toString();
-
-            all_post_list[cur_key]=[cur_title,cur_content,cur_creator_id,cur_username,cur_tag,cur_time,cur_upvote,cur_comment];
-            count+=1;
-            all_post_list.total_length=count;
-        }
-<<<<<<< HEAD
-        console.log(all_post_list);
-        return all_post_list;
-=======
-        console.log(all_post_list)
-
->>>>>>> f748bf2718b5e5263b5ca40b842ee88ccdf2e05f
-    })
-
-
-}
-
+                string += `<tr>
+                            <td>${cur_title}</td>
+                            <td>${cur_tag}</td>
+                            <td>${cur_time}</td>
+                            <td>${cur_comment.length}
+                            </tr>`
+            }
+            string += "</table>"
+            to_populate.innerHTML = string;
+        })
+    }
+get_all_post()
