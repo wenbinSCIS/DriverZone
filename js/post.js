@@ -110,9 +110,10 @@ function get_all_post()
             count+=1;
             all_post_list.total_length=count;
         }
+        console.log(all_post_list)
         return all_post_list;
     })
-
+    console.log(all_post_list)
     return all_post_list;
 }
 
