@@ -13,7 +13,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
 
-        <script src="../js/post2.js"></script>
+        <script src="../js/post.js"></script>
     
     </head>
     
@@ -63,8 +63,15 @@
         </div>
 
         <div class="container">
-            <div class="row justify-content-center pt-2" id="info_here">
-                
+            <div class="row justify-content-center pt-2">
+                <table class="table">
+                    <tr>
+                        <th style="width: 700px;">Topic</th>
+                        <th style="width: 150px;">Tag</th>
+                        <th style="width: 150px;">Time</th>
+                        <th>No. of Comments</th>
+                    </tr>
+                </table>
             </div>
         </div>
 
@@ -151,10 +158,24 @@
                 console.log(cur_tag)
             }
 
-            
+            function create_key(num_1)
+            {
+                result_key="key"+num_1.toString();
+                return result_key;
+            }
+
+            all_post_obj = get_all_post()
+            console.log(all_post_obj)
+            console.log(typeof all_post_obj)
+            console.log(all_post_obj.key0)
 
 
-            
+            var no_of_post=all_post_obj.total_length;
+
+            for(var i=0;i<no_of_post;i++)
+            {
+                console.log(create_key(i))
+            }
 
         </script>
     </body>
