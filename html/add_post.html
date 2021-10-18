@@ -99,7 +99,13 @@
         function create_post()
         {
             cur_title=document.getElementById("post_title").value
+            console.log(cur_title)
 
+            if (cur_title==="")
+            {
+            alert("You need a title to create a post")
+            }
+            else{
             cur_content=document.getElementById("post_description").value
 
             cur_userid = sessionStorage.getItem('userid')
@@ -117,6 +123,7 @@
             var time = today.getHours() + ":" + cur_min + ":" + today.getSeconds()
             cur_time = date + ", " + time
             create_new_post(cur_title,cur_content,cur_userid,cur_new_tag,cur_time,0)
+        }
         }
         </script>
     </body>
