@@ -98,7 +98,7 @@ function get_all_post()
             var cur_title = snapshot.val()[item].title;
             var cur_content = snapshot.val()[item].content;
             var cur_creator_id = snapshot.val()[item].creator;
-            var cur_username = get_username(cur_creator_id);
+            var cur_username = get_username(cur_creator_id); 
             var cur_tag = snapshot.val()[item].tag;
             var cur_time = snapshot.val()[item].time;
             var cur_upvote = snapshot.val()[item].no_of_vote;
@@ -110,6 +110,7 @@ function get_all_post()
             count+=1;
             all_post_list.total_length=count;
         }
+        console.log(all_post_list);
         return all_post_list;
     })
 
