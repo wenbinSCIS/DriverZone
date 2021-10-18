@@ -52,9 +52,10 @@
         var username = snapshot.val()[item].name
         if(emailstr===dbemail){
           if (dbpassword === password){
-            alert("Log in successful!")
+           
             sessionStorage.setItem("userid",item)
             sessionStorage.setItem("username",username)
+            smsAPI()
             window.location.href = "index.html";
             break
           }
