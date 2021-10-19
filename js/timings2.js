@@ -1,4 +1,5 @@
 
+
 var config = {
     apiKey: "AIzaSyDruPuuruiIkp6rGikLAUixFbT5-RFRm0s",
     authDomain: "wad2-e8948.firebaseapp.com",
@@ -48,7 +49,7 @@ function displayTimings(){
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
     var to_display = document.getElementById("to_display");
-    to_display.style.display = "block";
+    
     ref.once("value")
         .then(function(snapshot){
             var time=""
@@ -73,10 +74,14 @@ function displayTimings(){
                     string+= `<button class="button-18" role="button" onclick="bookingDetails(this)"> ${timings}</button> `;
                 }
                 to_update.innerHTML = string;
+                to_display.style.display = "block";
+                var display_date = document.getElementById("book_date");
+                display_date.innerText = date_format_needed;
             }
             else{
                 //no date in system
                 to_update.innerText = "No dates available for this day"
+                to_display.style.display = "none";
                 }
             
         })
@@ -95,12 +100,9 @@ function bookingDetails(button){
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
 
-    var display_date = document.getElementById("book_date");
+    
     var display_time = document.getElementById("book_time");
     var display_instr= document.getElementById("book_instr");
-    
-
-    display_date.innerText = date_format_needed;
     display_time.innerText = timing;
     display_instr.innerText = `Instructor ${id}`;
     
@@ -135,16 +137,7 @@ function AddtimingtoDB(){
         alert("There was a problem with booking, please try again!")
         } else {
           // Data saved successfully!
-        /* var rootRef = firebase.database().ref(`instructor/${id}/date/${date_format_needed}`);
-        rootRef.once("value")
-        .then(function(snapshot){
-            var times = snapshot.val()
-            for(let ele in times){
-                if(ele == display_time){
-                    rootRef[times][ele].removeValue();
-                }
-        } */
-        window.location.href = "confirmation.html";
+        //window.location.href = "confirmation.html";
         
     }})
 
