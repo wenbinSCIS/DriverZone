@@ -153,8 +153,6 @@ function get_all_post(){
             to_populate.innerHTML = string;
         })
     }
-get_all_post()
-
 function go_to_post(count_id)
 {
     sessionStorage.setItem("post_count_id",count_id)
