@@ -45,9 +45,11 @@ function displayQuoteAndTitle(){
 function displayTimings(){
     var string=""
     var ref = firebase.database().ref('instructor');
+    //date given in eg 10/10/1000 format
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
+    // format is now "10.10.1000"
     var to_display = document.getElementById("to_display");
     
     ref.once("value")
@@ -57,11 +59,11 @@ function displayTimings(){
             for(let ele in instr_db){
                 if(ele == id){
                     var avail_dates = instr_db[ele].date 
-                    console.log(avail_dates)
                     for(let a_date in avail_dates){
                         if (a_date == date_format_needed){
                             var time = avail_dates[a_date]
                             console.log(time)
+                            
                         }
                     }
                     
@@ -69,9 +71,13 @@ function displayTimings(){
             }
             var to_update = document.getElementById("times");
             //time is whether there are dates inside, if no dates, time.length is 0
-            if(time.length>0){
-                for(let timings of time){
-                    string+= `<button class="button-18" role="button" onclick="bookingDetails(this)"> ${timings}</button> `;
+            if(Object.keys(time).length>0){
+                for(let key in time){
+                    console.log(time[key])
+                    if (time[key].Availability == "Available"){
+                        var timings = time[key].time
+                        string+= `<button class="button-18" role="button" onclick="bookingDetails(this)" }> ${timings}</button> `;
+                    }
                 }
                 to_update.innerHTML = string;
                 to_display.style.display = "block";
@@ -95,14 +101,10 @@ to_appear.addEventListener("click", bookingDetails);
 console.log(to_appear); */
 
 function bookingDetails(button){
-    var timing = button.innerText;
-    var date_select = document.getElementById("selected_date").innerText;
-    var date_split = date_select.split(" ").join('')
-    var date_format_needed = date_split.split('/').join('-');
-
-    
+    var timing = button.innerText;    
     var display_time = document.getElementById("book_time");
     var display_instr= document.getElementById("book_instr");
+    
     display_time.innerText = timing;
     display_instr.innerText = `Instructor ${id}`;
     
@@ -121,7 +123,8 @@ function AddtimingtoDB(){
 
     var rootRef = firebase.database().ref("Booking");
     console.log("here")
-    var display_time = document.getElementById("book_time");
+    var display_time = document.getElementById("book_time").innerText;
+    console.log(display_time);
     //push the date
     var storesRef = rootRef; 
     var newStoreRef = storesRef.push();
@@ -138,12 +141,58 @@ function AddtimingtoDB(){
         } else {
           // Data saved successfully!
         //window.location.href = "confirmation.html";
+        var newRef = firebase.database().ref(`instructor/${id}/date/${date_format_needed}`);
+        console.log(newRef)
+        
+        newRef.once("value")
+        .then(function(snapshot){
+            var instr_db = snapshot.val()
+            for(let ele in instr_db){
+                console.log(instr_db[ele])
+                if(instr_db[ele].time == display_time){
+                    //get element from db
+                    var refNeeded = firebase.database().ref(`instructor/${id}/date/${date_format_needed}/${ele}`);
+                    // edit availability status
+                    refNeeded.update({Availability:"Booked"})
+                }
+            }
+        })
+        
+        
         
     }})
+}
 
 
 
-    //remove timing from DB
-    
+
+
+
+//This is to add values into the system
+
+
+function addTime(){
+    var date_select = document.getElementById("selected_date").innerText;
+    var date_split = date_select.split(" ").join('')
+    var date_format_needed = date_split.split('/').join('-');
+    var time_to_add = document.getElementById("time_to_add").value
+
+    var ref = firebase.database().ref(`instructor/${id}/date/${date_format_needed}`);
+    var storesRef = ref; 
+    var newStoreRef = storesRef.push();
+    newStoreRef.set({
+            "Availability":"Available",
+            "time": `${time_to_add}` 
+    }
+    , (error) => {
+        if (error) {
+          // The write failed...
+        alert("There was a problem with booking, please try again!")
+        } else {
+          // Data saved successfully!
+        //window.location.href = "confirmation.html";
+        alert("success!")
+        
+    }})
 }
 
