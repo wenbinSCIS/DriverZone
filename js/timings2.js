@@ -121,18 +121,18 @@ function AddtimingtoDB(){
     var date_split = date_select.split(" ").join('')
     var date_format_needed = date_split.split('/').join('-');
 
-    var rootRef = firebase.database().ref("Booking");
-    console.log("here")
+    var arr = date_select.split(" ")
+    var unix_needed = arr[4]+"."+arr[2]+"."+arr[0]    
+    var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
+
+    var rootRef = firebase.database().ref(`Booking/${user_id}/${unixTimeStamp}`);
     var display_time = document.getElementById("book_time").innerText;
     console.log(display_time);
     //push the date
-    var storesRef = rootRef; 
-    var newStoreRef = storesRef.push();
-    newStoreRef.set({
+    rootRef.set({
             "date": date_format_needed,
             "time":display_time,
             "instructor": id, 
-            "user": user_id,  
     }
     , (error) => {
         if (error) {
@@ -171,6 +171,8 @@ function AddtimingtoDB(){
 //This is to add values into the system
 
 
+
+
 function addTime(){
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
@@ -194,5 +196,4 @@ function addTime(){
         alert("success!")
         
     }})
-}
-
+} 
