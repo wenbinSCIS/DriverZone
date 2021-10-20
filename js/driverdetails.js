@@ -101,7 +101,7 @@
 
     }
     function project(holder,num) {
-        console.log(num);
+        console.log(holder);
         if (num>0) {
             num=num+(num)*3-1
             console.log(num);
@@ -156,7 +156,55 @@
         }
         return new1
     
+
+        
     }
+
+
+    document.getElementById("submit").addEventListener("click",getSelectValue);
+
+    function getSelectValue()
+    {
+        var location1 = document.getElementById("location").value;
+        var rating = document.getElementById("rating").value;
+        var langauge1=document.getElementById("language").value;
+        var budget=document.getElementById("budget").value;
+        budget=Number(budget.slice(1,3));
+        langauge1=langauge1.toLowerCase();
+        rating=rating.slice(0,1);
+        arr=[];
+        for (let ele in instructor_obj) {
+            console.log(instructor_obj[ele].language);
+            if (instructor_obj[ele].language.includes(langauge1) && instructor_obj[ele].location==location1 && instructor_obj[ele].rating.total>=rating && instructor_obj[ele].price<=budget ){
+                arr.push(instructor_obj[ele])
+            }
+        }
+        length=Math.ceil((Object.keys(arr).length)/3);
+        document.getElementById("buttons").innerHTML="";
+        for (let index = 0; index<length; index++) {
+            
+            document.getElementById("buttons").innerHTML+=`
+            <button type="button" class="btn btn-dark" id=${index} >${index+1}</button>
+            `;
+            // document.getElementById(str).addEventListener("click", ()=>project(holder,index));
+            
+        }
+        for (let index = 0; index<length; index++) {
+            document.getElementById(index.toString()).addEventListener("click", ()=>project(arr,index)); 
+            $('#'+index).click(function (e) { //#A_ID is an example. Use the id of your Anchor
+                $('html, body').animate({
+                    scrollTop: $('#top').offset().top - 10 //#DIV_ID is an example. Use the id of your destination on the page
+                }, 'slow');
+            });
+            
+            
+        }
+    
+        project(arr,0)
+    }
+
+
+    
   
 
 

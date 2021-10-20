@@ -98,7 +98,7 @@
 							<div class="form-group">
 								<div class="tg-select">
 									<select class="selectpicker" data-live-search="true" data-width="100%" id="location" >
-										<option value="" disabled selected>Location</option>
+										<option>Location</option>
 										<option data-tokens="Woodlands" value="woodlands">Woodlands</option>
 										<option data-tokens="Yishun" value="yishun" >Yishun</option>
 										<option data-tokens="Clementi" value="clementi" >Clementi</option>
@@ -110,7 +110,7 @@
 							<div class="form-group">
 								<div class="tg-select">
 									<select class="selectpicker" data-live-search="true" data-width="100%" id="rating">
-										<option value="" disabled selected>Rating</option>
+										<option>Rating</option>
 										<option data-tokens="5 Stars" >5 Stars</option>
 										<option data-tokens="4 Stars" >4 Stars</option>
 										<option data-tokens="3 Stars" >3 Stars</option>
@@ -122,7 +122,7 @@
 							<div class="form-group">
 								<div class="tg-select">
 									<select class="selectpicker" data-live-search="true" data-width="100%" id="language">
-										<option value="" disabled selected>Language</option>
+										<option>Language</option>
 										<option data-tokens="English" id="english">English</option>
 										<option data-tokens="Malay" id="malay">Malay</option>
 										<option data-tokens="Tamil" id="tamil">Tamil</option>
@@ -133,7 +133,7 @@
 							<div class="form-group">
 								<div class="tg-select">
 									<select class="selectpicker" data-live-search="true" data-width="100%" id="budget">
-										<option value="" disabled selected>Budget</option>
+										<option>Budget</option>
 										<option data-tokens="$50" id="50">$50</option>
 										<option data-tokens="$70" id="70">$70</option>
 										<option data-tokens="$90" id="90">$90</option>
@@ -276,23 +276,7 @@
 		  $("#footer").load("footer.html");
 		});
 
-		document.getElementById("submit").addEventListener("click",getSelectValue)
 
-		function getSelectValue()
-		{
-			var location = document.getElementById("location").value;
-			var rating = document.getElementById("rating").value;
-			var langauge=document.getElementById("language").value;
-			var budget=document.getElementById("budget").value;
-			budget=Number(budget.slice(1,3));
-			langauge=langauge.toLowerCase();
-			rating=rating.slice(0,1);
-			console.log(budget);
-			console.log(location);
-			console.log(rating);
-			console.log(langauge);
-		}
-	
 	</script>
 
 	<script src="../filterbar/js/vendor/jquery-library.js"></script>
