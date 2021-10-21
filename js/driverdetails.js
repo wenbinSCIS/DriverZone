@@ -96,18 +96,18 @@
         for (let ele in input) {
             arr.push(input[ele]);
         }
-        console.log(arr)
+     
         return project(arr,0)
 
     }
     function project(holder,num) {
-        console.log(holder);
+    
         if (num>0) {
             num=num+(num)*3-1
             console.log(num);
         }
         let copy=holder.slice(num,num+3);
-        console.log(copy);
+   
         document.getElementById("here").innerHTML=copy
         .map(resourceTemplate)
         .join('');  
@@ -169,17 +169,93 @@
         var rating = document.getElementById("rating").value;
         var langauge1=document.getElementById("language").value;
         var budget=document.getElementById("budget").value;
-        budget=Number(budget.slice(1,3));
-        langauge1=langauge1.toLowerCase();
-        rating=rating.slice(0,1);
-        arr=[];
-        for (let ele in instructor_obj) {
-            console.log(instructor_obj[ele].language);
-            if (instructor_obj[ele].language.includes(langauge1) && instructor_obj[ele].location==location1 && instructor_obj[ele].rating.total>=rating && instructor_obj[ele].price<=budget ){
-                arr.push(instructor_obj[ele])
-            }
+        if (location1=="Location") {
+            location1=0;
+            
         }
-        length=Math.ceil((Object.keys(arr).length)/3);
+        if (rating=="Rating") {
+            rating=0;
+            
+        }
+        else {
+            rating=rating.slice(0,1);
+        }
+        if (langauge1=="Language") {
+            langauge1=0;
+            
+        }
+        else {
+            langauge1=langauge1.toLowerCase();
+        }
+        if (budget=="Budget") {
+            budget=0;
+            
+        }
+        else {
+            budget=Number(budget.slice(1,3));
+        }
+        console.log(location1);
+        console.log(rating);
+        console.log(langauge1);
+        console.log(budget);
+        let test=[];
+        test.push({"location":location1},{"rating":rating},{"language":langauge1},{"budget":budget})
+        console.log(test)
+        var test3=[];
+        for (let index = 0; index < test.length; index++) {
+            if (Object.values(test[index])[0]!=0) {
+
+                test3.push(test[index])
+     
+            }
+            
+        }
+        console.log(test3);
+        if (test3.length==0) {
+            project(holder,0);
+            
+        }
+        else {
+        var arr2=[];
+        var arr3=[];
+        
+        for (let x in holder) {
+            var arr4=[];
+            for (let y in test3) {
+                var key1=Object.keys(test3[y])[0];
+                var val=Object.values(test3[y])[0];
+                if (key1=="rating") {
+                    if (holder[x][key1].total>=val) {
+                        arr4.push(true)
+                    }
+                }
+                if (key1=="location") {
+                    console.log(holder[x].location+":"+val)
+                    if (holder[x].location==val) {
+                        console.log(88);
+                        arr4.push(true)
+                    }
+                }
+                if (key1=="budget"){
+                    if (holder[x].price<=val) {
+                        arr4.push(true);
+                    }
+                }
+                if (key1=="language") {
+                    if ((holder[x].language).includes(val)) {
+                        arr4.push(true);
+                    }
+                }
+
+            }
+            if (arr4.length==test3.length) {
+                arr2.push(holder[x])
+            }
+      
+        }
+        }
+        project(arr2,0);
+        length=Math.ceil((Object.keys(arr2).length)/3);
         document.getElementById("buttons").innerHTML="";
         for (let index = 0; index<length; index++) {
             
@@ -190,18 +266,85 @@
             
         }
         for (let index = 0; index<length; index++) {
-            document.getElementById(index.toString()).addEventListener("click", ()=>project(arr,index)); 
+            document.getElementById(index.toString()).addEventListener("click", ()=>project(arr2,index)); 
             $('#'+index).click(function (e) { //#A_ID is an example. Use the id of your Anchor
                 $('html, body').animate({
                     scrollTop: $('#top').offset().top - 10 //#DIV_ID is an example. Use the id of your destination on the page
                 }, 'slow');
             });
-            
-            
         }
+
+        }
+        // for (let x in test3) {
+        //     var key1=Object.keys(test3[x])[0];
+        //     var val=Object.values(test3[x])[0];
+        //     console.log(key1);
+        //     console.log(val);
+        //     for (let x in holder) {
+        //         if (key1=="rating") {
+        //             if (holder[x][key1].total>=val) {
+        //                 arr3.push(holder[x])
+        //             }
     
-        project(arr,0)
-    }
+        //         }
+        //         if (key1=="location") {
+        //             if (holder[x][key1]==val & !arr3.includes(holder[x])) {
+        //                 arr3.push(holder[x])
+
+        //             }
+        //         }
+        //         console.log(arr3);
+        //     }
+        // }
+        // var arr2=[];
+        // console.log(langauge1);
+        // arr2.push({"rating":rating});
+        // arr2.push({"budget":budget});
+        // arr2.push({"language":langauge1});
+        // console.log(arr2);
+
+        // for (let index = 0; index < arr2.length; index++) {
+        //     console.log(Object.values(arr2[index])[0]);
+        //     if (Object.values(arr2[index])[0]==0) {
+        //         console.log(111)
+        //         arr2.splice(index,1);
+        //     }
+            
+        // }
+        // console.log(arr2);
+        // budget=Number(budget.slice(1,3));
+        // langauge1=langauge1.toLowerCase();
+        // rating=rating.slice(0,1);
+        // arr=[];
+        // for (let ele in instructor_obj) {
+        //     console.log(instructor_obj[ele].language);
+        //     if (instructor_obj[ele].language.includes(langauge1) && instructor_obj[ele].location==location1 && instructor_obj[ele].rating.total>=rating && instructor_obj[ele].price<=budget ){
+        //         arr.push(instructor_obj[ele])
+        //     }
+        // }
+        // length=Math.ceil((Object.keys(arr).length)/3);
+        // document.getElementById("buttons").innerHTML="";
+        // for (let index = 0; index<length; index++) {
+            
+        //     document.getElementById("buttons").innerHTML+=`
+        //     <button type="button" class="btn btn-dark" id=${index} >${index+1}</button>
+        //     `;
+        //     // document.getElementById(str).addEventListener("click", ()=>project(holder,index));
+            
+        // }
+        // for (let index = 0; index<length; index++) {
+        //     document.getElementById(index.toString()).addEventListener("click", ()=>project(arr,index)); 
+        //     $('#'+index).click(function (e) { //#A_ID is an example. Use the id of your Anchor
+        //         $('html, body').animate({
+        //             scrollTop: $('#top').offset().top - 10 //#DIV_ID is an example. Use the id of your destination on the page
+        //         }, 'slow');
+        //     });
+            
+            
+        // }
+    
+        // project(arr,0)
+    
 
 
     
