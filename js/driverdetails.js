@@ -106,6 +106,7 @@
             num=num+(num)*3-1
             console.log(num);
         }
+        console.log(holder);
         let copy=holder.slice(num,num+3);
    
         document.getElementById("here").innerHTML=copy
@@ -212,9 +213,14 @@
         }
         console.log(test3);
         if (test3.length==0) {
-            project(holder,0);
+            window.location.href = "course-list.html";
+            exit();
+
+            
             
         }
+
+
         else {
         var arr2=[];
         var arr3=[];
@@ -254,6 +260,7 @@
       
         }
         }
+        window.location.href = "course-list.html#top"
         project(arr2,0);
         length=Math.ceil((Object.keys(arr2).length)/3);
         document.getElementById("buttons").innerHTML="";
