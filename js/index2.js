@@ -110,7 +110,7 @@
                     </div>
 
                     <a href="course-detail.html"><h4 class="m-txt8 hov-color-main trans-04 p-b-12">
-                        ${location}
+                        ${capitalizeFirstLetter(location)}
                     </h4></a>
                     <span class="m-txt9">$${price}/h</span>
                     
@@ -140,6 +140,7 @@
         }
     }
     function star_display(input) {
+        input=Math.floor(input);
         var new1="";
         for (let index = 0; index < input; index++) {
           new1+="<i class='icon_star voted'></i>"
@@ -157,3 +158,8 @@
   
  
     }
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+      

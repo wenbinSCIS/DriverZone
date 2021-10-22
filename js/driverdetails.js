@@ -36,14 +36,14 @@
     function resourceTemplate(resource) {
         return `
         <div class="block-3 bo2 flex-w">
-        <div class="wrap-pic-b3 wrap-pic-w hov5 bo2-r w-size6 respon2">
+        <div class="wrap-pic-w hov5 bo2-r w-size6 ">
             <a href="course-detail.html?id=${resource.name}"><img src="../images/${resource.name}.JPG" alt="IMG-COURSE"></a>
         </div>
 
         <div class="wrap-text-b3 w-size7 p-l-35 p-r-27 p-t-26 p-b-25 w-full-md">
             <div class="flex-sb-m p-b-12">
                 
-                <span class="color1 fs-12">
+                <span class="color1 fs-16">
                     <i class='icon_star-empty'></i>
                     ${star_display(resource.rating.total)}
                 
@@ -51,13 +51,13 @@
             </div>
 
             <h4 class="p-b-15">
-                <a href="course-detail.html" class="m-txt8 hov-color-main trans-04">
-                    ${resource.name}
+                <a href="course-detail.html" class="m-txt9 hov-color-main trans-04">
+                    ${capitalizeFirstLetter(resource.name)}
                 </a>
             </h4>
             
-            <p class="s-txt2 h-size4 of-hidden m-b-2 respon3">
-                ${resource.description}
+            <p class="m-txt10 h-size4 of-hidden m-b-5 respon3">
+                ~${resource.description}
             </p>
 
             <span class="m-txt9">$${resource.price}/h</span>
@@ -145,6 +145,8 @@
 
     function star_display(input) {
         var new1="";
+        input=Math.floor((Number(input)))
+      
         for (let index = 0; index < input; index++) {
           new1+="<i class='icon_star voted'></i>"
             
@@ -260,8 +262,14 @@
       
         }
         }
-        window.location.href = "course-list.html#top"
+        window.location.href = "course-list.html#top";
+        console.log(arr2);
+        if (arr2.length==0) {
+            document.getElementById("here").innerHTML="<img src='../images/search-bar.gif' style='width:100%'>"
+        }
+        else {
         project(arr2,0);
+        }
         length=Math.ceil((Object.keys(arr2).length)/3);
         document.getElementById("buttons").innerHTML="";
         for (let index = 0; index<length; index++) {
@@ -282,80 +290,13 @@
         }
 
         }
-        // for (let x in test3) {
-        //     var key1=Object.keys(test3[x])[0];
-        //     var val=Object.values(test3[x])[0];
-        //     console.log(key1);
-        //     console.log(val);
-        //     for (let x in holder) {
-        //         if (key1=="rating") {
-        //             if (holder[x][key1].total>=val) {
-        //                 arr3.push(holder[x])
-        //             }
-    
-        //         }
-        //         if (key1=="location") {
-        //             if (holder[x][key1]==val & !arr3.includes(holder[x])) {
-        //                 arr3.push(holder[x])
-
-        //             }
-        //         }
-        //         console.log(arr3);
-        //     }
-        // }
-        // var arr2=[];
-        // console.log(langauge1);
-        // arr2.push({"rating":rating});
-        // arr2.push({"budget":budget});
-        // arr2.push({"language":langauge1});
-        // console.log(arr2);
-
-        // for (let index = 0; index < arr2.length; index++) {
-        //     console.log(Object.values(arr2[index])[0]);
-        //     if (Object.values(arr2[index])[0]==0) {
-        //         console.log(111)
-        //         arr2.splice(index,1);
-        //     }
-            
-        // }
-        // console.log(arr2);
-        // budget=Number(budget.slice(1,3));
-        // langauge1=langauge1.toLowerCase();
-        // rating=rating.slice(0,1);
-        // arr=[];
-        // for (let ele in instructor_obj) {
-        //     console.log(instructor_obj[ele].language);
-        //     if (instructor_obj[ele].language.includes(langauge1) && instructor_obj[ele].location==location1 && instructor_obj[ele].rating.total>=rating && instructor_obj[ele].price<=budget ){
-        //         arr.push(instructor_obj[ele])
-        //     }
-        // }
-        // length=Math.ceil((Object.keys(arr).length)/3);
-        // document.getElementById("buttons").innerHTML="";
-        // for (let index = 0; index<length; index++) {
-            
-        //     document.getElementById("buttons").innerHTML+=`
-        //     <button type="button" class="btn btn-dark" id=${index} >${index+1}</button>
-        //     `;
-        //     // document.getElementById(str).addEventListener("click", ()=>project(holder,index));
-            
-        // }
-        // for (let index = 0; index<length; index++) {
-        //     document.getElementById(index.toString()).addEventListener("click", ()=>project(arr,index)); 
-        //     $('#'+index).click(function (e) { //#A_ID is an example. Use the id of your Anchor
-        //         $('html, body').animate({
-        //             scrollTop: $('#top').offset().top - 10 //#DIV_ID is an example. Use the id of your destination on the page
-        //         }, 'slow');
-        //     });
-            
-            
-        // }
-    
-        // project(arr,0)
-    
 
 
-    
-  
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+          }
+          
+
 
 
 
@@ -414,33 +355,3 @@
 
 
 
-
-
-
-    // document.getElementById("next").addEventListener("click",project);
-
-
-    // function add() {
-
-      
-    //   var name= document.getElementById("name");
-    //   var submit=document.getElementById("submit");
-        
-    //     set(ref(db, name.value),{
-    //         Name: name.value
-    //     }      
-        
-    //     )
-    //     .then(()=>{
-    //         alert("data stored successfully");
-            
-    //     })
-    //     .catch((error)=>{
-    //         alert("data not stored successfully");
-            
-    //     })
-    // }
-
-  
-        // var name= document.getElementById("name");
-        // var submit=document.getElementById("submit");

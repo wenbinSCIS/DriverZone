@@ -1631,7 +1631,7 @@ Input, textarea : 15px/1.7 'Roboto-Regular', Arial, sans-serif;
 .s-txt2 {
   font-family: Roboto-Regular;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #555555;
 }
 
@@ -1911,12 +1911,12 @@ Input, textarea : 15px/1.7 'Roboto-Regular', Arial, sans-serif;
   font-family: Roboto-Bold;
   font-size: 20px;
   line-height: 1.2;
-  color: #666666;
+  color: #534f4f;
 }
 
 .m-txt10 {
   font-family: Roboto-Regular;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.2;
   color: #555555;
 }
@@ -2248,7 +2248,7 @@ Input, textarea : 15px/1.7 'Roboto-Regular', Arial, sans-serif;
 }
 
 .w-size6 {
-  width: 390px;
+  width: 320px;
 }
 
 .w-size7 {
@@ -2696,7 +2696,7 @@ Input, textarea : 15px/1.7 'Roboto-Regular', Arial, sans-serif;
   align-items: center;
   position: relative;
   z-index: 1;
-  padding: 10px;
+  padding: 3px;
 }
 
 .btn-drive::before {

@@ -76,22 +76,24 @@
                       <div class="row">
                           <div class="col-lg-5 col-md-4">
                               <figure>
-                                  <img src="${image}" alt="" class="img-fluid">
+                                  <img src="${image}" alt="" class="" style="max-width:100%; max-height:400px";>
                               </figure>
                           </div>
                           <div class="col-lg-7 col-md-8">
-                              <h1>${name_capitalize}</h1>
-                              <span class="rating">
+                              <h1 style="font-size:30px">${name_capitalize}</h1>
+                              <span class="rating" style="font-size:28px;">
                                   ${star_display(rating)}
                                   <small>(${totalNumOfRating})</small>                
                               </span>
                               <ul class="contacts">
                                 
                                   <li>
-                                      <h6>Phone</h6> <a href="tel://000434323342">+00043 4323342</a></li>
+                                  <i class='icon_phone' style='font-size:20px;color:black'></i> <span style="font-size:20px">96956594</span> </li>
                                   <li>
-                                      <h6>Location</h6>
-                                      ${location}
+                                  <i class='icon_cursor' style='font-size:20px;color:black'></i>
+                                  <span style="font-size:20px">      ${capitalizeFirstLetter(location)}</span>
+                                   
+                                
 
                                   </li>
                               </ul>
@@ -107,7 +109,7 @@
                       <h3>Professional statement</h3>
                   </div>
                   <div class="wrapper_indent">
-                      <p>${description}</p>
+                      <p style="font-size:18px">${description}</p>
                       <!-- /row-->
                   </div>
                   <!-- /wrapper indent -->
@@ -170,7 +172,7 @@
                                           <div class="progress-bar" role="progressbar" style="width: ${fiveStar}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
-                                  <div class="col-lg-2 col-3"><small><strong>5 stars</strong></small></div>
+                                  <div class="col-lg-2 col-3"><medium>5 stars</medium></div>
                               </div>
                               <!-- /row -->
                               <div class="row">
@@ -179,7 +181,7 @@
                                           <div class="progress-bar" role="progressbar" style="width: ${fourStar}%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
-                                  <div class="col-lg-2 col-3"><small><strong>4 stars</strong></small></div>
+                                  <div class="col-lg-2 col-3"><medium>4 stars</medium></div>
                               </div>
                               <!-- /row -->
                               <div class="row">
@@ -188,7 +190,7 @@
                                           <div class="progress-bar" role="progressbar" style="width: ${threeStar}%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
-                                  <div class="col-lg-2 col-3"><small><strong>3 stars</strong></small></div>
+                                  <div class="col-lg-2 col-3"><medium>3 stars</medium></div>
                               </div>
                               <!-- /row -->
                               <div class="row">
@@ -197,7 +199,7 @@
                                           <div class="progress-bar" role="progressbar" style="width: ${twoStar}%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
-                                  <div class="col-lg-2 col-3"><small><strong>2 stars</strong></small></div>
+                                  <div class="col-lg-2 col-3"><medium>2 stars</medium></div>
                               </div>
                               <!-- /row -->
                               <div class="row">
@@ -206,7 +208,7 @@
                                           <div class="progress-bar" role="progressbar" style="width: ${oneStar}%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                   </div>
-                                  <div class="col-lg-2 col-3"><small><strong>1 stars</strong></small></div>
+                                  <div class="col-lg-2 col-3"><medium>1 stars</medium></div>
                               </div>
                               <!-- /row -->
                           </div>
@@ -248,7 +250,7 @@
                   <div class="rev-info">
                       ${input[eachReview].name}
                   </div>
-                  <div class="rev-text">
+                  <div class="" style="font-size:18px">
                       <p>
                           ${input[eachReview].description}
                       </p>
@@ -260,20 +262,27 @@
       }
 
       function star_display(input) {
-          var new1="";
+        var new1="";
+        input=Number(input);
+        console.log(input);
           for (let index = 0; index < input; index++) {
-            new1+="<i class='icon_star voted'></i>"
+            new1+="<i class='icon_star voted' style='font-size:18px'></i>"
               
           };
           let remaining=5-input;
           for (let index = 0; index < remaining; index++) {
-            new1+="<i class='icon_star'></i>"
+            new1+="<i class='icon_star' style='font-size:18px'></i>"
   
             
           }
           return new1
       
       }
+
+      function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+      
 
     
 
