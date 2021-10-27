@@ -140,9 +140,8 @@ function AddtimingtoDB(){
         alert("There was a problem with booking, please try again!")
         } else {
           // Data saved successfully!
-        //window.location.href = "confirmation.html";
+        
         var newRef = firebase.database().ref(`instructor/${id}/date/${date_format_needed}`);
-        console.log(newRef)
         
         newRef.once("value")
         .then(function(snapshot){
@@ -154,9 +153,12 @@ function AddtimingtoDB(){
                     var refNeeded = firebase.database().ref(`instructor/${id}/date/${date_format_needed}/${ele}`);
                     // edit availability status
                     refNeeded.update({Availability:"Booked"})
+                    
                 }
             }
+            window.location.href = "confirmation.html";
         })
+
         
         
         
