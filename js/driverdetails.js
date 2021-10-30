@@ -119,6 +119,8 @@
 
     //buttons
 
+    console.log(Object.keys(instructor_obj).length);
+
     length=Math.ceil((Object.keys(instructor_obj).length)/3);
     console.log(length)
     
