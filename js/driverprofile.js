@@ -82,7 +82,7 @@
                           <div class="col-lg-7 col-md-8">
                               <h1 style="font-size:30px">${name_capitalize}</h1>
                               <span class="rating" style="font-size:28px;">
-                                  ${star_display(rating)}
+                                  ${star_display(Math.floor(Number(rating)))}
                                   <small>(${totalNumOfRating})</small>                
                               </span>
                               <ul class="contacts">
@@ -92,9 +92,9 @@
                                   <li>
                                   <i class='icon_cursor' style='font-size:20px;color:black'></i>
                                   <span style="font-size:20px">      ${capitalizeFirstLetter(location)}</span>
-                                   
-                                
-
+                                  </li>
+                                  <i class='icon_globe-2' style='font-size:20px;color:black'></i>
+                                  <span style="font-size:20px">    ${lang.join("/").slice(1)}</span>
                                   </li>
                               </ul>
                           </div>
@@ -162,14 +162,14 @@
                                   <div class="rating">
                                   ${star_display(rating)}
                                   </div>
-                                  <small>Based on ${totalNumOfRating} reviews</small>
+                                  <medium>Based on ${totalNumOfRating} reviews</medium>
                               </div>
                           </div>
                           <div class="col-lg-9">
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: ${fiveStar}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${fiveStar}%" ></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><medium>5 stars</medium></div>
@@ -178,7 +178,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: ${fourStar}%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${fourStar}%"></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><medium>4 stars</medium></div>
@@ -187,7 +187,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: ${threeStar}%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${threeStar}%"></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><medium>3 stars</medium></div>
@@ -196,7 +196,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: ${twoStar}%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${twoStar}%" ></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><medium>2 stars</medium></div>
@@ -205,7 +205,7 @@
                               <div class="row">
                                   <div class="col-lg-10 col-9">
                                       <div class="progress">
-                                          <div class="progress-bar" role="progressbar" style="width: ${oneStar}%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar" role="progressbar" style="width: ${oneStar}%" ></div>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-3"><medium>1 stars</medium></div>

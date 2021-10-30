@@ -101,6 +101,7 @@
 
     }
     function project(holder,num) {
+        document.getElementById("result-page").innerHTML=`Showing ${num+1}-${Math.ceil((Object.keys(holder).length)/3)} of ${Object.keys(holder).length} results`
     
         if (num>0) {
             num=num+(num)*3-1
@@ -120,6 +121,7 @@
 
     length=Math.ceil((Object.keys(instructor_obj).length)/3);
     console.log(length)
+    
 
     for (let index = 0; index<length; index++) {
         document.getElementById("buttons").innerHTML+=`
@@ -188,7 +190,7 @@
             
         }
         else {
-            langauge1=langauge1.toLowerCase();
+            // langauge1=langauge1.toLowerCase();
         }
         if (budget=="Budget") {
             budget=0;
@@ -203,7 +205,6 @@
         console.log(budget);
         let test=[];
         test.push({"location":location1},{"rating":rating},{"language":langauge1},{"budget":budget})
-        console.log(test)
         var test3=[];
         for (let index = 0; index < test.length; index++) {
             if (Object.values(test[index])[0]!=0) {
