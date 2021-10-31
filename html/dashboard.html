@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="detail">
-                                                <p class="detail-subtitle">Completed lessons</p>
+                                                <p class="detail-subtitle">number of Completed lessons</p>
                                                 <br/>
                                                 <span class="number" id="completed"></span>
                                             </div>
@@ -127,7 +127,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="detail">
-                                                <p class="detail-subtitle">Next Lesson</p>
+                                                <p class="detail-subtitle">Date for Next Lesson</p>
                                                 <br/>
                                                 <span class="number" id="nextlesson"></span>
                                             </div>
@@ -172,7 +172,7 @@
                                 <div class="content">
 
                                     <h5 class="mb-0">Maps</h5>
-                                    <div id="map" style="width:100%;height:400px;padding:0px;margin:0px;"></div>
+                                    <div id="map" class="border border-dark bg-light text-dark" style="width:100%;height:400px;padding:0px;margin:0px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -209,60 +209,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="dfd text-center">
-                                            <i class="blue large-icon mb-2 fas fa-thumbs-up"></i>
-                                            <h4 class="mb-0">+21,900</h4>
-                                            <p class="text-muted">FACEBOOK PAGE LIKES</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="dfd text-center">
-                                            <i class="orange large-icon mb-2 fas fa-reply-all"></i>
-                                            <h4 class="mb-0">+22,566</h4>
-                                            <p class="text-muted">INSTAGRAM FOLLOWERS</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="dfd text-center">
-                                            <i class="grey large-icon mb-2 fas fa-envelope"></i>
-                                            <h4 class="mb-0">+15,566</h4>
-                                            <p class="text-muted">E-MAIL SUBSCRIBERS</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="dfd text-center">
-                                            <i class="olive large-icon mb-2 fas fa-dollar-sign"></i>
-                                            <h4 class="mb-0">+98,601</h4>
-                                            <p class="text-muted">TOTAL SALES</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                   <div class="row">
+                    <div class="head" style="margin-left:10px;">
+                        <h5 class="mb-0">Upcoming lessons</h5>
+                       
                     </div>
+                    <div class="canvas-wrapper">
+                        <table class="table table-striped" style="margin-left:10px;">
+                            <thead class="success">
+                                <tr>
+                                    <th>Date of Lesson</th>
+                                    <th>Time of Lesson</th>
+                                    <th>Instructor</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tbody id="top5body">
+                             
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                   </div>
                 </div>
             </div>
         </div>
