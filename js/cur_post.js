@@ -192,8 +192,56 @@ function give_upvote()
             for(let ele in post_db){
                 if (data_checker==count_id)
                 {
-                var rootRef = firebase.database().ref("post/"+ele+"/no_of_vote")
-                rootRef.set(firebase.database.ServerValue.increment(1));
+                    user_id = sessionStorage.getItem("userid")
+                    var rootRef_0 = firebase.database().ref("users");
+                    var user_ref = rootRef_0.child(user_id);
+
+                    user_ref.once("value")
+                        .then(function(snapshot){
+                            var user_db = snapshot.val()
+                            var upvote_db = user_db.upvote
+
+                            if (upvote_db!=undefined)
+                            {
+                                upvote_arr=Object.entries(upvote_db)
+                                var not_in=true
+    
+                                for (const [key, value] of upvote_arr)
+                                {
+                                    if (value==ele)
+                                    {
+                                        not_in=false
+                                    }
+                                }
+                                
+                                if (not_in)
+                                {
+                                    var storesRef = user_ref.child("upvote");
+    
+                                    if (storesRef[ele]==undefined)
+                                    {
+                                        storesRef.push(ele);
+    
+                                        var rootRef = firebase.database().ref("post/"+ele+"/no_of_vote")
+                                        rootRef.set(firebase.database.ServerValue.increment(1));
+                                    }
+                                }
+                            }
+
+                            else
+                            {
+                                var storesRef = user_ref.child("upvote");
+    
+                                if (storesRef[ele]==undefined)
+                                {
+                                    storesRef.push(ele);
+
+                                    var rootRef = firebase.database().ref("post/"+ele+"/no_of_vote")
+                                    rootRef.set(firebase.database.ServerValue.increment(1));
+                                }
+                            }
+                            }
+                        )
                 }
                 data_checker++
             }
@@ -213,8 +261,56 @@ function give_downvote()
             for(let ele in post_db){
                 if (data_checker==count_id)
                 {
-                var rootRef = firebase.database().ref("post/"+ele+"/no_of_vote")
-                rootRef.set(firebase.database.ServerValue.increment(-1));
+                    user_id = sessionStorage.getItem("userid")
+                    var rootRef_0 = firebase.database().ref("users");
+                    var user_ref = rootRef_0.child(user_id);
+
+                    user_ref.once("value")
+                        .then(function(snapshot){
+                            var user_db = snapshot.val()
+                            var downvote_db = user_db.downvote
+
+                            if (downvote_db!=undefined)
+                            {
+                                downvote_obj_arr=Object.entries(downvote_db)
+                                var not_in=true
+    
+                                for (const [key, value] of downvote_obj_arr)
+                                {
+                                    if (value==ele)
+                                    {
+                                        not_in=false
+                                    }
+                                }
+                                
+                                if (not_in)
+                                {
+                                    var storesRef = user_ref.child("downvote");
+    
+                                    if (storesRef[ele]==undefined)
+                                    {
+                                        storesRef.push(ele);
+    
+                                        var rootRef = firebase.database().ref("post/"+ele+"/no_of_vote")
+                                        rootRef.set(firebase.database.ServerValue.increment(1));
+                                    }
+                                }
+                            }
+
+                            else
+                            {
+                                var storesRef = user_ref.child("downvote");
+    
+                                if (storesRef[ele]==undefined)
+                                {
+                                    storesRef.push(ele);
+
+                                    var rootRef = firebase.database().ref("post/"+ele+"/no_of_vote")
+                                    rootRef.set(firebase.database.ServerValue.increment(1));
+                                }
+                            }
+                            }
+                        )
                 }
                 data_checker++
             }
