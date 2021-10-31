@@ -77,7 +77,79 @@
 
   }
 
+  function getEmail(emailstr){
+    var rootRef = firebase.database().ref();
+    var storesRef = rootRef.child('users');
+    var emailcount = 0;
+    var error = []
+    storesRef.on("value", function(snapshot) {
+      console.log(snapshot.val());
+      for( var item in snapshot.val()){
+        var dbemail = snapshot.val()[item].email
 
+        console.log(dbemail,emailstr)
+        if(emailstr===dbemail){
+          
+          emailcount +=1
+          
+        }
+        else{
+          
+        }
+      }
+
+      if(emailcount > 0){
+      
+      sessionStorage.setItem("email","false")
+      }
+      else{
+   
+        sessionStorage.setItem("email","true")
+      }
+   });
+
+
+
+  }
+
+
+
+
+
+  function getTop5Lessons(userid){
+    var rootRef = firebase.database().ref();
+    var storesRef = rootRef.child('Booking');
+    var emailcount = 0;
+    var error = []
+    storesRef.on("value", function(snapshot) {
+      console.log(snapshot.val());
+      for( var item in snapshot.val()){
+        var dbemail = snapshot.val()[item].email
+
+        console.log(dbemail,emailstr)
+        if(emailstr===dbemail){
+          
+          emailcount +=1
+          
+        }
+        else{
+          
+        }
+      }
+
+      if(emailcount > 0){
+      
+      sessionStorage.setItem("email","false")
+      }
+      else{
+   
+        sessionStorage.setItem("email","true")
+      }
+   });
+
+
+
+  }
 
 
 
