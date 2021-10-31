@@ -120,12 +120,15 @@
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('Booking');
     const userid = sessionStorage.getItem('userid');
-    var emailcount = 0;
-    var reslist = []
+
+  
     var elemstring = ''
-    var finishedcounter=0
+   
     storesRef.on("value", function(snapshot) {
+      
       snapshot.forEach(function(child) {
+        var finishedcounter=0
+        var reslist = []
         if(userid == child.key){
        
           for(elem in child.val()){
