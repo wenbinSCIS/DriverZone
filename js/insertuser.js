@@ -116,35 +116,72 @@
 
 
 
-  function getTop5Lessons(userid){
+  function getTop5Lessons(){
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('Booking');
+    const userid = sessionStorage.getItem('userid');
     var emailcount = 0;
-    var error = []
+    var reslist = []
+    var elemstring = ''
+    var finishedcounter=0
     storesRef.on("value", function(snapshot) {
-      console.log(snapshot.val());
-      for( var item in snapshot.val()){
-        var dbemail = snapshot.val()[item].email
+      snapshot.forEach(function(child) {
+        if(userid == child.key){
+       
+          for(elem in child.val()){
+            var item = child.val()[elem]
+      
+            var date = item.date
+            date.replace("-","/")
+      
 
-        console.log(dbemail,emailstr)
-        if(emailstr===dbemail){
+            var dateMomentObject = moment(date, "DD/MM/YYYY"); // 1st argument - string, 2nd argument - format
+            var dateObject = dateMomentObject.toDate(); // convert moment.js object to Date object
+            
+            var currDate = moment().toDate()
+            
+
+            if(dateObject>currDate){
+              const person = {lessondate:dateObject, instructor:item.instructor, time:item.time};
+              reslist.push(person)
+            }
+            else{
+              finishedcounter+=1
+            }
+
+         
+          }
+
+        }
+        const sortedActivities = reslist.slice().sort((a, b) => a.lessondate - b.lessondate)
+        console.log(sortedActivities)
+
+        var elem = document.getElementById("completed")
+        elem.innerText = finishedcounter
+
+        var upc = document.getElementById("upcoming")
+        upc.innerText = reslist.length
+
+
+        var next = document.getElementById("nextlesson")
+        var nextins = document.getElementById("nextinstructor")
+        upc.innerText = reslist.length
+
+        if(sortedActivities.length >0){
           
-          emailcount +=1
-          
+          next.innerText=sortedActivities[0].lessondate.toDateString() + ' ' + sortedActivities[0].time + ' hrs'  
+          nextins.innerText=sortedActivities[0].instructor
         }
         else{
-          
+          next.innerText="None"
+          nextins.innerText="None"
         }
-      }
+        next.style="font-size:18px;"
+      });
 
-      if(emailcount > 0){
       
-      sessionStorage.setItem("email","false")
-      }
-      else{
-   
-        sessionStorage.setItem("email","true")
-      }
+
+
    });
 
 
