@@ -62,10 +62,19 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 page-header">
+                        <div class="col-md-4 page-header">
                             <div class="page-pretitle">Overview</div>
                             <h2 class="page-title">My Profile</h2>
                         </div>
+   
+                       
+                       
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                       
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
@@ -306,8 +315,30 @@
     .get(url1)
     .then((response) => {
         var list1 = response.data
-
         console.log(list1)
+        const forecastEls = document.querySelectorAll(".forecast");
+            for (i=0; i<forecastEls.length; i++) {
+                forecastEls[i].innerHTML = "";
+                const forecastIndex = i*8 + 4;
+                const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+                const forecastDay = forecastDate.getDate();
+                const forecastMonth = forecastDate.getMonth() + 1;
+                const forecastYear = forecastDate.getFullYear();
+                const forecastDateEl = document.createElement("p");
+                forecastDateEl.setAttribute("class","mt-3 mb-0 forecast-date");
+                forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+                forecastEls[i].append(forecastDateEl);
+                const forecastWeatherEl = document.createElement("img");
+                forecastWeatherEl.setAttribute("src","https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
+                forecastWeatherEl.setAttribute("alt",response.data.list[forecastIndex].weather[0].description);
+                forecastEls[i].append(forecastWeatherEl);
+                const forecastTempEl = document.createElement("p");
+                forecastTempEl.innerHTML = "Temp: " + Math.round((response.data.list[forecastIndex].main.temp - 273.15)) + "&#176C";
+                forecastEls[i].append(forecastTempEl);
+                const forecastHumidityEl = document.createElement("p");
+                forecastHumidityEl.innerHTML = " Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
+                forecastEls[i].append(forecastHumidityEl);
+                }
     })
 
     .catch((error) => {
@@ -322,7 +353,9 @@
 
 
 
-
+function k2f(K) {
+        return Math.floor((K - 273.15) *1.8 +32);
+    }
 
 
 
