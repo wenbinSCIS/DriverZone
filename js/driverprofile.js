@@ -45,7 +45,7 @@
           var arr=[];
           for (let ele in input) {
               if (ele==id) {
-              var name=ele;
+              var name=input[ele].name;
               var lang=input[ele].language
               var price=input[ele].price
               var location=input[ele].location

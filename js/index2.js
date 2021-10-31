@@ -70,7 +70,7 @@
         var count=0;
         for (let ele in input) {
         
-            var name=ele;
+            var name=input[ele].name;
             var lang=input[ele].language
             var location=input[ele].location
             var price=input[ele].price
