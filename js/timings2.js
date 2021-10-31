@@ -145,9 +145,10 @@ function AddtimingtoDB(){
         "type":"event",
         "name":"Lesson Booking" ,
         }
-    var detail_list = [id,display_time,date_format_needed];
-    
-    sessionStorage.setItem("bookdetails",detail_list)
+    sessionStorage.setItem("instructor",id);
+    sessionStorage.setItem("time",display_time)
+    sessionStorage.setItem("date",date_format_needed)
+    //set to session storage for use in confirmation booking
     rootRef.set(
         pushed_obj
     , (error) => {

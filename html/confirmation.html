@@ -40,7 +40,7 @@
             <div class="row justify-content-center" v-for="(i,index) in icon_pack">
                 <div class="col">
                     <img :src="'../icons/' + i" style="padding:10px;">
-                    <span class="text-center text-white ">{{detailsobj()[index]}}</br></span>
+                    <span class="text-center text-white ">{{details()[index]}}</br></span>
                 </div>
             </div>
         </div>
@@ -78,9 +78,14 @@
                     };
                 },
                 methods: {
-                    detailsobj(){
-                        var str = sessionStorage.getItem("bookdetails");
-                        var arr = str.split(",");
+                    details(){
+                        var arr = [];
+                        var instr = sessionStorage.getItem("instructor");
+                        var time = sessionStorage.getItem("time");
+                        var date = sessionStorage.getItem("date");
+                        arr.push(instr);
+                        arr.push(time);
+                        arr.push(date);
                         return arr
                     }
                 }
