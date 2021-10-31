@@ -24,7 +24,9 @@ var allEvents =[];
             var booking_db = snapshot.val()
             console.log(booking_db)
             for(let event in booking_db){
-                allEvents.push(booking_db[event])
+                var object = booking_db[event];
+                object.id = event;
+                allEvents.push(object)
             }
         })        
 
