@@ -116,35 +116,98 @@
 
 
 
-  function getTop5Lessons(userid){
+  function getTop5Lessons(){
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('Booking');
-    var emailcount = 0;
-    var error = []
-    storesRef.on("value", function(snapshot) {
-      console.log(snapshot.val());
-      for( var item in snapshot.val()){
-        var dbemail = snapshot.val()[item].email
+    const userid = sessionStorage.getItem('userid');
 
-        console.log(dbemail,emailstr)
-        if(emailstr===dbemail){
+  
+    var elemstring = ''
+   
+    storesRef.on("value", function(snapshot) {
+      
+      snapshot.forEach(function(child) {
+        var finishedcounter=0
+        var reslist = []
+        if(userid == child.key){
+       
+          for(elem in child.val()){
+            var item = child.val()[elem]
+      
+            var date = item.date
+            date.replace("-","/")
+      
+
+            var dateMomentObject = moment(date, "DD/MM/YYYY"); // 1st argument - string, 2nd argument - format
+            var dateObject = dateMomentObject.toDate(); // convert moment.js object to Date object
+            
+            var currDate = moment().toDate()
+            
+
+            if(dateObject>currDate){
+              const person = {lessondate:dateObject, instructor:item.instructor, time:item.time};
+              reslist.push(person)
+            }
+            else{
+              finishedcounter+=1
+            }
+
+         
+          }
+
+        }
+        const sortedActivities = reslist.slice().sort((a, b) => a.lessondate - b.lessondate)
+        console.log(sortedActivities)
+
+        var elem = document.getElementById("completed")
+        elem.innerText = finishedcounter
+
+        var upc = document.getElementById("upcoming")
+        upc.innerText = reslist.length
+
+
+        var next = document.getElementById("nextlesson")
+        var nextins = document.getElementById("nextinstructor")
+        upc.innerText = reslist.length
+        var tbl = document.getElementById("top5body")
+        var bodystr = ''
+        if(sortedActivities.length >0){
           
-          emailcount +=1
+          next.innerText=sortedActivities[0].lessondate.toDateString() + ' ' + sortedActivities[0].time + ' hrs'  
+          nextins.innerText=sortedActivities[0].instructor
+
+
+
+          if(sortedActivities.length >5){
           
+
+        }
+
+        else{
+          for(lessons of sortedActivities){
+            bodystr += `
+            <tr>
+                  <td> ${lessons.lessondate.toDateString()}</td>
+                  <td>${lessons.time} hrs</td>
+                  <td> ${lessons.instructor}</td>
+                  <td>27,340</td>
+            </tr>
+            
+            `
+          }
+          tbl.innerHTML = bodystr
+        }
         }
         else{
-          
+          next.innerText="None"
+          nextins.innerText="None"
         }
-      }
+        next.style="font-size:18px;"
+      });
 
-      if(emailcount > 0){
       
-      sessionStorage.setItem("email","false")
-      }
-      else{
-   
-        sessionStorage.setItem("email","true")
-      }
+
+
    });
 
 
