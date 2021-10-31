@@ -123,18 +123,16 @@
 
     length=Math.ceil((Object.keys(instructor_obj).length)/3);
     console.log(length)
-    
 
+    document.getElementById("buttons").innerHTML+=`<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">`
     for (let index = 0; index<length; index++) {
         document.getElementById("buttons").innerHTML+=`
-        <button type="button" class="btn btn-dark" id=${index} >${index+1}</button>
+        <li class="page-item text-primary"><a class="page-link" id=${index}>${index+1}</a></li>
         `;
-        // document.getElementById(str).addEventListener("click", ()=>project(holder,index));
         
     }
+    document.getElementById("buttons").innerHTML+=`</ul></nav>`
     
-
-
     var wrapper= document.getElementById("buttons").innerHTML;
     for (let index = 0; index<length; index++) {
         document.getElementById(index.toString()).addEventListener("click", ()=>project(holder,index)); 
@@ -274,15 +272,14 @@
         project(arr2,0);
         }
         length=Math.ceil((Object.keys(arr2).length)/3);
-        document.getElementById("buttons").innerHTML="";
+        document.getElementById("buttons").innerHTML=`<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">`
         for (let index = 0; index<length; index++) {
-            
             document.getElementById("buttons").innerHTML+=`
-            <button type="button" class="btn btn-dark" id=${index} >${index+1}</button>
+            <li class="page-item text-primary"><a class="page-link" id=${index}>${index+1}</a></li>
             `;
-            // document.getElementById(str).addEventListener("click", ()=>project(holder,index));
             
         }
+        document.getElementById("buttons").innerHTML+=`</ul></nav>`
         for (let index = 0; index<length; index++) {
             document.getElementById(index.toString()).addEventListener("click", ()=>project(arr2,index)); 
             $('#'+index).click(function (e) { //#A_ID is an example. Use the id of your Anchor
