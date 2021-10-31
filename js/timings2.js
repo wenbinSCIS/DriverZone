@@ -137,15 +137,19 @@ function AddtimingtoDB(){
     
     console.log(display_time);
     //push the date
-    rootRef.set({
-            "date": date_for_timetable,
-            "description":description,
-            "time":display_time,
-            "instructor": id, 
-            "type":"event",
-            "name":"Lesson Booking" ,
-
-    }
+    var pushed_obj = {
+        "date": date_for_timetable,
+        "description":description,
+        "time":display_time,
+        "instructor": id, 
+        "type":"event",
+        "name":"Lesson Booking" ,
+        }
+    var detail_list = [id,display_time,date_format_needed];
+    
+    sessionStorage.setItem("bookdetails",detail_list)
+    rootRef.set(
+        pushed_obj
     , (error) => {
         if (error) {
           // The write failed...
