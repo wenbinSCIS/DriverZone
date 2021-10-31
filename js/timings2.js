@@ -119,20 +119,32 @@ console.log(user_id);
 function AddtimingtoDB(){
     var date_select = document.getElementById("selected_date").innerText;
     var date_split = date_select.split(" ").join('')
-    var date_format_needed = date_split.split('/').join('-');
+    var date_format_needed = date_split.split("/").join('-')
 
+    var format_shift = date_split.split('/')
+    var month = format_shift.splice(1,1)
+    var new_arr_date = month.concat(format_shift)
+    var date_for_timetable = new_arr_date.join("/")
+    //dateformat is mm/dd/yyyy
     var arr = date_select.split(" ")
     var unix_needed = arr[4]+"."+arr[2]+"."+arr[0]    
     var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
-
-    var rootRef = firebase.database().ref(`Booking/${user_id}/${unixTimeStamp}`);
+    // unixTimeStamp as ID for each booking
     var display_time = document.getElementById("book_time").innerText;
+    var description = `You have booked a lesson with ${id} on this date at ${display_time}. </br> Click Here to view more details.`
+    //user will see this description in the timetable page
+    var rootRef = firebase.database().ref(`Booking/${user_id}/${unixTimeStamp}`);
+    
     console.log(display_time);
     //push the date
     rootRef.set({
-            "date": date_format_needed,
+            "date": date_for_timetable,
+            "description":description,
             "time":display_time,
             "instructor": id, 
+            "type":"event",
+            "name":"Lesson Booking" ,
+
     }
     , (error) => {
         if (error) {
@@ -162,7 +174,7 @@ function AddtimingtoDB(){
         
         
         
-    }})
+    } })
 }
 
 

@@ -1,25 +1,43 @@
+//firebase stuff
+var config = {
+    apiKey: "AIzaSyDruPuuruiIkp6rGikLAUixFbT5-RFRm0s",
+    authDomain: "wad2-e8948.firebaseapp.com",
+    databaseURL: "https://wad2-e8948-default-rtdb.asia-southeast1.firebasedatabase.app",
+    storageBucket: "wad2-e8948.appspot.com",
+    };
+
+firebase.initializeApp(config);
+//get instructor info from course list
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id')
+
+//user
+const user_id = sessionStorage.getItem("userid");
+
+//get timings to be in Calendar
+var allEvents =[];
+    var string=""
+    var ref = firebase.database().ref(`Booking/${user_id}`);   
+    ref.once("value")
+        .then(function(snapshot){
+            var booking_db = snapshot.val()
+            console.log(booking_db)
+            for(let event in booking_db){
+                allEvents.push(booking_db[event])
+            }
+        })        
 
 
 $("#calendar").evoCalendar({
-    theme: 'Midnight Blue',
+    theme: 'Royal Navy',
     'eventListToggler': false,
     'sidebarToggler': false,
-    calendarEvents: [
-      {
-        id: 'bHay68s', // Event's ID (required)
-        name: "New Year", // Event name (required)
-        date: "January/1/2020", // Event date (required)
-        type: "holiday", // Event type (required)
-        everyYear: true // Same event every year (optional)
-      },
-      {
-        id: 'bHay69s', // Event's ID (required)
-        name: "Vacation Leave",
-        badge: "02/13 - 02/15", // Event badge (optional)
-        date: ["February/13/2020", "February/15/2020"], // Date range
-        description: "Vacation leave for 3 days.", // Event description (optional)
-        type: "event",
-        color: "#63d867" // Event custom color (optional)
-      }
-    ]
+    calendarEvents: allEvents,
   });
+
+  $('#calendar').on('selectEvent', function(event, activeEvent) {
+         // code here...
+    alert("you have selected this thing")
+    console.log(activeEvent)
+    });
