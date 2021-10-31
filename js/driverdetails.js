@@ -29,7 +29,6 @@
         holder.push(instructor_obj[x]);
 
     }
-    console.log(holder)
 
 
 
@@ -85,8 +84,6 @@
 
       }
     
-    
-      console.log(document.getElementById("reference"))
 
 
     var arr;
@@ -107,7 +104,6 @@
             num=num+(num)*3-1
             console.log(num);
         }
-        console.log(holder);
         let copy=holder.slice(num,num+3);
    
         document.getElementById("here").innerHTML=copy
@@ -120,7 +116,6 @@
     //buttons
 
     length=Math.ceil((Object.keys(instructor_obj).length)/3);
-    console.log(length)
 
     document.getElementById("buttons").innerHTML+=`<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">`
     for (let index = 0; index<length; index++) {
@@ -197,10 +192,7 @@
         else {
             budget=Number(budget.slice(1,3));
         }
-        console.log(location1);
-        console.log(rating);
-        console.log(langauge1);
-        console.log(budget);
+     
         let test=[];
         test.push({"location":location1},{"rating":rating},{"language":langauge1},{"budget":budget})
         var test3=[];
@@ -212,7 +204,7 @@
             }
             
         }
-        console.log(test3);
+
         if (test3.length==0) {
             window.location.href = "course-list.html";
             exit();
@@ -237,9 +229,8 @@
                     }
                 }
                 if (key1=="location") {
-                    console.log(holder[x].location+":"+val)
+    
                     if (holder[x].location==val) {
-                        console.log(88);
                         arr4.push(true)
                     }
                 }
@@ -262,7 +253,7 @@
         }
         }
         window.location.href = "course-list.html#top";
-        console.log(arr2);
+
         if (arr2.length==0) {
             document.getElementById("here").innerHTML="<img src='../images/search-bar.gif' style='width:100%'>"
         }

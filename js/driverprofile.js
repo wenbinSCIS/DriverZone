@@ -61,7 +61,7 @@
               var fourStar=fourStar/TotalRating*100
               var fiveStar=fiveStar/TotalRating*100
               var rating=Number(input[ele].rating.total)
-              console.log(rating);
+            
               rating=rating.toFixed(1);
               var totalNumOfRating=Object.keys(input[ele].review).length;
               
@@ -90,10 +90,10 @@
                                   <li>
                                   <i class='icon_phone' style='font-size:20px;color:black'></i> <span style="font-size:20px">96956594</span> </li>
                                   <li>
-                                  <i class='icon_cursor' style='font-size:20px;color:black'></i>
-                                  <span style="font-size:20px">      ${capitalizeFirstLetter(location)}</span>
+                                  <i class='icon_pin_alt' style='font-size:20px;color:black'></i>
+                                  <span style="font-size:20px">    ${capitalizeFirstLetter(location)}</span>
                                   </li>
-                                  <i class='icon_globe-2' style='font-size:20px;color:black'></i>
+                                  <i class=' icon_chat_alt' style='font-size:20px;color:black'></i>
                                   <span style="font-size:20px">    ${lang.join("/").slice(1)}</span>
                                   </li>
                               </ul>
@@ -236,9 +236,8 @@
       }
 
       function processReview(input) {
-          console.log(input);
+     
           for (let eachReview in input) {
-              console.log(input[eachReview]);
               document.getElementById("review-box").innerHTML+=`
               <div class="review-box clearfix">
               <figure class="rev-thumb"><img src="../images/noProfile.jpg" >
@@ -264,7 +263,6 @@
       function star_display(input) {
         var new1="";
         input=Number(input);
-        console.log(input);
           for (let index = 0; index < input; index++) {
             new1+="<i class='icon_star voted' style='font-size:18px'></i>"
               
