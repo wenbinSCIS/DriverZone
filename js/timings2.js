@@ -131,7 +131,7 @@ function AddtimingtoDB(){
     var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
     // unixTimeStamp as ID for each booking
     var display_time = document.getElementById("book_time").innerText;
-    var description = `You have booked a lesson with ${id} on this date at ${display_time}. </br> Click Here to view more details.`
+    var description = `You have booked a lesson with ${id} on this date at ${display_time}.`
     //user will see this description in the timetable page
     var rootRef = firebase.database().ref(`Booking/${user_id}/${unixTimeStamp}`);
     

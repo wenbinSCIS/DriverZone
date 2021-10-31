@@ -22,15 +22,41 @@ var allEvents =[];
     ref.once("value")
         .then(function(snapshot){
             var booking_db = snapshot.val()
-            console.log(booking_db)
+            
             for(let event in booking_db){
                 var object = booking_db[event];
                 object.id = event;
                 allEvents.push(object)
             }
+
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        events:allEvents,
+                    };
+                },
+                computed:{
+                    getDetails(){
+                        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+                        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                        var instr = this.events[0].instructor;
+                        var unixTimeStamp = this.events[0].id;
+                        var date = new Date(unixTimeStamp * 1000);
+                        var d = date.getDate();
+                        var day = days[date.getDay()];  
+                        var month = months[date.getMonth()];
+                        var time = this.events[0].time
+                        return [day,d,month,time,instr]
+                    },
+                    
+                }
+            });
+            app.mount("#app");
+
+
+
+
         })        
-
-
 $("#calendar").evoCalendar({
     theme: 'Royal Navy',
     'eventListToggler': false,
@@ -43,3 +69,5 @@ $("#calendar").evoCalendar({
     alert("you have selected this thing")
     console.log(activeEvent)
     });
+
+window.event = allEvents;
