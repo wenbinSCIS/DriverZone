@@ -57,7 +57,7 @@
             </h4>
             
             <p class="m-txt10 h-size4 of-hidden m-b-5 respon3">
-                ~${resource.description}
+                ${resource.description}
             </p>
 
             <span class="m-txt9">$${resource.price}/h</span>
