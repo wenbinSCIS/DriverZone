@@ -166,11 +166,34 @@
         var next = document.getElementById("nextlesson")
         var nextins = document.getElementById("nextinstructor")
         upc.innerText = reslist.length
-
+        var tbl = document.getElementById("top5body")
+        var bodystr = ''
         if(sortedActivities.length >0){
           
           next.innerText=sortedActivities[0].lessondate.toDateString() + ' ' + sortedActivities[0].time + ' hrs'  
           nextins.innerText=sortedActivities[0].instructor
+
+
+
+          if(sortedActivities.length >5){
+          
+
+        }
+
+        else{
+          for(lessons of sortedActivities){
+            bodystr += `
+            <tr>
+                  <td> ${lessons.lessondate.toDateString()}</td>
+                  <td>${lessons.time} hrs</td>
+                  <td> ${lessons.instructor}</td>
+                  <td>27,340</td>
+            </tr>
+            
+            `
+          }
+          tbl.innerHTML = bodystr
+        }
         }
         else{
           next.innerText="None"
