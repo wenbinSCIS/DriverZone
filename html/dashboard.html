@@ -27,7 +27,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
     <script src="../js/insertuser.js"></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
  p{
     all: initial;
@@ -297,6 +297,34 @@
           var des = document.getElementById("destination").value;
           initialize(loc,des)
     }
+
+
+    function getWeather(){
+
+        var url1 = "https://api.openweathermap.org/data/2.5/forecast?q=Singapore&appid=48cfc222127af91d538fc369fc368aef"
+        axios
+    .get(url1)
+    .then((response) => {
+        var list1 = response.data
+
+        console.log(list1)
+    })
+
+    .catch((error) => {
+        // Unable to retrieve url1. Display error
+        console.log(error)
+    });
+    
+
+    // YOUR CODE GOES HERE: END
+}
+
+
+
+
+
+
+
 
 
     
