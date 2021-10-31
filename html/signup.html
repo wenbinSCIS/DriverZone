@@ -180,9 +180,19 @@
 		}
 		else{
 			
-			var success = writeUserData(full_name,pnum,email,password1,gender,dob)
+
+			var cnt = getEmail(email)
+			var emailvalid = sessionStorage.getItem('email');
+	
+			if(emailvalid == "false"){
+				alert("Email address has been used before")
+			}
+			else{
 
 			
+			var success = writeUserData(full_name,pnum,email,password1,gender,dob)
+
+		}
 			
 
 		}
