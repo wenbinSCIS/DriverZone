@@ -167,7 +167,7 @@ function get_comment(){
                     var comment_user_id = cur_comment[value].user_id
                     var comment_user = get_username(comment_user_id)
 
-                    if (comment_user!="System")
+                    if (comment_user=="System")
                     {
                         is_hidden="style='display:none;'"
                     }
@@ -186,7 +186,6 @@ function get_comment(){
             data_checker+=1
             }
         })
-
         check_upvote()
         check_downvote()
     }
