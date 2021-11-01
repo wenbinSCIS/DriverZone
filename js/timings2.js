@@ -43,6 +43,7 @@ function displayQuoteAndTitle(){
 //button stuff and initialize databse
 
 function displayTimings(){
+    var no_avail = true;
     var string=""
     var ref = firebase.database().ref('instructor');
     //date given in eg 10/10/1000 format
@@ -71,23 +72,24 @@ function displayTimings(){
             }
             var to_update = document.getElementById("times");
             //time is whether there are dates inside, if no dates, time.length is 0
-            if(Object.keys(time).length>0){
                 for(let key in time){
-                    console.log(time[key])
                     if (time[key].Availability == "Available"){
+                        no_avail = false;
                         var timings = time[key].time
                         string+= `<button class="button-18" role="button" onclick="bookingDetails(this)" }> ${timings}</button> `;
                     }
                 }
+                
+            if(no_avail==true){
+                to_update.innerText = "No dates available for this day"
+                to_display.style.display = "none";
+            }
+            else{
+                //date in system
                 to_update.innerHTML = string;
                 to_display.style.display = "block";
                 var display_date = document.getElementById("book_date");
                 display_date.innerText = date_format_needed;
-            }
-            else{
-                //no date in system
-                to_update.innerText = "No dates available for this day"
-                to_display.style.display = "none";
                 }
             
         })
