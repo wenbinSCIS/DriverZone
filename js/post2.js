@@ -124,6 +124,8 @@ function get_all_post(){
                 var cur_upvote = post_db[ele].no_of_vote;
                 var cur_comment = post_db[ele].comment;
                 var to_populate = document.getElementById("info_here");
+                var cur_time_arr=cur_time.split(", ")
+                var cur_date=cur_time_arr[0]
 
                 if (cur_tag_1=="Theory")
                 {
@@ -157,7 +159,8 @@ function get_all_post(){
                             <td class='${tag_class} align-middle' onclick="select_${cur_tag_1}()">${tag_shape}</td>
                             <td><a class="text-secondary text-left text-middle ms-5" onclick="go_to_post(${row_id_count})" value="${cur_tag_1}" href="#">${cur_title}</a></td>
                             <td class="text-center align-middle" id="user">${cur_username}</td>
-                            <td class="text-center align-middle">${cur_time}</td>
+                            <td class="text-center align-middle" style="display:none">${cur_time}</td>
+                            <td class="text-center align-middle">${cur_date}</td>
                             <td class="text-center align-middle">${comment_counter}</td>
                             <td class="text-center align-middle">${cur_upvote}</td>
                             </tr>`
