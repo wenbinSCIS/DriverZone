@@ -117,6 +117,7 @@ function get_all_post(){
                 if (cur_tag_1=="Theory")
                 {
                     tag_class="bg-info text-light text-center"
+                    tag_shape="<i class='fa fa-book'></i>"
                 }
 
                 if (cur_tag_1=="Practical")
