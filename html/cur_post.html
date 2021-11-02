@@ -16,7 +16,7 @@
         <script src="../js/cur_post.js"></script>
         <link rel="stylesheet" type="text/css" href="..\fonts\font-awesome-4.7.0\css\font-awesome.css">
 
-    
+        <script src="https://unpkg.com/vue@next"></script>
     </head>
     
     <body>
@@ -31,7 +31,25 @@
                     </tr>
 
                     <tr>
-                        <th id="post_title" colspan="2"></th>
+                        <th id="post_title"></th>
+                        <td>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-1">
+                                        <button type="button" id="give_upvote" onclick="give_upvote()" onmouseover="select_upvote()" onmouseleave="unselect_upvote()" class="fa fa-arrow-circle-o-up fa-3x"></button>
+                                    </div>
+                                    <div class="col-1" style="padding-top: 10px;padding-left: 27px;">
+                                        <h4 id="upvote_count" class="text-center"></h4>
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="button" id="give_downvote" onclick="give_downvote()" onmouseover="select_downvote()" onmouseleave="unselect_downvote()" class="fa fa-arrow-circle-o-down fa-3x"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                        </td>
                     </tr>
                     
 
@@ -48,11 +66,7 @@
                     <button type="button" class="btn btn-info" id="add_comment" onclick="add_comment()">Comment</button>
                     <button type="button" class="btn btn-danger" id="return_to_forum" onclick="return_to_forum()">Return</button>
                 </div>
-        
-                <div class="col-6">
-                    <button type="button" class="btn btn-success" id="give_upvote" onclick="give_upvote()">Upvote</button>
-                    <button type="button" class="btn btn-warning" id="give_downvote" onclick="give_downvote()">Downvote</button>
-                </div>
+                <div class="col-6"></div>
             </div>
         </div>
 
@@ -91,5 +105,28 @@
             var time = today.getHours() + ":" + cur_min; + ":" + today.getSeconds();
 
         get_comment()
+
+        function select_upvote()
+        {
+            document.getElementById("give_upvote").setAttribute("class","fa fa-arrow-circle-up fa-3x")
+        }
+
+        function select_downvote()
+        {
+            document.getElementById("give_downvote").setAttribute("class","fa fa-arrow-circle-down fa-3x")
+        }
+
+        function unselect_upvote()
+        {
+            document.getElementById("give_upvote").setAttribute("class","fa fa-arrow-circle-o-up fa-3x")
+        }
+
+        function unselect_downvote()
+        {
+            document.getElementById("give_downvote").setAttribute("class","fa fa-arrow-circle-o-down fa-3x")
+        }
     </script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
     </body>

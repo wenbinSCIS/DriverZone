@@ -19,43 +19,63 @@
     <body>
         <div id="nav-placeholder"></div>
 
+        <section class="bg-img-1 bg-overlay-3 p-t-93 p-b-95" style="background-image: url('../images/carousel1.jpg');">
+            <div class="container">
+                <div class="flex-w flex-sb-m">
+                    <div class="p-t-10 p-b-10 p-r-30">
+                        <div class="flex-w p-b-9">
+                            <span>
+                                <a href="index.html" class="s-txt19 hov-color-main trans-02">
+                                    <i class="fa fa-home"></i>
+                                    Home
+                                </a>
+                                <span class="s-txt19 p-l-6 p-r-9">/</span>
+                            </span>
+    
+                        
+                        </div>
+    
+                        <h2 class="m-txt6 respon1">
+                            Forum
+                        </h2>
+                    </div>
+    
+        
+                </div>
+            </div>
+        </section>
+
         <div class="container">
-            <div class="row justify-content-center pt-1">
+            <div class="row justify-content-center pt-3">
+                <div class="col-6">
+                    <h6>Sort by:</h6>
+                </div>
+                <div class="col-6">
+                    <h6>Tag:</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 pt-2">
+                    <button type="button" class="btn btn-outline-success" id="newest_post" onclick="filter_newest()">Newest Post</button>
+                    <button type="button" class="btn btn-outline-warning" id="top_post" onclick="filter_top()">Top Post</button>
+                    <button type="button" class="btn btn-outline-danger" id="trending_post" onclick="filter_trending()">Trending Post</button>
+                </div>
+
+                <div class="col-6 pt-2">
+                    <button type="button" class="btn btn-outline-info" id="theory_tag" onclick="select_theory()">Theory</button>
+                    <button type="button" class="btn btn-outline-secondary" id="practical_tag" onclick="select_practical()">Practical</button>
+                    <button type="button" class="btn btn-outline-warning" id="other_tag" onclick="select_other()">Other</button>
+                    <button type="button" class="btn btn-danger float-right" id="clear_sort" onclick="clear_sort()">Reset All</button>
+                </div>
+            </div>
+
+            <div class="row justify-content-center pt-3">
                 <div class="col-12">
                     <div class="input-group">
                         <input type="search" id="search_keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                         <button type="button" class="btn btn-outline-primary" id="add_post" onclick="add_new_post()">Add New Post</button>
                     </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center pt-3">
-                <div class="col-1">
-                    <h6>Sort by:</h6>
-                </div>
-                <div class="col-11"></div>
-
-                <div class="col-12 pt-2">
-                    <button type="button" class="btn btn-outline-success" id="newest_post" onclick="filter_newest()">Newest Post</button>
-                    <button type="button" class="btn btn-outline-warning" id="top_post" onclick="filter_top()">Top Post</button>
-                    <button type="button" class="btn btn-outline-danger" id="trending_post" onclick="filter_trending()">Trending Post</button>
-                </div>
-            </div>
-
-            <div class="row justify-content-center pt-3">
-                <div class="col-1">
-                    <h6>Tag:</h6>
-                </div>
-                <div class="col-11"></div>
-
-                <div class="col-12 pt-2">
-                    <button type="button" class="btn btn-outline-info" id="theory_tag" onclick="select_theory()">Theory</button>
-                    <button type="button" class="btn btn-outline-secondary" id="practical_tag" onclick="select_practical()">Practical</button>
-                    <button type="button" class="btn btn-outline-warning" id="other_tag" onclick="select_other()">Other</button>
-                </div>
-
-                <div class="col-12 mt-2 pt-1">
-                    <button type="button" class="btn btn-danger" id="clear_sort" onclick="clear_sort()">Reset All</button>
                 </div>
             </div>
         </div>
@@ -65,8 +85,6 @@
                 
             </div>
         </div>
-
-        
 
     
         <script>
@@ -342,6 +360,10 @@
             }
 
         </script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
 
 
     </body>
