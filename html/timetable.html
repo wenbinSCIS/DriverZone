@@ -36,8 +36,13 @@
             </a>
             <div class="row" id="app">
                 <div class="col-md p-t-10">
-                    <h2 class="text-white">Your next lesson is on <h1 class="text-muted">{{getDetails[0]}}, {{getDetails[1]}} {{getDetails[2]}} {{getDetails[3]}} with Instructor {{getDetails[4]}}</h> </h1> </h2>
-                    <p class="lead pt-4 text-white" style="font-size: 15px;" id="instr_quote">View all details of your bookings below.</p>
+                    <div v-if="not_avail">
+                        <h2 class="text-danger" >You need to book a lesson with an instructor first</h2>
+                    </div>
+                    <div v-else>
+                        <h2 class="text-white" >Your next lesson is on <h1 class="text-muted">{{getDetails[0]}}, {{getDetails[1]}} {{getDetails[2]}} {{getDetails[3]}} with Instructor {{getDetails[4]}} </h1> </h2>
+                        <p class="lead pt-4 text-white" style="font-size: 15px;" id="instr_quote">View all details of your bookings below.</p>
+                    </div>
                 </div>
             </div>
     </section>

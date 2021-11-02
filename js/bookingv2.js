@@ -12,6 +12,32 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
+
+var instr_img = document.getElementById("instructor_img");
+var instr_name = document.getElementById("instructor_name");
+var instr_quote = document.getElementById("quote");
+
+instr_name.innerText = `Instructor ${id}`;
+instr_img.src = `../images/${id}.JPG`;
+
+displayQuoteAndTitle()
+
+function displayQuoteAndTitle(){
+    var ref = firebase.database().ref('instructor');
+    ref.once("value")
+        .then(function(snapshot){
+            var instr_db = snapshot.val()
+            for(let ele in instr_db){
+                if(ele == id){
+                    instr_quote.innerText = instr_db[ele].quote;
+                }
+            }
+        })
+}
+
+
+
+
 //user
 const user_id = sessionStorage.getItem("userid");
 
@@ -50,7 +76,6 @@ ref.once("value")
     sessionStorage.setItem("instructor",id);
     sessionStorage.setItem("date",active_date)
     sessionStorage.setItem("time",activeEvent.description)
-    console.log(activeEvent)
     sessionStorage.setItem("cost",activeEvent["badge"])
     window.location.href = "confirm_booking.html";
     });

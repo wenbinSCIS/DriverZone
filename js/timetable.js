@@ -7,10 +7,6 @@ var config = {
     };
 
 firebase.initializeApp(config);
-//get instructor info from course list
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id')
 
 //user
 const user_id = sessionStorage.getItem("userid");
@@ -21,17 +17,25 @@ const user_id = sessionStorage.getItem("userid");
     var ref = firebase.database().ref(`Booking/${user_id}`);   
     ref.once("value")
         .then(function(snapshot){
-            var booking_db = snapshot.val()
             var allEvents =[];
-            for(let event in booking_db){
-                var object = booking_db[event];
-                allEvents.push(object)
+            if(snapshot.exists()){
+                var booking_db = snapshot.val()
+                for(let event in booking_db){
+                    var object = booking_db[event];
+                    allEvents.push(object)
+                }
             }
-
+            if(allEvents.length>0){
+                avail=false;
+            }
+            else{
+                avail=true;
+            }
             const app = Vue.createApp({
                 data() {
                     return {
                         events:allEvents,
+                        not_avail:avail
                     };
                 },
                 computed:{
@@ -48,6 +52,7 @@ const user_id = sessionStorage.getItem("userid");
                         return [day,d,month,time,instr]
                     },
                     
+                    
                 }
             });
             app.mount("#app");
@@ -61,10 +66,16 @@ const user_id = sessionStorage.getItem("userid");
             
             $('#calendar').on('selectEvent', function(event, activeEvent) {
                      // code here...
-                alert("you have selected this thing")
-                console.log(activeEvent)
+                var active_date = $('#calendar').evoCalendar('getActiveDate');
+                sessionStorage.setItem("instructor",activeEvent.instructor);
+                sessionStorage.setItem("date",active_date)
+                sessionStorage.setItem("time",activeEvent.description)
+                window.location.href = "change_booking.html";
                 });
-        })        
+            })
+          
+    
+       
 
 
 
