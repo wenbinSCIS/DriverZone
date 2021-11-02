@@ -16,16 +16,15 @@ const id = urlParams.get('id')
 const user_id = sessionStorage.getItem("userid");
 
 //get timings to be in Calendar
-var allEvents =[];
+
     var string=""
     var ref = firebase.database().ref(`Booking/${user_id}`);   
     ref.once("value")
         .then(function(snapshot){
             var booking_db = snapshot.val()
-            
+            var allEvents =[];
             for(let event in booking_db){
                 var object = booking_db[event];
-                object.id = event;
                 allEvents.push(object)
             }
 
@@ -53,21 +52,19 @@ var allEvents =[];
             });
             app.mount("#app");
 
-
-
-
+            $("#calendar").evoCalendar({
+                theme: 'Royal Navy',
+                'eventListToggler': false,
+                'sidebarToggler': false,
+                calendarEvents: allEvents,
+            });
+            
+            $('#calendar').on('selectEvent', function(event, activeEvent) {
+                     // code here...
+                alert("you have selected this thing")
+                console.log(activeEvent)
+                });
         })        
-$("#calendar").evoCalendar({
-    theme: 'Royal Navy',
-    'eventListToggler': false,
-    'sidebarToggler': false,
-    calendarEvents: allEvents,
-  });
 
-  $('#calendar').on('selectEvent', function(event, activeEvent) {
-         // code here...
-    alert("you have selected this thing")
-    console.log(activeEvent)
-    });
 
-window.event = allEvents;
+
