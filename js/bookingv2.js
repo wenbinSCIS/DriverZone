@@ -28,10 +28,11 @@ ref.once("value")
             var object = instr_db[date][obj];
             console.log(object)
             object.id = Math.floor(Math.random() * 100000000000000000000000000000000000000000000000) + 1;
-            allEvents.push(object)
+            if(object.name=="Driving lesson"){
+              allEvents.push(object)
             }
             
-          
+            }
                 
           }
             $("#calendar").evoCalendar({
