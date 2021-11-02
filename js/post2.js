@@ -123,6 +123,7 @@ function get_all_post(){
                 if (cur_tag_1=="Practical")
                 {
                     tag_class="bg-secondary text-light text-center"
+                    tag_shape="<i class='fa fa-car'></i>"
                 }
 
                 if (cur_tag_1=="Other")
