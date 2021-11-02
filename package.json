@@ -19,6 +19,7 @@
   "homepage": "https://github.com/wenbinSCIS/DriverZone#readme",
   "dependencies": {
     "firebase": "^9.1.1",
-    "messagemedia-messages-sdk": "^2.0.3"
+    "messagemedia-messages-sdk": "^2.0.3",
+    "node-telegram-bot-api": "^0.54.0"
   }
 }
