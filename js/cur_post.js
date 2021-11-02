@@ -155,9 +155,6 @@ function get_comment(){
                 var title_holder=document.getElementById("post_title")
                 title_holder.innerHTML=cur_title
 
-                var page_name_holder=document.getElementById("page_name")
-                page_name_holder.innerHTML=cur_title
-
                 var creator_holder=document.getElementById("post_creator")
                 creator_holder.innerHTML=cur_username
 

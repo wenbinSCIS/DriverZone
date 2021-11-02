@@ -19,31 +19,33 @@
     
     <body>
         <div id="nav-placeholder"></div>
-
-        <div class=container>
-            <div class="row justify-content-center">
-                <table class="table">
-                    <tr>
-                        <th>Create New Comment</th>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2">
-                            <h5>Description</h5>
-                            <textarea class="mt-3 border form-control" rows="10" placeholder="Type your comment here" id="comment_description"></textarea>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="text-right">
-                            <button class="btn btn-outline-danger" id="cancel_button" onclick="return_to_post()">Cancel</button>
-                            <button class="btn btn-outline-primary" onclick="create_comment()">Comment</button>
-                        </td>
-                    </tr>
-                </table>
+        <div style="background-color: rgb(224, 224, 224);">
+            <div class="container">
+                <div class="row justify-content-center pt-5">
+                    <table class="table pt-5" style="background-color: white;">
+                        <tr>
+                            <th>Create New Comment</th>
+                        </tr>
+    
+                        <tr>
+                            <td colspan="2">
+                                <h5>Description</h5>
+                                <textarea class="mt-3 border form-control" rows="10" placeholder="Type your comment here" id="comment_description"></textarea>
+                        </tr>
+    
+                        <tr>
+                            <td colspan="2" class="text-right">
+                                <button class="btn btn-outline-danger" id="cancel_button" onclick="return_to_post()">Cancel</button>
+                                <button class="btn btn-outline-primary" onclick="create_comment()">Comment</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <div id="footer" class="pt-5"></div>
+
+        <div id="footer"></div>
 
         <script>
             $(function()

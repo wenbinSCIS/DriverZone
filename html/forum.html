@@ -19,77 +19,57 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <section class="bg-img-1 bg-overlay-3 p-t-93 p-b-95" style="background-image: url('../images/carousel1.jpg');">
-            <div class="container">
-                <div class="flex-w flex-sb-m">
-                    <div class="p-t-10 p-b-10 p-r-30">
-                        <div class="flex-w p-b-9">
-                            <span>
-                                <a href="index.html" class="s-txt19 hov-color-main trans-02">
-                                    <i class="fa fa-home"></i>
-                                    Home
-                                </a>
-                                <span class="s-txt19 p-l-6 p-r-9">/</span>
-                            </span>
+        <div style="background-color: rgb(224, 224, 224);">
+            <div class="container" style="background-color: white;">
+                <div class="row justify-content-center pt-3">
+                    <div class="col-6">
+                        <h6>Sort by:</h6>
+                    </div>
+                    <div class="col-6">
+                        <h6>Tag:</h6>
+                    </div>
+                </div>
     
-                        
+                <div class="row">
+                    <div class="col-6 pt-2">
+                        <button type="button" class="btn btn-outline-success" id="newest_post" onclick="filter_newest()">Newest Post</button>
+                        <button type="button" class="btn btn-outline-warning" id="top_post" onclick="filter_top()">Top Post</button>
+                        <button type="button" class="btn btn-outline-danger" id="trending_post" onclick="filter_trending()">Trending Post</button>
+                    </div>
+
+                    <div class="col-6 pt-2">
+                        <button type="button" class="btn btn-outline-info" id="theory_tag" onclick="select_theory()">Theory</button>
+                        <button type="button" class="btn btn-outline-secondary" id="practical_tag" onclick="select_practical()">Practical</button>
+                        <button type="button" class="btn btn-outline-warning" id="other_tag" onclick="select_other()">Other</button>
+                        <button type="button" class="btn btn-danger float-right" id="clear_sort" onclick="clear_sort()">Reset All</button>
+                    </div>
+                </div>
+    
+                <div class="row justify-content-center pt-3 mb-5">
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="search" id="search_keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                         </div>
-    
-                        <h2 class="m-txt6 respon1">
-                            Forum
-                        </h2>
                     </div>
     
-        
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <div class="row justify-content-center pt-3">
-                <div class="col-6">
-                    <h6>Sort by:</h6>
-                </div>
-                <div class="col-6">
-                    <h6>Tag:</h6>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-6 pt-2">
-                    <button type="button" class="btn btn-outline-success" id="newest_post" onclick="filter_newest()">Newest Post</button>
-                    <button type="button" class="btn btn-outline-warning" id="top_post" onclick="filter_top()">Top Post</button>
-                    <button type="button" class="btn btn-outline-danger" id="trending_post" onclick="filter_trending()">Trending Post</button>
-                </div>
-
-                <div class="col-6 pt-2">
-                    <button type="button" class="btn btn-outline-info" id="theory_tag" onclick="select_theory()">Theory</button>
-                    <button type="button" class="btn btn-outline-secondary" id="practical_tag" onclick="select_practical()">Practical</button>
-                    <button type="button" class="btn btn-outline-warning" id="other_tag" onclick="select_other()">Other</button>
-                    <button type="button" class="btn btn-danger float-right" id="clear_sort" onclick="clear_sort()">Reset All</button>
-                </div>
-            </div>
-
-            <div class="row justify-content-center pt-3">
-                <div class="col">
-                    <div class="input-group">
-                        <input type="search" id="search_keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                    <div class="col-12 col-sm-3">
+                        <button type="button" class="btn btn-primary float-right" id="add_post" onclick="add_new_post()">Add New Post</button>
                     </div>
                 </div>
+            </div>
+    
+            <div class="py-2"></div>
 
-                <div class="col-12 col-sm-3">
-                    <button type="button" class="btn btn-primary float-right" id="add_post" onclick="add_new_post()">Add New Post</button>
+            <div class="container" style="background-color: white;">
+                <div class="row justify-content-center py-5" id="info_here">
+                    
                 </div>
             </div>
+    
         </div>
 
-        <div class="container">
-            <div class="row justify-content-center py-5" id="info_here">
-                
-            </div>
-        </div>
 
-        <div id="footer" class="pt-5"></div>
+        <div id="footer"></div>
 
     
         <script>
@@ -125,7 +105,7 @@
 
                 // Loop through all list items, and hide those who don't match the search query
                 for (i = 1; i < (rows.length); i++) {
-                    row_title = rows[i].getElementsByTagName("td")[0];
+                    row_title = rows[i].getElementsByTagName("td")[1];
                     txtValue = row_title.textContent || row_title.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     rows[i].style.display = "";
@@ -279,7 +259,7 @@
                         var cur_row_id = rows[i].id
                         var row_tag = rows[i].getElementsByTagName("td")
                         console.log(row_tag[0].innerHTML)
-                        if (row_tag[0].innerHTML != `<i class="fa fa-book"></i>`)
+                        if (row_tag[0].innerHTML != `<i class="fa fa-book fa-2x"></i>`)
                         {
                             rows[i].setAttribute("style","display:none")
                             
@@ -306,7 +286,7 @@
                     {
                         var cur_row_id = rows[i].id
                         var row_tag = rows[i].getElementsByTagName("td")
-                        if (row_tag[0].innerHTML != `<i class="fa fa-car"></i>`)
+                        if (row_tag[0].innerHTML != `<i class="fa fa-car fa-2x"></i>`)
                         {
                             rows[i].setAttribute("style","display:none")
                         }
@@ -333,7 +313,7 @@
                     {
                         var cur_row_id = rows[i].id
                         var row_tag = rows[i].getElementsByTagName("td")
-                        if (row_tag[0].innerHTML != `<i class="fa fa-comments"></i>`)
+                        if (row_tag[0].innerHTML != `<i class="fa fa-comments fa-2x"></i>`)
                         {
                             rows[i].setAttribute("style","display:none")
                         }
