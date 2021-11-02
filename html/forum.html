@@ -71,20 +71,25 @@
             </div>
 
             <div class="row justify-content-center pt-3">
-                <div class="col-12">
+                <div class="col">
                     <div class="input-group">
-                        <input type="search" id="search_keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary" id="add_post" onclick="add_new_post()">Add New Post</button>
+                        <input type="search" id="search_keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                     </div>
+                </div>
+
+                <div class="col-12 col-sm-3">
+                    <button type="button" class="btn btn-primary float-right" id="add_post" onclick="add_new_post()">Add New Post</button>
                 </div>
             </div>
         </div>
 
         <div class="container">
-            <div class="row justify-content-center pt-2" id="info_here">
+            <div class="row justify-content-center py-5" id="info_here">
                 
             </div>
         </div>
+
+        <div id="footer" class="pt-5"></div>
 
     
         <script>
@@ -151,7 +156,7 @@
                         switching = false;
                         rows = table.rows;
                 /* Loop through all table rows (except the first, which contains table headers): */
-                        for (i = 1; i < (rows.length); i++) {
+                        for (i = 1; i+1 < (rows.length); i++) {
                     // Start by saying there should be no switching:
                             shouldSwitch = false;
                 /* Get the two elements you want to compare, one from current row and one from the next: */
@@ -197,7 +202,7 @@
                         switching = false;
                         rows = table.rows;
                 /* Loop through all table rows (except the first, which contains table headers): */
-                        for (i = 1; i < (rows.length); i++) {
+                        for (i = 1; i+1 < (rows.length); i++) {
                     // Start by saying there should be no switching:
                             shouldSwitch = false;
                 /* Get the two elements you want to compare, one from current row and one from the next: */
@@ -236,7 +241,7 @@
                         switching = false;
                         rows = table.rows;
                 /* Loop through all table rows (except the first, which contains table headers): */
-                        for (i = 1; i < (rows.length); i++) {
+                        for (i = 1; i+1 < (rows.length); i++) {
                     // Start by saying there should be no switching:
                             shouldSwitch = false;
                 /* Get the two elements you want to compare, one from current row and one from the next: */
@@ -273,7 +278,8 @@
                     {
                         var cur_row_id = rows[i].id
                         var row_tag = rows[i].getElementsByTagName("td")
-                        if (row_tag[2].innerHTML != "Theory")
+                        console.log(row_tag[0].innerHTML)
+                        if (row_tag[0].innerHTML != `<i class="fa fa-book"></i>`)
                         {
                             rows[i].setAttribute("style","display:none")
                             
@@ -300,7 +306,7 @@
                     {
                         var cur_row_id = rows[i].id
                         var row_tag = rows[i].getElementsByTagName("td")
-                        if (row_tag[2].innerHTML != "Practical")
+                        if (row_tag[0].innerHTML != `<i class="fa fa-car"></i>`)
                         {
                             rows[i].setAttribute("style","display:none")
                         }
@@ -327,7 +333,7 @@
                     {
                         var cur_row_id = rows[i].id
                         var row_tag = rows[i].getElementsByTagName("td")
-                        if (row_tag[2].innerHTML != "Other")
+                        if (row_tag[0].innerHTML != `<i class="fa fa-comments"></i>`)
                         {
                             rows[i].setAttribute("style","display:none")
                         }
@@ -361,10 +367,17 @@
 
         </script>
 
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navbar.html");
+    });
+    $(function(){
+        $("#footer").load("footer.html");
+    });
+</script>
+
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-
 
     </body>
 </html>
