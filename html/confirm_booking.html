@@ -25,11 +25,12 @@
             <i class="fa fa-home"></i>
             Home / 
             </a>
-            <a href="timetable.html" class="s-txt19 hov-color-main trans-02">
+            <a href="course-list.html" class="s-txt19 hov-color-main trans-02">
                 <i class="fa fa-users"></i>
                 Instructors /
             </a>
-            <a class="s-txt19 hov-color-main trans-02 text-white" ><i class="fa fa-list-alt"></i> Booking</a>
+            <a class="s-txt19 hov-color-main trans-02 text-white" id="url" ><i class="fa fa-list-alt" ></i> Booking /</a>
+            <a class="s-txt19 hov-color-main trans-02 text-white" ></i>Confirmation</a>
             <div class="row text-center" >
                 <h1 class="text-white "> Booking confirmation</h1>
             </div>
@@ -142,6 +143,15 @@
                 })}}});
             app.mount("#app");
         </script>
+
+        <script>
+            var url = document.getElementById("url")
+            var instr = sessionStorage.getItem("instructor");
+            var string = `booking.html?id=${instr}`
+            url.href = string
+            console.log('here')
+        </script>
+
         <script>
             $(function() {
                 $("#nav-placeholder").load("navbar.html");
