@@ -50,7 +50,6 @@ ref.once("value")
     sessionStorage.setItem("instructor",id);
     sessionStorage.setItem("date",active_date)
     sessionStorage.setItem("time",activeEvent.description)
-    console.log(activeEvent)
     sessionStorage.setItem("cost",activeEvent["badge"])
     window.location.href = "confirm_booking.html";
     });
