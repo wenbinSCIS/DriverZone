@@ -43,6 +43,8 @@
             </div>
         </div>
 
+        <div id="footer" class="pt-5"></div>
+
         <script>
             $(function()
             {
@@ -75,5 +77,17 @@
             create_new_comment(cur_comment,cur_userid,cur_time)
         }
         </script>
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navbar.html");
+    });
+    $(function(){
+        $("#footer").load("footer.html");
+    });
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </body>
 </html>

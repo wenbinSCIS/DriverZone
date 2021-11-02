@@ -22,39 +22,86 @@
     <body>
         <div id="nav-placeholder"></div>
 
+        <section class="bg-img-1 bg-overlay-3 p-t-93 p-b-95" style="background-image: url('../images/carousel1.jpg');">
+            <div class="container">
+                <div class="flex-w flex-sb-m">
+                    <div class="p-t-10 p-b-10 p-r-30">
+                        <div class="flex-w p-b-9">
+                            <span>
+                                <a href="index.html" class="s-txt19 hov-color-main trans-02">
+                                    <i class="fa fa-home"></i>
+                                    Home
+                                </a>
+                                <span class="s-txt19 p-l-6 p-r-9">/</span>
+                                <a href="forum.html" class="s-txt19 hov-color-main trans-02">
+                                    <i class="fa fa-comments"></i>
+                                    Forum
+                                </a>
+                                <span class="s-txt19 p-l-6 p-r-9">/</span>
+                            </span>
+
+                        </div>
+                        <h2 class="m-txt6 respon1" id="page_name"></h2>
+                    </div>
+    
+        
+                </div>
+            </div>
+        </section>
+
+
         <div class="container">
             <div class="row justify-content-center pt-2" id="title_here">
-                <table class="table">
-                    <tr>
-                        <th id="post_creator" style="width: 50%"></th>
-                        <th id="post_time" style="width: 50%"></th>
-                    </tr>
+                <table class="table table-borderless">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th >
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-9">
+                                            <h4 id="post_creator"></h5>
+                                        </div>
+                                        <div class="col-3">
+                                            <h4 id="post_time" class="text-center"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
 
                     <tr>
-                        <th id="post_title"></th>
-                        <td>
+                        <th>
                             <div class="container">
                                 <div class="row justify-content-center">
-                                    <div class="col-1">
-                                        <button type="button" id="give_upvote" onclick="give_upvote()" onmouseover="select_upvote()" onmouseleave="unselect_upvote()" class="fa fa-arrow-circle-o-up fa-3x"></button>
+                                    <div class="col-9">
+                                        <h2 id="post_title"></h4>
                                     </div>
-                                    <div class="col-1" style="padding-top: 10px;padding-left: 27px;">
+                                    <div class="col-1">
+                                        <button type="button" id="give_upvote" style="float: left;" onclick="give_upvote()" onmouseover="select_upvote()" onmouseleave="unselect_upvote()" class="fa fa-arrow-circle-o-up fa-3x"></button>
+                                    </div>
+                                    <div class="col-1 justify-content-center">
                                         <h4 id="upvote_count" class="text-center"></h4>
                                     </div>
                                     <div class="col-1">
-                                        <button type="button" id="give_downvote" onclick="give_downvote()" onmouseover="select_downvote()" onmouseleave="unselect_downvote()" class="fa fa-arrow-circle-o-down fa-3x"></button>
+                                        <button type="button" id="give_downvote" style="float: right;" onclick="give_downvote()" onmouseover="select_downvote()" onmouseleave="unselect_downvote()" class="fa fa-arrow-circle-o-down fa-3x"></button>
                                     </div>
                                 </div>
                             </div>
-                            
-                            
-                            
                         </td>
                     </tr>
                     
 
                     <tr>
-                        <td id="post_content" colspan="2" class="pb-5"></td>
+                        <td colspan="2" class="pb-5">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <p id="post_content"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -62,19 +109,20 @@
 
         <div class="container pb-5">
             <div class="row justify-content-center">
-                <div class="col-6">
-                    <button type="button" class="btn btn-info" id="add_comment" onclick="add_comment()">Comment</button>
-                    <button type="button" class="btn btn-danger" id="return_to_forum" onclick="return_to_forum()">Return</button>
+                <div class="col">
+                    <button type="button" class="btn btn-info float-right mx-2" id="add_comment" onclick="add_comment()">Comment</button>
+                    <button type="button" class="btn btn-danger float-right mx-2" id="return_to_forum" onclick="return_to_forum()">Return</button>
                 </div>
-                <div class="col-6"></div>
             </div>
         </div>
 
         <div class="container">
-            <div class="row justify-content-center pt-2" id="content_here">
+            <div class="row justify-content-center pt-2 pb-5" id="content_here">
                 
             </div>
         </div>
+
+        <div id="footer" class="pt-5"></div>
 
     <script>
         $(function()
@@ -126,6 +174,16 @@
             document.getElementById("give_downvote").setAttribute("class","fa fa-arrow-circle-o-down fa-3x")
         }
     </script>
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navbar.html");
+    });
+    $(function(){
+        $("#footer").load("footer.html");
+    });
+</script>
+
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 

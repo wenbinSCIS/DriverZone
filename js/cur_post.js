@@ -124,7 +124,15 @@ function get_username_post_title(cur_user_id)
 
 function get_comment(){
     var ref = firebase.database().ref('post');
-    var string ="<table class='table' id='content_table'><tr><th class='text-center text-middle' width='10%'>Username</th><th style='width: 60%;' class='text-left text-middle'>Content</th><th style='width: 20%;' class='text-left text-middle'>Time</th>"
+    var string =`
+    <table class='table table-striped' id='content_table'>
+    <thead class="thead thead-dark">
+        <tr>
+            <th class='text-center text-middle' width='10%'>Username</th>
+            <th style='width: 60%;' class='text-left text-middle'>Content</th>
+            <th style='width: 20%;' class='text-left text-middle'>Time</th>
+        </tr>
+    </thead>`
     var count_id = sessionStorage.getItem("post_count_id")
     var data_checker=0
 
@@ -146,6 +154,9 @@ function get_comment(){
 
                 var title_holder=document.getElementById("post_title")
                 title_holder.innerHTML=cur_title
+
+                var page_name_holder=document.getElementById("page_name")
+                page_name_holder.innerHTML=cur_title
 
                 var creator_holder=document.getElementById("post_creator")
                 creator_holder.innerHTML=cur_username
