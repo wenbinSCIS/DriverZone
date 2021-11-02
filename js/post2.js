@@ -92,7 +92,18 @@ var all_post_list = {}
 function get_all_post(){
     var ref = firebase.database().ref('post');
     var count=0
-    var string ="<table class='table' id='post_table'><tr><th style='width: 55%;' class='text-center text-middle'>Topic</th><th class='text-center text-middle' width='15%'>Creator</th><th style='width: 10%;' class='text-center text-middle'>Tag</th><th style='width: 20%;' class='text-center text-middle'>Time</th><th class='text-center text-middle'>No. of Comments</th><th class='text-center text-middle'>Upvotes</th></tr>"
+    var string =`
+    <table class='table table-striped' id='post_table'>
+        <thead class="thead-dark">
+            <tr>
+                <th style='width: 5%;' class='text-center text-middle'>Tag</th>
+                <th style='width: 55%;'><span class='ms-5'>Topic</span></th>
+                <th class='text-center text-middle' width='15%'>Creator</th>
+                <th style='width: 20%;' class='text-center text-middle'>Time</th>
+                <th class='text-center text-middle'>Comments</th>
+                <th class='text-center text-middle'>Upvotes</th>
+            </tr>
+            </thead>`
 
     ref.once("value")
         .then(function(snapshot){
@@ -117,33 +128,35 @@ function get_all_post(){
                 if (cur_tag_1=="Theory")
                 {
                     tag_class="bg-info text-light text-center"
-                    tag_shape="<i class='fa fa-book'></i>"
+                    tag_shape="<i class='fa fa-book fa-2x'></i>"
                 }
 
                 if (cur_tag_1=="Practical")
                 {
                     tag_class="bg-secondary text-light text-center"
-                    tag_shape="<i class='fa fa-car'></i>"
+                    tag_shape="<i class='fa fa-car fa-2x'></i>"
                 }
 
                 if (cur_tag_1=="Other")
                 {
                     tag_class="bg-warning text-light text-center"
+                    tag_shape="<i class='fa fa-comments fa-2x'></i>"
                 }
 
                 var cur_row_id = "row"+row_id_count.toString()
 
                 var comment_key_list=Object.keys(cur_comment)
                 var comment_counter=0
+                cur_tag_1=cur_tag_1.toLowerCase()
                 for (const [key, value] of Object.entries(comment_key_list))
                 {
                     comment_counter+=1
                 }
 
                 string += `<tr id="${cur_row_id}">
-                            <td><a class="text-secondary text-left text-middle" onclick="go_to_post(${row_id_count})" href="#">${cur_title}</a></td>
+                            <td class='${tag_class} align-middle' onclick="select_${cur_tag_1}()">${tag_shape}</td>
+                            <td><a class="text-secondary text-left text-middle ms-5" onclick="go_to_post(${row_id_count})" value="${cur_tag_1}" href="#">${cur_title}</a></td>
                             <td class="text-center align-middle" id="user">${cur_username}</td>
-                            <td class='${tag_class} align-middle'>${cur_tag_1}</td>
                             <td class="text-center align-middle">${cur_time}</td>
                             <td class="text-center align-middle">${comment_counter}</td>
                             <td class="text-center align-middle">${cur_upvote}</td>
