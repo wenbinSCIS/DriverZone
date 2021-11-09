@@ -96,10 +96,10 @@ function get_all_post(){
     <table class='table table-striped' id='post_table'>
         <thead class="thead-dark">
             <tr>
-                <th style='width: 5%;' class='text-center text-middle'>Tag</th>
-                <th style='width: 55%;'><span class='ms-5'>Topic</span></th>
-                <th class='text-center text-middle' width='15%'>Creator</th>
-                <th style='width: 20%;' class='text-center text-middle'>Time</th>
+                <th class='text-center text-middle'>Tag</th>
+                <th style='width: 75%;'>Topic</th>
+                <th class='text-center text-middle' width='10%'>Creator</th>
+                <th style='width: 10%;' class='text-center text-middle'>Time</th>
                 <th class='text-center text-middle'>Comments</th>
                 <th class='text-center text-middle'>Upvotes</th>
             </tr>
@@ -124,6 +124,8 @@ function get_all_post(){
                 var cur_upvote = post_db[ele].no_of_vote;
                 var cur_comment = post_db[ele].comment;
                 var to_populate = document.getElementById("info_here");
+                var cur_time_arr=cur_time.split(", ")
+                var cur_date=cur_time_arr[0]
 
                 if (cur_tag_1=="Theory")
                 {
@@ -155,9 +157,10 @@ function get_all_post(){
 
                 string += `<tr id="${cur_row_id}">
                             <td class='${tag_class} align-middle' onclick="select_${cur_tag_1}()">${tag_shape}</td>
-                            <td><a class="text-secondary text-left text-middle ms-5" onclick="go_to_post(${row_id_count})" value="${cur_tag_1}" href="#">${cur_title}</a></td>
+                            <td><a class="text-secondary" onclick="go_to_post(${row_id_count})" value="${cur_tag_1}" href="#">${cur_title}</a></td>
                             <td class="text-center align-middle" id="user">${cur_username}</td>
-                            <td class="text-center align-middle">${cur_time}</td>
+                            <td class="text-center align-middle" style="display:none">${cur_time}</td>
+                            <td class="text-center align-middle">${cur_date}</td>
                             <td class="text-center align-middle">${comment_counter}</td>
                             <td class="text-center align-middle">${cur_upvote}</td>
                             </tr>`
