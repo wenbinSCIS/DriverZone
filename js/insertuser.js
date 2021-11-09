@@ -132,29 +132,29 @@
         var finishedcounter=0
         var reslist = []
         if(userid == child.key){
-       
-          for(elem in child.val()){
-            var item = child.val()[elem]
-      
-            var date = item.date
-            date.replace("-","/")
-      
-
-            var dateMomentObject = moment(date, "DD/MM/YYYY"); // 1st argument - string, 2nd argument - format
-            var dateObject = dateMomentObject.toDate(); // convert moment.js object to Date object
-            
-            var currDate = moment().toDate()
-            
-
-            if(dateObject>currDate){
-              const person = {lessondate:dateObject, instructor:item.instructor, time:item.time};
-              reslist.push(person)
-            }
-            else{
-              finishedcounter+=1
-            }
-
-         
+        
+          var dat = child.val()
+        
+          for(var data in dat){
+             
+              var date = dat[data].date
+           
+              var time = dat[data].time
+              var instructor = dat[data].instructor
+              
+              var today = new Date()
+    
+              var thatdate = new Date(date)
+              today.setHours(0,0,0,0)
+    
+              if(thatdate<today){
+                finishedcounter+=1
+              }
+              else{
+                const person = {lessondate:thatdate, instructor:instructor, time:time};
+                reslist.push(person)
+              
+              }
           }
 
         }
@@ -181,16 +181,33 @@
 
 
           if(sortedActivities.length >5){
+          var counter = 0
           
-
+          for(lessons of sortedActivities){
+            if(counter < 5){
+            bodystr += `
+            <tr>
+                  <td> ${lessons.lessondate.toDateString()}</td>
+                  <td>${lessons.time}</td>
+                  <td> ${lessons.instructor}</td>
+                  <td>27,340</td>
+            </tr>
+            
+            `
+           
+          }
+          counter+=1
         }
+          tbl.innerHTML = bodystr
+      
+      }
 
         else{
           for(lessons of sortedActivities){
             bodystr += `
             <tr>
                   <td> ${lessons.lessondate.toDateString()}</td>
-                  <td>${lessons.time} hrs</td>
+                  <td>${lessons.time}</td>
                   <td> ${lessons.instructor}</td>
                   <td>27,340</td>
             </tr>
