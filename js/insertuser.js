@@ -8,6 +8,8 @@
      storageBucket: "wad2-e8948.appspot.com",
    };
 
+
+  
  firebase.initializeApp(config);
 
  function writeUserData(full_name,pnum,email,password,gender,dob){
