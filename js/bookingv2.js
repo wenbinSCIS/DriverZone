@@ -49,15 +49,22 @@ ref.once("value")
     .then(function(snapshot){
         var instr_db = snapshot.val()
         var allEvents =[];
+        var today = new Date();
+        var tdy_date = `${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`
+        var unixTimeStamp_today = parseInt((new Date(tdy_date).getTime() / 1000).toFixed(0))
         for(let date in instr_db){
           for(let obj in instr_db[date]){
             var object = instr_db[date][obj];
-            console.log(object)
             object.id = Math.floor(Math.random() * 100000000000000000000000000000000000000000000000) + 1;
             if(object.name=="Driving lesson"){
-              allEvents.push(object)
+              var booking_date_string = object.date;
+              var arr = booking_date_string.split("/")
+              var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
+              var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
+              if(unixTimeStamp>=unixTimeStamp_today){
+                allEvents.push(object)
+              }
             }
-            
             }
                 
           }

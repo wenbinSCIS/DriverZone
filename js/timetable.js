@@ -18,11 +18,17 @@ const user_id = sessionStorage.getItem("userid");
     ref.once("value")
         .then(function(snapshot){
             var allEvents =[];
+            var today = new Date();
+            var tdy_date = `${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`
+            var unixTimeStamp_today = parseInt((new Date(tdy_date).getTime() / 1000).toFixed(0))
             if(snapshot.exists()){
                 var booking_db = snapshot.val()
                 for(let event in booking_db){
                     var object = booking_db[event];
-                    allEvents.push(object)
+                    if(object.id >= unixTimeStamp_today){
+                        allEvents.push(object)
+                    }
+                    
                 }
             }
             if(allEvents.length>0){
