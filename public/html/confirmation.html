@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="../css/confirm.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body style="height:100%">
+    <div id="nav-placeholder"></div>
+    
+
+    <div class="smaller" ><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+               <style type="text/css">
+                </style>
+               <path class="check" d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314
+                 c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042
+                 c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578"/>
+             </svg>
+   </div>
+       <div style="text-align: center; margin: auto; padding: 25px;" id="app">	
+        <h3>{{celebrate}}</h3>
+    </br>
+        <div class='container' style="background-color: #222831;width:40%;border-radius:20px;">
+            <div class="row justify-content-center pt-3">
+                <div class="col">
+                    <img :src="icon" style="padding:10px;">
+                    <span class="text-center text-white" style="font-size:23px;">{{book_details}}</span>
+                </div>
+            </div>
+            <div class="row justify-content-center" v-for="(i,index) in icon_pack">
+                <div class="col">
+                    <img :src="'../icons/' + i" style="padding:10px;">
+                    <span class="text-center text-white ">{{details()[index]}}</br></span>
+                </div>
+            </div>
+        </div>
+        
+        <a href="timetable.html" class="myButton mt-4 mr-1 " type=button value="" >View Timetable</a>
+        <a href="index.html" class="myButton mt-4 " type=button value="" >Back to Home</a>
+       </div>
+       <div style="height:40%">
+
+       </div>
+    
+        
+    
+        
+
+    
+    <div id="footer"></div>
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        celebrate:"Your Booking Has been Successfully Confirmed!",
+                        book_details:"These are your booking details:",
+                        icon:"../icons/list.png",
+                        icon_pack:["instructor.png","clock.png","date.png","money.png"],
+                    };
+                },
+                methods: {
+                    details(){
+                        var arr = [];
+                        var instr = sessionStorage.getItem("instructor");
+                        var time = sessionStorage.getItem("time");
+                        var date = sessionStorage.getItem("date");
+                        var cost = sessionStorage.getItem("cost");
+                        arr.push(instr);
+                        arr.push(time);
+                        arr.push(date);
+                        arr.push(cost);
+                        return arr
+                    }
+                }
+            });
+            app.mount("#app");
+        </script>
+        <script>
+            $(function() {
+                $("#nav-placeholder").load("navbar.html");
+            })
+            $(function(){
+                $("#footer").load("footer.html");
+            });
+        </script>;
+
+        
+</body>
+
+</html>
+
+</html>
