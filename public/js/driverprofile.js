@@ -66,7 +66,7 @@
               var totalNumOfRating=Object.keys(input[ele].review).length;
               
          
-              var image="../images/"+name+".jpg";
+              var image="https://wad2-e8948.web.app/images/"+name+".JPG";
               var description=input[ele].description;
         
               const name_capitalize = name.charAt(0).toUpperCase() + name.slice(1);
