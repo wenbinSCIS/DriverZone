@@ -22,25 +22,29 @@
         <div style="background-color: rgb(224, 224, 224);">
             <div class="container" style="background-color: white;">
                 <div class="row justify-content-center pt-3">
-                    <div class="col-6">
+                    <div class="col-4">
                         <h6>Sort by:</h6>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <h6>Tag:</h6>
                     </div>
+                    <div class="col-4"></div>
                 </div>
     
                 <div class="row">
-                    <div class="col-6 pt-2">
+                    <div class="col-4 pt-2">
                         <button type="button" class="btn btn-outline-success" id="newest_post" onclick="filter_newest()">Newest Post</button>
                         <button type="button" class="btn btn-outline-warning" id="top_post" onclick="filter_top()">Top Post</button>
                         <button type="button" class="btn btn-outline-danger" id="trending_post" onclick="filter_trending()">Trending Post</button>
                     </div>
 
-                    <div class="col-6 pt-2">
+                    <div class="col-4 pt-2">
                         <button type="button" class="btn btn-outline-info" id="theory_tag" onclick="select_theory()">Theory</button>
                         <button type="button" class="btn btn-outline-secondary" id="practical_tag" onclick="select_practical()">Practical</button>
                         <button type="button" class="btn btn-outline-warning" id="other_tag" onclick="select_other()">Other</button>
+                    </div>
+                    <div class="col-2 pt-2"></div>
+                    <div class="col-2 pt-2">
                         <button type="button" class="btn btn-danger float-right" id="clear_sort" onclick="clear_sort()">Reset All</button>
                     </div>
                 </div>
