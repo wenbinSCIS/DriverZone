@@ -75,6 +75,7 @@
             var location=input[ele].location
             var price=input[ele].price
             var rating=input[ele].rating.total;
+            console.log(rating);
        
             var image="../images/"+name+".jpg";
             var description=input[ele].description;

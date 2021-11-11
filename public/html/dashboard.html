@@ -1,0 +1,399 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard | Bootstrap Simple Admin Template</title>
+    <link href="../Profile Page/assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="../Profile Page/assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="../Profile Page/assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="../Profile Page/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Profile Page/assets/css/master.css" rel="stylesheet">
+    <link href="../Profile Page/assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://gothere.sg/jsapi?sensor=false"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+    <script src="../js/insertuser.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+ p{
+    all: initial;
+   
+  }
+  p{
+    font-family: "Gill Sans", sans-serif;
+  }
+  .d{
+    font-weight:bold;
+  }
+  .r{
+    font-size:8px;
+    color:grey;
+    padding-left:5px;
+  }
+  .bus{
+    font-weight:bold;
+  }
+  .form{
+    width:100px;
+  }
+    </style>
+</head>
+
+<body onload="getTop5Lessons()">
+    
+        <div id="body" class="active">
+            <div id="nav-placeholder">
+
+            </div>
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 page-header">
+                            <div class="page-pretitle">Overview</div>
+                            <h2 class="page-title">My Profile</h2>
+                        </div>
+   
+                       
+                       
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-light text-white ml-3 mb-3 rounded"></div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+                            <div class="card">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="icon-big text-center">
+                                                <i class="teal fas fa-car"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="detail">
+                                                <p class="detail-subtitle">number of Completed lessons</p>
+                                                <br/>
+                                                <span class="number" id="completed"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr />
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+                            <div class="card">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="icon-big text-center">
+                                                <i class="olive fas fa-chalkboard-teacher"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="detail">
+                                                <p class="detail-subtitle">Number of Upcoming lessons</p>
+                                                <br/>
+                                                <span class="number" id="upcoming"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr />
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+                            <div class="card">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="icon-big text-center">
+                                                <i class="violet fas fa-clock"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="detail">
+                                                <p class="detail-subtitle">Date for Next Lesson</p>
+                                                <br/>
+                                                <span class="number" id="nextlesson"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr />
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+                            <div class="card">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="icon-big text-center">
+                                                <i class="orange fas fa-male"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="detail">
+                                                <p class="detail-subtitle">instructor for next lesson</p>
+                                                <br/>
+                                                <span class="number" id="nextinstructor"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr />
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="content">
+
+                                    <h5 class="mb-0">Maps</h5>
+                                    <div id="map" class="border border-dark bg-light text-dark" style="width:100%;height:400px;padding:0px;margin:0px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="content">
+                                    <div class="head">
+                                        <h5 class="mb-0">Get to next lesson at ease with our directions finder!</h5>
+                                        <p class="text-muted">Enter your address/postal code</p>
+                                    </div>
+                                    <div class="col border border-dark bg-light text-dark" style="height:375px">
+                                        <div class="form-group row">
+                                          <div class="col-xs-4">
+                                            <label for="your_location" style="font-size:12px;all:inital">Your location</label>
+                                            <input type="text" name="your_location" id="your_location" value="SMU" class="form-control">
+                                          </div>
+                                          <div class="col-xs-4">
+                                            <label for="destination" style="font-size:12px;all:inital">Your Destination</label>
+                                            <input type="text" name="destination" id="destination" value="Yishun" class="form-control">
+                                          </div>
+                              
+                                          <div class="col-xs-4">
+                                            <label for="submitbtn" style="font-size:12px;"><br/></label>
+                                            <input type="submit" name="submitbtn" id="submitbtn" value="Get Directions" onclick="getdir()" class="form-control btn btn-dark">
+                                            
+                                          </div>
+                                        </div>
+                                        <div id="contain">
+                              
+                                      
+                              
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="row">
+                    <div class="head" style="margin-left:10px;">
+                        <h5 class="mb-0">Upcoming lessons (max 5 is shown)</h5>
+                       
+                    </div>
+                    <div class="canvas-wrapper">
+                        <table class="table table-striped" style="margin-left:10px;">
+                            <thead class="success">
+                                <tr>
+                                    <th>Date of Lesson</th>
+                                    <th>Time of Lesson</th>
+                                    <th>Instructor</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tbody id="top5body">
+                             
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer">
+
+    </div>
+
+    <script>
+        gothere.load("maps")
+        $(function(){
+        $("#nav-placeholder").load("navbar.html");
+        });
+        $(function(){
+        $("#footer").load("footer.html");
+        });
+
+
+
+              
+        function initialize(loc,des) {
+      if (GBrowserIsCompatible()) {
+        // Create the Gothere map object.
+        var map = new GMap2(document.getElementById("map"));
+        // Set the center of the map.
+        map.setCenter(new GLatLng(1.362083, 103.819836), 11);
+        // Add zoom controls on the top left of the map.
+        map.addControl(new GSmallMapControl());
+        // Add a scale bar at the bottom left of the map.
+        map.addControl(new GScaleControl());
+        var directions = new GDirections(map, document.getElementById("panel"));
+        GEvent.addListener(directions, "load", function() {
+         getDirections(directions.getRoute(0).kC.Steps);
+      });
+        var options = {travelMode:G_TRAVEL_MODE_TRANSIT};
+       
+          directions.load("from:" + loc +" to:" + des, options);
+          
+    
+      }
+  }
+
+        function getDirections(directionarray){
+          var stepcounter = 1;
+          var inp="";
+          for(item of directionarray){
+            
+            inp += stepcounter + '. ' + item.descriptionHtml + '<br/><br/>';
+  
+            stepcounter +=1
+          }
+          contain = document.getElementById("contain");
+          contain.innerHTML = inp;
+          contain.style="p{all:inital}"
+        }
+  //your code here
+  function getdir(){
+    
+    
+          var loc = document.getElementById("your_location").value;
+          var des = document.getElementById("destination").value;
+          initialize(loc,des)
+    }
+
+
+    function getWeather(){
+
+        var url1 = "https://api.openweathermap.org/data/2.5/forecast?q=Singapore&appid=48cfc222127af91d538fc369fc368aef"
+        axios
+    .get(url1)
+    .then((response) => {
+        var list1 = response.data
+        console.log(list1)
+        const forecastEls = document.querySelectorAll(".forecast");
+            for (i=0; i<forecastEls.length; i++) {
+                forecastEls[i].innerHTML = "";
+                const forecastIndex = i*8 + 4;
+                const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+                const forecastDay = forecastDate.getDate();
+                const forecastMonth = forecastDate.getMonth() + 1;
+                const forecastYear = forecastDate.getFullYear();
+                const forecastDateEl = document.createElement("p");
+                forecastDateEl.setAttribute("class","mt-3 mb-0 forecast-date");
+                forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+                forecastEls[i].append(forecastDateEl);
+                const forecastWeatherEl = document.createElement("img");
+                forecastWeatherEl.setAttribute("src","https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
+                forecastWeatherEl.setAttribute("alt",response.data.list[forecastIndex].weather[0].description);
+                forecastEls[i].append(forecastWeatherEl);
+                const forecastTempEl = document.createElement("p");
+                forecastTempEl.innerHTML = "Temp: " + Math.round((response.data.list[forecastIndex].main.temp - 273.15)) + "&#176C";
+                forecastEls[i].append(forecastTempEl);
+                const forecastHumidityEl = document.createElement("p");
+                forecastHumidityEl.innerHTML = " Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
+                forecastEls[i].append(forecastHumidityEl);
+                }
+    })
+
+    .catch((error) => {
+        // Unable to retrieve url1. Display error
+        console.log(error)
+    });
+    
+
+    // YOUR CODE GOES HERE: END
+}
+
+
+
+
+function k2f(K) {
+        return Math.floor((K - 273.15) *1.8 +32);
+    }
+
+
+
+
+    
+    </script>
+
+
+<script type="text/javascript">
+
+
+
+    function firstmap(loc,des) {
+          if (GBrowserIsCompatible()) {
+            // Create the Gothere map object.
+            var map = new GMap2(document.getElementById("map"));
+            // Set the center of the map.
+            map.setCenter(new GLatLng(1.362083, 103.819836), 11);
+            // Add zoom controls on the top left of the map.
+            map.addControl(new GSmallMapControl());
+            // Add a scale bar at the bottom left of the map.
+            map.addControl(new GScaleControl());
+            var directions = new GDirections(map, document.getElementById("panel"));
+            GEvent.addListener(directions, "load", function() {
+             getDirections(directions.getRoute(0).kC.Steps);
+          });
+            var options = {travelMode:G_TRAVEL_MODE_TRANSIT};
+           
+              directions.load("from:" + loc +" to:" + des, options);
+              
+        
+          }
+      }
+        gothere.setOnLoadCallback(firstmap("SMU","Yishun"))
+    
+    
+    </script>
+ 
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+ 
+    <script src="../Profile Page/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../Profile Page/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

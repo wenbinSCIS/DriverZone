@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTable</title>
+    <!-- Add the evo-calendar.css for styling -->
+    <link rel="stylesheet" type="text/css" href="../css/evo_calendar/evo-calendar.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/evo_calendar/evo-calendar.royal-navy.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/timetable.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <section class="p-t-0 p-b-10" style="background-color:#222831;" id="app">
+        <div class="container">
+            <div class="flex-w flex-sb-m">
+                <div class="p-t-10 p-b-10 p-r-30">
+                    <div class="flex-w p-b-9">
+                        <span>
+            <a href="index.html" class="s-txt19 hov-color-main trans-02">
+            <i class="fa fa-home"></i>
+            Home / 
+            </a>
+            <a href="timetable.html" class="s-txt19 hov-color-main trans-02">
+                <i class="fa fa-users"></i>
+                Instructors /
+            </a>
+            <a class="s-txt19 hov-color-main trans-02 text-white" >Booking</a>
+            <div class="row" >
+                <div class="col-md p-t-10 m-t-10">
+                    <img src="" class="ml-5 rounded" style="width:140px;height:140px" id="instructor_img">
+                </div>
+                <div class="col-lg-7" style="margin-top:30px">
+                    <h2 class="text-white" id="instructor_name">Instructor Aryan Dash</h2>
+                    <h3 id="quote">Quote here</h3>
+                </div>
+            </div>
+    </section>
+    <div class="container-fluid" >
+        <div class="row">
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+
+    <input id="time_to_add" type="text" style="border: 1px solid black">
+    <button class="button5" style="background-color:rgb(11, 11, 61);" onclick="addTime()" >Add time</button>
+
+
+
+
+
+
+    <div id="footer"></div>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("navbar.html");
+        });
+        $(function(){
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <!-- Add jQuery library (required) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    <!-- Add the evo-calendar.js for.. obviously, functionality! -->
+    <script src="../js/evo_js/evo-calendar.js"></script>
+    
+    <!-- Timetable.JS-->
+
+    <script src="../js/bookingv2.js"></script>
+</body>
+</html>

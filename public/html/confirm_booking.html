@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/confirm.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <section class="bg-img-1 bg-overlay-3 p-t-10 p-b-10" style="background-image: url('../images/carousel1.jpg')";>
+        <div class="container">
+            <div class="flex-w flex-sb-m">
+                <div class="p-t-10 p-b-10 p-r-30">
+                    <div class="flex-w p-b-9">
+                        <span>
+            <a href="index.html" class="s-txt19 hov-color-main trans-02">
+            <i class="fa fa-home"></i>
+            Home / 
+            </a>
+            <a href="course-list.html" class="s-txt19 hov-color-main trans-02">
+                <i class="fa fa-users"></i>
+                Instructors /
+            </a>
+            <a class="s-txt19 hov-color-main trans-02 text-white" id="url" ><i class="fa fa-list-alt" ></i> Booking /</a>
+            <a class="s-txt19 hov-color-main trans-02 text-white" ></i>Confirmation</a>
+            <div class="row text-center" >
+                <h1 class="text-white "> Booking confirmation</h1>
+            </div>
+    </section>
+
+    <div style="text-align: center; margin: auto; padding: 25px;" id="app">	
+        <h3>{{confirm_booking}}</h3>
+    </br>
+        <div class='container' style="background-color: #222831;width:40%;border-radius:20px;">
+            <div class="row justify-content-center pt-3">
+                <div class="col">
+                    <img :src="icon" style="padding:10px;">
+                    <span class="text-center text-white" style="font-size:23px;">{{book_details}}</span>
+                </div>
+            </div>
+            <div class="row justify-content-center" v-for="(i,index) in icon_pack">
+                <div class="col">
+                    <img :src="'../icons/' + i" style="padding:10px;">
+                    <span class="text-center text-white ">{{details()[index]}}</br></span>
+                </div>
+            </div>
+        </div>
+        <a class="myButton mt-4 " type=button v-on:click="addTimingtoDB()" >Confirm Booking</a>
+    </div>
+    <div style="height:40%">
+
+    </div>
+    
+        
+    
+        
+
+    
+    <div id="footer"></div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        confirm_booking:"Please confirm booking details below",
+                        book_details:"These are your booking details:",
+                        icon:"../icons/list.png",
+                        icon_pack:["instructor.png","clock.png","date.png","money.png"],
+                    };
+                },
+                methods: {
+                    details(){
+                        var arr = [];
+                        var instr = sessionStorage.getItem("instructor");
+                        var time = sessionStorage.getItem("time");
+                        var date = sessionStorage.getItem("date");
+                        var cost = sessionStorage.getItem("cost");
+                        arr.push(instr);
+                        arr.push(time);
+                        arr.push(date);
+                        arr.push(cost)
+                        return arr
+                    },
+                    addTimingtoDB(){
+                        var instr = sessionStorage.getItem("instructor");
+                        var time = sessionStorage.getItem("time");
+                        var date = sessionStorage.getItem("date");
+                        var cost = sessionStorage.getItem("cost");
+                        const user_id = sessionStorage.getItem("userid");
+                        var arr = date.split("/")
+                        var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
+                        var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
+                        var description = `You have booked a lesson with ${instr} on this date, ${time}.`
+                        var rootRef = firebase.database().ref(`Booking/${user_id}`);
+                        var newStoreRef = rootRef.push();
+                    newStoreRef.set({
+                        
+                            "date": date,
+                            "description":description,
+                            "time":time,
+                            "instructor": instr, 
+                            "type":"event",
+                            "name":"Lesson Booking" ,
+                            "id":unixTimeStamp,
+                            
+                    }, (error) => {
+                        if (error) {
+                            // The write failed...
+                            console.log("here")
+                        alert("There was a problem with booking, please try again!")
+                        } else {
+                            // Data saved successfully!
+                            var newRef = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}`);
+                            newRef.once("value")
+                            .then(function(snapshot){
+                            var instr_db = snapshot.val()
+                            console.log(instr_db)
+                            console.log(instr_db)
+                            for(let ele in instr_db){
+                                console.log(instr_db[ele])
+                                if(instr_db[ele].description == time){
+                                //get element from db
+                                var refNeeded = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}/${ele}`);
+                                // edit availability status
+                                    refNeeded.update({name:"Booked"})
+                                    }
+                            window.location.href = "confirmation.html";
+                    }
+                }
+            )}
+                })}}});
+            app.mount("#app");
+        </script>
+
+        <script>
+            var url = document.getElementById("url")
+            var instr = sessionStorage.getItem("instructor");
+            var string = `booking.html?id=${instr}`
+            url.href = string
+            console.log('here')
+        </script>
+
+        <script>
+            $(function() {
+                $("#nav-placeholder").load("navbar.html");
+            })
+            $(function(){
+                $("#footer").load("footer.html");
+            });
+        </script>;
+        <script src="../js/confirmbooking.js"></script>
+        
+</body>
+
+</html>
+
+</html>

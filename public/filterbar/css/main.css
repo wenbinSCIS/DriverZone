@@ -1,0 +1,141 @@
+/*
+ @Author: Company Name
+ @URL: http://companyname.com
+ This file contains the styling for the actual theme, this
+ is the file you need to edit to change the look of the
+ theme.
+ However we used Less script to make things easy to maintain, this is the compressed ourput, we recommend to edit the less files and then recombile the files and add the result here, if you don't like to use less you can edit this file here.
+ 
+ This files contents are outlined below.
+ 01.	Theme Reset Style
+ 02.	Global Elements
+ 03.	Menu
+ 04.	Social
+ 05.	Article
+ 06.	Posts
+ 07.	Responsive
+ 08.	Widgets
+ 09.	Flexslider
+ 10.	Grid
+*/
+/* =============================================
+			Theme Reset Style					
+============================================= */
+@import url(https://fonts.googleapis.com/css?family=Caveat+Brush|Montserrat:300,400,500,600,700|Roboto:300,400,500,700);
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.tg-bannerholder .tg-homeslider .item{
+	height: 920px;
+	background: rgba(0, 0, 0, 0.30);
+}
+.tg-formtrip {
+	padding: 10px;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.30);
+	border: 1px solid rgba(255, 255, 255, 0.30);
+}
+.tg-formtrip fieldset {
+	position: relative;
+	padding: 0 175px 0 0;
+}
+.tg-formtrip .form-group {
+	margin: 0;
+	width: 30%;
+	float: left;
+	padding: 0 5px;
+}
+.tg-formtrip .form-group:nth-child(3),
+.tg-formtrip .form-group:nth-child(4) { width: 20%; }
+.tg-formtrip .form-group:first-child { padding-left: 0; }
+.tg-formtrip .form-group:nth-child(4) { padding-right: 0; }
+.tg-formtrip .form-group .tg-select select {
+	height: 50px;
+	padding: 15px 20px;
+	border-color: rgba(0, 0, 0, 0.10);
+}
+.tg-formtrip .form-group .tg-select:after {line-height: 50px;}
+.tg-formtrip .tg-btn {
+	top: 0;
+	right: 0;
+	height: 50px;
+	padding: 0 45px;
+	position: absolute;
+	line-height: 50px;
+	border-radius: 5px;
+}
+.tg-formtrip .tg-btn:hover{color:#fff;}
+.tg-formtrip .tg-btn:after {display:none;}
+.tg-btnroundprev,
+.tg-btnroundnext {
+	top: 50%;
+	color: #000;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	overflow: hidden;
+	margin: -25px 0 0;
+	line-height: 48px;
+	border-radius: 50%;
+	position: absolute;
+	text-align:center;
+	border: 1px solid #000;
+}
+.tg-btnroundprev { left: 15px; }
+.tg-btnroundnext { right: 15px; }
+.tg-btnroundprev i,
+.tg-btnroundnext i {
+	display: block;
+	text-align: inherit;
+	line-height: inherit;
+}
+
+.tg-bgdark .tg-btnroundprev,
+.tg-bgdark .tg-btnroundnext,
+.tg-parallax .tg-btnroundprev,
+.tg-parallax .tg-btnroundnext {
+	color: #fff;
+	border-color: #fff;
+}
+
+.tg-select .btn-default {
+	height: 50px;
+	color: #676767;
+	background: #fff;
+	box-shadow: none;
+	padding: 15px 20px;
+	border-color: rgba(0, 0, 0, 0.10) !important;
+}
+.tg-select .btn-default .bs-caret { display: none; }
+.tg-select .btn-default.active, .btn-default:active,
+.tg-select .open>.dropdown-toggle.btn-default {
+	box-shadow: none;
+	background: #fff;
+}
+.tg-select .dropdown-menu { padding: 0; }
+.bs-searchbox,
+.bs-actionsbox,
+.bs-donebutton { padding: 15px; }
+.tg-select .bootstrap-select.btn-group .dropdown-menu.inner {
+	width: 100%;
+	float: left;
+	height: 160px;
+	list-style: none;
+	padding: 0 0 15px;
+	text-transform: capitalize;
+	font:400 14px/30px 'Roboto', Arial, Helvetica, sans-serif;
+}
+.tg-select .bootstrap-select.btn-group .dropdown-menu.inner li {
+	width: 100%;
+	float: left;
+	line-height: 30px;
+	list-style-type: none;
+}
+.tg-select .bootstrap-select.btn-group .dropdown-menu.inner li a { padding: 8px 20px 6px; }
+.tg-select .dropdown-menu>.active>a,
+.tg-select .dropdown-menu>.active>a:focus,
+.tg-select .dropdown-menu>.active>a:hover,
+.tg-select .dropdown-menu.inner li a:hover {color: #fff;}
+

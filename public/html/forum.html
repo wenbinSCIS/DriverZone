@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome to the Discussion Forum</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
+        crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    
+        <script src="../js/post2.js"></script>
+    </head>
+    
+    <body>
+        <div id="nav-placeholder"></div>
+
+        <div style="background-color: rgb(224, 224, 224);">
+            <div class="container" style="background-color: white;">
+                <div class="row justify-content-center pt-3">
+                    <div class="col-6">
+                        <h6>Sort by:</h6>
+                    </div>
+                    <div class="col-6">
+                        <h6>Tag:</h6>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-6 pt-2">
+                        <button type="button" class="btn btn-outline-success" id="newest_post" onclick="filter_newest()">Newest Post</button>
+                        <button type="button" class="btn btn-outline-warning" id="top_post" onclick="filter_top()">Top Post</button>
+                        <button type="button" class="btn btn-outline-danger" id="trending_post" onclick="filter_trending()">Trending Post</button>
+                    </div>
+
+                    <div class="col-6 pt-2">
+                        <button type="button" class="btn btn-outline-info" id="theory_tag" onclick="select_theory()">Theory</button>
+                        <button type="button" class="btn btn-outline-secondary" id="practical_tag" onclick="select_practical()">Practical</button>
+                        <button type="button" class="btn btn-outline-warning" id="other_tag" onclick="select_other()">Other</button>
+                        <button type="button" class="btn btn-danger float-right" id="clear_sort" onclick="clear_sort()">Reset All</button>
+                    </div>
+                </div>
+    
+                <div class="row justify-content-center pt-3 mb-5">
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="search" id="search_keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                        </div>
+                    </div>
+    
+                    <div class="col-12 col-sm-3">
+                        <button type="button" class="btn btn-primary float-right" id="add_post" onclick="add_new_post()">Add New Post</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="py-2"></div>
+
+            <div class="container" style="background-color: white;">
+                <div class="row justify-content-center py-5" id="info_here">
+                    
+                </div>
+            </div>
+    
+        </div>
+
+
+        <div id="footer"></div>
+
+    
+        <script>
+            $(function()
+            {
+                $("#nav-placeholder").load("navbar.html");
+            });
+
+            get_all_post()
+
+            var cur_filter=null
+            var cur_tag=null
+
+            newest_button = document.getElementById("newest_post")
+            top_button = document.getElementById("top_post")
+            trending_button = document.getElementById("trending_post")
+            theory_button = document.getElementById("theory_tag")
+            practical_button = document.getElementById("practical_tag")
+            other_button = document.getElementById("other_tag")
+
+            var search_bar_input = document.getElementById("search_keyword")
+            search_bar_input.addEventListener("input",search_for_post)
+
+            function search_for_post()
+            {
+                var input, filter, table, rows, row_title, i, txtValue;
+                table = document.getElementById("post_table");
+                input = document.getElementById('search_keyword');
+                filter = input.value.toUpperCase();
+                table = document.getElementById("post_table");
+                rows=table.rows
+                
+
+                // Loop through all list items, and hide those who don't match the search query
+                for (i = 1; i < (rows.length); i++) {
+                    row_title = rows[i].getElementsByTagName("td")[1];
+                    txtValue = row_title.textContent || row_title.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                    } else {
+                    rows[i].style.display = "none";
+                    }
+                }
+            }
+
+            function add_new_post()
+            {
+                location.href="add_post.html"
+            }
+
+            function filter_newest()
+            {
+                cur_filter="newest"
+                newest_button.setAttribute("class","btn btn-success")
+                top_button.setAttribute("class","btn btn-outline-warning")
+                trending_button.setAttribute("class","btn btn-outline-danger")
+
+                var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i+1 < (rows.length); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[3].innerHTML;
+                            y = rows[i + 1].getElementsByTagName("td")[3].innerHTML;
+
+                // Check if the two rows should switch place:
+                            var x_time=x.split(", ")
+                            x_date=x_time[0].split("-")
+                            new_x_date = x_date[1]+"-"+x_date[0]+"-"+x_date[2]+" "+x_time[1]
+                            var y_time=y.split(", ")
+                            y_date=y_time[0].split("-")
+                            new_y_date = y_date[1]+"-"+y_date[0]+"-"+y_date[2]+" "+y_time[1]
+
+                            if (new Date(new_x_date) < new Date(new_y_date))
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
+            }
+
+            function filter_top()
+            {
+                cur_filter="top"
+                newest_button.setAttribute("class","btn btn-outline-success")
+                top_button.setAttribute("class","btn btn-warning")
+                trending_button.setAttribute("class","btn btn-outline-danger")
+
+                var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i+1 < (rows.length); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[6];
+                            y = rows[i + 1].getElementsByTagName("td")[6];
+
+                // Check if the two rows should switch place:
+                            if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) 
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
+            }
+
+            function filter_trending()
+            {
+                cur_filter="trending"
+                newest_button.setAttribute("class","btn btn-outline-success")
+                top_button.setAttribute("class","btn btn-outline-warning")
+                trending_button.setAttribute("class","btn btn-danger")
+
+                var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("post_table");
+                    switching = true;
+                /* Make a loop that will continue until no switching has been done: */
+                    while (switching) {
+                // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                /* Loop through all table rows (except the first, which contains table headers): */
+                        for (i = 1; i+1 < (rows.length); i++) {
+                    // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                /* Get the two elements you want to compare, one from current row and one from the next: */
+                            x = rows[i].getElementsByTagName("td")[5];
+                            y = rows[i + 1].getElementsByTagName("td")[5];
+
+                // Check if the two rows should switch place:
+                            if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) 
+                            {
+                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                /* If a switch has been marked, make the switch and mark that a switch has been done: */
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
+            }
+
+            function select_theory()
+            {
+                cur_tag="theory"
+                theory_button.setAttribute("class","btn btn-info")
+                practical_button.setAttribute("class","btn btn-outline-secondary")
+                other_button.setAttribute("class","btn btn-outline-warning")
+
+                var table = document.getElementById("post_table");
+                var rows = table.rows
+
+                    for (i = 1; i < (rows.length); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")
+                        console.log(row_tag[0].innerHTML)
+                        if (row_tag[0].innerHTML != `<i class="fa fa-book fa-2x"></i>`)
+                        {
+                            rows[i].setAttribute("style","display:none")
+                            
+                        }
+
+                        else
+                        {
+                            rows[i].setAttribute("style","")
+                        }
+                    }
+            }
+
+            function select_practical()
+            {
+                cur_tag="practical"
+                theory_button.setAttribute("class","btn btn-outline-info")
+                practical_button.setAttribute("class","btn btn-secondary")
+                other_button.setAttribute("class","btn btn-outline-warning")
+
+                var table = document.getElementById("post_table");
+                var rows = table.rows
+
+                    for (i = 1; i < (rows.length); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")
+                        if (row_tag[0].innerHTML != `<i class="fa fa-car fa-2x"></i>`)
+                        {
+                            rows[i].setAttribute("style","display:none")
+                        }
+
+                        else
+                        {
+                            rows[i].setAttribute("style","")
+                        }
+            }
+        }
+
+            function select_other()
+            {
+                cur_tag="other"
+                theory_button.setAttribute("class","btn btn-outline-info")
+                practical_button.setAttribute("class","btn btn-outline-secondary")
+                other_button.setAttribute("class","btn btn-warning")
+
+                var row_to_remove=[]
+                var table = document.getElementById("post_table");
+                var rows = table.rows
+
+                    for (i = 1; i < (rows.length); i++) 
+                    {
+                        var cur_row_id = rows[i].id
+                        var row_tag = rows[i].getElementsByTagName("td")
+                        if (row_tag[0].innerHTML != `<i class="fa fa-comments fa-2x"></i>`)
+                        {
+                            rows[i].setAttribute("style","display:none")
+                        }
+
+                        else
+                        {
+                            rows[i].setAttribute("style","")
+                        }
+                    }
+            }
+
+            function clear_sort()
+            {
+                sessionStorage.setItem("cur_tag","")
+                sessionStorage.setItem("cur_filter","")
+
+                newest_button.setAttribute("class","btn btn-outline-success")
+                top_button.setAttribute("class","btn btn-outline-warning")
+                trending_button.setAttribute("class","btn btn-outline-danger")
+
+                theory_button.setAttribute("class","btn btn-outline-info")
+                practical_button.setAttribute("class","btn btn-outline-secondary")
+                other_button.setAttribute("class","btn btn-outline-warning")
+
+                var search_bar = document.getElementById("search_keyword")
+                console.log(search_bar.value)
+                search_bar.value=""
+
+                get_all_post()
+            }
+
+        </script>
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navbar.html");
+    });
+    $(function(){
+        $("#footer").load("footer.html");
+    });
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    </body>
+</html>
