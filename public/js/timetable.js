@@ -1,5 +1,3 @@
-const { validateTestPhoneNumbers } = require("firebase-admin/lib/auth/auth-config");
-
 //firebase stuff
 var config = {
     apiKey: "AIzaSyDruPuuruiIkp6rGikLAUixFbT5-RFRm0s",
