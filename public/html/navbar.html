@@ -53,13 +53,13 @@
         var drop = document.getElementById("drop");
   
         drop.innerHTML = `
-            <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown" !important>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
           Welcome,
           ` +name + `
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="dashboard.html">My Profile</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="dashboard.html" >My Profile</a>
           <a class="dropdown-item" href="timetable.html">My Timetable</a>
           <a class="dropdown-item" href="telegramhelp.html">Telegram FAQ</a>
           <a class="dropdown-item" href="#" onclick=logout()>Log Out</a>
