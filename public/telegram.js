@@ -3,6 +3,8 @@ var admin = require("firebase-admin");
 
 var serviceAccount = require("./firebasejson.json");
 
+
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://wad2-e8948-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -20,7 +22,7 @@ var email = ''
 var chatId = ''
 var verified = false
 var userid = ''
-
+console.log("here")
 
 bot.onText(/\/start/, (msg, match) => {
   // 'msg' is the received Message from Telegram
@@ -208,3 +210,6 @@ function getAll(){
   }
 
 }
+
+
+
