@@ -8,7 +8,7 @@
   storageBucket: "wad2-e8948.appspot.com",
 };
 
-
+var loclist = {}
 
 firebase.initializeApp(config);
 
@@ -118,6 +118,7 @@ function getEmail(emailstr){
 
 
 function getTop5Lessons(){
+  getLoc()
  var rootRef = firebase.database().ref();
  var storesRef = rootRef.child('Booking');
  const userid = sessionStorage.getItem('userid');
@@ -150,7 +151,9 @@ function getTop5Lessons(){
              finishedcounter+=1
            }
            else{
-             const person = {lessondate:thatdate, instructor:instructor, time:time};
+             var loca= loclist[instructor]
+             const person = {lessondate:thatdate, instructor:instructor, time:time,location:loca};
+           
              reslist.push(person)
            
            }
@@ -189,7 +192,7 @@ function getTop5Lessons(){
                <td> ${lessons.lessondate.toDateString()}</td>
                <td>${lessons.time}</td>
                <td> ${lessons.instructor}</td>
-               <td>27,340</td>
+               <td>${lessons.location}</td>
          </tr>
          
          `
@@ -208,7 +211,7 @@ function getTop5Lessons(){
                <td> ${lessons.lessondate.toDateString()}</td>
                <td>${lessons.time}</td>
                <td> ${lessons.instructor}</td>
-               <td>27,340</td>
+               <td>${lessons.location}</td>
          </tr>
          
          `
@@ -234,3 +237,21 @@ function getTop5Lessons(){
 
 
 
+function getLoc(){
+  var rootRef = firebase.database().ref();
+  var storesRef = rootRef.child('instructor');
+  var emailcount = 0;
+  var error = []
+  storesRef.on("value", function(snapshot) {
+ 
+    for( var item in snapshot.val()){
+      var loc = snapshot.val()[item].address
+      loclist[item] = loc
+    }
+   
+ });
+ 
+ 
+ 
+ }
+ 
