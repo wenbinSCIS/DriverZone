@@ -31,20 +31,6 @@ const user_id = sessionStorage.getItem("userid");
                     
                 }
             }
-            function getDetails(){
-                var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-                var instr = allEvents[0].instructor;
-                var unixTimeStamp = allEvents[0].id;
-                var date = new Date(unixTimeStamp * 1000);
-                var d = date.getDate();
-                var day = days[date.getDay()];  
-                var month = months[date.getMonth()];
-                var time = allEvents[0].time
-                return [day,d,month,time,instr]
-                        
-            }
-            var details = getDetails()
             if(allEvents.length>0){
                 avail=false;
             }
@@ -79,8 +65,8 @@ const user_id = sessionStorage.getItem("userid");
 
             $("#calendar").evoCalendar({
                 theme: 'Royal Navy',
-                'eventListToggler': false,
-                'sidebarToggler': false,
+                /* 'eventListToggler': false,
+                'sidebarToggler': false, */
                 calendarEvents: allEvents,
             });
             
