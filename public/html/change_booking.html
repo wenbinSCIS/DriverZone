@@ -11,7 +11,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
-    <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
     <div id="nav-placeholder"></div>
@@ -27,32 +26,29 @@
             </a>
             <a href="timetable.html" class="s-txt19 hov-color-main trans-02">
                 <i class="fa fa-users"></i>
-                Instructors /
+                Timetable /
             </a>
-            <a class="s-txt19 hov-color-main trans-02 text-white" ><i class="fa fa-list-alt"></i> Booking</a>
+            <a class="s-txt19 hov-color-main trans-02 text-white" ><i class="fa fa-list-alt"></i> Change Booking</a>
             <div class="row text-center" >
-                <h1 class="text-white "> Booking confirmation</h1>
+                <h1 class="text-white "> Change Booking</h1>
             </div>
     </section>
 
     <div style="text-align: center; margin: auto; padding: 25px;" id="app">	
-        <h3>{{confirm_booking}}</h3>
+        <h3>Do you want to change your booking?</h3>
     </br>
         <div class='container' style="background-color: #222831;width:40%;border-radius:20px;">
             <div class="row justify-content-center pt-3">
                 <div class="col">
                     <img :src="icon" style="padding:10px;">
-                    <span class="text-center text-white" style="font-size:23px;">{{book_details}}</span>
+                    <span class="text-center text-white" style="font-size:23px;">These are your booking details:</span>
                 </div>
             </div>
-            <div class="row justify-content-center" v-for="(i,index) in icon_pack">
-                <div class="col">
-                    <img :src="'../icons/' + i" style="padding:10px;">
-                    <span class="text-center text-white ">{{details()[index]}}</br></span>
-                </div>
+            <div class="row justify-content-center" id="info_here">
+                
             </div>
         </div>
-        <a class="myButton mt-4 " type=button v-on:click="DeleteBooking()" >Delete Booking</a>
+        <a class="myButton mt-4 " type=button onclick="DeleteBooking()" >Delete Booking</a>
     </div>
     <div style="height:40%">
 
@@ -69,80 +65,75 @@
 
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        
         <script>
-            const app = Vue.createApp({
-                data() {
-                    return {
-                        confirm_booking:"Please confirm booking details below",
-                        book_details:"These are your booking details:",
-                        icon:"../icons/list.png",
-                        icon_pack:["instructor.png","clock.png","date.png"],
-                    };
-                },
-                methods: {
-                    details(){
-                        var arr = [];
-                        var instr = sessionStorage.getItem("instructor");
-                        console.log(sessionStorage)
-                        var time = sessionStorage.getItem("time");
-                        var date = sessionStorage.getItem("date");
-                        arr.push(instr);
-                        arr.push(time);
-                        arr.push(date);
-                        return arr
-                    },
-                    DeleteBooking(){
-                        console.log(sessionStorage)
-                        var instr = sessionStorage.getItem("instructor");
-                        var description = sessionStorage.getItem("time");
+            var arr = [];
+            var instr = sessionStorage.getItem("instructor");
+            var time = sessionStorage.getItem("time");
+            var date = sessionStorage.getItem("date");
+            arr.push(instr);
+            arr.push(time);
+            arr.push(date);
+            var icon_pack =["instructor.png","clock.png","date.png"];
+            var string ='';
+            for(let png in icon_pack){
+                string +=`<div class="col-12" >
+                    <img src="../icons/${icon_pack[png]}" style="padding:10px;">
+                    <span class="text-center text-white ">${arr[png]}</br></span>
+                    </div>`
+            }
+            var to_replace = document.getElementById("info_here")
+            to_replace.innerHTML = string;
+        </script>
+        <script>
+            function DeleteBooking(){
+                console.log(sessionStorage)
+                var instr = sessionStorage.getItem("instructor");
+                var description = sessionStorage.getItem("time");
 
-                        var time_arr= description.split(",")
-                        var sec_step = time_arr[1].trim()
-                        var time = sec_step.replace(".",'')
-                        var date = sessionStorage.getItem("date");
-                        const user_id = sessionStorage.getItem("userid");
-                        var arr = date.split("/")
-                        var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
-                        var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
-                        var ref = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}`);
-                        ref.once("value")
-                            .then(function(snapshot){
-                            var instr_db = snapshot.val()
-                            for(let ele in instr_db){
-                                if(instr_db[ele].description == time){
-                                    console.log("here")
-                                //get element from db
-                                var refNeeded = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}/${ele}`);
-                                // edit availability status
-                                refNeeded.update({name:"Driving lesson"},(error) =>{
-                                    if (error) {
-                                        // The write failed...
-                                        console.log("here")
-                                    alert("There was a problem with deleting, please try again!")
-                                    } else {
-                                        // Data saved successfully!
-                                        var rootRef = firebase.database().ref(`Booking/${user_id}`);
-                                        rootRef.once("value")
-                                        .then(function(snapshot){
-                                        var booking_db = snapshot.val()
-                                        for(let ele in booking_db){
-                                            if(booking_db[ele].description == description){
-                                            //get element from db
-                                            //var refNeeded = firebase.database().ref(`Booking/${user_id}`);
-                                            // edit availability status
-                                                rootRef.child(ele).remove()
-                                                window.location.href = "timetable.html";
-                                                }
-                                        
-                                }
-                            })}
-                                })}
-                            }
-                            })}}})
-                        
-                
-            ;
-            app.mount("#app");
+                var time_arr= description.split(",")
+                var sec_step = time_arr[1].trim()
+                var time = sec_step.replace(".",'')
+                var date = sessionStorage.getItem("date");
+                const user_id = sessionStorage.getItem("userid");
+                var arr = date.split("/")
+                var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
+                var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
+                var ref = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}`);
+                ref.once("value")
+                    .then(function(snapshot){
+                    var instr_db = snapshot.val()
+                    for(let ele in instr_db){
+                        if(instr_db[ele].description == time){
+                            console.log("here")
+                        //get element from db
+                        var refNeeded = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}/${ele}`);
+                        // edit availability status
+                        refNeeded.update({name:"Driving lesson"},(error) =>{
+                            if (error) {
+                                // The write failed...
+                                console.log("here")
+                            alert("There was a problem with deleting, please try again!")
+                            } else {
+                                // Data saved successfully!
+                                var rootRef = firebase.database().ref(`Booking/${user_id}`);
+                                rootRef.once("value")
+                                .then(function(snapshot){
+                                var booking_db = snapshot.val()
+                                for(let ele in booking_db){
+                                    if(booking_db[ele].description == description){
+                                    //get element from db
+                                    //var refNeeded = firebase.database().ref(`Booking/${user_id}`);
+                                    // edit availability status
+                                        rootRef.child(ele).remove()
+                                        window.location.href = "timetable.html";
+                                        }
+                                
+                        }
+                    })}
+                        })}
+                    }
+                    })}
         </script>
         <script>
             $(function() {
