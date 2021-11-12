@@ -70,8 +70,8 @@ ref.once("value")
           }
             $("#calendar").evoCalendar({
               theme: 'Royal Navy',
-              'eventListToggler': false,
-              'sidebarToggler': false,
+              /* 'eventListToggler': false,
+              'sidebarToggler': false, */
               calendarEvents: allEvents,
             })
     });
