@@ -46,23 +46,11 @@ const user_id = sessionStorage.getItem("userid");
             }
             var details = getDetails()
             if(allEvents.length>0){
-<<<<<<< HEAD
-                var string =  `<div v-else>
-                <h2 class="text-white" >Your next lesson is on <h1 class="text-muted" id="next_lesson_info"> ${details[0]}, ${details[1]} ${details[2]} ${details[3]} with Instructor ${details[4]}</h1> </h2>
-                <p class="lead pt-4 text-white" style="font-size: 15px;" id="instr_quote">View all details of your bookings below.</p>
-            </div>`
-            var to_replace = document.getElementById("next_lesson_info");
-            to_replace.innerHTML = string;
-=======
                 avail=false;
->>>>>>> parent of 827bbe7 (done)
             }
             else{
                 avail=true;
             }
-<<<<<<< HEAD
-            
-=======
             const app = Vue.createApp({
                 data() {
                     return {
@@ -88,7 +76,6 @@ const user_id = sessionStorage.getItem("userid");
                 }
             });
             app.mount("#app");
->>>>>>> parent of 827bbe7 (done)
 
             $("#calendar").evoCalendar({
                 theme: 'Royal Navy',
