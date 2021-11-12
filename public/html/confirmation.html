@@ -11,6 +11,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body style="height:100%">
@@ -27,16 +28,20 @@
              </svg>
    </div>
        <div style="text-align: center; margin: auto; padding: 25px;" id="app">	
-        <h3>Your Booking Has been Successfully Confirmed!</h3>
+        <h3>{{celebrate}}</h3>
     </br>
         <div class='container' style="background-color: #222831;width:40%;border-radius:20px;">
             <div class="row justify-content-center pt-3">
                 <div class="col">
                     <img :src="icon" style="padding:10px;">
-                    <span class="text-center text-white" style="font-size:23px;">These are your booking details:</span>
+                    <span class="text-center text-white" style="font-size:23px;">{{book_details}}</span>
                 </div>
             </div>
-            <div class="row justify-content-center" id="to_replace">
+            <div class="row justify-content-center" v-for="(i,index) in icon_pack">
+                <div class="col">
+                    <img :src="'../icons/' + i" style="padding:10px;">
+                    <span class="text-center text-white ">{{details()[index]}}</br></span>
+                </div>
             </div>
         </div>
         
@@ -88,27 +93,6 @@
                 }
             });
             app.mount("#app");
-        </script>
-        <script>
-            var arr = [];
-            var instr = sessionStorage.getItem("instructor");
-            var time = sessionStorage.getItem("time");
-            var date = sessionStorage.getItem("date");
-            var cost = sessionStorage.getItem("cost");
-            arr.push(instr);
-            arr.push(time);
-            arr.push(date);
-            arr.push(cost)
-            var icon_pack =["instructor.png","clock.png","date.png","money.png"];
-            var string ='';
-            for(let png in icon_pack){
-                string +=`<div class="col-12" >
-                    <img src="../icons/${icon_pack[png]}" style="padding:10px;">
-                    <span class="text-center text-white ">${arr[png]}</br></span>
-                    </div>`
-            }
-            var to_replace = document.getElementById("info_here")
-            to_replace.innerHTML = string;
         </script>
         <script>
             $(function() {
