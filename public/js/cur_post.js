@@ -237,6 +237,7 @@ function check_upvote()
                                 upvote_button=document.getElementById("give_upvote")
                                 upvote_button.setAttribute("onclick","remove_upvote()")
                                 upvote_button.setAttribute("class","fa fa-arrow-circle-up fa-3x")
+                                upvote_button.setAttribute("style","float: right;color:green")
 
                                 document.getElementById("give_downvote").disabled = true
                             }
@@ -288,6 +289,7 @@ function check_downvote()
                                 downvote_button=document.getElementById("give_downvote")
                                 downvote_button.setAttribute("onclick","remove_downvote()")
                                 downvote_button.setAttribute("class","fa fa-arrow-circle-down fa-3x")
+                                downvote_button.setAttribute("style","float: left;color:red")
 
                                 document.getElementById("give_upvote").disabled = true
                             }
@@ -378,6 +380,7 @@ function give_upvote()
         upvote_button=document.getElementById("give_upvote")
         upvote_button.setAttribute("onclick","remove_upvote()")
         upvote_button.setAttribute("class","fa fa-arrow-circle-up fa-3x")
+        upvote_button.setAttribute("style","float: right;color:green")
 
         document.getElementById("give_downvote").disabled = true
 }
@@ -457,6 +460,7 @@ function give_downvote()
         downvote_button=document.getElementById("give_downvote")
         downvote_button.setAttribute("onclick","remove_downvote()")
         downvote_button.setAttribute("class","fa fa-arrow-circle-down fa-3x")
+        downvote_button.setAttribute("style","float: left;color:red")
 
         document.getElementById("give_upvote").disabled = true
 }
@@ -498,6 +502,7 @@ function remove_upvote()
                                 upvote_button=document.getElementById("give_upvote")
                                 upvote_button.setAttribute("onclick","give_upvote()")
                                 upvote_button.setAttribute("class","fa fa-arrow-circle-o-up fa-3x")
+                                upvote_button.setAttribute("style","float: right;")
 
                                 document.getElementById("give_downvote").disabled = false
 
@@ -570,6 +575,7 @@ function remove_downvote()
                                 downvote_button=document.getElementById("give_downvote")
                                 downvote_button.setAttribute("onclick","give_downvote()")
                                 downvote_button.setAttribute("class","fa fa-arrow-circle-o-down fa-3x")
+                                downvote_button.setAttribute("style","float: left;")
 
                                 document.getElementById("give_upvote").disabled = false
                                 
