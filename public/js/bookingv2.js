@@ -89,19 +89,20 @@ ref.once("value")
 
 
     function addTime(){
+        var all_times = ["9am - 10am", "10am - 11am" , "11am - 12pm","12pm - 1pm", "1pm - 2pm", "3pm - 4pm", "4pm - 5pm","5pm - 6pm","6pm - 7pm"]
         var active_date = $('#calendar').evoCalendar('getActiveDate');
-        var time_to_add = document.getElementById("time_to_add").value
+        //var time_to_add = document.getElementById("time_to_add").value
         var arr = active_date.split("/")
-        var unix_needed = arr[2]+"."+arr[0]+"."+arr[1] 
-        console.log(unix_needed)   
+        var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]  
         var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
         var ref = firebase.database().ref(`instructor/${id}/date/${unixTimeStamp}`);
-        var newStoreRef = ref.push();
+        for(let time of all_times){
+          var newStoreRef = ref.push();
         newStoreRef.set({
-                "badge":"$50",
+                "badge":"$90",
                 "color":"#222831",
                 "date":active_date,
-                "description":time_to_add,
+                "description":time,
                 name:"Driving lesson",
                 type:"event",
         }
@@ -115,4 +116,6 @@ ref.once("value")
             alert("success!")
             
         }})
+        }
+        
     } 
