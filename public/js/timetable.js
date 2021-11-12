@@ -31,37 +31,36 @@ const user_id = sessionStorage.getItem("userid");
                     
                 }
             }
+            function getDetails(){
+                var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                var instr = allEvents[0].instructor;
+                var unixTimeStamp = allEvents[0].id;
+                var date = new Date(unixTimeStamp * 1000);
+                var d = date.getDate();
+                var day = days[date.getDay()];  
+                var month = months[date.getMonth()];
+                var time = allEvents[0].time
+                return [day,d,month,time,instr]
+                        
+            }
+            var details = getDetails()
             if(allEvents.length>0){
-                avail=false;
+                var string =  `<div v-else>
+                <h2 class="text-white" >Your next lesson is on <h1 class="text-muted" id="next_lesson_info"> ${details[0]}, ${details[1]} ${details[2]} ${details[3]} with Instructor ${details[4]}</h1> </h2>
+                <p class="lead pt-4 text-white" style="font-size: 15px;" id="instr_quote">View all details of your bookings below.</p>
+            </div>`
+            var to_replace = document.getElementById("next_lesson_info");
+            to_replace.innerHTML = string;
             }
             else{
-                avail=true;
+                var string = `<div >
+                        <h2 class="text-danger" >You need to book a lesson with an instructor first</h2>
+                    </div>`
+                    var to_replace = document.getElementById("next_lesson_info");
+                    to_replace.innerHTML = string;
             }
-            const app = Vue.createApp({
-                data() {
-                    return {
-                        events:allEvents,
-                        not_avail:avail
-                    };
-                },
-                computed:{
-                    getDetails(){
-                        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-                        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-                        var instr = this.events[0].instructor;
-                        var unixTimeStamp = this.events[0].id;
-                        var date = new Date(unixTimeStamp * 1000);
-                        var d = date.getDate();
-                        var day = days[date.getDay()];  
-                        var month = months[date.getMonth()];
-                        var time = this.events[0].time
-                        return [day,d,month,time,instr]
-                    },
-                    
-                    
-                }
-            });
-            app.mount("#app");
+            
 
             $("#calendar").evoCalendar({
                 theme: 'Royal Navy',
@@ -79,9 +78,7 @@ const user_id = sessionStorage.getItem("userid");
                 window.location.href = "change_booking.html";
                 });
             })
-          
     
-       
 
 
 
