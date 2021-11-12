@@ -1,144 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nav</titlefire
+  <head>
+    <meta charset="utf-8">
+    <title>FlexNav</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/flexnav.css">
+    <link rel="stylesheet" type="text/css" href="../css/demo.css">
+  </head>
 
-
-            <!--font-family-->
-		
-        
-        <!-- title of site -->
-        <title>Navigation</title>
-
-      	
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../fonts/elegant-font/html-css/style.css">
-  <!--===============================================================================================-->	
-    <link rel="stylesheet" type="text/css" href="../vendor/revolution/css/layers.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/revolution/css/navigation.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/revolution/css/settings.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/slick/slick.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/lightbox2/css/lightbox.min.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animsition/dist/css/animsition.min.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../css/util.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/color.css">
-
-
-    <style>
-    
-      .wrap-menu-desktop{
-        top:0px !important;
-      }
-    
-      
-    </style>
-
-</head>
-<body>
-  <div class="container-menu-desktop">
-
-    <div class="wrap-menu-desktop">
-      <div class="limiter-menu-desktop">
-        
-        <!-- Logo desktop -->		
-        <a href="index.html" class="logo">
-          <img src="../images/logo.png" width="50%" height="90%">
-        </a>
-
-        <!-- Menu desktop -->
-        <div class="menu-desktop">
-          <ul class="main-menu">
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-
-            <li>
-              <a href="course-list.html">Instructors</a>
-            </li>
-
-
-            <li class="respon-sub-menu">
-              <a href="forum.html">Forum</a>
-            </li>
-            <li id="drop" class="respon-sub-menu">
+  <body>
+    <div id="nav-background" >
+      <div id="nav-container" style="height: 100px;" >
+        <header id="nav-header">
+          <h1><a href="index.html" id="nav-logo"><img src="../images/logo.png" alt="" width="50%" height="5%"></a></h1>
+          <div id="nav-menu-button">MENU</div>
+        </header>
+        <nav>
+          <ul class="nav-ul hide-ul">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="course-list.html">Instructor</a></li>
+            <li><a class="nav-link " href="forum.html">Forum</a></li>
+            <li id="drop" class="nav-link respon-sub-menu">
               <a id="change" href="login.html">Login</a>
             </li>
           </ul>
-        </div>
-        
-      </div>
-    </div>	
-  </div>
-   <hr>
-
-
-<script>
-  	const mode = sessionStorage.getItem('userid');
-	  console.log(mode);
-    if(mode===null){
-      var path = window.location.pathname;
-      var page = path.split("/").pop();
-      if(page=="index.html"){
-        
-       
-      }
-      else{
-       
-        alert("Please log in first!");
-        window.location.href = "login.html"; 
-      }
-    }
-    else{
-      const name = sessionStorage.getItem('username');
-      var loginned = document.getElementById("change");
-      var drop = document.getElementById("drop");
-
-      drop.innerHTML = `
-          <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Welcome,
-        ` +name + `
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="dashboard.html">My Profile</a>
-        <a class="dropdown-item" href="timetable.html">My Timetable</a>
-        <a class="dropdown-item" href="telegramhelp.html">Telegram FAQ</a>
-        <a class="dropdown-item" href="#" onclick=logout()>Log Out</a>
-      
+        </nav>
       </div>
     </div>
-      `
-        loginned.innerText = "Welcome, " + name;
 
-    }
+  
 
-    function logout(){
-      sessionStorage.clear()
-      window.location.href = "index.html";
-    }
-    
-</script>
+    <script src="../js/script.js"></script>
+    <script>
+      const mode = sessionStorage.getItem('userid');
+      console.log(mode);
+      if(mode===null){
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        if(page=="index.html"){
+          
+         
+        }
+        else{
+         
+          alert("Please log in first!");
+          window.location.href = "login.html"; 
+        }
+      }
+      else{
+        const name = sessionStorage.getItem('username');
+        var loginned = document.getElementById("change");
+        var drop = document.getElementById("drop");
+  
+        drop.innerHTML = `
+            <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome,
+          ` +name + `
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="dashboard.html">My Profile</a>
+          <a class="dropdown-item" href="timetable.html">My Timetable</a>
+          <a class="dropdown-item" href="telegramhelp.html">Telegram FAQ</a>
+          <a class="dropdown-item" href="#" onclick=logout()>Log Out</a>
+        
+        </div>
+      </div>
+        `
+          loginned.innerText = "Welcome, " + name;
+  
+      }
+  
+      function logout(){
+        sessionStorage.clear()
+        window.location.href = "index.html";
+      }
+      
+  </script>
+  </body>
 
-
-
-
-</body>
 </html>
