@@ -64,12 +64,12 @@
 			
 		
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<form class="tg-formtrip">
-						<fieldset>
-							<div class="form-group">
-								<div class="tg-select">
-									<select class="selectpicker" data-live-search="true" data-width="100%" id="location" >
+				<form class="tg-formtrip">
+					<fieldset>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 pl-0 pr-0" style="padding: 0 !important;">
+							<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+								<div class="tg-select " >
+									<select class="selectpicker" data-live-search="true" id="location"  >
 										<option>Location</option>
 										<option data-tokens="Woodlands" value="woodlands">Woodlands</option>
 										<option data-tokens="Yishun" value="yishun" >Yishun</option>
@@ -79,9 +79,12 @@
 									</select>
 								</div>
 							</div>
-							<div class="form-group">
+						</div>
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 pl-0 pr-0">
+							<div class="form-group ">
 								<div class="tg-select">
-									<select class="selectpicker" data-live-search="true" data-width="100%" id="rating">
+									<select class="selectpicker" data-live-search="true" id="rating">
 										<option>Rating</option>
 										<option data-tokens="5 Stars" >5 Stars</option>
 										<option data-tokens="4 Stars" >4 Stars</option>
@@ -91,9 +94,12 @@
 									</select>
 								</div>
 							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 pl-0 pr-0">
 							<div class="form-group">
 								<div class="tg-select">
-									<select class="selectpicker" data-live-search="true" data-width="100%" id="language">
+									<select class="selectpicker" data-live-search="true" id="language" >
 										<option>Language</option>
 										<option data-tokens="English" id="english">English</option>
 										<option data-tokens="Malay" id="malay">Malay</option>
@@ -102,9 +108,12 @@
 									</select>
 								</div>
 							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 pl-0 pr-0">
 							<div class="form-group">
 								<div class="tg-select">
-									<select class="selectpicker" data-live-search="true" data-width="100%" id="budget">
+									<select class="selectpicker" data-live-search="true" id="budget" >
 										<option>Budget</option>
 										<option data-tokens="$50" id="50">$50</option>
 										<option data-tokens="$70" id="70">$70</option>
@@ -113,14 +122,16 @@
 									</select>
 								</div>
 							</div>
-				
-							<div class="form-group">
-								<button class="tg-btn" type="submit" id="submit"  ><span style="color: white;">Filter</span></button>
-							</div>
-						</fieldset>
-					</form>
-				</div>
+						</div>
+
+			
+						<div class="form-group">
+							<button class="tg-btn" type="submit" id="submit"  ><span style="color: white;">Filter</span></button>
+						</div>
+					</fieldset>
+				</form>
 			</div>
+		</div>
 		</div>
 		<div class="container" id="top">
 			<!--  -->
