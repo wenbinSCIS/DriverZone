@@ -90,6 +90,7 @@ body {
   -webkit-transition: 200ms;
   transition: 200ms;
   justify-content: center !important;
+  z-index:999 !important;
 }
 
 .nav-link:hover {
@@ -100,53 +101,58 @@ body {
 .active-link {
   background-color:#ececec;
 }
-
+.dropdown-menu{
+  position: relative;
+  z-index:1000;
+}
 /* END NAVIGATION */
 
 
 /* MOBILE MENU */
 @media screen and (max-width: 700px) {
 
-  #nav-container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    text-align: center;
+  #nav-container  {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important; 
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    text-align: center !important;
   }
 
   #nav-menu-button {
-    padding: 1rem;
-    background-color: #f1f1f1;
-    cursor: pointer;
+    padding: 1rem !important;
+    background-color: #f1f1f1 !important;
+    cursor: pointer !important;
   }
 
   .nav-ul {
-    display: block;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    overflow: auto;
-    direction: rtl;
-    transition: max-height 400ms;
-    max-height: 80vh;
+    display: block !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    overflow: auto !important;
+    direction: rtl !important;
+    transition: max-height 400ms !important;
+    max-height: 80vh !important;
   }
 
   .hide-ul {
-    max-height: 0;
+    max-height: 0 !important;
   }
 
   .nav-link {
-    padding: 1rem 0;
-    font-size: 1.3rem;
-    border-bottom: 1px solid #f4f4f4;
+    position:relative !important;
+    padding: 1rem 0 !important;
+    font-size: 1.3rem !important;
+    border-bottom: 1px solid #f4f4f4 !important;
     margin:0px !important;
-    background-color:	#D3D3D3;
-    color: black;
+    background-color:	#D3D3D3 !important;
+    color: black !important;
     justify-content: center !important;
+    z-index:1000 !important;
   }
 }
 /* END MOBILE MENU */
