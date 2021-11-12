@@ -1,7 +1,10 @@
 {
   "hosting": {
     "public": "public",
-    "ignore": [
+    "ignore": []
+  },
+  "functions": {
+    "predeploy": [
      
     ]
   }
