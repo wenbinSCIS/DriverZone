@@ -56,14 +56,12 @@ ref.once("value")
           for(let obj in instr_db[date]){
             var object = instr_db[date][obj];
             object.id = Math.floor(Math.random() * 100000000000000000000000000000000000000000000000) + 1;
-            if(object.name=="Driving lesson"){
               var booking_date_string = object.date;
               var arr = booking_date_string.split("/")
               var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
               var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
               if(unixTimeStamp>=unixTimeStamp_today){
                 allEvents.push(object)
-              }
             }
             }
                 
@@ -84,13 +82,14 @@ ref.once("value")
                     
                 }
             }
-          })
+          
             $("#calendar").evoCalendar({
               theme: 'Royal Navy',
               /* 'eventListToggler': false,
               'sidebarToggler': false, */
               calendarEvents: allEvents,
             })
+          })
     });
           
 
@@ -98,23 +97,28 @@ ref.once("value")
         // $('#calendar').evoCalendar('toggleEventList', false);
     var active_date = $('#calendar').evoCalendar('getActiveDate');
     var booked_alr = false;
-    console.log(activeEvent)
-    for(let booked of bookedEvents){
-      if(active_date == booked.date && activeEvent.description == booked.time){
-        var old_instr = booked.instructor
-        booked_alr =true
-        alert(`You have already booked a slot at this timing with ${old_instr}`)
+    if(activeEvent.type == "event"){
+      alert("You have booked this slot. To remove the booking, go to timetable")
+      booked_alr=true
+    }
+    else{
+      for(let booked of bookedEvents){
+        if(active_date == booked.date && activeEvent.description == booked.time){
+          var old_instr = booked.instructor
+          booked_alr =true
+          alert(`You have already booked a slot at this timing with ${old_instr}`)
+        }
+        
       }
-      if(booked_alr==false){
-        sessionStorage.setItem("instructor",id);
+    }
+    if(booked_alr==false){
+      sessionStorage.setItem("instructor",id);
       sessionStorage.setItem("date",active_date)
       sessionStorage.setItem("time",activeEvent.description)
       sessionStorage.setItem("cost",activeEvent["badge"])
-      //window.location.href = "confirm_booking.html";
-      }
+      window.location.href = "confirm_booking.html";
     }
     });
-
 
 
     

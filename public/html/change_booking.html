@@ -31,12 +31,12 @@
             </a>
             <a class="s-txt19 hov-color-main trans-02 text-white" ><i class="fa fa-list-alt"></i> Booking</a>
             <div class="row text-center" >
-                <h1 class="text-white "> Booking confirmation</h1>
+                <h1 class="text-white "> Delete Booking</h1>
             </div>
     </section>
 
     <div style="text-align: center; margin: auto; padding: 25px;" id="app">	
-        <h3>{{confirm_booking}}</h3>
+        <h3>{{del_booking}}</h3>
     </br>
         <div class='container' style="background-color: #222831;width:40%;border-radius:20px;">
             <div class="row justify-content-center pt-3">
@@ -73,7 +73,7 @@
             const app = Vue.createApp({
                 data() {
                     return {
-                        confirm_booking:"Please confirm booking details below",
+                        del_booking:"Do you want to delete this booking?",
                         book_details:"These are your booking details:",
                         icon:"../icons/list.png",
                         icon_pack:["instructor.png","clock.png","date.png"],
@@ -111,7 +111,7 @@
                                 //get element from db
                                 var refNeeded = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}/${ele}`);
                                 // edit availability status
-                                refNeeded.update({name:"Driving lesson"},(error) =>{
+                                refNeeded.update({name:"Driving lesson",color:"#222831",type:"holiday"},(error) =>{
                                     if (error) {
                                         // The write failed...
                                     alert("There was a problem with deleting, please try again!")
