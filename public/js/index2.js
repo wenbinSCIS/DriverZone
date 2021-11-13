@@ -75,7 +75,6 @@
             var location=input[ele].location
             var price=input[ele].price
             var rating=input[ele].rating.total;
-            console.log(rating);
        
             var image="https://wad2-e8948.web.app/images/"+name+".JPG";
             var description=input[ele].description;
