@@ -177,7 +177,7 @@ function getTop5Lessons(){
      var bodystr = ''
      if(sortedActivities.length >0){
        
-       next.innerText=sortedActivities[0].lessondate.toDateString() + ' ' + sortedActivities[0].time + ' hrs'  
+       next.innerText=sortedActivities[0].lessondate.toDateString() + ' ' + sortedActivities[0].time 
        nextins.innerText=sortedActivities[0].instructor
       
 
