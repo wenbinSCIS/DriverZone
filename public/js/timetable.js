@@ -46,6 +46,7 @@ const user_id = sessionStorage.getItem("userid");
                 },
                 computed:{
                     getDetails(){
+                        
                         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
                         var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
                         var instr = this.events[0].instructor;
