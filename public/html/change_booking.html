@@ -124,7 +124,6 @@
                                         for(let ele in booking_db){
                                             if(booking_db[ele].description == description){
                                             //get element from db
-                                            //var refNeeded = firebase.database().ref(`Booking/${user_id}`);
                                             // edit availability status
                                                 rootRef.child(ele).remove()
                                                 window.location.href = "timetable.html";

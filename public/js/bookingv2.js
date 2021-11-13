@@ -42,7 +42,7 @@ function displayQuoteAndTitle(){
 const user_id = sessionStorage.getItem("userid");
 
 //get timings to be in Calendar
-
+var bookedEvents =[];
 var string=""
 var ref = firebase.database().ref(`instructor/${id}/date`); 
 ref.once("value")
@@ -68,6 +68,23 @@ ref.once("value")
             }
                 
           }
+          var ref = firebase.database().ref(`Booking/${user_id}`);   
+          ref.once("value")
+          .then(function(snapshot){
+            var today = new Date();
+            var tdy_date = `${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`
+            var unixTimeStamp_today = parseInt((new Date(tdy_date).getTime() / 1000).toFixed(0))
+            if(snapshot.exists()){
+                var booking_db = snapshot.val()
+                for(let event in booking_db){
+                    var object = booking_db[event];
+                    if(object.id >= unixTimeStamp_today){
+                      bookedEvents.push(object)
+                    }
+                    
+                }
+            }
+          })
             $("#calendar").evoCalendar({
               theme: 'Royal Navy',
               /* 'eventListToggler': false,
@@ -80,11 +97,22 @@ ref.once("value")
   $('#calendar').on('selectEvent', function(event, activeEvent) {
         // $('#calendar').evoCalendar('toggleEventList', false);
     var active_date = $('#calendar').evoCalendar('getActiveDate');
-    sessionStorage.setItem("instructor",id);
-    sessionStorage.setItem("date",active_date)
-    sessionStorage.setItem("time",activeEvent.description)
-    sessionStorage.setItem("cost",activeEvent["badge"])
-    window.location.href = "confirm_booking.html";
+    var booked_alr = false;
+    console.log(activeEvent)
+    for(let booked of bookedEvents){
+      if(active_date == booked.date && activeEvent.description == booked.time){
+        var old_instr = booked.instructor
+        booked_alr =true
+        alert(`You have already booked a slot at this timing with ${old_instr}`)
+      }
+      if(booked_alr==false){
+        sessionStorage.setItem("instructor",id);
+      sessionStorage.setItem("date",active_date)
+      sessionStorage.setItem("time",activeEvent.description)
+      sessionStorage.setItem("cost",activeEvent["badge"])
+      //window.location.href = "confirm_booking.html";
+      }
+    }
     });
 
 
