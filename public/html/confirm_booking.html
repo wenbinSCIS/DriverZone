@@ -126,8 +126,6 @@
                             newRef.once("value")
                             .then(function(snapshot){
                             var instr_db = snapshot.val()
-                            console.log(instr_db)
-                            console.log(instr_db)
                             for(let ele in instr_db){
                                 console.log(instr_db[ele])
                                 if(instr_db[ele].description == time){
@@ -149,7 +147,6 @@
             var instr = sessionStorage.getItem("instructor");
             var string = `booking.html?id=${instr}`
             url.href = string
-            console.log('here')
         </script>
 
         <script>
