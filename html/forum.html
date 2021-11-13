@@ -262,7 +262,7 @@
                     {
                         var cur_row_id = rows[i].id
                         var row_tag = rows[i].getElementsByTagName("td")
-                        console.log(row_tag[0].innerHTML)
+                       
                         if (row_tag[0].innerHTML != `<i class="fa fa-book fa-2x"></i>`)
                         {
                             rows[i].setAttribute("style","display:none")
@@ -343,7 +343,7 @@
                 other_button.setAttribute("class","btn btn-outline-warning")
 
                 var search_bar = document.getElementById("search_keyword")
-                console.log(search_bar.value)
+             
                 search_bar.value=""
 
                 get_all_post()

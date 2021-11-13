@@ -159,17 +159,17 @@ function getTop5Lessons(){
            }
        }
 
-     }
+     
      const sortedActivities = reslist.slice().sort((a, b) => a.lessondate - b.lessondate)
 
-
+     
      var elem = document.getElementById("completed")
      elem.innerText = finishedcounter
 
      var upc = document.getElementById("upcoming")
-     upc.innerText = reslist.length
-
-
+     
+     upc.innerText = sortedActivities.length
+  
      var next = document.getElementById("nextlesson")
      var nextins = document.getElementById("nextinstructor")
      upc.innerText = reslist.length
@@ -179,7 +179,7 @@ function getTop5Lessons(){
        
        next.innerText=sortedActivities[0].lessondate.toDateString() + ' ' + sortedActivities[0].time + ' hrs'  
        nextins.innerText=sortedActivities[0].instructor
-
+      
 
 
        if(sortedActivities.length >5){
@@ -223,7 +223,8 @@ function getTop5Lessons(){
        next.innerText="None"
        nextins.innerText="None"
      }
-     next.style="font-size:18px;"
+    }
+    
    });
 
    

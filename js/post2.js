@@ -81,7 +81,7 @@ function get_username(cur_user_id)
 
         if (count == total_count)
         {
-            console.log("no such user")
+        
         }
         return cur_name
     })

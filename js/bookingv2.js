@@ -93,7 +93,7 @@ ref.once("value")
         var time_to_add = document.getElementById("time_to_add").value
         var arr = active_date.split("/")
         var unix_needed = arr[2]+"."+arr[0]+"."+arr[1] 
-        console.log(unix_needed)   
+        
         var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
         var ref = firebase.database().ref(`instructor/${id}/date/${unixTimeStamp}`);
         var newStoreRef = ref.push();

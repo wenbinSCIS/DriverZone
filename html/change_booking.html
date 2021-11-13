@@ -83,7 +83,7 @@
                     details(){
                         var arr = [];
                         var instr = sessionStorage.getItem("instructor");
-                        console.log(sessionStorage)
+                     
                         var time = sessionStorage.getItem("time");
                         var date = sessionStorage.getItem("date");
                         arr.push(instr);
@@ -92,7 +92,7 @@
                         return arr
                     },
                     DeleteBooking(){
-                        console.log(sessionStorage)
+                      
                         var instr = sessionStorage.getItem("instructor");
                         var description = sessionStorage.getItem("time");
 
@@ -110,14 +110,14 @@
                             var instr_db = snapshot.val()
                             for(let ele in instr_db){
                                 if(instr_db[ele].description == time){
-                                    console.log("here")
+                                   
                                 //get element from db
                                 var refNeeded = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}/${ele}`);
                                 // edit availability status
                                 refNeeded.update({name:"Driving lesson"},(error) =>{
                                     if (error) {
                                         // The write failed...
-                                        console.log("here")
+                                      
                                     alert("There was a problem with deleting, please try again!")
                                     } else {
                                         // Data saved successfully!

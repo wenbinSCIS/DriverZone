@@ -45,7 +45,7 @@
     var storesRef = rootRef.child('users');
     var count = 0;
     storesRef.on("value", function(snapshot) {
-      console.log(snapshot.val());
+  
       for( var item in snapshot.val()){
        
 
@@ -85,11 +85,11 @@
     var emailcount = 0;
     var error = []
     storesRef.on("value", function(snapshot) {
-      console.log(snapshot.val());
+
       for( var item in snapshot.val()){
         var dbemail = snapshot.val()[item].email
 
-        console.log(dbemail,emailstr)
+     
         if(emailstr===dbemail){
           
           emailcount +=1
@@ -159,7 +159,7 @@
 
         }
         const sortedActivities = reslist.slice().sort((a, b) => a.lessondate - b.lessondate)
-        console.log(sortedActivities)
+      
 
         var elem = document.getElementById("completed")
         elem.innerText = finishedcounter

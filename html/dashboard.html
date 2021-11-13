@@ -310,7 +310,7 @@
     .get(url1)
     .then((response) => {
         var list1 = response.data
-        console.log(list1)
+       
         const forecastEls = document.querySelectorAll(".forecast");
             for (i=0; i<forecastEls.length; i++) {
                 forecastEls[i].innerHTML = "";
@@ -338,7 +338,7 @@
 
     .catch((error) => {
         // Unable to retrieve url1. Display error
-        console.log(error)
+     
     });
     
 

@@ -63,7 +63,7 @@ function displayTimings(){
                     for(let a_date in avail_dates){
                         if (a_date == date_format_needed){
                             var time = avail_dates[a_date]
-                            console.log(time)
+                   
                             
                         }
                     }
@@ -116,7 +116,7 @@ var book_slot = document.getElementById("confirmation");
 book_slot.addEventListener("click",AddtimingtoDB);
 
 const user_id = sessionStorage.getItem("userid");
-console.log(user_id);
+
 
 function AddtimingtoDB(){
     var date_select = document.getElementById("selected_date").innerText;
@@ -137,7 +137,7 @@ function AddtimingtoDB(){
     //user will see this description in the timetable page
     var rootRef = firebase.database().ref(`Booking/${user_id}/${unixTimeStamp}`);
     
-    console.log(display_time);
+
     //push the date
     var pushed_obj = {
         "date": date_for_timetable,
@@ -166,7 +166,7 @@ function AddtimingtoDB(){
         .then(function(snapshot){
             var instr_db = snapshot.val()
             for(let ele in instr_db){
-                console.log(instr_db[ele])
+            
                 if(instr_db[ele].time == display_time){
                     //get element from db
                     var refNeeded = firebase.database().ref(`instructor/${id}/date/${date_format_needed}/${ele}`);
