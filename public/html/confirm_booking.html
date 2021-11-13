@@ -94,19 +94,31 @@
                         return arr
                     },
                     addTimingtoDB(){
+                        var b4_noon = ['9','10','11','12']
                         var instr = sessionStorage.getItem("instructor");
                         var time = sessionStorage.getItem("time");
+                        var time1 = time.split("-")[0]
+                        let time2 = time1.substring(0, time1.length-3);
+                        if(b4_noon.includes(time2) !=true){
+                            var time_needed = (parseInt(time2)+12).toString()
+                            time2 = time_needed
+                        }
                         var date = sessionStorage.getItem("date");
                         var cost = sessionStorage.getItem("cost");
                         const user_id = sessionStorage.getItem("userid");
-                        var arr = date.split("/")
+                        var arr = date.split("/")  
+                        var month = arr[0];
+                        var day = arr[1];
+                        var year = arr[2]
+                        var datum = new Date(Date.UTC(year,month,day,time2,"0","0"))
+                        var unixTimeStamp = datum.getTime()/ 1000
+                        //new one that includes time
                         var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
-                        var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
+                        //old for instr db only
+                        var oldunixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
                         var description = `You have booked a lesson with ${instr} on this date, ${time}.`
-                        var rootRef = firebase.database().ref(`Booking/${user_id}`);
-                        var newStoreRef = rootRef.push();
-                    newStoreRef.set({
-                        
+                        var rootRef = firebase.database().ref(`Booking/${user_id}/${unixTimeStamp}`);
+                    rootRef.set({
                             "date": date,
                             "description":description,
                             "time":time,
@@ -118,19 +130,20 @@
                     }, (error) => {
                         if (error) {
                             // The write failed...
-                            console.log("here")
+                            
                         alert("There was a problem with booking, please try again!")
                         } else {
                             // Data saved successfully!
-                            var newRef = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}`);
+                            
+                            var newRef = firebase.database().ref(`instructor/${instr}/date/${oldunixTimeStamp}`);
                             newRef.once("value")
                             .then(function(snapshot){
                             var instr_db = snapshot.val()
                             for(let ele in instr_db){
-                                console.log(instr_db[ele])
+                                
                                 if(instr_db[ele].description == time){
                                 //get element from db
-                                var refNeeded = firebase.database().ref(`instructor/${instr}/date/${unixTimeStamp}/${ele}`);
+                                var refNeeded = firebase.database().ref(`instructor/${instr}/date/${oldunixTimeStamp}/${ele}`);
                                 // edit availability status
                                     refNeeded.update({name:"Booked"})
                                     }
@@ -138,7 +151,9 @@
                     }
                 }
             )}
-                })}}});
+                })
+                        
+                    }}});
             app.mount("#app");
         </script>
 
