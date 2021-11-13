@@ -46,16 +46,42 @@ const user_id = sessionStorage.getItem("userid");
                 },
                 computed:{
                     getDetails(){
-                        
+                        var timings_arr = ["9am ","10am ","11am ","12pm ","1pm ","2pm ","3pm ","4pm ","5pm ","6pm "]
+                        var smallest_day_arr = [];
+                        var largest_timestamp = 1000000000000000000000000000000
+                        for(let event of this.events){
+                            if(event.id <=largest_timestamp){
+                                largest_timestamp = event.id;
+                                //get smallest timestamp as it is the closest date
+                            }
+                        }
+                        for(let day of this.events){
+                            if(day.id == largest_timestamp){
+                                smallest_day_arr.push(day)
+                            }
+                        }
+                        if(smallest_day_arr.length ==1){
+                            var time = smallest_day_arr[0].time
+                            var instr = smallest_day_arr[0].instructor
+                        }
+                        else{
+                            let rank = 11;
+                            for(let timing of smallest_day_arr){
+                                var timerank = timings_arr.indexOf(timing["time"].split("-")[0])
+                                if (timerank <rank){
+                                    rank = timerank
+                                    var instr = timing.instructor;
+                                    var time = timing.time
+                                }
+                            }
+                        }
                         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
                         var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-                        var instr = this.events[0].instructor;
-                        var unixTimeStamp = this.events[0].id;
+                        var unixTimeStamp = largest_timestamp
                         var date = new Date(unixTimeStamp * 1000);
                         var d = date.getDate();
                         var day = days[date.getDay()];  
                         var month = months[date.getMonth()];
-                        var time = this.events[0].time
                         return [day,d,month,time,instr]
                     },
                     
