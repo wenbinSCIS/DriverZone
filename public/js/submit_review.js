@@ -13,7 +13,6 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 var rating;
-console.log(id);
 function submit() {
     var a=checkRating()
     console.log(a);
