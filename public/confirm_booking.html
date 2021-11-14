@@ -145,7 +145,7 @@
                                 //get element from db
                                 var refNeeded = firebase.database().ref(`instructor/${instr}/date/${oldunixTimeStamp}/${ele}`);
                                 // edit availability status
-                                    refNeeded.update({name:"Upcoming Lesson"})
+                                    refNeeded.update({name:user_id})
                                     refNeeded.update({type:"event"})
                                     refNeeded.update({color:"#ff9665"})
                                     }

@@ -65,7 +65,16 @@ ref.once("value")
                 allEvents.push(object)
             }
             }
+            else if(object.name == user_id){
+              object.name = "Upcoming lesson"
+              var booking_date_string = object.date;
+              var arr = booking_date_string.split("/")
+              var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
+              var unixTimeStamp = parseInt((new Date(unix_needed).getTime() / 1000).toFixed(0))
+              if(unixTimeStamp>=unixTimeStamp_today){
+                allEvents.push(object)
             }
+            }}
                 
           }
           var ref = firebase.database().ref(`Booking/${user_id}`);   
