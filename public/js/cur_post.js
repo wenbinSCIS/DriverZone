@@ -461,7 +461,7 @@ function give_downvote()
         })
 
         downvote_button=document.getElementById("give_downvote")
-        downvote_button.setAttribute("onclick","give_downvote()")
+        downvote_button.setAttribute("onclick","remove_downvote()")
         downvote_button.setAttribute("class","fa fa-arrow-circle-down fa-3x")
         downvote_button.setAttribute("style","float: left;color:red")
 
