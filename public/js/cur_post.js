@@ -594,7 +594,7 @@ function remove_downvote()
                                             if (data_checker==count_id)
                                             {
                                                 var rootRef = firebase.database().ref("post/"+ele+"/no_of_vote")
-                                                rootRef.set(firebase.database.ServerValue.increment(-1));
+                                                rootRef.set(firebase.database.ServerValue.increment(1));
                                             }
                                             data_checker++
                                         }
