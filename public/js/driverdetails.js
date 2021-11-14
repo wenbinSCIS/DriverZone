@@ -36,7 +36,7 @@
         return `
         <div class="block-3 bo2 flex-w">
         <div class="wrap-pic-w hov5 bo2-r w-size6 ">
-            <a href="course-detail.html?id=${resource.name}"><img src="../images/${resource.name}.JPG" alt="IMG-COURSE"></a>
+            <a href="instructor-detail.html?id=${resource.name}"><img src="../images/${resource.name}.JPG" alt="IMG-COURSE"></a>
         </div>
 
         <div class="wrap-text-b3 w-size7 p-l-35 p-r-27 p-t-26 p-b-25 w-full-md">
@@ -50,7 +50,7 @@
             </div>
 
             <h4 class="p-b-15">
-                <a href="course-detail.html" class="m-txt9 hov-color-main trans-04">
+                <a href="instructor-detail.html" class="m-txt9 hov-color-main trans-04">
                     ${capitalizeFirstLetter(resource.name)}
                 </a>
             </h4>
@@ -71,7 +71,7 @@
 
                 <div class="p-t-8">
                     <!-- Button -->
-                    <a href="course-detail.html?id=${resource.name}" class="btn-drive m-txt10 size4 bo3 bg1 hov-color-white bo-rad-4">
+                    <a href="instructor-detail.html?id=${resource.name}" class="btn-drive m-txt10 size4 bo3 bg1 hov-color-white bo-rad-4">
                         Detail
                     </a>
                 </div>
@@ -206,7 +206,7 @@
         }
 
         if (test3.length==0) {
-            window.location.href = "course-list.html";
+            window.location.href = "instructor-list.html";
             exit();
 
             
@@ -252,7 +252,7 @@
       
         }
         }
-        window.location.href = "course-list.html#top";
+        window.location.href = "instructor-list.html#top";
 
         if (arr2.length==0) {
             document.getElementById("here").innerHTML="<img src='../images/search-bar.gif' style='width:100%'>"

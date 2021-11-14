@@ -43,7 +43,7 @@ function submit() {
                   } else {
                     // Data saved successfully
                    
-                    window.location.href = "course-detail.html?id="+id;
+                    window.location.href = "instructor-detail.html?id="+id;
           
                   }
               });
