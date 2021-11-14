@@ -1,3 +1,5 @@
+const functions = require("firebase-functions");
+
 
 var admin = require("firebase-admin");
 
@@ -22,7 +24,7 @@ var email = ''
 var chatId = ''
 var verified = false
 var userid = ''
-console.log("here")
+
 
 bot.onText(/\/start/, (msg, match) => {
   // 'msg' is the received Message from Telegram
@@ -57,7 +59,7 @@ bot.onText(/\/email (.+)/, (msg, match) => {
     
       checkEmail(email)
     
-      var email = "Test"
+      
     
   });
 
@@ -113,9 +115,9 @@ function getNextLesson(){
           
           }
       }
-      console.log("here",reslist.length)
+  
       const sortedActivities = reslist.slice().sort((a, b) => a.lessondate - b.lessondate)
-      console.log("here2",sortedActivities)
+    
       if(sortedActivities.length == 0){
         bot.sendMessage(chatId, "No upcoming lessons!");
       }
@@ -210,3 +212,4 @@ function getAll(){
   }
 
 }
+
