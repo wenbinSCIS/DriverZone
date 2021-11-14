@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "wad2-e8948"
-  }
+    "default": "wad2-e8948",
+    "release": "driverzone-74ab8"
+  },
+  "targets": {}
 }
