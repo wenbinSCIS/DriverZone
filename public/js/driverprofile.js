@@ -240,7 +240,7 @@
           for (let eachReview in input) {
               document.getElementById("review-box").innerHTML+=`
               <div class="review-box clearfix">
-              <figure class="rev-thumb"><img src="../images/noProfile.jpg" >
+              <figure class="rev-thumb"><img src="images/noProfile.jpg" >
               </figure>
               <div class="rev-content">
                   <div class="rating" id="rating-display">

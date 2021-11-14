@@ -96,7 +96,7 @@
             <!-- Block 3 -->
             <div class="block-3 bo2">
                 <div class="wrap-pic-b3 wrap-pic-w hov5 bo2-b">
-                    <a href="../html/instructor-detail.html?id=${name}"><img src="${image}" width="240px" height="276px" alt="IMG-COURSE"></a>
+                    <a href="instructor-detail.html?id=${name}"><img src="${image}" width="240px" height="276px" alt="IMG-COURSE"></a>
                 </div>
 
                 <div class="wrap-text-b3 p-l-20 p-r-20 p-t-16 p-b-26">
@@ -109,7 +109,7 @@
                         </span>
                     </div>
 
-                    <a href="../html/instructor-detail.html"><h4 class="m-txt8 hov-color-main trans-04 p-b-12">
+                    <a href="instructor-detail.html"><h4 class="m-txt8 hov-color-main trans-04 p-b-12">
                         ${capitalizeFirstLetter(location)}
                     </h4></a>
                     <span class="m-txt9">$${price}/h</span>
@@ -117,14 +117,14 @@
                     <div class="wrap-btn-b3 flex-w p-t-13">
                         <div class="m-r-8 p-t-8">
                             <!-- Button -->
-                            <a href="../html/booking.html?id=${name}" class="btn-drive m-txt1 size3 bg-main hov-color-white bo-rad-4">
+                            <a href="booking.html?id=${name}" class="btn-drive m-txt1 size3 bg-main hov-color-white bo-rad-4">
                                 Book now
                             </a>
                         </div>
 
                         <div class="p-t-8">
                             <!-- Button -->
-                            <a href="../html/instructor-detail.html?id=${name}" class="btn-drive m-txt10 size4 bo3 bg1 hov-color-white bo-rad-4">
+                            <a href="instructor-detail.html?id=${name}" class="btn-drive m-txt10 size4 bo3 bg1 hov-color-white bo-rad-4">
                                 Detail
                             </a>
                         </div>

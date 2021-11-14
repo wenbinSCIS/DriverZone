@@ -36,7 +36,7 @@
         return `
         <div class="block-3 bo2 flex-w">
         <div class="wrap-pic-w hov5 bo2-r w-size6 ">
-            <a href="instructor-detail.html?id=${resource.name}"><img src="../images/${resource.name}.JPG" alt="IMG-COURSE"></a>
+            <a href="instructor-detail.html?id=${resource.name}"><img src="images/${resource.name}.JPG" alt="IMG-COURSE"></a>
         </div>
 
         <div class="wrap-text-b3 w-size7 p-l-35 p-r-27 p-t-26 p-b-25 w-full-md">
@@ -255,7 +255,7 @@
         window.location.href = "instructor-list.html#top";
 
         if (arr2.length==0) {
-            document.getElementById("here").innerHTML="<img src='../images/search-bar.gif' style='width:100%'>"
+            document.getElementById("here").innerHTML="<img src='images/search-bar.gif' style='width:100%'>"
         }
         else {
         project(arr2,0);

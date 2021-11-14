@@ -18,7 +18,7 @@ var instr_name = document.getElementById("instructor_name");
 var instr_quote = document.getElementById("quote");
 
 instr_name.innerText = `Instructor ${id}`;
-instr_img.src = `../images/${id}.JPG`;
+instr_img.src = `images/${id}.JPG`;
 
 displayQuoteAndTitle()
 

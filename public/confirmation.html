@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendar</title>
-    <link rel="stylesheet" href="../css/confirm.css">
+    <link rel="stylesheet" href="css/confirm.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
@@ -39,7 +39,7 @@
             </div>
             <div class="row justify-content-center" v-for="(i,index) in icon_pack">
                 <div class="col">
-                    <img :src="'../icons/' + i" style="padding:10px;">
+                    <img :src="'icons/' + i" style="padding:10px;">
                     <span class="text-center text-white ">{{details()[index]}}</br></span>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                     return {
                         celebrate:"Your Booking Has been Successfully Confirmed!",
                         book_details:"These are your booking details:",
-                        icon:"../icons/list.png",
+                        icon:"icons/list.png",
                         icon_pack:["instructor.png","clock.png","date.png","money.png"],
                     };
                 },

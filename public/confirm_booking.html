@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Confirmation</title>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/confirm.css">
+    <link rel="stylesheet" href="css/confirm.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="nav-placeholder"></div>
-    <section class="bg-img-1 bg-overlay-3 p-t-10 p-b-10" style="background-image: url('../images/carousel1.jpg')";>
+    <section class="bg-img-1 bg-overlay-3 p-t-10 p-b-10" style="background-image: url('images/carousel1.jpg')";>
         <div class="container">
             <div class="flex-w flex-sb-m">
                 <div class="p-t-10 p-b-10 p-r-30">
@@ -48,7 +48,7 @@
             </div>
             <div class="row justify-content-center" v-for="(i,index) in icon_pack">
                 <div class="col">
-                    <img :src="'../icons/' + i" style="padding:10px;">
+                    <img :src="'icons/' + i" style="padding:10px;">
                     <span class="text-center text-white ">{{details()[index]}}</br></span>
                 </div>
             </div>
@@ -68,7 +68,7 @@
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script>
             const app = Vue.createApp({
@@ -76,7 +76,7 @@
                     return {
                         confirm_booking:"Please confirm booking details below",
                         book_details:"These are your booking details:",
-                        icon:"../icons/list.png",
+                        icon:"icons/list.png",
                         icon_pack:["instructor.png","clock.png","date.png","money.png"],
                     };
                 },
@@ -174,7 +174,7 @@
                 $("#footer").load("footer.html");
             });
         </script>;
-        <script src="../js/confirmbooking.js"></script>
+        <script src="js/confirmbooking.js"></script>
         
 </body>
 

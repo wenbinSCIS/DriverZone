@@ -50,7 +50,7 @@
               var price=input[ele].price
               var location=input[ele].location
          
-              var image="../images/"+name+".jpg";
+              var image="images/"+name+".jpg";
               var description=input[ele].description;
         
               var tr=document.createElement("tr");
@@ -403,7 +403,7 @@
     //         var lang=input[ele].language
     //         var price=input[ele].price
     //         console.log(price)
-    //         var image="../images/"+name+".JPG";
+    //         var image="images/"+name+".JPG";
     //         var description=input[ele].description;
     //         document.getElementById("here").innerHTML+=
 
