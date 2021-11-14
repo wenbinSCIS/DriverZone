@@ -39,7 +39,7 @@ function create_new_post(title,content,creator,tag,time, no_of_vote)
         }
     }
 
-   , (error) => {
+    , (error) => {
         if (error) {
          // The write failed...
             alert("There was a problem with post creating")
@@ -51,7 +51,7 @@ function create_new_post(title,content,creator,tag,time, no_of_vote)
 }
 
 var cur_name
-function get_username(cur_user_id)
+function get_username(cur_user_id,row_user_id)
 {
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('users');
@@ -68,9 +68,8 @@ function get_username(cur_user_id)
             if (cur_user_id == child.key)
             {
                 cur_name=child.val().name;
-                var element = document.getElementById("user")
+                var element = document.getElementById(row_user_id)
                 element.innerText = cur_name;
-                element.removeAttribute('id')
             }
             
             else
@@ -118,7 +117,8 @@ function get_all_post(){
                 var cur_title = post_db[ele].title;
                 var cur_content = post_db[ele].content;
                 var cur_creator_id = post_db[ele].creator;
-                var cur_username = get_username(cur_creator_id);
+                var cur_username_row_id = "user" + row_id_count
+                var cur_username = get_username(cur_creator_id,cur_username_row_id);
                 var cur_tag_1 = post_db[ele].tag;
                 var cur_time = post_db[ele].time;
                 var cur_upvote = post_db[ele].no_of_vote;
@@ -158,7 +158,7 @@ function get_all_post(){
                 string += `<tr id="${cur_row_id}">
                             <td class='${tag_class} align-middle' onclick="select_${cur_tag_1}()">${tag_shape}</td>
                             <td><a class="text-secondary" onclick="go_to_post(${row_id_count})" value="${cur_tag_1}" href="#">${cur_title}</a></td>
-                            <td class="text-center align-middle" id="user">${cur_username}</td>
+                            <td class="text-center align-middle" id="${cur_username_row_id}">${cur_username}</td>
                             <td class="text-center align-middle" style="display:none">${cur_time}</td>
                             <td class="text-center align-middle">${cur_date}</td>
                             <td class="text-center align-middle">${comment_counter}</td>
