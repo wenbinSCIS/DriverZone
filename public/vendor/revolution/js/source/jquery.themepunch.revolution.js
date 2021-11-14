@@ -1,9 +1,4 @@
-/**************************************************************************
- * jquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider
- * @version: 5.3.1.6 (15.12.2016)
- * @requires jQuery v1.7 or later (tested on 1.9)
- * @author ThemePunch
-**************************************************************************/
+
 (function(jQuery,undefined){
 "use strict";
 		
@@ -3041,15 +3036,6 @@ var countDown = function(container,opt) {
 
  
 
-//////////////////////////////////////////////////////
-// * Revolution Slider - NEEDFULL FUNCTIONS
-// * @version: 1.0 (30.10.2014)
-// * @author ThemePunch
-//////////////////////////////////////////////////////
-
-
-
-// 	-	BLUR / FOXUS FUNCTIONS ON BROWSER 
 
 var vis = (function(){
 	    var stateKey,

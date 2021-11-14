@@ -1,14 +1,6 @@
 <?php 
 
-/**
- * Vimeo
- *
- * with help of the API this class delivers all kind of Images/Videos from Vimeo
- *
- * @package    socialstreams
- * @subpackage socialstreams/vimeo
- * @author     ThemePunch <info@themepunch.com>
- */
+
 
 class TP_vimeo {
 	/**

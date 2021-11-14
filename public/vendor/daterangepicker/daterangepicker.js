@@ -1,11 +1,4 @@
-/**
-* @version: 2.1.25
-* @author: D
-* @copyright: C
-* @license: L
-* @website: http://www.daterangepicker.com/
-*/
-// Follow the UMD template https://github.com/umdjs/umd/blob/master/templates/returnExportsGlobal.js
+
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Make globaly available as well

@@ -1,9 +1,4 @@
-/********************************************
- * REVOLUTION 5.2 EXTENSION - NAVIGATION
- * @version: 1.3.2 (25.10.2016)
- * @requires jquery.themepunch.revolution.js
- * @author ThemePunch
-*********************************************/
+
 (function($) {
 "use strict";
 var _R = jQuery.fn.revolution,
@@ -15,9 +10,7 @@ var _R = jQuery.fn.revolution,
 			  };
 
 
-///////////////////////////////////////////
-// 	EXTENDED FUNCTIONS AVAILABLE GLOBAL  //
-///////////////////////////////////////////
+
 jQuery.extend(true,_R, {
 
 		

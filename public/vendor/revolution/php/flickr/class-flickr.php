@@ -1,14 +1,6 @@
 <?php 
 
-/**
- * Flickr
- *
- * with help of the API this class delivers all kind of Images from flickr
- *
- * @package    socialstreams
- * @subpackage socialstreams/flickr
- * @author     ThemePunch <info@themepunch.com>
- */
+
 
 class TP_flickr {
 

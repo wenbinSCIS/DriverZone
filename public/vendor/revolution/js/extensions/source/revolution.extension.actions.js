@@ -1,9 +1,4 @@
-/********************************************
- * REVOLUTION 5.3 EXTENSION - ACTIONS
- * @version: 2.0.6 (15.12.2016)
- * @requires jquery.themepunch.revolution.js
- * @author ThemePunch
-*********************************************/
+
 (function($) {
 "use strict";
 var _R = jQuery.fn.revolution,

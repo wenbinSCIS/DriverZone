@@ -1,9 +1,5 @@
 <?php
-/**
- * @author   Albert Kozlowski <vojant@gmail.com>
- * @license  MIT License
- * @link     https://github.com/vojant/Twitter-php
- */
+
 
 namespace TwitterPhp;
 

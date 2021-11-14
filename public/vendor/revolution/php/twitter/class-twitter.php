@@ -1,14 +1,6 @@
 <?php 
 include 'RestApi.php';
-/**
- * Twitter
- *
- * with help of the API this class delivers all kind of tweeted images from twitter
- *
- * @package    socialstreams
- * @subpackage socialstreams/twitter
- * @author     ThemePunch <info@themepunch.com>
- */
+
 
 class TP_twitter {
 

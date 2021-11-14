@@ -1,14 +1,6 @@
 <?php 
 
-/**
- * Instagram
- *
- * with help of the API this class delivers all kind of Images from instagram
- *
- * @package    socialstreams
- * @subpackage socialstreams/instagram
- * @author     ThemePunch <info@themepunch.com>
- */
+
 
 class TP_instagram {
 

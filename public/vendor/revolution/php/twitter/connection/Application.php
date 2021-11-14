@@ -43,14 +43,7 @@ class Application extends Base
                 );
     }
 
-    /**
-     * Get Bearer token
-     *
-     * @link https://dev.twitter.com/docs/auth/application-only-auth
-     *
-     * @throws \TwitterPhp\RestApiException
-     * @return string
-     */
+]
     private function _getBearerToken() {
         if (!$this->_bearersToken) {
             $token = urlencode($this->_consumerKey) . ':' . urlencode($this->_consumerSecret);

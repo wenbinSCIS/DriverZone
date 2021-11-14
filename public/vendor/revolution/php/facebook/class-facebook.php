@@ -1,14 +1,6 @@
 <?php 
 
-/**
- * Facebook
- *
- * with help of the API this class delivers album images from Facebook
- *
- * @package    socialstreams
- * @subpackage socialstreams/facebook
- * @author     ThemePunch <info@themepunch.com>
- */
+
 
 class TP_facebook {
 	/**

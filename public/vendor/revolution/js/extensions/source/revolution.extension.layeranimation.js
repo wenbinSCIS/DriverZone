@@ -1,9 +1,4 @@
-/************************************************
- * REVOLUTION 5.3 EXTENSION - LAYER ANIMATION
- * @version: 3.5.1 (09.12.2016)
- * @requires jquery.themepunch.revolution.js
- * @author ThemePunch
-************************************************/
+
 (function($) {
 	"use strict";
 
@@ -16,9 +11,7 @@ var _R = jQuery.fn.revolution,
 			  };
 	
 
-///////////////////////////////////////////
-// 	EXTENDED FUNCTIONS AVAILABLE GLOBAL  //
-///////////////////////////////////////////
+
 jQuery.extend(true,_R, {
 
 	updateMarkup : function(layer,o) {		
