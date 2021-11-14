@@ -49,7 +49,7 @@ function create_new_comment(content,creator,time)
 }
 
 var cur_name
-function get_username(cur_user_id)
+function get_username(cur_user_id,row_id)
 {
     var rootRef = firebase.database().ref();
     var storesRef = rootRef.child('users');
@@ -66,9 +66,8 @@ function get_username(cur_user_id)
             if (cur_user_id == child.key)
             {
                 cur_name=child.val().name;
-                var element = document.getElementById("user")
+                var element = document.getElementById(row_id)
                 element.innerText = cur_name;
-                element.removeAttribute('id')
             }
             
             else
@@ -79,7 +78,7 @@ function get_username(cur_user_id)
 
         if (count == total_count)
         {
-           
+            console.log("no such user")
         }
         return cur_name
     })
@@ -106,7 +105,7 @@ function get_username_post_title(cur_user_id)
                 var element = document.getElementById("post_creator")
                 element.innerText = cur_name;
             }
-            
+
             else
             {
                 count++
@@ -115,7 +114,7 @@ function get_username_post_title(cur_user_id)
 
         if (count == total_count)
         {
-         
+            console.log("no such user")
         }
         return cur_name
     })
@@ -123,6 +122,7 @@ function get_username_post_title(cur_user_id)
 }
 
 function get_comment(){
+    console.log("TEST")
     var ref = firebase.database().ref('post');
     var string =`
     <table class='table table-striped' id='content_table'>
@@ -168,12 +168,15 @@ function get_comment(){
                 upvote_holder.innerHTML+=upvote_no
 
                 comment_key_list=Object.keys(cur_comment)
+                comment_user_count=0
 
                 for (const [key, value] of Object.entries(comment_key_list))
                 {
+                    comment_user_count+=1
+                    var comment_user_row_id="user"+String(comment_user_count)
                     var is_hidden=""
                     var comment_user_id = cur_comment[value].user_id
-                    var comment_user = get_username(comment_user_id)
+                    var comment_user = get_username(comment_user_id,comment_user_row_id)
 
                     if (comment_user=="System")
                     {
@@ -183,7 +186,7 @@ function get_comment(){
                     var comment_content = cur_comment[value].content
                     var comment_time = cur_comment[value].time
                     string += `<tr ${is_hidden}>
-                            <th class="text-center text-middle" id="user">${comment_user}</a></th>
+                            <th class="text-center text-middle" id="${comment_user_row_id}">${comment_user}</a></th>
                             <td class="text-left align-middle">${comment_content}</td>
                             <td class='align-middle'>${comment_time}</td>
                             </tr>`

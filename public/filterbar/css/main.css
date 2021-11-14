@@ -1,26 +1,4 @@
-/*
- @Author: Company Name
- @URL: http://companyname.com
- This file contains the styling for the actual theme, this
- is the file you need to edit to change the look of the
- theme.
- However we used Less script to make things easy to maintain, this is the compressed ourput, we recommend to edit the less files and then recombile the files and add the result here, if you don't like to use less you can edit this file here.
- 
- This files contents are outlined below.
- 01.	Theme Reset Style
- 02.	Global Elements
- 03.	Menu
- 04.	Social
- 05.	Article
- 06.	Posts
- 07.	Responsive
- 08.	Widgets
- 09.	Flexslider
- 10.	Grid
-*/
-/* =============================================
-			Theme Reset Style					
-============================================= */
+
 @import url(https://fonts.googleapis.com/css?family=Caveat+Brush|Montserrat:300,400,500,600,700|Roboto:300,400,500,700);
 * {
 	margin: 0px;

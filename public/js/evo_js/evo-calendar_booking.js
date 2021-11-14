@@ -1,15 +1,4 @@
-/*!
- * Evo Calendar - Simple and Modern-looking Event Calendar Plugin
- *
- * Licensed under the MIT License
- * 
- * Version: 1.1.3
- * Author: Edlyn Villegas
- * Docs: https://edlynvillegas.github.com/evo-calendar
- * Repo: https://github.com/edlynvillegas/evo-calendar
- * Issues: https://github.com/edlynvillegas/evo-calendar/issues
- * 
- */
+
 
 ;(function(factory) {
     'use strict';

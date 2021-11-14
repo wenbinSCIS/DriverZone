@@ -1,10 +1,4 @@
-/*!DO NOT REMOVE!
- * MDTimePicker v2.0 plugin
- * https://github.com/dmuy/MDTimePicker
- *
- * Author: Dionlee Uy
- * Email: dionleeuy@gmail.com
- */
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
