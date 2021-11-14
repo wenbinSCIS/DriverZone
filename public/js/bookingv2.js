@@ -56,7 +56,7 @@ ref.once("value")
           for(let obj in instr_db[date]){
             var object = instr_db[date][obj];
             object.id = Math.floor(Math.random() * 100000000000000000000000000000000000000000000000) + 1;
-            if(object.name == "Driving Lesson"){
+            if(object.name == "Driving lesson"){
               var booking_date_string = object.date;
               var arr = booking_date_string.split("/")
               var unix_needed = arr[2]+"."+arr[0]+"."+arr[1]   
