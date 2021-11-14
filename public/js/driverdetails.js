@@ -102,7 +102,7 @@
     
         if (num>0) {
             num=num+(num)*3-1
-            console.log(num);
+           
         }
         let copy=holder.slice(num,num+3);
    

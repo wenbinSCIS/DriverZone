@@ -29,7 +29,7 @@
                     {
                         // data = JSON object that contact.php returns
                         var result = JSON.parse(data);
-                        console.log(result);
+                    
 
                         // we recieve the type of the message: success x danger and apply it to the
                         var messageAlert = result.type + "";

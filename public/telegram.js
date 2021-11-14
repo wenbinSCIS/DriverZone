@@ -190,9 +190,9 @@ function getAll(){
           
           }
       }
-      console.log("here",reslist.length)
+
       const sortedActivities = reslist.slice().sort((a, b) => a.lessondate - b.lessondate)
-      console.log("here2",sortedActivities)
+    
       var msg = 'Here are your upcoming lessons -\n'
       if(sortedActivities.length == 0){
         bot.sendMessage(chatId, "No upcoming lessons!");

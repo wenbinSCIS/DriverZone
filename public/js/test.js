@@ -309,7 +309,7 @@
       }
   
       function appendBody(input) {
-          console.log(input)
+        
           var body=document.getElementById("body");
           body.appendChild(input)
       }

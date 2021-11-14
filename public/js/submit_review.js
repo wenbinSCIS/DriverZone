@@ -15,13 +15,10 @@ const id = urlParams.get('id')
 var rating;
 function submit() {
     var a=checkRating()
-    console.log(a);
-    console.log(checkDescription())
-    console.log(checkRating());
-    console.log(checkDescription());
+
     cur_userid = sessionStorage.getItem('userid')
     var ref = firebase.database().ref("users/"+cur_userid+"/name");
-    console.log(ref);
+ 
     ref.on('value', (snapshot) => {
         var name1 =snapshot.val();
         if (checkRating() && checkDescription()) {
@@ -54,7 +51,7 @@ function submit() {
         }
 
       }, (errorObject) => {
-        console.log('The read failed: ' + errorObject.name);
+    
       }); 
   
 }
@@ -81,7 +78,7 @@ function checkDescription() {
 
 function updateReview(input) {
   var rootRef = firebase.database().ref("instructor/"+id+"/rating/"+checkRating())
-  console.log(rootRef);
+
   rootRef.set(firebase.database.ServerValue.increment(1));
 };
 
